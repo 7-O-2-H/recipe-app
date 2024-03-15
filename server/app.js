@@ -1,14 +1,14 @@
 // declarations
+require('dotenv').config();
+const {ENVIRONMENT, PORT} = process.env;
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const PORT = 8080;
-const environment = 'dev';
 
 const app = express();
 
 // middleware
-app.use(morgan(environment));
+app.use(morgan(ENVIRONMENT));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
