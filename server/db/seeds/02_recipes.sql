@@ -7,7 +7,9 @@ INSERT INTO recipes (id, user_id, name, description) VALUES (2, 1, 'soup', 'soup
 INSERT INTO recipes (id, user_id, name, description) VALUES (3, 2, 'salad', 'salad');
 
 -- Seed Vavo
-INSERT INTO recipes (id, user_id, name, description) VALUES (4, 
+INSERT INTO recipes (id, user_id, name, description) VALUES (
+  4, 
   5, 
   'Vavo''s Chicken Soup', 
-  'A hearty soup that''s spicy and salty in equal parts.');
+  'A hearty soup that''s spicy and salty in equal parts.'
+);

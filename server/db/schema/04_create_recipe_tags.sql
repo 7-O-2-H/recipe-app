@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS recipe_tags CASCADE;
+-- CREATE recipe_tags
+CREATE TABLE recipe_tags (
+  id SERIAL PRIMARY KEY,
+  recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE NOT NULL,
+  tag_id INTEGER REFERENCES tags(id) ON DELETE CASCADE NOT NULL 
+);
