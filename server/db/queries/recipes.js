@@ -1,10 +1,11 @@
-const { pool } = require('../../configs/db.config.js');
+const { pool } = require('../../configs/db.config');
+const db = require('../../configs/db.config');
 
 const getAllRecipes = () => {
-  return pool
+  return db
     .query(`SELECT * FROM recipes;`)
     .then((result) => {
-      //console.log('result:', result);
+      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
@@ -12,3 +13,5 @@ const getAllRecipes = () => {
       return null;
     });
 };
+
+module.exports = { getAllRecipes };
