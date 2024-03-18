@@ -1,13 +1,13 @@
 -- seeds/02_recipes.sql
 -- Seed Rick
-INSERT INTO recipes (id, user_id, name, description) VALUES (1, 1, 'pasta', 'pasta');
-INSERT INTO recipes (id, user_id, name, description) VALUES (2, 1, 'soup', 'soup');
+INSERT INTO recipes (id, user_id, recipe, description) VALUES (1, 1, 'pasta', 'pasta');
+INSERT INTO recipes (id, user_id, recipe, description) VALUES (2, 1, 'soup', 'soup');
 
 -- Seed Lisa
-INSERT INTO recipes (id, user_id, name, description) VALUES (3, 2, 'salad', 'salad');
+INSERT INTO recipes (id, user_id, recipe, description) VALUES (3, 2, 'salad', 'salad');
 
 -- Seed Vavo
-INSERT INTO recipes (id, user_id, name, description) VALUES (
+INSERT INTO recipes (id, user_id, recipe, description) VALUES (
   4, 
   5, 
   'Vavo''s Chicken Soup', 
