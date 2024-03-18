@@ -4,5 +4,6 @@ DROP TABLE IF EXISTS recipes CASCADE;
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  description TEXT
 );
