@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS recipe_buffer CASCADE;
+DROP TABLE IF EXISTS recipe_buffers CASCADE;
 -- CREATE recipe_tags
-CREATE TABLE recipe_buffer (
+CREATE TABLE recipe_buffers (
   id SERIAL PRIMARY KEY,
   recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE NOT NULL,
   tag_id INTEGER REFERENCES tags(id) ON DELETE CASCADE NOT NULL
