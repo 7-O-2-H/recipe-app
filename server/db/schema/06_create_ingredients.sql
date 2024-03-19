@@ -5,6 +5,5 @@ CREATE TABLE ingredients (
   recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE,
   ingredient VARCHAR(255) NOT NULL,
   quantity DECIMAL NOT NULL,
-  measurements_id INTEGER REFERENCES measurements(id) NOT NULL
+  measurement_id INTEGER REFERENCES measurements(id) NOT NULL
 );
-  -- favourite_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE

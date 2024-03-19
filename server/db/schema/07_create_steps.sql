@@ -5,5 +5,5 @@ CREATE TABLE steps (
   recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE,
   step_number INTEGER NOT NULL,
   step_name VARCHAR(255),
-  instructions TEXT
+  instruction TEXT
 );
