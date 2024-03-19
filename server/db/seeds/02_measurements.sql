@@ -1,0 +1,14 @@
+INSERT INTO measurements (id, measurement) VALUES (1, 'mins');
+INSERT INTO measurements (id, measurement) VALUES (2, 'hrs');
+INSERT INTO measurements (id, measurement) VALUES (3, 'cup');
+INSERT INTO measurements (id, measurement) VALUES (4, 'ml');
+INSERT INTO measurements (id, measurement) VALUES (5, 'L');
+INSERT INTO measurements (id, measurement) VALUES (6, 'g');
+INSERT INTO measurements (id, measurement) VALUES (7, 'mg');
+INSERT INTO measurements (id, measurement) VALUES (8, 'tbsp');
+INSERT INTO measurements (id, measurement) VALUES (9, 'tsp');
+INSERT INTO measurements (id, measurement) VALUES (10, 'pt');
+INSERT INTO measurements (id, measurement) VALUES (11, 'qt');
+INSERT INTO measurements (id, measurement) VALUES (12, 'lb');
+INSERT INTO measurements (id, measurement) VALUES (13, 'oz');
+INSERT INTO measurements (id, measurement) VALUES (14, 'fl oz');

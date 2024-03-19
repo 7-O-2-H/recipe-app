@@ -5,5 +5,7 @@ CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
   recipe VARCHAR(255),
+  time INTEGER, 
+  measurement_id INT REFERENCES measurements(id),
   description TEXT
 );

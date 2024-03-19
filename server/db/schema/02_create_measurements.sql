@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS measurements CASCADE;
+-- CREATE MEASUREMENTS
+CREATE TABLE measurements (
+  id SERIAL PRIMARY KEY, 
+  measurement VARCHAR(50) NOT NULL
+);
