@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { getAllRecipes } = require('../db/queries/recipes');
+const { getAllUsers } = require('../db/queries/users');
 
 router.get('/', (req, res) => {
-  getAllRecipes()
+  getAllUsers()
   .then(data => {
     res.json(data);
   })
