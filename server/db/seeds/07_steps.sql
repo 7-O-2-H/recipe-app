@@ -4,7 +4,7 @@ INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   4, 
   1,
   'Prep',
-  'Dice the onions potatoes tomatoes; thinly slice the carrots; and chop up the celery (use leafy portions if possible) if needed. Cut the chorizo link into for sections and poke them evenly so heat can get to its center. You may want to measure out the spices, pasta and chop up the chicken at this stage as well.'
+  'Dice the onions, potatoes and tomatoes; thinly slice the carrots; and chop up the celery (use leafy portions if possible) if needed. Cut the chorizo link into four (4) sections and poke them evenly so heat can get to its center. You may want to measure out the spices, pasta and chop up the chicken at this stage as well.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   2, 

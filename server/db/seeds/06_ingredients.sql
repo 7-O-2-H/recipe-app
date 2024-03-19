@@ -12,5 +12,5 @@ INSERT INTO ingredients (id, recipe_id, ingredient, quantity, measurement_id) VA
 INSERT INTO ingredients (id, recipe_id, ingredient, quantity, measurement_id) VALUES (11, 4,'Cooked chicken', 1, 3);
 INSERT INTO ingredients (id, recipe_id, ingredient, quantity, measurement_id) VALUES (12, 4,'Spicy Chorizo', 125, 6);
 INSERT INTO ingredients (id, recipe_id, ingredient, quantity, measurement_id) VALUES (13, 4, 'Water', 8, 3);
-INSERT INTO ingredients (id, recipe_id, ingredient, quantity, measurement_id) VALUES (14, 4, 'Calda(Portuguese Pepper Paste)', 1, 9);
+INSERT INTO ingredients (id, recipe_id, ingredient, quantity, measurement_id) VALUES (14, 4, 'Calda (Portuguese Pepper Paste)', 1, 9);
 INSERT INTO ingredients (id, recipe_id, ingredient, quantity, measurement_id) VALUES (15, 2, 'Whiskey', 1, 11);
