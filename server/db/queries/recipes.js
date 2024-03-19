@@ -15,7 +15,27 @@ const getAllRecipes = () => {
 };
 
 const getRecipeById = (id) => {
-  return db.query("SELECT recipe, description, step_name, instructions FROM recipes JOIN steps ON recipes.id = steps.recipe_id WHERE recipes.id = $1", [id]).then(data => {
+  return db.query("SELECT * FROM recipes WHERE recipes.id = $1", [id]).then(data => {
+    return data.rows;
+  })
+  .catch((err) => {
+    console.log('add user error;', err.message);
+    return null;
+  });
+};
+
+const getFullRecipeById = (id) => {
+  return db.query("SELECT recipe, description, ingredient, quantity, measurement, step_name, instructions FROM recipes JOIN steps ON recipes.id = steps.recipe_id JOIN ingredients ON recipes.id = ingredients.recipe_id JOIN measurements ON ingredients.measurement_id = measurements.id WHERE recipes.id = $1", [id]).then(data => {
+    return data.rows;
+  })
+  .catch((err) => {
+    console.log('add user error;', err.message);
+    return null;
+  });
+};
+
+const getIngredientsByRecipeId = (id) => {
+  return db.query("SELECT ingredient, quantity, measurement FROM recipes JOIN steps ON recipes.id = steps.recipe_id JOIN ingredients ON recipes.id = ingredients.recipe_id JOIN measurements ON ingredients.measurement_id = measurements.id WHERE ingredients.recipe_id = $1", [id]).then(data => {
     return data.rows;
   })
   .catch((err) => {
@@ -34,4 +54,6 @@ const getStepsByRecipeId = (id) => {
   });
 };
 
-module.exports = { getAllRecipes, getRecipeById, getStepsByRecipeId };
+
+
+module.exports = { getAllRecipes, getRecipeById, getIngredientsByRecipeId, getFullRecipeById, getStepsByRecipeId };
