@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllRecipes, getFullRecipeById, getRecipeById, getStepsByRecipeId, getIngredientsByRecipeId} = require('../db/queries/recipes');
+const { getAllRecipes, getFullRecipeById, getRecipeById, getStepsByRecipeId, getIngredientsByRecipeId } = require('../db/queries/recipes');
 
 router.get('/', (req, res) => {
   getAllRecipes()
@@ -16,7 +16,7 @@ router.get('/4', (req, res) => {
 });
 
 router.get('/4/steps', (req, res) => {
-  getFullRecipeById(4)
+  getStepsByRecipeId(4)
   .then(data => {
     res.json(data);
   })
