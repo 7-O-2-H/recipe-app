@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const recipeRoutes = require('./routes/recipes');
 const userRoutes = require('./routes/users');
 const tagRoutes = require('./routes/tags');
+const favouritesRoutes = require('./routes/favourites');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 app.use('/recipes', recipeRoutes);
 app.use('/users', userRoutes);
 app.use('/tags', tagRoutes);
+app.use('/favourites', favouritesRoutes);
 
 app.get('/', (req, res) => {
   res.json({greetings: 'hello'});

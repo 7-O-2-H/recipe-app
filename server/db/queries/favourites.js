@@ -14,12 +14,4 @@ const getFavouritesByUserId = (id) => {
     });
 };
 
-const getRecipesByUserId = (id) => {
-  return db.query("SELECT * FROM recipes JOIN users ON recipes.user_id = users.id WHERE users.id = $1", [id]).then(data => {
-    return data.rows;
-  })
-  .catch((err) => {
-    console.log('add user error;', err.message);
-    return null;
-  });
-};
+module.exports = { getFavouritesByUserId };
