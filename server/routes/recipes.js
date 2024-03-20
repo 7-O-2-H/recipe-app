@@ -30,7 +30,4 @@ router.get('/4/ingredients', (req, res) => {
   })
 });
 
-
-
-
 module.exports = router;
