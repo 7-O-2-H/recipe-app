@@ -1,9 +1,17 @@
 const router = require('express').Router();
-const { getAllRecipes, getFullRecipeById, getRecipeById, getStepsByRecipeId, getIngredientsByRecipeId } = require('../db/queries/recipes');
+const { getAllRecipes, getRecipesByUserId, getRecipeById, getStepsByRecipeId, getIngredientsByRecipeId } = require('../db/queries/recipes');
 
 router.get('/', (req, res) => {
   getAllRecipes()
   .then(data => {
+    res.json(data);
+  })
+});
+
+router.get('/users/5', (req, res) => {
+  getRecipesByUserId(5)
+  .then(data => {
+    console.log(data);
     res.json(data);
   })
 });

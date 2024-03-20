@@ -14,6 +14,15 @@ const getAllRecipes = () => {
     });
 };
 
+const getRecipesByUserId = (id) => {
+  return db.query("SELECT * FROM recipes JOIN users ON recipes.user_id = users.id WHERE users.id = $1", [id]).then(data => {
+    return data.rows;
+  })
+  .catch((err) => {
+    console.log('add user error;', err.message);
+    return null;
+  });
+};
 const getRecipeById = (id) => {
   return db.query("SELECT * FROM recipes WHERE recipes.id = $1", [id]).then(data => {
     return data.rows;
@@ -54,6 +63,4 @@ const getStepsByRecipeId = (id) => {
   });
 };
 
-
-
-module.exports = { getAllRecipes, getRecipeById, getIngredientsByRecipeId, getFullRecipeById, getStepsByRecipeId };
+module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getIngredientsByRecipeId, getFullRecipeById, getStepsByRecipeId };
