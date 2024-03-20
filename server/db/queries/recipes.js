@@ -23,6 +23,7 @@ const getRecipesByUserId = (id) => {
     return null;
   });
 };
+
 const getRecipeById = (id) => {
   return db.query("SELECT * FROM recipes WHERE recipes.id = $1", [id]).then(data => {
     return data.rows;
