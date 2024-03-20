@@ -14,4 +14,17 @@ const getAllTags = () => {
     });
 };
 
-module.exports = { getAllTags };
+const getTagsByRecipeId = (id) => {
+  return db
+    .query(`SELECT tag FROM tags JOIN recipe_tags ON tags.id = recipe_tags.tag_id JOIN recipes ON recipe_tags.recipe_id = recipes.id WHERE recipes.id = $1;`, [id])
+    .then((result) => {
+      console.log('result:', result);
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('add user error;', err.message);
+      return null;
+    });
+};
+
+module.exports = { getAllTags, getTagsByRecipeId };
