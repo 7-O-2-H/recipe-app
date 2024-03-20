@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 // routes
 const recipeRoutes = require('./routes/recipes');
+const ingredientsRoutes = require('./routes/ingredients');
 const userRoutes = require('./routes/users');
 const tagRoutes = require('./routes/tags');
 const favouritesRoutes = require('./routes/favourites');
@@ -18,6 +19,7 @@ app.use(morgan(ENVIRONMENT));
 app.use(bodyParser.json());
 
 app.use('/recipes', recipeRoutes);
+app.use('/ingredients', ingredientsRoutes);
 app.use('/users', userRoutes);
 app.use('/tags', tagRoutes);
 app.use('/favourites', favouritesRoutes);

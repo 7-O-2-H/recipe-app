@@ -1,6 +1,7 @@
 const { pool } = require('../../configs/db.config');
 const db = require('../../configs/db.config');
 
+// recipes
 const getAllRecipes = () => {
   return db
     .query(`SELECT * FROM recipes;`)
@@ -43,7 +44,7 @@ const getFullRecipeById = (id) => {
     return null;
   });
 };
-
+// ingredients by recipe
 const getIngredientsByRecipeId = (id) => {
   return db.query("SELECT DISTINCT ingredient, quantity, measurement FROM recipes JOIN steps ON recipes.id = steps.recipe_id JOIN ingredients ON recipes.id = ingredients.recipe_id JOIN measurements ON ingredients.measurement_id = measurements.id WHERE ingredients.recipe_id = $1", [id]).then(data => {
     return data.rows;
@@ -54,6 +55,7 @@ const getIngredientsByRecipeId = (id) => {
   });
 };
 
+// steps
 const getStepsByRecipeId = (id) => {
   return db.query("SELECT * FROM steps JOIN recipes ON steps.recipe_id = recipes.id WHERE recipes.id = $1", [id]).then(data => {
     return data.rows;
@@ -64,4 +66,4 @@ const getStepsByRecipeId = (id) => {
   });
 };
 
-module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getIngredientsByRecipeId, getFullRecipeById, getStepsByRecipeId };
+module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, getIngredientsByRecipeId, getStepsByRecipeId };
