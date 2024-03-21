@@ -7,5 +7,6 @@ CREATE TABLE recipes (
   recipe VARCHAR(255),
   time INTEGER, 
   measurement_id INT REFERENCES measurements(id),
+  serves INT NOT NULL, 
   description TEXT
 );
