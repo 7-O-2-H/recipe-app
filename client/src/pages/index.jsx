@@ -7,6 +7,7 @@ import Spacer from '../components/Spacer';
 export default function Home() {
   return (
    <div>
+    <Spacer />
     <NavBar />
     <Spacer />
     <Header />

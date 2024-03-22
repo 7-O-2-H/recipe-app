@@ -10,16 +10,17 @@ export default function NavBar() {
     <div className="navbar">
       <ul className="links">
         <li>
-          <Link href="/login">LOGIN</Link>
+          <Link href="/">Home</Link>
         </li>
-
-  
-
-              
-        
-           
-  
-
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+        <li>
+          <Link href="/browse">Browse</Link>
+        </li>
+        <li>
+          <Link href="/login">Login</Link>
+        </li>
       </ul>
     </div>
   );
