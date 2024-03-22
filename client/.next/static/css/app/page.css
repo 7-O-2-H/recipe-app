@@ -147,8 +147,9 @@ h1 {
   justify-content: center;
   align-items: center;
   font-size: 80px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight:lighter;
+  font-family: 'Great Vibes', cursive;
+  font-weight:bold;
+  text-decoration: underline;
 }
 
 .header {
@@ -159,3 +160,13 @@ h1 {
   justify-content: center;
 }
 
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/styles/Spacer.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+
+.spacer {
+  display: flex;
+  width: 100%;
+  background-color: #2E6171;
+  height: 10px;
+}
