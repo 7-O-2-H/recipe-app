@@ -1,15 +1,17 @@
 // imports
 import NavBar from "../components/NavBar";
+import Header from '../components/Header';
+import Spacer from '../components/Spacer';
 
 export default function Login() {
 
-  console.log('fuck you');
   return (
     <div>
-      
+      <Spacer />
       <NavBar />
-      <p>helooehfdskLFdsJKHF</p>
-      
+      <Spacer />
+      <Header />
+      <Spacer />
     </div>
   );
 }
