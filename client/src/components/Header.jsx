@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <div className="header">
       <h1 className="codex">
-        Codex 
+        codex 
       </h1>
       <h1 className="epi">
         Epicuria
