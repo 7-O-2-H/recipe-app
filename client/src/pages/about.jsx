@@ -3,13 +3,16 @@ import NavBar from "../components/NavBar";
 
 export default function About() {
 
-  console.log('fuck you');
+  console.log('about render');
   return (
     <div>
       
       <NavBar />
-      <p>helooehfdskLFdsJKHF</p>
       
-    </div>
+
+        <h1>new fucking tag</h1>
+        
+      </div>
+      
   );
 }

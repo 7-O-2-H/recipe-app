@@ -8,11 +8,7 @@
 */
 const nextConfig = {
   // Other configurations...
-  experimental: {
-  
-    // Disable automatic CSS preloading
-    // css: false
-  }
+ 
 };
 
 export default nextConfig;
