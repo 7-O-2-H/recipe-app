@@ -1,18 +1,19 @@
 // imports
 import NavBar from "../components/NavBar";
+import Header from '../components/Header';
+import Spacer from '../components/Spacer';
 
 export default function About() {
 
   console.log('about render');
   return (
     <div>
-      
+      <Spacer />
       <NavBar />
-      
-
-        <h1>new fucking tag</h1>
-        
-      </div>
+      <Spacer />
+      <Header />
+      <Spacer />
+    </div>
       
   );
 }
