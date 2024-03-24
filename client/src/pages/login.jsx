@@ -5,12 +5,13 @@ import Spacer from '../components/Spacer';
 
 export default function Login() {
 
+  // template
   return (
     <div>
       <Spacer />
       <NavBar />
       <Spacer />
-      <Header />
+      <Header title="Login" />
       <Spacer />
     </div>
   );

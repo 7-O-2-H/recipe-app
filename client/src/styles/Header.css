@@ -30,15 +30,3 @@ h1 {
   border-left-style: solid;
   border-left-width: 10px;
 }
-
-.codex {
-  width: 100%;
-  text-decoration: underline;
-  margin-left: -5%;
-}
-
-.epi {
-  width: 100%;
-  text-decoration: overline;
-  margin-left: 5%;
-}

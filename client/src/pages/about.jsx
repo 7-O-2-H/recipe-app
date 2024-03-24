@@ -5,13 +5,13 @@ import Spacer from '../components/Spacer';
 
 export default function About() {
 
-  console.log('about render');
+  // template
   return (
     <div>
       <Spacer />
       <NavBar />
       <Spacer />
-      <Header />
+      <Header title="About" />
       <Spacer />
     </div>
       

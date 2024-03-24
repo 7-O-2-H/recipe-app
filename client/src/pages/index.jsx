@@ -5,12 +5,14 @@ import Header from '../components/Header';
 import Spacer from '../components/Spacer';
 
 export default function Home() {
+
+  // template
   return (
    <div>
     <Spacer />
     <NavBar />
     <Spacer />
-    <Header />
+    <Header title="Codex Epicuria" />
     <Spacer />
    </div>
   );
