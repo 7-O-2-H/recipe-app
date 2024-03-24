@@ -8,7 +8,6 @@ export default function Login() {
   // template
   return (
     <div>
-      <Spacer />
       <NavBar />
       <Spacer />
       <Header title="Login" />

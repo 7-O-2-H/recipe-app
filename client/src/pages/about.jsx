@@ -8,7 +8,6 @@ export default function About() {
   // template
   return (
     <div>
-      <Spacer />
       <NavBar />
       <Spacer />
       <Header title="About" />

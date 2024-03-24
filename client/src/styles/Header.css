@@ -14,19 +14,4 @@ h1 {
   background-color: #AFF9C9;
   justify-content: center;
   position: relative;
-  border-right-color: #2E6171;
-  border-right-style: solid;
-  border-right-width: 10px;
-  border-left-color: #2E6171;
-  border-left-style: solid;
-  border-left-width: 10px;
-}
-
-.header::after {
-  border-right-color: #2E6171;
-  border-right-style: solid;
-  border-right-width: 10px;
-  border-left-color: #2E6171;
-  border-left-style: solid;
-  border-left-width: 10px;
 }

@@ -9,7 +9,6 @@ export default function Home() {
   // template
   return (
    <div>
-    <Spacer />
     <NavBar />
     <Spacer />
     <Header title="Codex Epicuria" />
