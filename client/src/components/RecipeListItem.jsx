@@ -1,4 +1,5 @@
 // imports
+import "../styles/RecipeListItem.css";
 
 export default function RecipeListItem(props) {
 

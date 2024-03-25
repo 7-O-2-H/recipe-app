@@ -1,6 +1,7 @@
 // imports
 import useAppData from "../hooks/useAppData";
 import { useEffect, useState } from "react";
+import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 import { getAllRecipes } from "../helpers/recipeHelpers";
 
@@ -36,7 +37,7 @@ export default function RecipeList() {
   const recipe = allRecipes[3];
   console.log(recipe);
   return (
-    <div className="browse-body">
+    <div className="recipe-list">
       <RecipeListItem key={recipe.id} name={recipe.recipe} description={recipe.description} />
     </div>
   );
