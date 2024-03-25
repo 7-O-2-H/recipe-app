@@ -1,6 +1,19 @@
-.recipe-list-item {
+.recipe-list-item-container {
+  border: solid;
+  border-color: grey;
+  border-radius: 100px;
+  margin: 2% 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 80%;
+}
+
+.recipe-list-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.time {
+  display: flex;
+  flex-direction: row;
 }

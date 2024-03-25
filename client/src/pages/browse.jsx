@@ -1,4 +1,5 @@
 // imports
+import "../styles/browse.css";
 import NavBar from "../components/NavBar";
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
@@ -13,8 +14,9 @@ export default function Browse() {
       <Spacer />
       <Header title="Recipes" />
       <Spacer />
-      <RecipeList />
-      
+        <div className="browse-body" >
+          <RecipeList />
+        </div>
       <Spacer />
     </div>
   );

@@ -1,8 +1,8 @@
 .browse-body {
-  align-items: center;
+  /* align-items: center; */
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
+  margin: 0 10%;
   font-family: 'Great Vibes', cursive;
-
 }

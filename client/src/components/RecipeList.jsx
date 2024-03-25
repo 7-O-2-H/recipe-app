@@ -38,7 +38,8 @@ export default function RecipeList() {
   console.log(recipe);
   return (
     <div className="recipe-list">
-      <RecipeListItem key={recipe.id} name={recipe.recipe} description={recipe.description} />
+      <RecipeListItem key={1} name={'Some New Recipe'} time={30} unit={'minutes'} servingSize={4} description={'It\s a cool new recipe that will totally get you laid!'} />
+      {/* <RecipeListItem key={recipe.id} name={recipe.recipe} description={recipe.description} /> */}
     </div>
   );
   
