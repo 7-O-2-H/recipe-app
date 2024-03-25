@@ -1,14 +1,16 @@
 .recipe-list-item-container {
   border: solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   border-color: grey;
   border-radius: 100px;
   margin: 2% 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .recipe-list-item {
+  margin: 2% 4%;
   display: flex;
   flex-direction: row;
 }
