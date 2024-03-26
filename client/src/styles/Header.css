@@ -10,7 +10,7 @@ h1 {
 .header {
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 260px;
   background-color: #AFF9C9;
   justify-content: center;
   position: relative;

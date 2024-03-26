@@ -7,12 +7,13 @@ export default function RecipeListItem(props) {
 
   // template
   return (
-    <div className="recipe-list-item-container">
       <div className="recipe-list-item">
-        <div className="recipe-name" >
-          <h2>{name}</h2> 
-        <div className="description" >
-          <p>Description: {description}</p>
+        <div className="name-description">
+          <div className="recipe-name" >
+            <div className="name">{name}</div> 
+          <div className="description" >
+            {description}
+          </div>
         </div>
         </div>
         <div className="details" >
@@ -22,6 +23,5 @@ export default function RecipeListItem(props) {
             Serves: {servingSize}
         </div>
       </div>
-    </div>
   );
 }
