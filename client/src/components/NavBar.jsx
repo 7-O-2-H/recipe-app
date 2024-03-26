@@ -1,6 +1,5 @@
 // Imports
 import "../styles/NavBar.css";
-import Login from "../pages/login";
 import Link from "next/link";
 
 export default function NavBar() {

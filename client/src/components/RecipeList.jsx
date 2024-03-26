@@ -19,29 +19,27 @@ export default function RecipeList() {
   // const allRecipes = useAppData();
   // console.log(allRecipes[0].description);
 
-  // const recipesArray = allRecipes.map(recipe => {
-  //   <div>
-  //     <RecipeListItem
-  //       key={recipe.id}
-  //       submitted={recipe.user_id}
-  //       name={recipe.name}
-  //       time={recipe.time}
-  //       unit={recipe.measurement_id}
-  //       servingSize={recipe.serves}
-  //       description={recipe.description}
-  //     />
-  //   </div>
-  // });
+  const recipesArray = allRecipes.map(recipe => (
+      <RecipeListItem
+        key={recipe.id}
+        // submitted={recipe.user_id}
+        name={recipe.recipe}
+        time={recipe.time}
+        unit={recipe.measurement_id}
+        servingSize={recipe.serves}
+        description={recipe.description}
+      />
+  ));
 
   // template
-  const recipe = allRecipes[3];
-  console.log(recipe);
+  // const recipe = allRecipes[3];
+  console.log(allRecipes, recipesArray);
   return (
     <div className="recipe-list">
-      <RecipeListItem key={1} name={'Some New Recipe'} time={30} unit={'minutes'} servingSize={4} description={'It\s a cool new recipe that will totally get you laid!'} />
+      {/* <RecipeListItem key={} name={'Some New Recipe'} time={30} unit={'minutes'} servingSize={4} description={'It\s a cool new recipe that will totally get you laid!'} /> */}
       {/* <RecipeListItem key={recipe.id} name={recipe.recipe} description={recipe.description} /> */}
+      {recipesArray}
     </div>
   );
   
 }
-{/* {recipesArray} */}
