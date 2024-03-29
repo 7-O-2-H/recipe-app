@@ -8,10 +8,10 @@ export default function useAppData() {
   const [allRecipes, setAllRecipes] = useState([]);
 
   useEffect(() => {
-    Promise.getAllRecipes()
+    getAllRecipes()
     .then((data) => {
       // console.log(data);
-      setAllRecipes(data)
+      setAllRecipes(data['data'])
     })
 
   }, []);

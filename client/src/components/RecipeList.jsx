@@ -3,20 +3,20 @@ import useAppData from "../hooks/useAppData";
 import { useEffect, useState } from "react";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
-import { getAllRecipes } from "../helpers/recipeHelpers";
+// import { getAllRecipes } from "../helpers/recipeHelpers";
 
 export default function RecipeList() {
 
-  const [allRecipes, setAllRecipes] = useState([]);
+  //const [allRecipes, setAllRecipes] = useState([]);
 
-  useEffect(() => {
-    getAllRecipes()
-    .then((data) => {
-      setAllRecipes(data['data']);
-    })
-  }, []);
+  // useEffect(() => {
+  //   getAllRecipes()
+  //   .then((data) => {
+  //     setAllRecipes(data['data']);
+  //   })
+  // }, []);
 
-  // const allRecipes = useAppData();
+  const { allRecipes } = useAppData();
   // console.log(allRecipes[0].description);
 
   const recipesArray = allRecipes.map(recipe => (
