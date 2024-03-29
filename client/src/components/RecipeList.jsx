@@ -25,7 +25,7 @@ export default function RecipeList() {
         // submitted={recipe.user_id}
         name={recipe.recipe}
         time={recipe.time}
-        unit={recipe.measurement_id}
+        unit={recipe.measurement}
         servingSize={recipe.serves}
         description={recipe.description}
       />
