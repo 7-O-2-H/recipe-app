@@ -8,6 +8,13 @@ router.get('/', (req, res) => {
   })
 });
 
+route.get('/loginByEmail', req, res => {
+  validateUserByEmail(email, password)
+  .then(data => {
+    res.json(data);
+  });
+});
+
 router.get('/5', (req, res) => {
   getUserById(5)
   .then(data => {
