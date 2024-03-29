@@ -4,7 +4,7 @@ const db = require('../../configs/db.config');
 // recipes
 const getAllRecipes = () => {
   return db
-    .query(`SELECT * FROM recipes;`)
+    .query(`SELECT recipes.id, user_id, recipe, time, serves, description, measurement FROM recipes JOIN measurements ON recipes.measurement_id = measurements.id;`)
     .then((result) => {
       console.log('result:', result);
       return result.rows;
