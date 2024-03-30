@@ -3,7 +3,6 @@ import useAppData from "../hooks/useAppData";
 import { useEffect, useState } from "react";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
-// import { getAllRecipes } from "../helpers/recipeHelpers";
 
 export default function RecipeList() {
 
