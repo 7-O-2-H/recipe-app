@@ -12,7 +12,6 @@ export default function useAppData() {
   useEffect(() => {
     getAllRecipes()
     .then((data) => {
-      // console.log(data);
       setAllRecipes(data['data']);
     })
 
