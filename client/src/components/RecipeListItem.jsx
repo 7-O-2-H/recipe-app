@@ -1,5 +1,6 @@
 // imports
 import "../styles/RecipeListItem.css";
+import Link from "next/link";
 
 export default function RecipeListItem(props) {
 
@@ -7,7 +8,7 @@ export default function RecipeListItem(props) {
 
   // template
   return (
-      <div className="recipe-list-item">
+      <Link className="recipe-list-item"  href="/ingredients">
         <div className="name-description">
           <div className="recipe-name" >
             <div className="name">{name}</div> 
@@ -22,6 +23,6 @@ export default function RecipeListItem(props) {
           </div>
             Serves: {servingSize}
         </div>
-      </div>
+      </Link>
   );
 }
