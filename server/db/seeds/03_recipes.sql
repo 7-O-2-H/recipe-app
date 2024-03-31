@@ -17,9 +17,17 @@ INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, descript
   35,
   1,
   4,
-  'A creamy and hearty Italian soup.'
+  'A creamy and hearty Italian Tuscan soup.'
 );
-INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, description) VALUES (3, 2, 'Cream of Mushroom Soup', 10, 1, 4, 'Like magic, it''s creamy without a lot of cream.');
+INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, description) VALUES (
+  3,
+  2, 
+  'Alfredo Farfalle',
+  20,
+  1,
+  6,
+  'A creamy alferedo pasta.'
+);
 -- seed Vavo
 INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, description) VALUES (
   4, 
