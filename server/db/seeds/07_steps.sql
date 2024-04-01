@@ -57,37 +57,87 @@ INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   'Step 2',
   'Add pasta to the pot of water once the water is boiling to let the pasta cook (about 10 minutes). Reheat the alfedo sauce mixture while the pasta continues to cook for about 1 minute. Check that the farfalle; if al dente drain and mix in the alfredo sauce. Sprinkle in parsley, add salt and pepper to taste, remove heat and cover for 3 minutes and serve.'
 );
--- seed Vavo's Chicken Noodle Soup
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   9, 
+  2, 
+  3,
+  'Step 2',
+  'Add pasta to the pot of water once the water is boiling to let the pasta cook (about 10 minutes). Reheat the alfedo sauce mixture while the pasta continues to cook for about 1 minute. Check that the farfalle; if al dente drain and mix in the alfredo sauce. Sprinkle in parsley, add salt and pepper to taste, remove heat and cover for 3 minutes and serve.'
+);
+-- seed Gary's Zuppa Toscana
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  10, 
+  3, 
+  1,
+  'Prep',
+  'Preheat oven to 300 degrees fahrenheit. Mince the garlic, quarter the potatoes and slice thin. De-stem and chop up the kale.'
+);
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  11, 
+  3, 
+  2,
+  'Step 1',
+  'Place sausages on a baking sheet and bake them for 20 minutes, turning them a quarter every 5 minutes.'
+);
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  12, 
+  3, 
+  3,
+  'Step 2',
+  'While the sausages are baking, boil the water, add butter, spices and potatoes. Cook for about 15 minutes.'
+);
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  13, 
+  3, 
+  4,
+  'Step 3',
+  'While the sausages are baking and the soup mixture is cooking, add oil to a sauce pan with the minced garlic and saute the onions (fry until soft).'
+);
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  14, 
+  3, 
+  5,
+  'Step 4',
+  'Remove the cooked sausage from the oven, slice and quater.'
+);
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  15, 
+  3, 
+  6,
+  'Step 5',
+  'Reduce heat, add kale, chopped sausage and cream. Let sit for a few minutes and serve.'
+);
+-- seed Vavo's Chicken Noodle Soup
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  16, 
   4, 
   1,
   'Prep',
   'Dice the onions, potatoes and tomatoes; thinly slice the carrots; and chop up the celery (use leafy portions if possible) if needed. Cut the chorizo link into four (4) sections and poke them evenly so heat can get to its center. You may want to measure out the spices, pasta and chop up the chicken at this stage as well.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
-  10, 
+  17, 
   4, 
   2,
   'Step 1',
   'Fill a large pot with 8 cups of water, add spices (garlic salt, calda, black pepper, chicken stock base) and butter. Bring to a roiling boil.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
-  11, 
+  18, 
   4, 
   3,
   'Step 2',
   'Add vegetables (potatoes, onions, tomato, celery, carrots) and ''poked'' chorizo. Cook at high heat for 10 minutes. Chop up the cooked chicken if you didn''t'' do it earlier.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
-  12, 
+  19, 
   4, 
   4,
   'Step 3',
   'Reduce heat to simmer and add the chicken and orzo. Partially cover (or use lid that allows for the escape of steam) and cook for another 10 minutes stirring occasionally.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
-  13, 
+  20, 
   4, 
   5,
   'Step 4',
