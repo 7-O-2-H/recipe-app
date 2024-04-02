@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   })
 });
 
-route.get('/loginByEmail', req, res => {
+router.get('/loginByEmail', (req, res) => {
   validateUserByEmail(email, password)
   .then(data => {
     res.json(data);
