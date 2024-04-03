@@ -15,7 +15,7 @@
 .name-description {
   flex-direction: column;
   width: 60%;
-  padding: 5% 0 2% 0;
+  padding: 5% 0 3% 0;
   margin-left: 12%;
   align-items: start;
   font-size: 40px;
@@ -27,6 +27,7 @@
   padding-bottom: 2%;
   margin-right: 18%;
   border-bottom: solid;
+  color:blueviolet;
 }
 
 .description {
