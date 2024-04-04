@@ -24,6 +24,8 @@ INSERT INTO ingredients (id, ingredient) VALUES (21, 'heavy cream');
 INSERT INTO ingredients (id, ingredient) VALUES (22, 'grated Parmesan');
 INSERT INTO ingredients (id, ingredient) VALUES (23, 'sun-dried totoes packed in oil');
 INSERT INTO ingredients (id, ingredient) VALUES (24, 'fresh basil');
+INSERT INTO ingredients (id, ingredient) VALUES (25, 'chicken breasts');
+
 
 
 
