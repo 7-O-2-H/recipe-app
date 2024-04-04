@@ -16,7 +16,6 @@ INSERT INTO ingredients (id, ingredient) VALUES (14, 'calda (portuguese pepper p
 INSERT INTO ingredients (id, ingredient) VALUES (15, 'all-purpose flour');
 INSERT INTO ingredients (id, ingredient) VALUES (16, 'extra-virgin olive oil');
 INSERT INTO ingredients (id, ingredient) VALUES (17, 'dried oregano');
-INSERT INTO ingredients (id, ingredient) VALUES (17, 'red-pepper flakes');
 INSERT INTO ingredients (id, ingredient) VALUES (18, 'garlic cloves, chopped');
 INSERT INTO ingredients (id, ingredient) VALUES (19, 'tomato paste');
 INSERT INTO ingredients (id, ingredient) VALUES (20, 'chicken stock');
@@ -25,6 +24,11 @@ INSERT INTO ingredients (id, ingredient) VALUES (22, 'grated Parmesan');
 INSERT INTO ingredients (id, ingredient) VALUES (23, 'sun-dried totoes packed in oil');
 INSERT INTO ingredients (id, ingredient) VALUES (24, 'fresh basil');
 INSERT INTO ingredients (id, ingredient) VALUES (25, 'chicken breasts');
+INSERT INTO ingredients (id, ingredient) VALUES (26, 'shredded kale');
+INSERT INTO ingredients (id, ingredient) VALUES (27, 'mini potatoes');
+INSERT INTO ingredients (id, ingredient) VALUES (28, 'Italian sausage');
+INSERT INTO ingredients (id, ingredient) VALUES (29, 'red-pepper flakes');
+
 
 
 
