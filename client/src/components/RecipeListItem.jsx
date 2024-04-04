@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function RecipeListItem(props) {
 
-  const { name, time, unit, servingSize, description } = props;
+  const { name, time, unit, servingSize, submitted, description } = props;
 
   // template
   return (
@@ -22,6 +22,9 @@ export default function RecipeListItem(props) {
             <h3>Time: {time} {unit}</h3>
           </div>
             Serves: {servingSize}
+            <div>
+              Submitted By: {submitted}
+            </div>
         </div>
       </Link>
   );

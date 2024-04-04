@@ -19,28 +19,22 @@
   margin-left: 12%;
   align-items: start;
   font-size: 40px;
-
 }
 
 .name {
   font-size: 60px;
   font-weight: bold;
-  text-decoration: underline;
   padding-bottom: 2%;
-  /* padding-bottom: 5%; */
+  margin-right: 18%;
+  border-bottom: solid;
 }
 
 .description {
-  padding-bottom: 3%;
+  padding: 3%;
 }
 
 
 .details {
   margin-right: 12%;
-justify-content: space-around;}
-/*
-.time {
-  display: flex;
-  flex-direction: row;
-  width: 50%;
-} */
+  justify-content: space-between;
+}

@@ -5,7 +5,6 @@ export function getAllRecipes() {
 
   return axios.get('http://localhost:8080/recipes')
   .then((data) => {
-    // console.log(data);
     return data;
   })
   .catch((e) => {
