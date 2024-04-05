@@ -28,6 +28,7 @@ INSERT INTO ingredients (id, ingredient) VALUES (26, 'shredded kale');
 INSERT INTO ingredients (id, ingredient) VALUES (27, 'mini potatoes');
 INSERT INTO ingredients (id, ingredient) VALUES (28, 'Italian sausage');
 INSERT INTO ingredients (id, ingredient) VALUES (29, 'red-pepper flakes');
+INSERT INTO ingredients (id, ingredient) VALUES (30, 'Knorr alfredo packet');
 
 
 
