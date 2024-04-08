@@ -16,7 +16,7 @@ export function getIngredientsByRecipeId(id) {
 
   return axios.get(`http://localhost:8080/ingredients/${id}`)
   .then((data) => {
-    console.log(data);
+    // console.log(data);
     return data;
   })
   .catch((e) => {

@@ -17,7 +17,6 @@ export default function useAppData() {
 
     getIngredientsByRecipeId(1)
     .then((data) => {
-      console.log(data);
       // setRecipeIngredients(data['data']);
     })
     

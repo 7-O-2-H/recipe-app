@@ -13,6 +13,7 @@ export default function RecipeList() {
   const recipesArray = allRecipes.map(recipe => (  
       <RecipeListItem
         key={recipe.id}
+        id={recipe.id}
         submitted={recipe.user_name}
         name={recipe.recipe}
         time={recipe.time}
