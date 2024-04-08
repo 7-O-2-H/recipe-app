@@ -15,7 +15,7 @@ export default function useAppData() {
       setAllRecipes(data['data']);
     })
 
-    getIngredientsByRecipeId(4)
+    getIngredientsByRecipeId(1)
     .then((data) => {
       console.log(data);
       // setRecipeIngredients(data['data']);
