@@ -12,7 +12,7 @@ INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, descript
 -- seed Gary
 INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, description) VALUES (
   2,
-  1,
+  2,
   'Zuppa Toscana',
   35,
   1,
