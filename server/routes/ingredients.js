@@ -16,8 +16,9 @@ router.get('/Celery', (req, res) => {
   })
 });
 
-router.get('/4', (req, res) => {
-  getIngredientsByRecipeId(4)
+// `/#{id}`
+router.get('/1', (req, res) => {
+  getIngredientsByRecipeId(1)
   .then(data => {
     res.json(data);
   })

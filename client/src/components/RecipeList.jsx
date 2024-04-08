@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function RecipeList() {
 
   const { allRecipes } = useAppData();
-  console.log(allRecipes);
+  // console.log(allRecipes);
 
   const recipesArray = allRecipes.map(recipe => (  
       <RecipeListItem

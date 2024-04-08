@@ -15,10 +15,11 @@ export default function useAppData() {
       setAllRecipes(data['data']);
     })
 
-    // getIngredientsByRecipeId(4)
-    // .then((data) => {
-    //   setRecipeIngredients(data['data']);
-    // })
+    getIngredientsByRecipeId(4)
+    .then((data) => {
+      console.log(data);
+      // setRecipeIngredients(data['data']);
+    })
     
 
   }, []);
