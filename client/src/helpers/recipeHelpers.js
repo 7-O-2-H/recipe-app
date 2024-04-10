@@ -1,6 +1,8 @@
 // imports
 import axios from "axios";
 
+
+// recipe functions
 export function getAllRecipes() {
 
   return axios.get('http://localhost:8080/recipes')
@@ -12,17 +14,6 @@ export function getAllRecipes() {
   });
 };
 
-export function getIngredientsByRecipeId(id) {
-
-  return axios.get(`http://localhost:8080/ingredients/${id}`)
-  .then((data) => {
-    return data;
-  })
-  .catch((e) => {
-    console.log("axios error: ", e, "id:", id);
-  });
-};
-
 export function getRecipeByRecipeId(id) {
 
   return axios.get(`http://localhost:8080/recipes/${id}`)
@@ -30,5 +21,18 @@ export function getRecipeByRecipeId(id) {
     return data;
   })
   .catch((e) => {
+    console.log("axios error: ", e);
+  });
+};
+
+//ingredients functions
+export function getIngredientsByRecipeId(id) {
+
+  return axios.get(`http://localhost:8080/ingredients/${id}`)
+  .then((data) => {
+    return data;
+  })
+  .catch((e) => {
+    console.log("axios error: ", e);
   });
 };
