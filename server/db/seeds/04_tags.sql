@@ -9,3 +9,5 @@ INSERT INTO tags (id, tag) VALUES (7, 'CREAMY');
 INSERT INTO tags (id, tag) VALUES (8, 'SPICY');
 INSERT INTO tags (id, tag) VALUES (9, 'TOMATO-SAUCE');
 INSERT INTO tags (id, tag) VALUES (10, 'CHICKEN');
+INSERT INTO tags (id, tag) VALUES (11, 'OVER AN HOUR');
+INSERT INTO tags (id, tag) VALUES (12, 'UNDER AN HOUR');
