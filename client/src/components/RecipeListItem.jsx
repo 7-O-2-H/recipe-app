@@ -9,15 +9,16 @@ export default function RecipeListItem(props) {
   const { id, name, time, unit, servingSize, submitted, description } = props;
   
   // use state and effect for recipeId 
-  const [recipeId, setRecipeId] = useState(0);
+  const [recipeId, setRecipeId] = useState(null);
   useEffect(() => {
     setRecipeId(id);
+    localStorage.setItem('recipeId', recipeId);
   }, [id]);
 
   // template
   return (
       <Link className="recipe-list-item"  href={`/recipes/${recipeId}`}>
-        <div className="name-description">
+        <div className="name-description" >
           <div className="recipe-name" >
             <div className="name">{name}</div> 
           <div className="description" >

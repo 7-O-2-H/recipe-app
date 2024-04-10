@@ -16,10 +16,19 @@ export function getIngredientsByRecipeId(id) {
 
   return axios.get(`http://localhost:8080/ingredients/${id}`)
   .then((data) => {
-    // console.log(data);
     return data;
   })
   .catch((e) => {
-    // console.log("axios error: ", e, "id:", id);
+    console.log("axios error: ", e, "id:", id);
+  });
+};
+
+export function getRecipeByRecipeId(id) {
+
+  return axios.get(`http://localhost:8080/recipes/${id}`)
+  .then((data) => {
+    return data;
+  })
+  .catch((e) => {
   });
 };
