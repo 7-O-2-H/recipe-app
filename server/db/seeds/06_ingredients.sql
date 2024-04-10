@@ -30,6 +30,10 @@ INSERT INTO ingredients (id, ingredient) VALUES (28, 'Italian sausage');
 INSERT INTO ingredients (id, ingredient) VALUES (29, 'red-pepper flakes');
 INSERT INTO ingredients (id, ingredient) VALUES (30, 'Knorr alfredo packet');
 INSERT INTO ingredients (id, ingredient) VALUES (31, '18% cream');
+INSERT INTO ingredients (id, ingredient) VALUES (32, 'dried parsley');
+INSERT INTO ingredients (id, ingredient) VALUES (33, 'cajun spice');
+INSERT INTO ingredients (id, ingredient) VALUES (34, 'Montreal Steak Spice');
+INSERT INTO ingredients (id, ingredient) VALUES (35, 'Montreal Steak Spice');
 
 
 
