@@ -38,3 +38,12 @@ INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, descript
   10,
   'A hearty soup that''s spicy and salty in equal parts.'
 );
+INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, description) VALUES (
+  5, 
+  6, 
+  'Baked Chicken Thighs', 
+  75,
+  1,
+  8,
+  'Chicken thighs that are crispy on the outside and moist within. This easy to make dish can serve plenty and includes sides!'
+);
