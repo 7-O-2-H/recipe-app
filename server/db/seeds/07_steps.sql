@@ -143,3 +143,31 @@ INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   'Step 4',
   'Turn off the heat and let sit for 5 minutes. You may want to add salt or pepper to taste. Remove the chorizo (deskin it if preferred) and slice the peices into coin shapes and quater them. Add the chopped chorizo back into the soup, sprinkle with parsley and serve.'
 );
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  21, 
+  5, 
+  1,
+  'Prep',
+  'Pre-heat the oven to 375 degrees fahrenheit. Chop up the carrots, quarter the mini potatoes and chorizo. Thickly coat the potatoes, carrots and chicken with calda, then sprinkle them with salt, paprika, garlic powder and pepper.'
+);
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  22, 
+  5, 
+  2,
+  'Step 1',
+  'Place all items into a large pan and fill it with one cup of water. Cover the pan with a sheet of tin foil and cook for 30 minutes.'
+);
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  23, 
+  5, 
+  3,
+  'Step 2',
+  'Remove foil, and based the carrots and meat with the water in the pan. Add peas evenly to the pan and increase heat to 400 degrees fahrenheit.'
+);
+INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
+  24, 
+  5, 
+  4,
+  'Step 2',
+  'Continue to cook for 30 minutes, basting every 10 minutes, until the chicken skin crisps.'
+);
