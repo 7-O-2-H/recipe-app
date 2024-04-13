@@ -42,7 +42,6 @@ export function getAllTags() {
 
   return axios.get('http://localhost:8080/tags')
   .then((data) => {
-    console.log(data);
     return data;
   })
   .catch((e) => {

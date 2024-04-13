@@ -16,10 +16,11 @@ export default function Browse() {
       <Header title="Recipes" />
       <Spacer />
       <TagList />
-      <Spacer />
-        <div className="browse-body" >
-          <RecipeList />
-        </div>
+      <div>
+      </div>
+      <div className="browse-body" >
+        <RecipeList />
+      </div>
       {/* <Spacer /> */}
     </div>
   );
