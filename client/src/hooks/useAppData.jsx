@@ -1,16 +1,18 @@
 // imports
-import { getAllRecipes, getAllTags, getIngredientsByRecipeId } from "../helpers/recipeHelpers";
+import { getAllRecipes, getIngredientsByRecipeId } from "../helpers/recipeHelpers";
+import { getAllTags } from "../helpers/tagsHelpers";
 import { useState, useEffect } from "react";
 
 export default function useAppData() {
 
   // states/props
   const [allRecipes, setAllRecipes] = useState([]);
-  const [recipeIngredients, setRecipeIngredients] = useState([]);
+  // const [allIngredients, setAllIngredients] = useState([]);
   const [allTags, setAllTags] = useState([]);
 
   useEffect(() => {
 
+    // get all ingredients, recipes, tags
     Promise.all([
       getAllRecipes(),
       getAllTags(),
@@ -41,7 +43,6 @@ export default function useAppData() {
 
   }, []);
 
-  return { allRecipes, recipeIngredients, allTags };
-  return { allRecipes, recipeIngredients, allTags };
+  return { allRecipes, allTags };
   
 };
