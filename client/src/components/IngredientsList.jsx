@@ -11,8 +11,6 @@ export default function IngredientsList() {
     console.log('Selected Option:', selectedOption);
   };
 
-  console.log(allIngredients);
-
   return (
     <div>
       <IngredientsDropdown ingredients={allIngredients} onSelect={handleSelect} />

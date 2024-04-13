@@ -10,8 +10,8 @@ export default function BrowseOptions() {
 
   return (
     <div className="browse-options">
-      <TagsList />
       <IngredientsList />
+      <TagsList />
     </div>
   );
 }
