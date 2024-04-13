@@ -3,7 +3,7 @@ const db = require('../../configs/db.config');
 
 const getAllTags = () => {
   return db
-    .query(`SELECT * FROM tags;`)
+    .query(`SELECT * FROM tags ORDER BY tags.tag;`)
     .then((result) => {
       console.log('result:', result);
       return result.rows;

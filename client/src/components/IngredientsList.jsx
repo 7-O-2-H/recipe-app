@@ -1,7 +1,6 @@
 // imports
 import useAppData from "../hooks/useAppData";
 import IngredientsDropdown from "../components/IngredientsDropdown";
-import { all } from "axios";
 
 export default function IngredientsList() {
 

@@ -15,4 +15,3 @@ INSERT INTO recipe_tags (id, recipe_id, tag_id) VALUES (13, 4, 8);
 INSERT INTO recipe_tags (id, recipe_id, tag_id) VALUES (14, 4, 10);
 INSERT INTO recipe_tags (id, recipe_id, tag_id) VALUES (15, 5, 10);
 INSERT INTO recipe_tags (id, recipe_id, tag_id) VALUES (16, 5, 8);
-INSERT INTO recipe_tags (id, recipe_id, tag_id) VALUES (17, 5, 11);
