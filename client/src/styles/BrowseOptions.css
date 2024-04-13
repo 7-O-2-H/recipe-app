@@ -1,0 +1,6 @@
+.browse-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 4%;
+}

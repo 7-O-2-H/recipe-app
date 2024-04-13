@@ -1,9 +1,9 @@
 // imports
 import useAppData from "../hooks/useAppData";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function RecipeList() {
 
