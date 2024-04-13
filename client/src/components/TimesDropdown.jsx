@@ -1,26 +1,25 @@
 // imports
 import { useState, useEffect } from "react";
-// import useAppData from "../hooks/useAppData";
 
-export default function TagsDropdown({ tags, selectedOption }) {
+export default function TagsDropdown({ times, selectedOption }) {
 
   // const [selectedOption, setSelectedOption] = useState('');
 
   // handle dropdown select
-  const handleSelect = (tag) => {
-    const selectedValue = tag.target.value;
+  const handleSelect = (time) => {
+    const selectedValue = time.target.value;
     setSelectedOption(selectedValue);
     // onSelect(selectedValue);
   };
   
   // template
   return (
-    <div className="tags-dropdown">
+    <div className="times-dropdown">
       <select onChange={(e) => handleSelect(e.target.value)} value={selectedOption}>
-        <option value="">TAGS</option>
-        {tags.map((tag) => (
-          <option key={tag.id} value={tag.value}>
-            {tag.tag}
+        <option value="">TIME</option>
+        {times.map((time) => (
+          <option key={time.id} value={time.value}>
+            {time.time}
           </option>
         ))}
       </select>   

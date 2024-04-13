@@ -16,11 +16,9 @@ export default function TimesList() {
     console.log('Selected Option:', selectedOption);
   };
 
-  console.log(allTimes);
-
   return (
     <div>
-      {/* <TimesDropdown times={timeOptions} onSelect={handleSelect} /> */}
+      <TimesDropdown times={timeOptions} onSelect={handleSelect} />
     </div>
   );
 }
