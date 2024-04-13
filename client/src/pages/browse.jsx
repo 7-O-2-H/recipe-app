@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar";
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
 import RecipeList from "../components/RecipeList";
-import TagList from "../components/TagList";
+import BrowseOptions from "../components/BrowseOptions";
 
 export default function Browse() {
 
@@ -15,9 +15,7 @@ export default function Browse() {
       <Spacer />
       <Header title="Recipes" />
       <Spacer />
-      <TagList />
-      <div>
-      </div>
+      <BrowseOptions />
       <div className="browse-body" >
         <RecipeList />
       </div>
