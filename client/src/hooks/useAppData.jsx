@@ -8,7 +8,6 @@ export default function useAppData() {
   const [allRecipes, setAllRecipes] = useState([]);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [allTags, setAllTags] = useState([]);
-  const [allTags, setAllTags] = useState([]);
 
   useEffect(() => {
 
