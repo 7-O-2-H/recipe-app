@@ -33,7 +33,7 @@ INSERT INTO ingredients (id, ingredient) VALUES (31, '18% cream');
 INSERT INTO ingredients (id, ingredient) VALUES (32, 'dried parsley');
 INSERT INTO ingredients (id, ingredient) VALUES (33, 'cajun spice');
 INSERT INTO ingredients (id, ingredient) VALUES (34, 'Montreal Steak Spice');
-INSERT INTO ingredients (id, ingredient) VALUES (35, 'Montreal Steak Spice');
+INSERT INTO ingredients (id, ingredient) VALUES (35, 'Farfalle Noodles');
 
 
 

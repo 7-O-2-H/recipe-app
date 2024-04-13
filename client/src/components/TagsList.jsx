@@ -8,8 +8,6 @@ export default function TagsList() {
   // retreive all tags
   const { allTags } = useAppData();
 
-  console.log(allTags);
-
   const handleSelect = (selectedOption) => {
     console.log('Selected Option:', selectedOption);
   };
