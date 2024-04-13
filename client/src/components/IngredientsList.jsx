@@ -1,20 +1,22 @@
 // imports
-import { useState, useEffect } from "react";
 import useAppData from "../hooks/useAppData";
-import TagsDropdown from "../components/TagsDropdown";
+import IngredientsDropdown from "../components/IngredientsDropdown";
+import { all } from "axios";
 
-export default function TagsList() {
+export default function IngredientsList() {
 
-  // retreive all tags
+  // retreive all ingredients
   const { allIngredients } = useAppData();
 
   const handleSelect = (selectedOption) => {
     console.log('Selected Option:', selectedOption);
   };
 
+  console.log(allIngredients);
+
   return (
     <div>
-      <IngredientsDropdown tags={allIngredients} onSelect={handleSelect} />
+      <IngredientsDropdown ingredients={allIngredients} onSelect={handleSelect} />
     </div>
   );
 }

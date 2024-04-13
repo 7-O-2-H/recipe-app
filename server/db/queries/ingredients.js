@@ -3,7 +3,7 @@ const db = require('../../configs/db.config');
 
 // ingredients
 const getAllIngredients = () => {
-  return db.query("SELECT ingredient FROM ingredients;").then(data => {
+  return db.query("SELECT * FROM ingredients;").then(data => {
     return data.rows;
   })
   .catch((err) => {
