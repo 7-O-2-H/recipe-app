@@ -4,6 +4,11 @@ export default function App({ Component, pageProps }) {
 
   // Template
   return (
+    <>
+      <Head>
+        <title>Add to Taste</title>
+      </Head>
       <Component {...pageProps} />
+    </>
   );
 }

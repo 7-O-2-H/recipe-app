@@ -11,7 +11,7 @@ export default function Home() {
    <div>
     <NavBar />
     <Spacer />
-    <Header title="Codex Epicuria" />
+    <Header title="Add to Taste" />
     <Spacer />
    </div>
   );
