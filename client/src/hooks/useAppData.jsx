@@ -8,6 +8,7 @@ export default function useAppData() {
   const [allRecipes, setAllRecipes] = useState([]);
   const [recipeIngredients, setRecipeIngredients] = useState([]);
   const [allTags, setAllTags] = useState([]);
+  const [allTags, setAllTags] = useState([]);
 
   useEffect(() => {
 
@@ -41,6 +42,7 @@ export default function useAppData() {
 
   }, []);
 
+  return { allRecipes, recipeIngredients, allTags };
   return { allRecipes, recipeIngredients, allTags };
   
 };
