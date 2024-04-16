@@ -3,6 +3,8 @@
 import TagsList from "./TagsList";
 import IngredientsList from "./IngredientsList";
 import TimesList from "./TimesList";
+import Search from "./Search";
+
 // styles
 import "../styles/BrowseOptions.css"
 
@@ -14,6 +16,7 @@ export default function BrowseOptions() {
       <IngredientsList />
       <TagsList />
       <TimesList />
+      <Search />
     </div>
   );
 }
