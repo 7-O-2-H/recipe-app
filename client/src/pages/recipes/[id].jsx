@@ -19,10 +19,8 @@ export default function Recipe( {id} ) {
 
   console.log("router.query ", router.query, "\nid: ", recipeId, "\ncurrentRecipe: ", currentRecipe)
 
-
-
   // If the page is not yet generated, display a loading message
-  if (router.isFallback) {
+  if (!currentRecipe) {
     return <div>Loading...</div>;
   }
 

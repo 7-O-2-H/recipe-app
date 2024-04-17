@@ -10,8 +10,9 @@ router.get('/', (req, res) => {
 });
 
 
-router.get(`/5`, (req, res) => {
-  getRecipeById(5)
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+  getRecipeById(id)
   .then(data => {
     res.json(data);
   })
