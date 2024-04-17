@@ -1,5 +1,6 @@
 // imports
 import "../styles/browse.css";
+import { useState } from "react";
 import NavBar from "../components/NavBar";
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
