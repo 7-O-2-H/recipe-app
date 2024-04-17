@@ -9,16 +9,9 @@ router.get('/', (req, res) => {
   })
 });
 
-router.get('/users/5', (req, res) => {
-  getRecipesByUserId(5)
-  .then(data => {
-    console.log(data);
-    res.json(data);
-  })
-});
 
-router.get('/4', (req, res) => {
-  getRecipeById(4)
+router.get(`/5`, (req, res) => {
+  getRecipeById(5)
   .then(data => {
     res.json(data);
   })

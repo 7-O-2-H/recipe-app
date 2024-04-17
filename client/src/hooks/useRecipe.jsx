@@ -11,7 +11,7 @@ export function useRecipe(recipeId) {
     if (recipeId) {
       getRecipeByRecipeId(recipeId)
       .then((data) => {
-        console.log(data['data'][0]);
+        console.log(data);
         setCurrentRecipe(data['data'][0]);
       });
     };

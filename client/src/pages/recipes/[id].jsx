@@ -14,8 +14,8 @@ export default function Recipe( {id} ) {
   const recipeId = recipe.id;
   // if (recipeId) {
 
-    const  currentRecipe  = useRecipe(recipeId);
-  // }
+  const currentRecipe = useRecipe(recipeId);
+ 
 
   console.log("router.query ", router.query, "\nid: ", recipeId, "\ncurrentRecipe: ", currentRecipe)
 
