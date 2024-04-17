@@ -19,7 +19,7 @@ export default function Recipe( {id} ) {
 
   console.log("router.query ", router.query, "\nid: ", recipeId, "\ncurrentRecipe: ", currentRecipe)
 
-  // If the page is not yet generated, display a loading message
+  // If recipe is not set, invoke loading state
   if (!currentRecipe) {
     return <div>Loading...</div>;
   }
