@@ -8,13 +8,12 @@ export default function TimesList() {
   const [selectedOption, setSelectedOption] = useState('');
 
   const timeOptions = [
-    {id: 1, time: "10 minutes"},
-    {id: 2, time: "30 minutes"},
-    {id: 3, time: "45 minutes"},
-    {id: 4, time: "1 hour"},
-    {id: 5, time: "1 hour +"},
-    {id: 6, time: "2 hours +"}
-  ]
+    {id: 1, timeOption: "10 minutes", time: 11},
+    {id: 2, timeOption: "30 minutes", time: 31},
+    {id: 3, timeOption: "45 minutes", time: 46},
+    {id: 4, timeOption: "1 hour", time: 61},
+    {id: 5, timeOption: "2 hours", time: 121},
+  ];
 
   const handleSelect = (selectedOption) => {
     console.log('Selected Option:', selectedOption);

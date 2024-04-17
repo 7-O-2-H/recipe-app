@@ -10,7 +10,7 @@ export default function TagsDropdown({ times, selectedOption, onSelect }) {
         <option value="">TIME</option>
         {times.map((time) => (
           <option key={time.id} value={time.time}>
-            {time.time}
+            {time.timeOption}
           </option>
         ))}
       </select>   
