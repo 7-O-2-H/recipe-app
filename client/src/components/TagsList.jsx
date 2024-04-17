@@ -5,6 +5,9 @@ import TagsDropdown from "../components/TagsDropdown";
 
 export default function TagsList() {
 
+  // selected option state dec
+  const [selectedOption, setSelectedOption] = useState('');
+
   // retreive all tags
   const { allTags } = useAppData();
   
@@ -14,7 +17,7 @@ export default function TagsList() {
 
   return (
     <div>
-      <TagsDropdown tags={allTags} onSelect={handleSelect} />
+      <TagsDropdown tags={allTags} selectOption={selectedOption} onSelect={handleSelect} />
     </div>
   );
 }
