@@ -3,13 +3,6 @@ import { useState, useEffect } from "react";
 // import useAppData from "../hooks/useAppData";
 
 export default function TagsDropdown({ tags, selectedOption, onSelect }) {
-
-  // // handle dropdown select
-  // const handleSelect = (e) => {
-  //   const selectedValue = e.target.value;
-  //   onSelect(selectedValue);
-  //   // console.log(selectedValue);
-  // };
   
   // template
   return (
