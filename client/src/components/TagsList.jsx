@@ -1,5 +1,5 @@
 // imports
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useAppData from "../hooks/useAppData";
 import TagsDropdown from "../components/TagsDropdown";
 

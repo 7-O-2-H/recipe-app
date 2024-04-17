@@ -1,7 +1,11 @@
 // imports
+import { useState } from "react";
 import TimesDropdown from "../components/TimesDropdown";
 
 export default function TimesList() {
+
+  // selected option state dec
+  const [selectedOption, setSelectedOption] = useState('');
 
   const timeOptions = [
     {id: 1, time: "10 minutes"},
@@ -18,7 +22,7 @@ export default function TimesList() {
 
   return (
     <div>
-      <TimesDropdown times={timeOptions} onSelect={handleSelect} />
+      <TimesDropdown times={timeOptions} selectOption={selectedOption} onSelect={handleSelect} />
     </div>
   );
 }
