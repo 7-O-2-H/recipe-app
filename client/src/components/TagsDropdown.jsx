@@ -1,6 +1,5 @@
 // imports
-import { useState, useEffect } from "react";
-// import useAppData from "../hooks/useAppData";
+import Link from "next/link";
 
 export default function TagsDropdown({ tags, selectedOption, onSelect }) {
   
@@ -11,7 +10,9 @@ export default function TagsDropdown({ tags, selectedOption, onSelect }) {
         <option value="">TAGS</option>
         {tags.map((tag) => (
           <option key={tag.id} value={tag.tag}>
-            {tag.tag}
+            <Link href={`/tags/${tag.id}`}>
+              {tag.tag}
+            </Link>
           </option>
         ))}
       </select>   

@@ -8,14 +8,14 @@ router.get('/', (req, res) => {
   })
 });
 
-router.get('/4', (req, res) => {
-  getTagsByRecipeId(4)
-  .then(data => {
-    res.json(data);
-  })
-});
+// router.get('/:id', (req, res) => {
+//   getTagsByRecipeId(id)
+//   .then(data => {
+//     res.json(data);
+//   })
+// });
 
-router.get('/2', (req, res) => {
+router.get('/:id', (req, res) => {
   getRecipesByTagId(1)
   .then(data => {
     res.json(data);

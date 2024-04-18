@@ -12,3 +12,14 @@ export function getAllTags() {
     console.log("axios error: ", e);
   });
 };
+
+export function getRecipesByTagId() {
+
+  return axios.get(`http://localhost:8080/tags/${id}`)
+  .then((data) => {
+    return data;
+  })
+  .catch((e) => {
+    console.log("axios error: ", e);
+  });
+};
