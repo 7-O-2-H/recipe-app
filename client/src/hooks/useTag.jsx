@@ -12,7 +12,7 @@ export function useTag(tagId) {
       getRecipesByTagId(tagId)
       .then((data) => {
         console.log(data);
-        setRecipes(data['data'][0]);
+        setRecipes(data['data']);
       });
     };
     

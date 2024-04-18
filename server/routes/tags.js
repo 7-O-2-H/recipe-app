@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
 // });
 
 router.get('/:id', (req, res) => {
-  getRecipesByTagId(1)
+  const id = req.params.id;
+  getRecipesByTagId(id)
   .then(data => {
     res.json(data);
   })

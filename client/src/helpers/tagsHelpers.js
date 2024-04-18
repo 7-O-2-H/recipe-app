@@ -13,7 +13,7 @@ export function getAllTags() {
   });
 };
 
-export function getRecipesByTagId() {
+export function getRecipesByTagId(id) {
 
   return axios.get(`http://localhost:8080/tags/${id}`)
   .then((data) => {
