@@ -7,7 +7,7 @@ import Spacer from '../../components/Spacer';
 import { useTag } from '../../hooks/useTag';
 import RecipeListItem from '../../components/RecipeListItem';
 
-export default function Recipe( {id} ) {
+export default function Tag( {id} ) {
 
   // retrieve tagId from router
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function Recipe( {id} ) {
   const recipes = useTag(tagId);
  
 
-  console.log("router.query ", router.query, "\n: ", tagId, "\nRecipes: ", recipes)
+  // console.log("router.query ", router.query, "\n: ", tagId, "\nRecipes: ", recipes)
 
   const recipesArray = recipes.map(recipe => (  
     <RecipeListItem

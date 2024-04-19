@@ -5,7 +5,6 @@ import { getRecipesByTagId } from '../helpers/tagsHelpers';
 export function useTag(tagId) {
   const [recipes, setRecipes] = useState([]);
 
-  // console.log("tagId, ", tagId, "currentRecipe ", currentRecipe);
   useEffect(() => {
 
     if (tagId) {
