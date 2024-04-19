@@ -5,6 +5,7 @@ import NavBar from "../../components/NavBar";
 import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
 import { useRecipe } from '../../hooks/useRecipe';
+import FullRecipe from '../../components/FullRecipe';
 
 export default function Recipe( {id} ) {
 
@@ -12,13 +13,10 @@ export default function Recipe( {id} ) {
   const router = useRouter();
   const recipe = router.query;
   const recipeId = recipe.id;
-  // if (recipeId) {
 
+  // use hook to retreive selected recipe
   const currentRecipe = useRecipe(recipeId);
  
-
-  console.log("router.query ", router.query, "\nid: ", recipeId, "\ncurrentRecipe: ", currentRecipe)
-
   // If recipe is not set, invoke loading state
   if (!currentRecipe) {
     return <div>Loading...</div>;
@@ -31,6 +29,7 @@ export default function Recipe( {id} ) {
       <Spacer />
       <Header title={currentRecipe.recipe} />
       <Spacer />
+      <FullRecipe props={currentRecipe} />
     </div>
   );
 };
