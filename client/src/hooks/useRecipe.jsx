@@ -1,5 +1,5 @@
 // imports
-import { getRecipeByRecipeId } from "../helpers/recipeHelpers";
+import { getRecipeByRecipeId, getIngredientsByRecipeId, getStepsByRecipeId } from "../helpers/recipeHelpers";
 import { useEffect, useState } from 'react';
 
 export function useRecipe(recipeId) {
@@ -11,15 +11,16 @@ export function useRecipe(recipeId) {
 
     if (recipeId) {
       Promise.all([
-        getRecipeByRecipeId(),
-        getIngredientsByRecipeId(),
-        getStepsByRecipeId(),
+        getRecipeByRecipeId(recipeId),
+        getIngredientsByRecipeId(recipeId),
+        // getStepsByRecipeId(recipeId),
   
       ])
       .then((all) => {
+        console.log(all[0]);
         setCurrentRecipe(all[0]['data']);
         setCurrentIngredients(all[1]['data']);
-        setCurrentSteps(all[2]['data']);
+        // setCurrentSteps(all[2]['data']);
       })
     };
     

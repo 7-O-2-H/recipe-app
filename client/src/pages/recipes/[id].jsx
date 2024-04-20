@@ -18,7 +18,8 @@ export default function Recipe( {id} ) {
   const { currentRecipe, currentIngredients, currentSteps } = useRecipe(recipeId);
  
   // If recipe is not set, invoke loading state
-  if (!currentRecipe || !currentIngredients || !currentSteps) {
+  // if (!currentRecipe || !currentIngredients || !currentSteps) {
+  if (!currentRecipe || !currentIngredients) {
     return <div>Loading...</div>;
   }
 
