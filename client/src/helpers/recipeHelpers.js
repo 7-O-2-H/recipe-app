@@ -28,7 +28,18 @@ export function getRecipeByRecipeId(id) {
 //ingredients functions
 export function getIngredientsByRecipeId(id) {
 
-  return axios.get(`http://localhost:8080/ingredients/${id}`)
+  return axios.get(`http://localhost:8080/recipes/${id}/ingredients/`)
+  .then((data) => {
+    return data;
+  })
+  .catch((e) => {
+    console.log("axios error: ", e);
+  });
+};
+
+// steps
+export default function getStepsByRecipeId(id) {
+  return axios.get(`http://localhost:8080/recipes/${id}/steps`)
   .then((data) => {
     return data;
   })

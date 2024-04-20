@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
 });
 
 // ingredients by recipe
-router.get('/4/ingredients', (req, res) => {
+router.get('/:id/ingredients', (req, res) => {
   getIngredientsByRecipeId(4)
   .then(data => {
     console.log(data);
@@ -28,7 +28,7 @@ router.get('/4/ingredients', (req, res) => {
 });
 
 // steps
-router.get('/4/steps', (req, res) => {
+router.get('/:id/steps', (req, res) => {
   getStepsByRecipeId(4)
   .then(data => {
     res.json(data);

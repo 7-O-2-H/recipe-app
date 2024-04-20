@@ -4,20 +4,27 @@ import { useEffect, useState } from 'react';
 
 export function useRecipe(recipeId) {
   const [currentRecipe, setCurrentRecipe] = useState(null);
-
-  // console.log("recipeId, ", recipeId, "currentRecipe ", currentRecipe);
+  const [currentIngredients, setCurrentIngredients] = useState(null);
+  const [currentSteps, setCurrentSteps] = useState(null);
+  
   useEffect(() => {
 
     if (recipeId) {
-      getRecipeByRecipeId(recipeId)
-      .then((data) => {
-        console.log(data);
-        setCurrentRecipe(data['data'][0]);
-      });
+      Promise.all([
+        getRecipeByRecipeId(),
+        getIngredientsByRecipeId(),
+        getStepsByRecipeId(),
+  
+      ])
+      .then((all) => {
+        setCurrentRecipe(all[0]['data']);
+        setCurrentIngredients(all[1]['data']);
+        setCurrentSteps(all[2]['data']);
+      })
     };
     
   }, [recipeId]);
 
-  return currentRecipe;
+  return { currentRecipe, currentIngredients, currentSteps };
 
 }
