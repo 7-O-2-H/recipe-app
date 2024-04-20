@@ -18,7 +18,7 @@ export function useRecipe(recipeId) {
       ])
       .then((all) => {
         console.log(all[0]);
-        setCurrentRecipe(all[0]['data']);
+        setCurrentRecipe(all[0]['data'][0]);
         setCurrentIngredients(all[1]['data']);
         // setCurrentSteps(all[2]['data']);
       })
