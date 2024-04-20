@@ -46,7 +46,7 @@ const getFullRecipeById = (id) => {
 };
 // ingredients by recipe
 const getIngredientsByRecipeId = (id) => {
-  return db.query("SELECT DISTINCT ingredient, quantity, measurement FROM recipes JOIN recipe_ingredients ON recipes.id = recipe_ingredients.recipe_id JOIN recipe_ingredients ON recipes.id = recipe_ingredients.recipe_id JOIN ingredients ON recipe_ingredients.ingredient_id = ingredients.id JOIN measurements ON recipe_ingredients.measurement_id = ingredients.id JOIN measurments ON ingredients.measurement_id = measurements.id WHERE recipe_id = $1", [id]).then(data => {
+  return db.query("SELECT ingredient, quantity, measurement FROM recipes JOIN recipe_ingredients ON recipes.id = recipe_ingredients.recipe_id JOIN ingredients ON recipe_ingredients.ingredient_id = ingredients.id JOIN measurements ON recipe_ingredients.measurement_id = measurements.id WHERE recipes.id = $1", [id]).then(data => {
     return data.rows;
   })
   .catch((err) => {
