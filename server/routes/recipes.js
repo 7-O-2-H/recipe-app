@@ -20,7 +20,8 @@ router.get('/:id', (req, res) => {
 
 // ingredients by recipe
 router.get('/:id/ingredients', (req, res) => {
-  getIngredientsByRecipeId(4)
+  const id = req.params.id;
+  getIngredientsByRecipeId(id)
   .then(data => {
     console.log(data);
     res.json(data);
