@@ -13,3 +13,4 @@ INSERT INTO measurements (id, measurement) VALUES (12, 'lb');
 INSERT INTO measurements (id, measurement) VALUES (13, 'oz');
 INSERT INTO measurements (id, measurement) VALUES (14, 'fl oz');
 INSERT INTO measurements (id, measurement) VALUES (15, 'packet');
+INSERT INTO measurements (id, measurement) VALUES (16, '-');

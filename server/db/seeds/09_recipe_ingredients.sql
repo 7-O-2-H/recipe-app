@@ -23,8 +23,8 @@ INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurem
 INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (20, 3, 33, 2, 4);
 INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (21, 3, 34, 2, 4); 
 INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (22, 3, 35, 2, 3);
--- INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (9, 4, 9, 0.33, 3); 
--- INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (10, 4, 10, 0.25, 3);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (23, 1, 25, 3, 16); 
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (24, 1, 38, 0, 16);
 -- INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (11, 4, 11, 1, 3);
 -- INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (12, 4, 12, 125, 6);
 -- INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (13, 4, 13, 8, 3);
