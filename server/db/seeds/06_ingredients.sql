@@ -34,10 +34,9 @@ INSERT INTO ingredients (id, ingredient) VALUES (32, 'dried parsley');
 INSERT INTO ingredients (id, ingredient) VALUES (33, 'cajun spice');
 INSERT INTO ingredients (id, ingredient) VALUES (34, 'Montreal Steak Spice');
 INSERT INTO ingredients (id, ingredient) VALUES (35, 'Farfalle pasta');
-INSERT INTO ingredients (id, ingredient) VALUES (36, 'mini potatoes');
+INSERT INTO ingredients (id, ingredient) VALUES (36, 'minced garlic');
 INSERT INTO ingredients (id, ingredient) VALUES (37, 'mild Italian sausage');
 INSERT INTO ingredients (id, ingredient) VALUES (38, 'kosher salt');
-
 
 
 

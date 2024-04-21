@@ -38,28 +38,28 @@ INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
 -- seed Gary's Alfredo Farfalle
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   6, 
-  2, 
+  3, 
   1,
   'Prep',
   'Place all spices (save parsley) in a small dish and mix. In a seperate container mix together the cream and alfredo mix.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   7, 
-  2, 
+  3, 
   2,
   'Step 1',
   'Start boiling water in a large pot. Add butter in a separate pot and at low - medium heat. Once the butter is melted, add the cream/alfredo mix and all spices whisking regularly until the mixture thickens. Once thickened, remove from heat.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   8, 
-  2, 
+  3, 
   3,
   'Step 2',
   'Add pasta to the pot of water once the water is boiling to let the pasta cook (about 10 minutes). Reheat the alfedo sauce mixture while the pasta continues to cook for about 1 minute. Check that the farfalle; if al dente drain and mix in the alfredo sauce. Sprinkle in parsley, add salt and pepper to taste, remove heat and cover for 3 minutes and serve.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   9, 
-  2, 
+  3, 
   3,
   'Step 2',
   'Add pasta to the pot of water once the water is boiling to let the pasta cook (about 10 minutes). Reheat the alfedo sauce mixture while the pasta continues to cook for about 1 minute. Check that the farfalle; if al dente drain and mix in the alfredo sauce. Sprinkle in parsley, add salt and pepper to taste, remove heat and cover for 3 minutes and serve.'
@@ -67,42 +67,42 @@ INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
 -- seed Gary's Zuppa Toscana
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   10, 
-  3, 
+  2, 
   1,
   'Prep',
   'Preheat oven to 300 degrees fahrenheit. Mince the garlic, quarter the potatoes and slice thin. De-stem and chop up the kale.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   11, 
-  3, 
+  2, 
   2,
   'Step 1',
   'Place sausages on a baking sheet and bake them for 20 minutes, turning them a quarter every 5 minutes.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   12, 
-  3, 
+  2, 
   3,
   'Step 2',
   'While the sausages are baking, boil the water, add butter, spices and potatoes. Cook for about 15 minutes.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   13, 
-  3, 
+  2, 
   4,
   'Step 3',
   'While the sausages are baking and the soup mixture is cooking, add oil to a sauce pan with the minced garlic and saute the onions (fry until soft).'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   14, 
-  3, 
+  2, 
   5,
   'Step 4',
-  'Remove the cooked sausage from the oven, slice and quater.'
+  'Remove the cooked sausage from the oven, slice and quarter.'
 );
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   15, 
-  3, 
+  2, 
   6,
   'Step 5',
   'Reduce heat, add kale, chopped sausage and cream. Let sit for a few minutes and serve.'
@@ -143,6 +143,7 @@ INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   'Step 4',
   'Turn off the heat and let sit for 5 minutes. You may want to add salt or pepper to taste. Remove the chorizo (deskin it if preferred) and slice the peices into coin shapes and quater them. Add the chopped chorizo back into the soup, sprinkle with parsley and serve.'
 );
+-- baked chiecken thighs
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   21, 
   5, 
