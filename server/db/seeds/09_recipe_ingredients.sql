@@ -37,3 +37,16 @@ INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurem
 INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (33, 1, 22, 0.5, 3);
 INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (34, 1, 23, 0.33, 3);
 INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (35, 1, 24, 0, 17);
+-- Zuppa Toscana
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (36, 2, 6, 1, 16);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (37, 2, 13, 9, 3);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (38, 2, 36, 1, 9);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (39, 2, 16, 1, 9);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (40, 2, 3, 3, 8);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (41, 2, 14, 1, 8);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (42, 2, 27, 6, 3);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (43, 2, 32, 10, 4);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (44, 2, 2, 5, 4);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (45, 2, 1, 5, 4);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (46, 2, 38, 5, 4);
+INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (47, 2, 4, 2, 8);
