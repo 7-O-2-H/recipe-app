@@ -12,7 +12,7 @@ INSERT INTO ingredients (id, ingredient) VALUES (10, 'orzo');
 INSERT INTO ingredients (id, ingredient) VALUES (11, 'cooked chicken');
 INSERT INTO ingredients (id, ingredient) VALUES (12, 'spicy chorizo');
 INSERT INTO ingredients (id, ingredient) VALUES (13, 'water');
-INSERT INTO ingredients (id, ingredient) VALUES (14, 'calda (portuguese pepper paste)');
+INSERT INTO ingredients (id, ingredient) VALUES (14, 'pimenta moida (portuguese ground pepper paste)');
 INSERT INTO ingredients (id, ingredient) VALUES (15, 'all-purpose flour');
 INSERT INTO ingredients (id, ingredient) VALUES (16, 'extra-virgin olive oil');
 INSERT INTO ingredients (id, ingredient) VALUES (17, 'dried oregano');
@@ -37,6 +37,7 @@ INSERT INTO ingredients (id, ingredient) VALUES (35, 'Farfalle pasta');
 INSERT INTO ingredients (id, ingredient) VALUES (36, 'minced garlic');
 INSERT INTO ingredients (id, ingredient) VALUES (37, 'mild Italian sausage');
 INSERT INTO ingredients (id, ingredient) VALUES (38, 'kosher salt');
+INSERT INTO ingredients (id, ingredient) VALUES (39, 'chicken thighs');
 
 
 

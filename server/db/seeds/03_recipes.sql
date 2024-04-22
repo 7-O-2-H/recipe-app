@@ -26,7 +26,7 @@ INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, descript
   20,
   1,
   6,
-  'A creamy alferedo pasta.'
+  'A creamy alfredo pasta.'
 );
 -- seed Vavo
 INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, description) VALUES (
