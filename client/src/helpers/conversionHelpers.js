@@ -1,3 +1,4 @@
+// converts rational decimals to fractions
 export function decimalToFraction(decimal) {
   
   // Define the maximum denominator to approximate the fraction
@@ -30,4 +31,92 @@ export function decimalToFraction(decimal) {
 
   // Return the fraction as a string
   return `${Math.round(numerator)}/${denominator}`;
+};
+
+export function formatIngredientsData(ingredients) {
+
+  const ingredientsArray = [];
+
+  // loop through ingredients data
+  for (const ing of ingredients) {
+
+    // intialize formatted ingredients strings
+    let str = '';
+
+    // convert to fraction and whole number if greater than 1
+    if (ing['quantity'] > 1) {
+
+      // check if decimal
+      if (ing['quantity'] % 1 === 0) {
+
+        str += `${ing['quantity']} ${ing['measurement']}s of ${ing['ingredient']}`; 
+      
+      } else {
+
+        // initialize whole number and decimal (to be converted) for decimal values
+        const wholeNum = ing['quantity'] - (ing['quantity'] % 1);
+        const decimal = ing['quantity'] % 1;
+
+        if (decimal === 0.66) {
+
+          str += `${wholeNum} 2/3 ${ing['measurement']}s of ${ing['ingredient']}`;
+
+        } else if (decimal === 0.33) {
+
+          str += `${wholeNum} 1/3 ${ing['measurement']}s of ${ing['ingredient']}`;
+
+        } else if (decimal === 0.167) {
+
+          str += `${wholeNum} 1/6 ${ing['measurement']}s of ${ing['ingredient']}`;
+        
+        } else {
+
+          // use helper to convert decimal to fraction
+          const fraction = decimalToFraction(decimal);
+
+          str += `${wholeNum} ${fraction} ${ing['measurement']}s of ${ing['ingredient']}`;
+        }
+      }
+    } else {
+
+      // check if decimal
+      if (ing['quantity'] % 1 === 0) {
+
+        str += `${ing['quantity']} ${ing['measurement']} of ${ing['ingredient']}`; 
+      
+      } else {
+
+        // initialize decimal (to be converted) for decimal values
+        const decimal = ing['quantity'] % 1;
+
+        if (decimal === 0.66) {
+
+          str += `2/3 ${ing['measurement']} of ${ing['ingredient']}`;
+
+        } else if (decimal === 0.33) {
+
+          str += `1/3 ${ing['measurement']} of ${ing['ingredient']}`;
+
+        } else if (decimal === 0.167) {
+
+          str += `1/6 ${ing['measurement']}s of ${ing['ingredient']}`;
+        
+        } else {
+
+          // use helper to convert decimal to fraction
+          const fraction = decimalToFraction(decimal);
+
+          str += `${fraction} ${ing['measurement']} of ${ing['ingredient']}`;
+        
+        }
+      }
+    }
+
+    // push strings to ing array
+    ingredientsArray.push(str);
+
+  }
+
+  return ingredientsArray;
+
 };
