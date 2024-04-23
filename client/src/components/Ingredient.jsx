@@ -1,7 +1,13 @@
-export default function Ingredient() {
+export default function Ingredient(props) {
   
+  const { ingredient } = props;
   //template
   return (
-    <div></div>
+    <div className="ingredients-container">
+      <body className="ingredient">
+        - &nbsp;
+        {ingredient}
+      </body>
+    </div>
   );
 };
