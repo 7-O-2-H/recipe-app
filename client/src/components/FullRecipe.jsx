@@ -1,3 +1,6 @@
+// imports
+import { decimalToFraction } from "../helpers/conversionHelpers";
+
 export default function FullRecipe (props) {
 
   const { recipe, ingredients, steps } = props;
@@ -34,9 +37,16 @@ export default function FullRecipe (props) {
 
           str += `${wholeNum} 1/3 ${ing['measurement']}s of ${ing['ingredient']}`;
 
+        } else if (decimal === 0.167) {
+
+          str += `${wholeNum} 1/6 ${ing['measurement']}s of ${ing['ingredient']}`;
+        
         } else {
 
-          str += `${ing['quantity']} ${ing['measurement']}s of ${ing['ingredient']}`; 
+          // use helper to convert decimal to fraction
+          const fraction = decimalToFraction(decimal);
+
+          str += `${wholeNum} ${fraction} ${ing['measurement']}s of ${ing['ingredient']}`;
         }
       }
     } else {
@@ -59,9 +69,16 @@ export default function FullRecipe (props) {
 
           str += `1/3 ${ing['measurement']} of ${ing['ingredient']}`;
 
+        } else if (decimal === 0.167) {
+
+          str += `1/6 ${ing['measurement']}s of ${ing['ingredient']}`;
+        
         } else {
-          
-          str += `${ing['quantity']} ${ing['measurement']} of ${ing['ingredient']}`;
+
+          // use helper to convert decimal to fraction
+          const fraction = decimalToFraction(decimal);
+
+          str += `${fraction} ${ing['measurement']} of ${ing['ingredient']}`;
         
         }
       }
