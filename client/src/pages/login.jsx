@@ -31,7 +31,7 @@ export default function Login() {
       <Spacer />
       <div className="login">
         <h2>Login to Add Your Taste</h2>
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleLogin}>
           <input
             id="email"
             type="email"

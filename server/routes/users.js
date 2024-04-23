@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { getAllUsers, getUserById, getUserByRecipeId } = require('../db/queries/users');
+const { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail } = require('../db/queries/users');
+const { validUser, validateUserLogin } = require('../helpers/userHelpers');
 
 router.get('/', (req, res) => {
   getAllUsers()
@@ -8,11 +9,28 @@ router.get('/', (req, res) => {
   })
 });
 
-router.get('/loginByEmail', (req, res) => {
-  validateUserByEmail(email, password)
-  .then(data => {
-    res.json(data);
-  });
+router.put('/login', async (req, res) => {
+
+  // req email and password
+  const email = req.body.email;
+  const password = req.body.password
+
+  // check for valid user
+  const isValidUser = await validUser(email);
+
+  if (!isValidUser) {
+    return res.json({ error: `Error: email not in database: ${email}` });
+  };
+
+  // validate user login by email
+  const validLogin = validateUserLogin(email, password);
+
+  if (validLogin) {
+    return res.json(true);
+  };
+
+  return res.json(false);
+
 });
 
 router.get('/5', (req, res) => {
