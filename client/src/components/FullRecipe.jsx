@@ -41,6 +41,7 @@ export default function FullRecipe (props) {
           <h2>Ingredients</h2>
             <div className="ingredient-container" >{ingredientArray}</div>
         </div>
+        <div className="break"></div>
         <div className="instructions">
           <h2>Instructions</h2>
           <div className="step-container">{stepsArray}</div>
