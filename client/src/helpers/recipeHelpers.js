@@ -38,7 +38,7 @@ export function getIngredientsByRecipeId(id) {
 };
 
 // steps
-export default function getStepsByRecipeId(id) {
+export function getStepsByRecipeId(id) {
   return axios.get(`http://localhost:8080/recipes/${id}/steps`)
   .then((data) => {
     return data;

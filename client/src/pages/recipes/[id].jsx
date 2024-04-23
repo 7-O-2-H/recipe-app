@@ -18,12 +18,11 @@ export default function Recipe( {id} ) {
   const { currentRecipe, currentIngredients, currentSteps } = useRecipe(recipeId);
  
   // If recipe is not set, invoke loading state
-  // if (!currentRecipe || !currentIngredients || !currentSteps) {
-  if (!currentRecipe || !currentIngredients) {
+  if (!currentRecipe || !currentIngredients || !currentSteps) {
     return <div>Loading...</div>;
   }
 
-  console.log("current rec: ", currentRecipe, "\ncurrent ing: ", currentIngredients, "\ncurrent steps: ", currentSteps);
+  // console.log("current rec: ", currentRecipe, "\ncurrent ing: ", currentIngredients, "\ncurrent steps: ", currentSteps);
 
   // Render the recipe details
   return (
@@ -32,7 +31,11 @@ export default function Recipe( {id} ) {
       <Spacer />
       <Header title={currentRecipe.recipe} />
       <Spacer />
-      // <FullRecipe props={currentRecipe} />
+      <FullRecipe 
+        recipe={currentRecipe} 
+        ingredients={currentIngredients}
+        steps={currentSteps} 
+      />
     </div>
   );
 };
