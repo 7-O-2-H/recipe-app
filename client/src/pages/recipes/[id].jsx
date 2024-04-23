@@ -31,7 +31,11 @@ export default function Recipe( {id} ) {
       <Spacer />
       <Header title={currentRecipe.recipe} />
       <Spacer />
-      // <FullRecipe props={currentRecipe} />
+      <FullRecipe 
+        recipe={currentRecipe} 
+        ingredients={currentIngredients}
+        steps={currentSteps} 
+      />
     </div>
   );
 };
