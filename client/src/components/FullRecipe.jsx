@@ -2,6 +2,7 @@
 import { decimalToFraction } from "../helpers/conversionHelpers";
 import { formatIngredientsData } from "../helpers/conversionHelpers";
 import Ingredient from "./Ingredient";
+import Steps from "./Steps";
 import Spacer from "./Spacer";
 import "../styles/FullRecipe.css"
 
@@ -19,7 +20,15 @@ export default function FullRecipe (props) {
     />
   ));
 
-  console.log("Ingredients Array: ", ingredientsArray);
+  const stepsArray = steps.map(step => (
+    <Steps
+      key={step.id}
+      step_name={step.step_name}
+      instruction={step.instruction}
+    />  
+  ));
+
+  console.log("steps Array: ", stepsArray);
 
   return (
     <div>
@@ -34,6 +43,7 @@ export default function FullRecipe (props) {
         </div>
         <div className="instructions">
           <h2>Instructions</h2>
+          <div className="step-container">{stepsArray}</div>
         </div>
       </div>
     </div>

@@ -1,0 +1,18 @@
+export default function Steps(props) {
+  
+  const { step_name, instruction } = props;
+  //template
+  return (
+    <div className="steps-container">
+      <body className="step">
+        <h3>
+          {step_name}
+        </h3>
+        <br></br>
+        {instruction}
+        <br></br>
+        <br></br>
+      </body>
+    </div>
+  );
+};

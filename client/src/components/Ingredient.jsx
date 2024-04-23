@@ -7,6 +7,8 @@ export default function Ingredient(props) {
       <body className="ingredient">
         - &nbsp;
         {ingredient}
+        <br></br>
+        <br></br>
       </body>
     </div>
   );

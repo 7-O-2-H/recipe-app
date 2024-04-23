@@ -2,7 +2,13 @@ h2 {
   font-family: 'Great Vibes';
   font-weight: bold;
   font-size: 50px;
-  padding: 5% 2%;
+  padding: 40px 10px;
+}
+
+h3 {
+  font-family: 'Great Vibes';
+  font-weight: bold;
+  font-size: 28px;
 }
 .recipe-description {
   display: flex;
@@ -24,4 +30,3 @@ h2 {
   flex-direction: column;
   padding: 1%;
 }
-

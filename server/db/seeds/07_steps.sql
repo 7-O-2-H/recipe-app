@@ -141,7 +141,7 @@ INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
   4, 
   5,
   'Step 4',
-  'Turn off the heat and let sit for 5 minutes. You may want to add salt or pepper to taste. Remove the chorizo (deskin it if preferred) and slice the peices into coin shapes and quater them. Add the chopped chorizo back into the soup, sprinkle with parsley and serve.'
+  'Turn off the heat and let sit for 5 minutes. You may want to add salt or pepper to taste. Remove the chorizo (deskin if you prefer) coin, then qurter the peices. Add the chopped chorizo back into the soup, sprinkle with parsley and serve.'
 );
 -- baked chiecken thighs
 INSERT INTO steps (id, recipe_id, step_number, step_name, instruction) VALUES (
