@@ -9,11 +9,11 @@ async function validateUserLogin(email, password) {
 
     // if retrieved email from query matches input return true
     if (data[0]['password'] === password) {
-      return true;
+      return (true, data[0]);
     };
 
     // else return false
-    return ([false, "You entered an incorrect password."]);
+    return false;
 
   } catch (error) {
 
@@ -36,7 +36,7 @@ async function validUser(email) {
     }
 
     // else return true
-    return true;
+    return (true);
 
   } catch (error) {
 

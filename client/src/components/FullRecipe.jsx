@@ -28,7 +28,7 @@ export default function FullRecipe (props) {
     />  
   ));
 
-  console.log("steps: ", steps, "steps Array: ", stepsArray);
+  // console.log("steps: ", steps, "steps Array: ", stepsArray);
 
   return (
     <div>

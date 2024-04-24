@@ -18,7 +18,7 @@ export default function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     validateUser(email, password).then((data) => {
-      console.log(data);
+      console.log('data: ', data);
     });
   };
 

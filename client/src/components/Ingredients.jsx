@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export default function Ingredients() {
 
   const { recipeIngredients } = useAppData();
-  console.log(recipeIngredients);
+  // console.log(recipeIngredients);
   return (
     <div>Hello</div>
   )
