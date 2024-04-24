@@ -9,6 +9,13 @@ router.get('/', (req, res) => {
   })
 });
 
+router.get('/users/:id', (req, res) => {
+  getRecipesByUserId(4)
+  .then(data => {
+    res.json(data);
+  })
+});
+
 
 router.get('/:id', (req, res) => {
   const id = req.params.id;
@@ -35,6 +42,5 @@ router.get('/:id/steps', (req, res) => {
     res.json(data);
   })
 });
-
 
 module.exports = router;

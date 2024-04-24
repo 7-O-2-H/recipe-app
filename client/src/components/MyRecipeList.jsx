@@ -1,14 +1,16 @@
 // imports
 import useAppData from "../hooks/useAppData";
+import { useMyRecipes } from "../hooks/useMyRecipes";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 
 export default function MyRecipeList() {
 
-  // get recipes
-  const { allRecipes } = useAppData();
 
-  const recipesArray = allRecipes.map(recipe => (  
+  // get my recipes
+  const { myRecipes } = useMyRecipes();
+
+  const recipesArray = myRecipes.map(recipe => (  
       <RecipeListItem
         key={recipe.id}
         id={recipe.id}

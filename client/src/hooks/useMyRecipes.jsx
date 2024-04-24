@@ -1,6 +1,6 @@
 // imports
 import { useEffect, useState } from 'react';
-import { getRecipesByUserId } from '../helpers/tagsHelpers';
+import { getRecipesByUserId } from '../helpers/recipeHelpers';
 
 export function useMyRecipes(tagId) {
   const [recipes, setRecipes] = useState([]);
@@ -8,7 +8,7 @@ export function useMyRecipes(tagId) {
   useEffect(() => {
 
     if (userId) {
-      getRecipesByTagId(userId)
+      getRecipesByUserId(userId)
       .then((data) => {
         setRecipes(data['data']);
       });

@@ -25,6 +25,17 @@ export function getRecipeByRecipeId(id) {
   });
 };
 
+export function getRecipeUserId(id) {
+
+  return axios.get(`http://localhost:8080/recipes/users/${id}`)
+  .then((data) => {
+    return data;
+  })
+  .catch((e) => {
+    console.log("axios error: ", e);
+  });
+};
+
 //ingredients functions
 export function getIngredientsByRecipeId(id) {
 
