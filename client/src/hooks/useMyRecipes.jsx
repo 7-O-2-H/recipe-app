@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { getRecipesByUserId } from '../helpers/recipeHelpers';
 
-export function useMyRecipes(tagId) {
+export function useMyRecipes(userId) {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {

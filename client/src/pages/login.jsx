@@ -24,6 +24,7 @@ export default function Login() {
         localStorage.setItem("token", data);
         setToken(data);
         router.push('/');
+        console.log('token from login: ', token);
       }
     });
   };

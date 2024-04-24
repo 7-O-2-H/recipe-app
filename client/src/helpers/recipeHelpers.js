@@ -25,7 +25,7 @@ export function getRecipeByRecipeId(id) {
   });
 };
 
-export function getRecipeUserId(id) {
+export function getRecipesByUserId(id) {
 
   return axios.get(`http://localhost:8080/recipes/users/${id}`)
   .then((data) => {
