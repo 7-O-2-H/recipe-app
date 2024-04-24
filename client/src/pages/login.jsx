@@ -19,13 +19,14 @@ export default function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     validateUser(email, password).then((data) => {
-      if(data) {
+      if(data['data']) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
-        localStorage.setItem("token", data);
+        localStorage.setItem("token", data['data']);
         setToken(data);
         router.push('/');
-        console.log('token from login: ', token);
-      }
+      } else {
+        console.log("your email or password is incorrect");
+      };
     });
   };
 
@@ -62,36 +63,4 @@ export default function Login() {
       </div>
     </div>
   );
-}
-// <div className="login">
-//     <form id="login" className="input-group-login" onSubmit={handleLogin}>
-//       <h1 className="form-title">Login</h1>
-//       <input
-//         id="email"
-//         type="email"
-//         className="input-field"
-//         placeholder="Email Id"
-//         value={email}
-//         onChange={(event) => setEmail(event.target.value)}
-//       />
-//       <input
-//         id="password"
-//         type="password"
-//         className="input-field"
-//         placeholder="Enter Password"
-//         value={password}
-//         onChange={(event) => setPassword(event.target.value)}
-//       />
-//       <div className="checkbox-container">
-//         <input type="checkbox" className="check-box" />
-//         <span className="checkbox-text">Remember Password</span>
-//       </div>
-//       <button type="submit" className="submit-btn">
-//         Login
-//       </button>
-//     </form>
-//     </div>
-//   );
-// };
-
-// export default Login;
+};
