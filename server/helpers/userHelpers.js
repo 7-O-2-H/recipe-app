@@ -17,11 +17,11 @@ async function validateUserLogin(email, password) {
     // if retrieved email from query matches input return true
     if (data[0]['password'] === password) {
       const token = generateToken(data[0]['id']);
-      return (token);
+      return ([true, token]);
     };
 
     // else return false
-    return false;
+    return ([false, 'Your email or password is invalid']);
 
   } catch (error) {
 

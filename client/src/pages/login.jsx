@@ -19,12 +19,15 @@ export default function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     validateUser(email, password).then((data) => {
-      if(data) {
+      if(data['data']) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
-        localStorage.setItem("token", data);
+        localStorage.setItem("token", data['data']);
         setToken(data);
+        console.log("token: ", data['data']);
         router.push('/');
-      }
+      } else {
+        console.log("your email or password is incorrect");
+      };
     });
   };
 
