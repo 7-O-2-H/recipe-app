@@ -3,7 +3,7 @@ import useAppData from "../hooks/useAppData";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 
-export default function RecipeList() {
+export default function MyRecipeList() {
 
   // get recipes
   const { allRecipes } = useAppData();

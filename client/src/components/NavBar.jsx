@@ -51,7 +51,7 @@ export default function NavBar() {
             {/* <h1>Favourites</h1> */}
           </li>
           <li>
-            {/* <h1>My Recipes</h1> */}
+            <Link href="/myRecipes">My Recipes</Link>
           </li>
           <li>
             <Link href="/browse">Browse</Link>

@@ -1,6 +1,5 @@
 // imports
 import "../styles/browse.css";
-import { useState } from "react";
 import NavBar from "../components/NavBar";
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
@@ -14,7 +13,7 @@ export default function Browse() {
     <div>
       <NavBar />
       <Spacer />
-      <Header title="Recipes" />
+      <Header title="My Recipes" />
       <Spacer />
       <BrowseOptions />
       <div className="browse-body" >

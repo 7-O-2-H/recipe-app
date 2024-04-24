@@ -1,20 +1,20 @@
 // imports
 import { useEffect, useState } from 'react';
-import { getRecipesByTagId } from '../helpers/tagsHelpers';
+import { getRecipesByUserId } from '../helpers/tagsHelpers';
 
-export function useTag(tagId) {
+export function useMyRecipes(tagId) {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
 
-    if (tagId) {
-      getRecipesByTagId(tagId)
+    if (userId) {
+      getRecipesByTagId(userId)
       .then((data) => {
         setRecipes(data['data']);
       });
     };
     
-  }, [tagId]);
+  }, [userId]);
 
   return recipes;
 
