@@ -4,7 +4,7 @@ export default function Steps(props) {
   //template
   return (
     <div className="steps-container">
-      <body className="step">
+      <div className="step">
         <h3>
           {step_name}
         </h3>
@@ -12,7 +12,7 @@ export default function Steps(props) {
         {instruction}
         <br></br>
         <br></br>
-      </body>
+      </div>
     </div>
   );
 };

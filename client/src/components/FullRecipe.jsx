@@ -20,15 +20,15 @@ export default function FullRecipe (props) {
     />
   ));
 
-  const stepsArray = steps.map(step => (
+  const stepsArray = steps.map((step, index) => (
     <Steps
-      key={step.id}
+      key={index + 1}
       step_name={step.step_name}
       instruction={step.instruction}
     />  
   ));
 
-  console.log("steps Array: ", stepsArray);
+  console.log("steps: ", steps, "steps Array: ", stepsArray);
 
   return (
     <div>
