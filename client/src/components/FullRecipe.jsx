@@ -1,5 +1,4 @@
 // imports
-import { decimalToFraction } from "../helpers/conversionHelpers";
 import { formatIngredientsData } from "../helpers/conversionHelpers";
 import Ingredient from "./Ingredient";
 import Steps from "./Steps";
