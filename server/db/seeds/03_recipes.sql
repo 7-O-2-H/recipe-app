@@ -45,5 +45,5 @@ INSERT INTO recipes (id, user_id, recipe, time, measurement_id, serves, descript
   75,
   1,
   8,
-  'Chicken thighs that are crispy on the outside and moist within. This easy to make dish can serve plenty and includes sides!'
+  'Chicken thighs that are crispy on the outside and moist within. Includes sides!'
 );
