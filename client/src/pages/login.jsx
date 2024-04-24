@@ -5,12 +5,16 @@ import Header from '../components/Header';
 import Spacer from '../components/Spacer';
 import '../styles/login.css';
 import { validateUser } from "../helpers/userHelpers";
+import { useRouter } from 'next/router';
 
 export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState('');
+
+  // set router
+  const router = useRouter();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -19,6 +23,7 @@ export default function Login() {
         localStorage.setItem("loggedIn", JSON.stringify(true));
         localStorage.setItem("token", data);
         setToken(data);
+        router.push('/');
       }
     });
   };
