@@ -4,15 +4,22 @@ import NavBar from "../components/NavBar";
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
 import '../styles/login.css';
+import { validateUser } from "../helpers/userHelpers";
 
 export default function Login() {
 
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [token, setToken] = useState('');
+
+
 
   const handleLogin = (event) => {
     event.preventDefault();
+    validateUser(email, password).then((data) => {
+      console.log(data);
+    });
   };
 
   // template
@@ -23,8 +30,8 @@ export default function Login() {
       <Header title="Login"/>
       <Spacer />
       <div className="login">
-        <h2>Login into Codex Epicuria</h2>
-        <form className="login-form">
+        <h2>Login to Add Your Taste</h2>
+        <form className="login-form" onSubmit={handleLogin}>
           <input
             id="email"
             type="email"

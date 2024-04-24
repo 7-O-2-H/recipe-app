@@ -5,7 +5,6 @@ const getAllUsers = () => {
   return db
     .query(`SELECT * FROM users;`)
     .then((result) => {
-      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
@@ -18,7 +17,6 @@ const getPasswordByEmail = (email) => {
   return db
     .query(`SELECT password FROM users WHERE users.email = $1`, [email])
     .then((result) => {
-      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
@@ -31,11 +29,21 @@ const getUserById = (id) => {
   return db
     .query(`SELECT * FROM users WHERE users.id = $1`, [id])
     .then((result) => {
-      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
       console.log('add user error;', err.message);
+      return null;
+    });
+};
+
+const getUserByEmail = (email) => {
+  return db
+    .query(`SELECT * FROM users WHERE email = $1`, [email])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
       return null;
     });
 };
@@ -44,7 +52,6 @@ const getUserByRecipeId = (id) => {
   return db
     .query(`SELECT * FROM users JOIN recipes ON users.id = recipes.user_id WHERE recipes.id = $1`, [id])
     .then((result) => {
-      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
@@ -53,4 +60,4 @@ const getUserByRecipeId = (id) => {
     });
 };
 
-module.exports = { getAllUsers, getUserById, getUserByRecipeId };
+module.exports = { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail };
