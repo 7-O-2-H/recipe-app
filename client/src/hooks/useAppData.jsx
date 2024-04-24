@@ -26,25 +26,6 @@ export default function useAppData() {
       setAllIngredients(all[2]['data']);
     })
 
-    // get recipes
-    // getAllRecipes()
-    // .then((data) => {
-    //   console.log(data);
-    //   setAllRecipes(data['data']);
-    // });
-
-    // get igredients
-    // getIngredientsByRecipeId(1)
-    // .then((data) => {
-    //   setRecipeIngredients(data['data']);
-    // });
-
-    // get tags
-    // getAllTags()
-    // .then((data) => {
-    //   setAllTags(data);
-    // });
-
   }, []);
 
   return { allRecipes, allTags, allIngredients };

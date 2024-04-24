@@ -8,12 +8,9 @@ import { validateUser } from "../helpers/userHelpers";
 
 export default function Login() {
 
-  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState('');
-
-
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -21,6 +18,7 @@ export default function Login() {
       if(data) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
         localStorage.setItem("token", data);
+        setToken(data);
       }
     });
   };
