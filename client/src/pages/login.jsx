@@ -18,7 +18,10 @@ export default function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     validateUser(email, password).then((data) => {
-      console.log('data: ', data);
+      if(data) {
+        localStorage.setItem("loggedIn", JSON.stringify(true));
+        localStorage.setItem("token", data);
+      }
     });
   };
 

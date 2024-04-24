@@ -12,7 +12,6 @@ export default function RecipeListItem(props) {
   const [recipeId, setRecipeId] = useState(null);
   useEffect(() => {
     setRecipeId(id);
-    localStorage.setItem('recipeId', recipeId);
   }, [id]);
 
   // template

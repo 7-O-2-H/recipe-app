@@ -4,9 +4,12 @@ import Link from "next/link";
 
 export default function NavBar() {
   
+  const loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
+
   // Template
   return (
     <div className="navbar">
+
       <ul className="links">
         <li>
           <Link href="/">Home</Link>
