@@ -26,6 +26,7 @@ router.put('/login', async (req, res) => {
   const validLogin = await validateUserLogin(email, password);
 
   if (validLogin) {
+    console.log(validLogin);
     return res.json(validLogin);
   };
 
