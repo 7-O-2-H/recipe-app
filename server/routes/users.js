@@ -23,13 +23,13 @@ router.put('/login', async (req, res) => {
   };
 
   // validate user login by email
-  const validLogin = validateUserLogin(email, password);
+  const validLogin = await validateUserLogin(email, password);
 
   if (validLogin) {
     return res.json(true);
   };
 
-  return res.json(false);
+  return "You're password is incorrect";
 
 });
 

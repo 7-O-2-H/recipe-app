@@ -1,19 +1,27 @@
 //imports 
 const userQueries = require('../db/queries/users');
 
-function validateUserLogin(email, password) {
+async function validateUserLogin(email, password) {
 
   // retrieve user by email
-  userQueries.getUserByEmail(email)
-  .then(data => {
+  try {
+    const data = await userQueries.getUserByEmail(email);
 
     // if retrieved email from query matches input return true
     if (data[0]['password'] === password) {
       return true;
     };
 
+    // else return false
+    return ([false, "You entered an incorrect password."]);
+
+  } catch (error) {
+
+    // handle validation error
+    console.error('Error validating user:', error);
     return false;
-  });
+    
+  };
 };
 
 async function validUser(email) {
