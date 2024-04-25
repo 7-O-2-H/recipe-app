@@ -17,8 +17,7 @@ async function validateUserLogin(email, password) {
 
     // if retrieved email from query matches input return true
     if (data[0]['password'] === password) {
-      const token = generateToken(data[0]);
-      console.log("data", data, "token", token);
+      const token = generateToken(data[0]['id']);
       return token;
     };
 

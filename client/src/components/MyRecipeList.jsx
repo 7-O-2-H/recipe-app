@@ -7,20 +7,19 @@ import RecipeListItem from "./RecipeListItem";
 
 export default function MyRecipeList() {
 
-  // const [myRecipes, setMyRecipes] = useState([]);
-
   //set user
-  const user = (useVerification());
-  const { myRecipes } = useMyRecipes(user);
+  const userId = (useVerification());
+
   // setMyRecipes(useMyRecipes(user));
+  const { myRecipes } = useMyRecipes(userId);
   
   // get my recipes
   
-  if (!user || !myRecipes) {
+  if (!userId || !myRecipes) {
     return <div>Loading...</div>
   };  
 
-    console.log(myRecipes);
+  console.log(myRecipes);
   
 
   const recipesArray = myRecipes.map(recipe => (  

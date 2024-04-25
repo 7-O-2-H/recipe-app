@@ -3,16 +3,16 @@ import { tokenVerification } from '../helpers/tokenVerification';
 
 export function useVerification() {
 
-  const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState(null);
   
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem('token');
         // retreive token
+        const token = localStorage.getItem('token');
         // set user
         const userInfo = await tokenVerification(token);
-        setUser(userInfo);
+        setUserId(userInfo);
 
       } catch (error) {
         console.error('Error verifying token:', error);
@@ -22,5 +22,5 @@ export function useVerification() {
     fetchData();
   }, []);
 
-  return user;
+  return userId;
 };
