@@ -11,8 +11,7 @@ export function useFavourites(userId) {
     if (userId) {
       getFavouritesByUserId(userId)
       .then((data) => {
-        console.log("data", data);
-        // setFavourites(data['data']);
+        setFavourites(data);
       });
     };
     

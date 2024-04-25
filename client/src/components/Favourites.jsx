@@ -13,12 +13,9 @@ export default function MyRecipeList() {
   const { favourites } = useFavourites(userId);
   
   // get my recipes
-  
   if (!userId || !favourites) {
     return <div>Loading...</div>
   };  
-
-  console.log("faves", favourites, "userId: ", userId);
   
   const recipesArray = favourites.map(recipe => (  
       <RecipeListItem
