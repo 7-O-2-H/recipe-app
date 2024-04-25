@@ -21,7 +21,7 @@ export default function NavBar() {
   const handleLogout = () => {
     loggedIn = false;
     localStorage.setItem("loggedIn", false);
-    router.push('/');
+    router.push('/login');
   };
 
   // Template
@@ -47,9 +47,9 @@ export default function NavBar() {
           <li>
             <Link href="/">Home</Link>
           </li>
-          <li>
-            {/* <h1>Favourites</h1> */}
-          </li>
+          {/* <li>
+            <h1>Favourites</h1>
+          </li> */}
           <li>
             <Link href="/myRecipes">My Recipes</Link>
           </li>

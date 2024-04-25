@@ -12,6 +12,7 @@ const ingredientsRoutes = require('./routes/ingredients');
 const userRoutes = require('./routes/users');
 const tagRoutes = require('./routes/tags');
 const favouritesRoutes = require('./routes/favourites');
+const verificationRouter = require('./routes/tokenVerification');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use('/ingredients', ingredientsRoutes);
 app.use('/users', userRoutes);
 app.use('/tags', tagRoutes);
 app.use('/favourites', favouritesRoutes);
+app.use('/verification', verificationRouter);
 
 app.get('/', (req, res) => {
   res.json({greetings: 'hello'});

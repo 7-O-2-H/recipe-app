@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const generateToken = (user) => {
   const secretKey = process.env.JWT_SECRET_KEY;
   const token = jwt.sign(user, secretKey);
+  console.log(secretKey);
   return token;
 }
 
@@ -16,12 +17,13 @@ async function validateUserLogin(email, password) {
 
     // if retrieved email from query matches input return true
     if (data[0]['password'] === password) {
-      const token = generateToken(data[0]['id']);
-      return ([true, token]);
+      const token = generateToken(data[0]);
+      console.log("data", data, "token", token);
+      return token;
     };
 
     // else return false
-    return ([false, 'Your email or password is invalid']);
+    return (false);
 
   } catch (error) {
 

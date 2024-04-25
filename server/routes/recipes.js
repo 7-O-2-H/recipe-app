@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users/:id', (req, res) => {
-  getRecipesByUserId(4)
+  const id = req.params.id;
+  getRecipesByUserId(id)
   .then(data => {
     res.json(data);
   })

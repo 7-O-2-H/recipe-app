@@ -2,20 +2,25 @@
 import { useEffect, useState } from 'react';
 import { getRecipesByUserId } from '../helpers/recipeHelpers';
 
-export function useMyRecipes(userId) {
-  const [recipes, setRecipes] = useState([]);
-
+export function useMyRecipes(user) {
+  
+  const [myRecipes, setMyRecipes] = useState([]);
+  
   useEffect(() => {
 
-    if (userId) {
+    if (user && user.id) {
+      const userId = user.id;
       getRecipesByUserId(userId)
       .then((data) => {
-        setRecipes(data['data']);
+        console.log(data);
+        setMyRecipes(data['data']);
       });
     };
     
-  }, [userId]);
+  }, [user]);
 
-  return recipes;
+  console.log(myRecipes);
+
+  return myRecipes;
 
 };

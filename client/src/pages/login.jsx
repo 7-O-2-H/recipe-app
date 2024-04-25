@@ -22,7 +22,8 @@ export default function Login() {
       if(data['data']) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
         localStorage.setItem("token", data['data']);
-        setToken(data);
+        setToken(data['data'][1]);
+        // console.log(data['data']);
         router.push('/');
       } else {
         console.log("your email or password is incorrect");

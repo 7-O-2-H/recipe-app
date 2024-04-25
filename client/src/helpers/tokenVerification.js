@@ -1,9 +1,10 @@
-export async function tokenVerification(token) {
+
+export async function tokenVerification(token){
   try {
     const response = await fetch('http://localhost:8080/verification', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${token}`
+        'authorization': `Bearer ${token}`
       }
     });
 
@@ -16,4 +17,5 @@ export async function tokenVerification(token) {
   } catch (error) {
     throw error;
   }
+
 };
