@@ -12,15 +12,14 @@ export function useMyRecipes(user) {
       const userId = user.id;
       getRecipesByUserId(userId)
       .then((data) => {
-        console.log(data);
         setMyRecipes(data['data']);
       });
     };
     
   }, [user]);
 
-  console.log(myRecipes);
+  // console.log(myRecipes);
 
-  return myRecipes;
+  return { myRecipes };
 
 };
