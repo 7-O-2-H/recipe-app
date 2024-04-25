@@ -7,6 +7,14 @@ import "../styles/FullRecipe.css"
 
 export default function FullRecipe (props) {
 
+  let loggedIn = false;
+
+  // check if localStorage is defined
+  if (typeof window!== 'undefined') {
+    // get logged in status
+    loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
+  };
+
   const { recipe, ingredients, steps } = props;
 
   // format ingredients into proper quantities and strings
@@ -27,8 +35,6 @@ export default function FullRecipe (props) {
     />  
   ));
 
-  // console.log("steps: ", steps, "steps Array: ", stepsArray);
-
   return (
     <div>
       <h2 className="recipe-description">
@@ -45,6 +51,10 @@ export default function FullRecipe (props) {
           <h2>Instructions</h2>
           <div className="step-container">{stepsArray}</div>
         </div>
+      </div>
+      <Spacer />
+      <div className="favourites-option">
+        <button className="favourites-button">Add to Favourites</button>
       </div>
     </div>
   )
