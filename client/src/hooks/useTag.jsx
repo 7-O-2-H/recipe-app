@@ -16,6 +16,6 @@ export function useTag(tagId) {
     
   }, [tagId]);
 
-  return recipes;
+  return { recipes };
 
 };

@@ -1,24 +1,26 @@
 // imports
 import { useVerification } from "../hooks/useVerification";
-import { useMyRecipes } from "../hooks/useMyRecipes";
+import { useFavourites } from "../hooks/useFavourites";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 
 export default function MyRecipeList() {
 
-  //set user
+  //set userId with JWT
   const userId = (useVerification());
 
-  // set MyRecipes
-  const { myRecipes } = useMyRecipes(userId);
+  // set favourites
+  const { favourites } = useFavourites(userId);
   
   // get my recipes
   
-  if (!userId || !myRecipes) {
+  if (!userId || !favourites) {
     return <div>Loading...</div>
   };  
 
-  const recipesArray = myRecipes.map(recipe => (  
+  console.log("faves", favourites, "userId: ", userId);
+  
+  const recipesArray = favourites.map(recipe => (  
       <RecipeListItem
         key={recipe.id}
         id={recipe.id}

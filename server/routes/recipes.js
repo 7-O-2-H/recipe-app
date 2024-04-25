@@ -31,7 +31,6 @@ router.get('/:id/ingredients', (req, res) => {
   const id = req.params.id;
   getIngredientsByRecipeId(id)
   .then(data => {
-    console.log(data);
     res.json(data);
   })
 });

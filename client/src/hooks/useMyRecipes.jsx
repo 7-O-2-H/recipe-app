@@ -17,7 +17,6 @@ export function useMyRecipes(userId) {
     
   }, [userId]);
 
-  console.log(userId);
   return { myRecipes };
 
 };

@@ -3,7 +3,7 @@ const db = require('../../configs/db.config');
 
 const getFavouritesByUserId = (id) => {
   return db
-    .query(`SELECT recipe FROM recipes JOIN favourites ON recipes.id = favourites.recipe_id JOIN users ON favourites.user_id = users.id WHERE users.id = $1`, [id])
+    .query(`SELECT recipes.id, recipe, description, users.user_name, serves, time FROM recipes JOIN favourites ON recipes.id = favourites.recipe_id JOIN users ON favourites.user_id = users.id JOIN measurements ON recipes.measurement_id = measurements.id WHERE users.id = $1`, [id])
     .then((result) => {
       console.log('result:', result);
       return result.rows;
@@ -14,4 +14,17 @@ const getFavouritesByUserId = (id) => {
     });
 };
 
-module.exports = { getFavouritesByUserId };
+const getAllFavourites = () => {
+  return db
+    .query(`SELECT * FROM favourites`)
+    .then((result) => {
+      console.log('result:', result);
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('add user error;', err.message);
+      return null;
+    });
+};
+
+module.exports = { getFavouritesByUserId, getAllFavourites };
