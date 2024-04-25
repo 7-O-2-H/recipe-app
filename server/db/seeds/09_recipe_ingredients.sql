@@ -38,18 +38,18 @@ INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 23, 0.33, 3);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 24, 0, 17);
 -- Zuppa Toscana
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (36, 2, 6, 1, 16);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (37, 2, 13, 9, 3);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (38, 2, 36, 1, 9);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (39, 2, 16, 1, 9);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (40, 2, 3, 3, 8);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (41, 2, 14, 1, 8);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (42, 2, 27, 6, 3);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (43, 2, 32, 10, 4);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (44, 2, 2, 5, 4);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (45, 2, 1, 5, 4);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (46, 2, 38, 5, 4);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (47, 2, 4, 2, 8);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 6, 1, 16);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 13, 9, 3);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 36, 1, 9);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 16, 1, 9);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 3, 3, 8);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 14, 1, 8);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 27, 6, 3);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 32, 10, 4);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 2, 5, 4);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 1, 5, 4);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 38, 5, 4);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 4, 2, 8);
 -- Baked chicken thighs
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (48, 5, 39, 8, 16);
-INSERT INTO recipe_ingredients (id, recipe_id, ingredient_id, quantity, measurement_id) VALUES (49, 5, 1, 5, 4);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (5, 39, 8, 16);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (5, 1, 5, 4);
