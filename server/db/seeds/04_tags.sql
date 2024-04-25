@@ -1,11 +1,11 @@
 -- Seed tags
-INSERT INTO tags (id, tag) VALUES (1, 'soup');
-INSERT INTO tags (id, tag) VALUES (2, 'vegan');
-INSERT INTO tags (id, tag) VALUES (3, 'italian');
-INSERT INTO tags (id, tag) VALUES (4, 'seafood');
-INSERT INTO tags (id, tag) VALUES (5, 'hearty');
-INSERT INTO tags (id, tag) VALUES (6, 'pasta');
-INSERT INTO tags (id, tag) VALUES (7, 'creamy');
-INSERT INTO tags (id, tag) VALUES (8, 'spicy');
-INSERT INTO tags (id, tag) VALUES (9, 'tomato-sauce');
-INSERT INTO tags (id, tag) VALUES (10, 'chicken');
+INSERT INTO tags (tag) VALUES ('soup');
+INSERT INTO tags (tag) VALUES ('vegan');
+INSERT INTO tags (tag) VALUES ('italian');
+INSERT INTO tags (tag) VALUES ('seafood');
+INSERT INTO tags (tag) VALUES ('hearty');
+INSERT INTO tags (tag) VALUES ('pasta');
+INSERT INTO tags (tag) VALUES ('creamy');
+INSERT INTO tags (tag) VALUES ('spicy');
+INSERT INTO tags (tag) VALUES ('tomato-sauce');
+INSERT INTO tags (tag) VALUES ('chicken');
