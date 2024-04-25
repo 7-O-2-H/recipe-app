@@ -1,8 +1,8 @@
 -- seeds/01_users.sql
 -- users seeds
-INSERT INTO users (id, user_name, email, password) VALUES (1, 'jkelly', 'jkelly85@alumni.uwo.ca', 'BCrich161!');
-INSERT INTO users (id, user_name, email, password) VALUES (2, 'gMONEY', 'GK@gmail.com', 'Detroit7');
-INSERT INTO users (id, user_name, email, password) VALUES (3, 'ImNotZelda', 'link@yahoo.com', 'hyrule');
-INSERT INTO users (id, user_name, email, password) VALUES (4, 'xBLOODlustx', 'drac@mail.ca', 'dracula');
-INSERT INTO users (id, user_name, email, password) VALUES (5, 'VAV0', 'i_med@mail.ca', 'manuel');
-INSERT INTO users (id, user_name, email, password) VALUES (6, 'lizard', 'lizard@yahoo.com', '200265');
+INSERT INTO users (user_name, email, password) VALUES ('jkelly', 'jkelly85@alumni.uwo.ca', 'BCrich161!');
+INSERT INTO users (user_name, email, password) VALUES ('gMONEY', 'GK@gmail.com', 'Detroit7');
+INSERT INTO users (user_name, email, password) VALUES ('ImNotZelda', 'link@yahoo.com', 'hyrule');
+INSERT INTO users (user_name, email, password) VALUES ('xBLOODlustx', 'drac@mail.ca', 'dracula');
+INSERT INTO users (user_name, email, password) VALUES ('VAV0', 'i_med@mail.ca', 'manuel');
+INSERT INTO users (user_name, email, password) VALUES ('lizard', 'lizard@yahoo.com', '200265');
