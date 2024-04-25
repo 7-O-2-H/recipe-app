@@ -4,6 +4,9 @@ import Ingredient from "./Ingredient";
 import Steps from "./Steps";
 import Spacer from "./Spacer";
 import "../styles/FullRecipe.css"
+import { useVerification } from "../hooks/useVerification";
+
+
 
 export default function FullRecipe (props) {
 
@@ -14,6 +17,11 @@ export default function FullRecipe (props) {
     // get logged in status
     loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
   };
+  
+  const handleFavourite = () => {
+    const userId = useVerification();
+  };
+
 
   const { recipe, ingredients, steps } = props;
 
@@ -54,7 +62,7 @@ export default function FullRecipe (props) {
       </div>
       <Spacer />
       <div className="favourites-option">
-        <button className="favourites-button">Add to Favourites</button>
+        <button className="favourites-button" onClick={handleFavourite}>Add to Favourites</button>
       </div>
     </div>
   )

@@ -20,7 +20,8 @@ export default function NavBar() {
   //handle logout button click
   const handleLogout = () => {
     loggedIn = false;
-    localStorage.setItem("loggedIn", false);
+    localStorage.setItem("token", '');
+    localStorage.setItem("loggedIn", JSON.stringify(false));
     router.push('/login');
   };
 
