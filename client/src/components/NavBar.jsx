@@ -47,9 +47,9 @@ export default function NavBar() {
           <li>
             <Link href="/">Home</Link>
           </li>
-          {/* <li>
-            <h1>Favourites</h1>
-          </li> */}
+          <li>
+            <Link href="/favourites">Favourites</Link>
+          </li>
           <li>
             <Link href="/myRecipes">My Recipes</Link>
           </li>
