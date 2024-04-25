@@ -5,7 +5,6 @@ const getAllTags = () => {
   return db
     .query(`SELECT * FROM tags ORDER BY tags.tag;`)
     .then((result) => {
-      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
@@ -18,7 +17,6 @@ const getTagsByRecipeId = (id) => {
   return db
     .query(`SELECT tag FROM tags JOIN recipe_tags ON tags.id = recipe_tags.tag_id JOIN recipes ON recipe_tags.recipe_id = recipes.id WHERE recipes.id = $1;`, [id])
     .then((result) => {
-      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
@@ -31,7 +29,6 @@ const getRecipesByTagId = (id) => {
   return db
     .query(`SELECT * FROM recipes JOIN recipe_tags ON recipes.id = recipe_tags.recipe_id JOIN tags ON recipe_tags.tag_id = tags.id WHERE tags.id = $1;`, [id])
     .then((result) => {
-      console.log('result:', result);
       return result.rows;
     })
     .catch((err) => {
