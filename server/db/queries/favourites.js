@@ -27,4 +27,20 @@ const getAllFavourites = () => {
     });
 };
 
-module.exports = { getFavouritesByUserId, getAllFavourites };
+const addFavourite = (userId, recipeId) => {
+
+  const values = [userId, recipeId];
+
+  return db
+    .query(`INSERT INTO favourites (user_id, recipe_id) VALUES ($1, $2)`)
+    .then((result) => {
+      console.log('result:', result);
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('add user error;', err.message);
+      return null;
+    });
+};
+
+module.exports = { getFavouritesByUserId, getAllFavourites, addFavourite };
