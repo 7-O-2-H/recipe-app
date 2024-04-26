@@ -1,5 +1,6 @@
 // imports
 import { formatIngredientsData } from "../helpers/conversionHelpers";
+import { addFavourite } from "../helpers/favouritesHelpers";
 import Ingredient from "./Ingredient";
 import Steps from "./Steps";
 import Spacer from "./Spacer";
@@ -17,13 +18,13 @@ export default function FullRecipe (props) {
     // get logged in status
     loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
   };
-  
-  const handleFavourite = () => {
-    const userId = useVerification();
-  };
 
-
+  const userId = useVerification();
   const { recipe, ingredients, steps } = props;
+
+  const handleFavourite = () => {
+    addFavourite(userId, recipe.id);
+  };
 
   // format ingredients into proper quantities and strings
   const ingredientsArray = formatIngredientsData(ingredients);

@@ -30,7 +30,7 @@ const addFavourite = (userId, recipeId) => {
   const values = [userId, recipeId];
 
   return db
-    .query(`INSERT INTO favourites (user_id, recipe_id) VALUES ($1, $2)`)
+    .query(`INSERT INTO favourites (user_id, recipe_id) VALUES ($1, $2) RETURNING *`, values)
     .then((result) => {
       return result.rows;
     })

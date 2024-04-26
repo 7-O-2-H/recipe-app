@@ -4,7 +4,7 @@ import { useFavourites } from "../hooks/useFavourites";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 
-export default function MyRecipeList() {
+export default function Favourites() {
 
   //set userId with JWT
   const userId = (useVerification());
