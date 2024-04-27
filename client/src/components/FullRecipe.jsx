@@ -5,21 +5,18 @@ import Ingredient from "./Ingredient";
 import Steps from "./Steps";
 import Spacer from "./Spacer";
 import "../styles/FullRecipe.css"
-import { useVerification } from "../hooks/useVerification";
+import useVerification from "../hooks/useVerification";
 import { useFavourites } from "../hooks/useFavourites";
+import { useLoggedInStatus } from "../hooks/useLoggedInStatus";
 
 
 
 export default function FullRecipe (props) {
 
-  let loggedIn = false;
+  // set default login status to false
+  const loggedIn = useLoggedInStatus();
 
-  // check if localStorage is defined
-  if (typeof window!== 'undefined') {
-    // get logged in status
-    loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
-  };
-
+  // use hooks and props to set user id, favourites, recipe data
   const userId = useVerification();
   const userFavourites = useFavourites(userId);
   const { recipe, ingredients, steps } = props;
@@ -35,6 +32,7 @@ export default function FullRecipe (props) {
   // const isFavourite = favourites.find(favourite => )
 
   const handleFavourite = () => {
+    console.log("doing the thing with: ", userId, recipe.id, loggedIn);
     addFavourite(userId, recipe.id);
   };
 
@@ -73,10 +71,14 @@ export default function FullRecipe (props) {
           <div className="step-container">{stepsArray}</div>
         </div>
       </div>
-      <Spacer />
-      <div className="favourites-option">
-        <button className="favourites-button" onClick={handleFavourite}>Add to Favourites</button>
-      </div>
+      {loggedIn ? (
+        <>
+          <Spacer />
+          <div className="favourites-option">
+            <button className="favourites-button" onClick={handleFavourite}>Add to Favourites</button>
+          </div>
+        </>
+      ) : null}
     </div>
   )
   

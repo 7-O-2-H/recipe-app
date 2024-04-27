@@ -9,7 +9,7 @@ export default function NavBar() {
   // set router
   const router = useRouter();
 
-  // set default login status to false
+  // use hook to establish logged in status
   let loggedIn = useLoggedInStatus();
 
   //handle logout button click

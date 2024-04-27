@@ -12,7 +12,7 @@ export function useLoggedInStatus() {
       if (storedLoggedIn !== null) {
         setLoggedIn(storedLoggedIn);
       }
-    }
+    };
   }, []);
 
   return loggedIn;
