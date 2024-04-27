@@ -2,6 +2,7 @@
 import "../styles/NavBar.css";
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import { useLoggedInStatus } from '../hooks/useLoggedInStatus';
 
 export default function NavBar() {
   
@@ -9,13 +10,7 @@ export default function NavBar() {
   const router = useRouter();
 
   // set default login status to false
-  let loggedIn = false;
-
-  // check if localStorage is defined
-  if (typeof window!== 'undefined') {
-    // get logged in status
-    loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
-  };
+  let loggedIn = useLoggedInStatus();
 
   //handle logout button click
   const handleLogout = () => {
