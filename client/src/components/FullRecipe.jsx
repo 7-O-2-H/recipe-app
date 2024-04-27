@@ -43,9 +43,12 @@ export default function FullRecipe (props) {
  
   // button handlers
   const handleFavourite = () => {
-      addFavourite(userId, recipe.id);
       router.push('/favourites');
   };
+
+  const handleEdit = () => {
+    router.push('/edit');
+};
 
   const handleUnfavourite = () => {
     const favouriteId = getFavouriteId(allFavourites, userId, recipe.id);
@@ -100,14 +103,20 @@ export default function FullRecipe (props) {
             <>
               <Spacer />
               <div className="favourites-option">
-                <button className="favourites-button" onClick={handleFavourite}>Add to Favourites</button>
+                <button className="favourites-button" onClick={handleFavourite}>FAVOURITE</button>
+                <button onClick={handleEdit}>EDIT RECIPE</button>
+                <button>SHARE RECIPE</button>
+                <button>DELETE RECIPE</button>
               </div>
             </>
           ) : (
             <>
               <Spacer />
               <div className="favourites-option">
-                <button className="unfavourite-button" onClick={handleUnfavourite}>Remove from Favourites</button>
+                <button onClick={handleUnfavourite}>UNFAVOURITE</button>
+                <button onClick={handleEdit}>EDIT RECIPE</button>
+                <button> SHARE RECIPE</button>
+                <button>DELETE RECIPE</button>
               </div>
             </>
           )}

@@ -36,7 +36,7 @@ export default function MyRecipeList() {
     <div className="recipe-list">
       {recipesArray}
       <div>
-        <button className="">Add New Recipe</button>
+        <button className="">ADD RECIPE</button>
       </div>
     </div>
   );
