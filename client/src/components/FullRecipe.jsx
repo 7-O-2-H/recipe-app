@@ -32,7 +32,6 @@ export default function FullRecipe (props) {
   // const isFavourite = favourites.find(favourite => )
 
   const handleFavourite = () => {
-    console.log("doing the thing with: ", userId, recipe.id, loggedIn);
     addFavourite(userId, recipe.id);
   };
 
