@@ -6,6 +6,7 @@ import Steps from "./Steps";
 import Spacer from "./Spacer";
 import "../styles/FullRecipe.css"
 import { useVerification } from "../hooks/useVerification";
+import { useFavourites } from "../hooks/useFavourites";
 
 
 
@@ -20,7 +21,18 @@ export default function FullRecipe (props) {
   };
 
   const userId = useVerification();
+  const userFavourites = useFavourites(userId);
   const { recipe, ingredients, steps } = props;
+
+  // const currentFsvourites = 
+  const currentRecipe = {
+    user_id: userId,
+    recipe_id: recipe.id
+  };
+
+  console.log('fav: ', userFavourites, 'recipe: ', currentRecipe);
+  
+  // const isFavourite = favourites.find(favourite => )
 
   const handleFavourite = () => {
     addFavourite(userId, recipe.id);
