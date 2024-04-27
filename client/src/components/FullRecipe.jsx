@@ -8,6 +8,7 @@ import useVerification from "../hooks/useVerification";
 // helpers
 import { formatIngredientsData } from "../helpers/conversionHelpers";
 import { addFavourite } from "../helpers/favouritesHelpers";
+import { isFavourite } from "../helpers/favouritesHelpers";
 // components
 import Ingredient from "./Ingredient";
 import Steps from "./Steps";
@@ -24,23 +25,21 @@ export default function FullRecipe (props) {
   const loggedIn = useLoggedInStatus();
 
   // use hooks and props to set user id, favourites, recipe data
-  const userId = useVerification();
-  const userFavourites = useFavourites(userId);
+  const userId = parseInt(useVerification());
   const { allFavourites } = useAllFavourites();
   const { recipe, ingredients, steps } = props;
 
-  const currentRecipe = {
-    user_id: userId,
-    recipe_id: recipe.id
-  };
+  // loading state
+  if (!userId || !recipe.id || !allFavourites) {
+    return <div>Loading...</div>
+  }
 
-  console.log('favourites: ', allFavourites, 'currentRec:', currentRecipe);
+  // get favourite status with helper
+  const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
  
-  // const isFavourite = favourites.find(favourite => )
-
   const handleFavourite = () => {
-    addFavourite(userId, recipe.id);
-    router.push('/favourites')
+      addFavourite(userId, recipe.id);
+      router.push('/favourites')
   };
 
   // format ingredients into proper quantities and strings
