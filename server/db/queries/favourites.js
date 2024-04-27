@@ -27,10 +27,10 @@ const getFavouritesByUserId = (id) => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('get user favourites error;', err.message);
       return null;
-    });
-  };
+  });
+};
   
 const getAllFavourites = () => {
   return db
@@ -39,7 +39,7 @@ const getAllFavourites = () => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('get favourites error;', err.message);
       return null;
     });
 };
@@ -54,9 +54,20 @@ const addFavourite = (userId, recipeId) => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('add favourite error;', err.message);
       return null;
     });
 };
 
-module.exports = { getFavouritesByUserId, getAllFavourites, addFavourite };
+const deleteFavourite = (id) => {
+  return db
+    .query(`DELETE FROM favourites WHERE id = $1;`, [id])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('delete favourite eroor;', err.message);
+      return null;
+    });
+}
+module.exports = { getFavouritesByUserId, getAllFavourites, addFavourite, deleteFavourite };
