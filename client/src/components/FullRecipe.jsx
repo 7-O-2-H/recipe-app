@@ -30,8 +30,10 @@ export default function FullRecipe (props) {
   const { recipe, ingredients, steps } = props;
 
   // loading state
-  if (!userId || !recipe.id || !allFavourites) {
-    return <div>Loading...</div>
+  if (loggedIn) {
+    if (!userId || !recipe.id || !allFavourites) {
+      return <div>Loading...</div>
+    }
   }
 
   // get favourite status with helper
@@ -79,10 +81,14 @@ export default function FullRecipe (props) {
       </div>
       {loggedIn ? (
         <>
-          <Spacer />
-          <div className="favourites-option">
-            <button className="favourites-button" onClick={handleFavourite}>Add to Favourites</button>
-          </div>
+          {!favouriteStatus ? (
+            <>
+              <Spacer />
+              <div className="favourites-option">
+                <button className="favourites-button" onClick={handleFavourite}>Add to Favourites</button>
+              </div>
+            </>
+          ) : null}
         </>
       ) : null}
     </div>
