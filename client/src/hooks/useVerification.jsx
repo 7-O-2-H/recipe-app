@@ -6,7 +6,7 @@ const useVerification = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    if (token && token.trim() !== '') {
       tokenVerification(token)
         .then(userInfo => {
           setUserId(userInfo);
