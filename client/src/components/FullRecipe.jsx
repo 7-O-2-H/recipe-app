@@ -1,17 +1,23 @@
 // imports
+/// hooks
+import { useFavourites } from "../hooks/useFavourites";
+import { useLoggedInStatus } from "../hooks/useLoggedInStatus";
+import { useRouter } from 'next/router';
+import useVerification from "../hooks/useVerification";
+// helpers
 import { formatIngredientsData } from "../helpers/conversionHelpers";
 import { addFavourite } from "../helpers/favouritesHelpers";
+// components
 import Ingredient from "./Ingredient";
 import Steps from "./Steps";
 import Spacer from "./Spacer";
+// styles
 import "../styles/FullRecipe.css"
-import useVerification from "../hooks/useVerification";
-import { useFavourites } from "../hooks/useFavourites";
-import { useLoggedInStatus } from "../hooks/useLoggedInStatus";
-
-
 
 export default function FullRecipe (props) {
+
+  // declare router
+  const router = useRouter();
 
   // set default login status to false
   const loggedIn = useLoggedInStatus();
@@ -21,18 +27,16 @@ export default function FullRecipe (props) {
   const userFavourites = useFavourites(userId);
   const { recipe, ingredients, steps } = props;
 
-  // const currentFsvourites = 
   const currentRecipe = {
     user_id: userId,
     recipe_id: recipe.id
   };
-
-  // console.log('fav: ', userFavourites, 'recipe: ', currentRecipe);
-  
+ 
   // const isFavourite = favourites.find(favourite => )
 
   const handleFavourite = () => {
     addFavourite(userId, recipe.id);
+    router.push('/favourites')
   };
 
   // format ingredients into proper quantities and strings
