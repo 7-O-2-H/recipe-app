@@ -17,6 +17,7 @@ export default function Favourites() {
     return <div>Loading...</div>
   };  
   
+  console.log("From favourites component: favaourites: ", favourites[0]);
   const recipesArray = favourites.map(recipe => (  
       <RecipeListItem
         key={recipe.id}

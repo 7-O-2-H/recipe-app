@@ -30,7 +30,7 @@ export default function FullRecipe (props) {
     recipe_id: recipe.id
   };
 
-  console.log('fav: ', userFavourites, 'recipe: ', currentRecipe);
+  // console.log('fav: ', userFavourites, 'recipe: ', currentRecipe);
   
   // const isFavourite = favourites.find(favourite => )
 
