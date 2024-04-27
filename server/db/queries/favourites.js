@@ -66,7 +66,7 @@ const deleteFavourite = (id) => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('delete favourite eroor;', err.message);
+      console.log('delete favourite error;', err.message);
       return null;
     });
 }

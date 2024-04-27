@@ -9,6 +9,8 @@ import useVerification from "../hooks/useVerification";
 import { formatIngredientsData } from "../helpers/conversionHelpers";
 import { addFavourite } from "../helpers/favouritesHelpers";
 import { isFavourite } from "../helpers/favouritesHelpers";
+import { getFavouriteId } from "../helpers/favouritesHelpers";
+import { unfavourite } from "../helpers/favouritesHelpers";
 // components
 import Ingredient from "./Ingredient";
 import Steps from "./Steps";
@@ -42,12 +44,13 @@ export default function FullRecipe (props) {
   // button handlers
   const handleFavourite = () => {
       addFavourite(userId, recipe.id);
-      router.push('/favourites')
+      router.push('/favourites');
   };
 
   const handleUnfavourite = () => {
-    // addFavourite(userId, recipe.id);
-    router.push('/favourites')
+    const favouriteId = getFavouriteId(allFavourites, userId, recipe.id);
+    unfavourite(favouriteId);
+    router.push('/favourites');
   };
 
   // format ingredients into proper quantities and strings
