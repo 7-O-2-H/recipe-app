@@ -11,6 +11,7 @@ export function useMyRecipes(userId) {
     if (userId) {
       getRecipesByUserId(userId)
       .then((data) => {
+        console.log(data);
         setMyRecipes(data['data']);
       });
     };

@@ -14,6 +14,8 @@ export default function RecipeListItem(props) {
     setRecipeId(id);
   }, [id]);
 
+   console.log(recipeId);
+   
   // template
   return (
       <Link className="recipe-list-item"  href={`/recipes/${recipeId}`}>

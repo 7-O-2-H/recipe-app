@@ -14,7 +14,6 @@ export function useRecipe(recipeId) {
         getRecipeByRecipeId(recipeId),
         getIngredientsByRecipeId(recipeId),
         getStepsByRecipeId(recipeId),
-
       ])
       .then((all) => {
         setCurrentRecipe(all[0]['data'][0]);

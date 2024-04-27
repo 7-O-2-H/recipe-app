@@ -18,6 +18,8 @@ export default function MyRecipeList() {
     return <div>Loading...</div>
   };  
 
+  console.log(myRecipes[0]);
+
   const recipesArray = myRecipes.map(recipe => (  
       <RecipeListItem
         key={recipe.id}

@@ -47,8 +47,11 @@ export default function FullRecipe (props) {
   };
 
   const handleEdit = () => {
-    router.push('/edit');
-};
+    router.push({
+      pathname: '/edit',
+      query: { recipe, ingredients, steps }
+    });
+  };
 
   const handleUnfavourite = () => {
     const favouriteId = getFavouriteId(allFavourites, userId, recipe.id);
@@ -73,6 +76,10 @@ export default function FullRecipe (props) {
       instruction={step.instruction}
     />  
   ));
+
+  // console.log("Rec: ", recipe);
+  // console.log("Ings: ", ingredients);
+  // console.log("Steps: ", steps);
 
   return (
     <div>

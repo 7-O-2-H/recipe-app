@@ -15,7 +15,8 @@ const getAllRecipes = () => {
 };
 
 const getRecipesByUserId = (id) => {
-  return db.query("SELECT * FROM recipes JOIN users ON recipes.user_id = users.id WHERE users.id = $1", [id]).then(data => {
+  return db.query(`SELECT recipes.id, user_id, recipe, time, measurement, serves, description, user_name FROM recipes JOIN users ON recipes.user_id = users.id JOIN measurements ON recipes.measurement_id = measurements.id WHERE users.id = $1`, [id]).then(data => {
+    console.log(data.rows);
     return data.rows;
   })
   .catch((err) => {
