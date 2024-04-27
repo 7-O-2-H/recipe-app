@@ -16,6 +16,7 @@ h3 {
   display: flex;
   padding-left: 20%;
   justify-content: space-around;
+  padding: 1em 0 1em 20%;
 }
 
 .recipe-description {

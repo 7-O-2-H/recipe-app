@@ -3,3 +3,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+#empty-message {
+  align-self: center;
+  padding: 1em 0;
+}

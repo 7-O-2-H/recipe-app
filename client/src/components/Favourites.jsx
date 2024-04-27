@@ -15,7 +15,17 @@ export default function Favourites() {
   // get my recipes
   if (!userId || !favourites) {
     return <div>Loading...</div>
-  };  
+  };
+
+  // console.log(favourites);
+
+  if (!favourites.length) {
+    return (
+      <div id="empty-message">
+        <h3>There's nothing here right now . . . </h3>
+      </div>
+    );
+  };
   
   const recipesArray = favourites.map(recipe => (  
       <RecipeListItem
