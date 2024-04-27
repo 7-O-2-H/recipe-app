@@ -10,12 +10,21 @@ h3 {
   font-weight: bold;
   font-size: 28px;
 }
+
+#details {
+  width: 60%;
+  display: flex;
+  padding-left: 20%;
+  justify-content: space-around;
+}
+
 .recipe-description {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 2% 0;
 }
+
 .recipe-ingredients {
   display: flex;
   flex-direction: row;

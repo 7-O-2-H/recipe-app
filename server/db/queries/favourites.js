@@ -51,7 +51,7 @@ const addFavourite = (userId, recipeId) => {
   return db
     .query(`INSERT INTO favourites (user_id, recipe_id) VALUES ($1, $2) RETURNING *`, values)
     .then((result) => {
-      return result.rows;
+      return result.status;
     })
     .catch((err) => {
       console.log('add favourite error;', err.message);
@@ -61,7 +61,7 @@ const addFavourite = (userId, recipeId) => {
 
 const deleteFavourite = (id) => {
   return db
-    .query(`DELETE FROM favourites WHERE id = $1;`, [id])
+    .query(`DELETE FROM favourites WHERE id = $1 RETURNING *;`, [id])
     .then((result) => {
       return result.rows;
     })

@@ -38,6 +38,8 @@ export default function FullRecipe (props) {
     }
   }
 
+  console.log(recipe);
+
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
  
@@ -76,6 +78,12 @@ export default function FullRecipe (props) {
       <h2 className="recipe-description">
         {recipe.description}
       </h2>
+      <Spacer />
+      <div id="details">
+        <p>Submitted by: {recipe.user_name}</p>
+        <p>Serves: {recipe.serves}</p>
+        <p>Time: {recipe.time} {recipe.measurement}</p>
+      </div>
       <Spacer />
       <div className="recipe-ingredients" >
         <div className="ingredients" >
