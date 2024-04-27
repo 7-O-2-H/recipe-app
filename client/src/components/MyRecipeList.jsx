@@ -35,6 +35,9 @@ export default function MyRecipeList() {
   return (
     <div className="recipe-list">
       {recipesArray}
+      <div>
+        <button className="">Add New Recipe</button>
+      </div>
     </div>
   );
   

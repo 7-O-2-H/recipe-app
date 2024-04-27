@@ -11,6 +11,19 @@ h3 {
   font-size: 28px;
 }
 
+button {
+  border-radius: 20px;
+  border-color: black;
+  padding: 1em 1em;
+  background-color: #ADD7F6;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  width: 200px;
+  font-size: larger;
+}
+
 #details {
   width: 60%;
   display: flex;
@@ -52,14 +65,14 @@ h3 {
   padding: 2%;
 }
 
-.favourites-button {
+/* .favourites-button {
   border-radius: 25px;
   border-color: black;
   padding: 1em 2em;
   background-color: #ADD7F6;
   font-weight: 700;
   cursor: pointer;
-}
+} */
 
 .unfavourite-button {
   border-radius: 25px;

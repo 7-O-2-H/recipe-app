@@ -53,7 +53,7 @@ export default function NavBar() {
             <Link href="/browse">Browse</Link>
           </li>
           <li>
-            <button className="logoutButton" onClick={handleLogout}>Logout</button>
+            <button className="logout-button" onClick={handleLogout}>Logout</button>
           </li>
         </ul> 
       )}

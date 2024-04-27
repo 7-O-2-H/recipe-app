@@ -22,12 +22,15 @@ li {
   margin-top: 10px;
 }
 
-.logoutButton {
+.logout-button {
   background-color: #ADD7F6;
   border: none;
   font-family: 'Great Vibes', cursive;
   font-weight: bold;
   font-size: 52px;
+  padding: 10px 0px;
   cursor: pointer;
+  margin: 0;
+  width: auto;
 }
 
