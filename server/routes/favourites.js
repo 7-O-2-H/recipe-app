@@ -21,7 +21,6 @@ router.post('/add', (req, res) => {
   // req userId and recipeId
   const userId = req.body.userId;
   const recipeId = req.body.recipeId;
-  console.log("favouritses/add\nuserId: ", userId, "\nrecipeId: ", recipeId);
 
   addFavourite(userId, recipeId)
   .then(data => {

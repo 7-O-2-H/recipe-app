@@ -3,6 +3,7 @@
 import { useFavourites } from "../hooks/useFavourites";
 import { useLoggedInStatus } from "../hooks/useLoggedInStatus";
 import { useRouter } from 'next/router';
+import { useAllFavourites } from "../hooks/useAllFavourites"
 import useVerification from "../hooks/useVerification";
 // helpers
 import { formatIngredientsData } from "../helpers/conversionHelpers";
@@ -25,12 +26,15 @@ export default function FullRecipe (props) {
   // use hooks and props to set user id, favourites, recipe data
   const userId = useVerification();
   const userFavourites = useFavourites(userId);
+  const { allFavourites } = useAllFavourites();
   const { recipe, ingredients, steps } = props;
 
   const currentRecipe = {
     user_id: userId,
     recipe_id: recipe.id
   };
+
+  console.log('favourites: ', allFavourites, 'currentRec:', currentRecipe);
  
   // const isFavourite = favourites.find(favourite => )
 
