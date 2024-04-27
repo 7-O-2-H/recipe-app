@@ -39,9 +39,15 @@ export default function FullRecipe (props) {
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
  
+  // button handlers
   const handleFavourite = () => {
       addFavourite(userId, recipe.id);
       router.push('/favourites')
+  };
+
+  const handleUnfavourite = () => {
+    // addFavourite(userId, recipe.id);
+    router.push('/favourites')
   };
 
   // format ingredients into proper quantities and strings
@@ -88,7 +94,14 @@ export default function FullRecipe (props) {
                 <button className="favourites-button" onClick={handleFavourite}>Add to Favourites</button>
               </div>
             </>
-          ) : null}
+          ) : (
+            <>
+              <Spacer />
+              <div className="favourites-option">
+                <button className="unfavourite-button" onClick={handleUnfavourite}>Remove from Favourites</button>
+              </div>
+            </>
+          )}
         </>
       ) : null}
     </div>
