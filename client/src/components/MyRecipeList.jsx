@@ -1,5 +1,5 @@
 // imports
-import { useVerification } from "../hooks/useVerification";
+import useVerification from "../hooks/useVerification";
 import { useMyRecipes } from "../hooks/useMyRecipes";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
@@ -7,7 +7,7 @@ import RecipeListItem from "./RecipeListItem";
 export default function MyRecipeList() {
 
   //set user
-  const userId = (useVerification());
+  const userId = useVerification();
 
   // set MyRecipes
   const { myRecipes } = useMyRecipes(userId);
