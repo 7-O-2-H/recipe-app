@@ -1,5 +1,5 @@
 // imports
-import { useVerification } from "../hooks/useVerification";
+import useVerification from "../hooks/useVerification";
 import { useFavourites } from "../hooks/useFavourites";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
