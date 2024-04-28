@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail } = require('../db/queries/users');
+const { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail, addUser } = require('../db/queries/users');
 const { validUser, validateUserLogin } = require('../helpers/userHelpers');
 
 router.get('/', (req, res) => {
@@ -34,15 +34,24 @@ router.put('/login', async (req, res) => {
 
 });
 
-router.get('/5', (req, res) => {
-  getUserById(5)
-  .then(data => {
-    res.json(data);
-  })
-});
+// router.get('/5', (req, res) => {
+//   getUserById(5)
+//   .then(data => {
+//     res.json(data);
+//   })
+// });
 
-router.get('/4', (req, res) => {
-  getUserByRecipeId(4)
+// router.get('/4', (req, res) => {
+//   getUserByRecipeId(4)
+//   .then(data => {
+//     res.json(data);
+//   })
+// });
+
+router.put('/add', (req, res) => {
+  const userData = req.body.userData;
+  console.log(userData);
+  addUser(userData)
   .then(data => {
     res.json(data);
   })

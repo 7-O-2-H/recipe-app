@@ -1,14 +1,18 @@
 // imports
+// react imports/hooks
 import { useState } from "react";
+import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { toast } from 'react-toastify';
 import NavBar from "../components/NavBar";
+// components
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
+// styles
 import '../styles/login.css';
-import { validateUser } from "../helpers/userHelpers";
-import { useRouter } from 'next/router';
+// helpers
+import { validateUser, addUser } from "../helpers/userHelpers";
 
 export default function Login() {
 
@@ -47,26 +51,30 @@ export default function Login() {
 
   // handle register
   const handleRegister = (event) => {
+
+    // assign form data to userData obj
+    const userData = {
+      user_name: userName,
+      email: email,
+      password: password
+    };
+
     event.preventDefault();
-    validateUser(email, password).then((data) => {
-      if (!email) {
-        toast.error('Please enter your email.');
-        return;
-      };
-      if (!password) {
-        toast.error('Please enter your password.');
-        return;
-      };
-      if(data['data']) {
-        localStorage.setItem("loggedIn", JSON.stringify(true));
-        localStorage.setItem("token", data['data']);
-        setToken(data['data']);
-        router.push('/');
-      } else {
-        toast.error("Invalid email or password.");
-        return;
-      };
-    });
+      // if (!password) {
+      //   toast.error('Please enter your password.');
+      //   return;
+      // };
+      // if(data['data']) {
+      //   localStorage.setItem("loggedIn", JSON.stringify(true));
+      //   localStorage.setItem("token", data['data']);
+      //   setToken(data['data']);
+      //   router.push('/');
+      // } else {
+      //   toast.error("Invalid email or password.");
+      //   return;
+      // };
+      addUser(userData);
+      router.push('/myRecipes');
   };
 
   // handle login/register toggle
@@ -118,11 +126,11 @@ export default function Login() {
           <h2>Register to Add Your Taste</h2>
           <form className="login-form" onSubmit={handleRegister}>
             <input
-              id="user-name"
+              id="username"
               type="text"
               className="input-field"
               placeholder="user name"
-              value={email}
+              value={userName}
               onChange={(event) => setUserName(event.target.value)}
             />
             <input

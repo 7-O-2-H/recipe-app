@@ -60,4 +60,15 @@ const getUserByRecipeId = (id) => {
     });
 };
 
-module.exports = { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail };
+const addUser = (userData) => {
+  const values = [userData.user_name, userData.email, userData.password];
+  return db.query(`INSERT INTO users (user_name, email, password) VALUES ($1, $2, $3) RETURNING *;`, values)
+    .then((res) => {
+      return res.status;
+    })
+    .catch((err) => {
+      return ("error: ", err);
+    });
+};
+
+module.exports = { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail, addUser };
