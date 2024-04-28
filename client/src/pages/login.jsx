@@ -80,7 +80,11 @@ export default function Login() {
     <div>
       <NavBar />
       <Spacer />
+      {loginPage ? (
       <Header title="Login"/>
+      ) : (
+        <Header title="Register"/>
+      )}
       <Spacer />
       <ToastContainer />
       {loginPage ? (
