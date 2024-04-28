@@ -6,14 +6,14 @@ import Link from "next/link";
 export default function RecipeListItem(props) {
 
   // props from recipe list
-  const { id, name, time, unit, servingSize, submitted, description } = props;
+  const { id, name, time, unit, user_id, servingSize, submitted, description } = props;
   
   // use state and effect for recipeId 
   const [recipeId, setRecipeId] = useState(null);
   useEffect(() => {
     setRecipeId(id);
   }, [id]);
-   
+  
   // template
   return (
       <Link className="recipe-list-item"  href={`/recipes/${recipeId}`}>

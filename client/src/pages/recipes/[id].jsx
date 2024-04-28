@@ -22,8 +22,6 @@ export default function Recipe( {id} ) {
     return <div>Loading...</div>;
   }
 
-  // console.log("current rec: ", currentRecipe, "\ncurrent ing: ", currentIngredients, "\ncurrent steps: ", currentSteps);
-
   // Render the recipe details
   return (
     <div>

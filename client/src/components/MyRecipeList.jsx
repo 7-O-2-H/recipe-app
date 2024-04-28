@@ -23,6 +23,7 @@ export default function MyRecipeList() {
         key={recipe.id}
         id={recipe.id}
         submitted={recipe.user_name}
+        user_id={recipe.user_id}
         name={recipe.recipe}
         time={recipe.time}
         unit={recipe.measurement}

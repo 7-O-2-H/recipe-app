@@ -17,8 +17,6 @@ export default function Favourites() {
     return <div>Loading...</div>
   };
 
-  // console.log(favourites);
-
   if (!favourites.length) {
     return (
       <div id="empty-message">

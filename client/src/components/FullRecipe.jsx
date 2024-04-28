@@ -5,6 +5,7 @@ import { useLoggedInStatus } from "../hooks/useLoggedInStatus";
 import { useRouter } from 'next/router';
 import { useAllFavourites } from "../hooks/useAllFavourites"
 import useVerification from "../hooks/useVerification";
+import useUserAuthorization from "../hooks/useUserAuthorization";
 // helpers
 import { formatIngredientsData } from "../helpers/conversionHelpers";
 import { addFavourite } from "../helpers/favouritesHelpers";
@@ -30,7 +31,10 @@ export default function FullRecipe (props) {
   const userId = parseInt(useVerification());
   const { allFavourites } = useAllFavourites();
   const { recipe, ingredients, steps } = props;
+  const submitterId = recipe.user_id;
+  const authorizedUser = useUserAuthorization(submitterId);
 
+  // console.log(submitterId, authorizedUser);
   // loading state
   if (loggedIn) {
     if (!userId || !recipe.id || !allFavourites) {
