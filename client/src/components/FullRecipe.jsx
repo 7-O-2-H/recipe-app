@@ -80,8 +80,13 @@ export default function FullRecipe (props) {
   };
 
   const handleSubmittedBy = () => {
-    router.push('/userRecipes');
-  }
+    router.push({
+      pathname: '/userRecipes',
+      query: {
+        submitterId: JSON.stringify(submitterId)
+      }
+    });
+  };
 
   // format ingredients into proper quantities and strings
   const ingredientsArray = formatIngredientsData(ingredients);
