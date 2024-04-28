@@ -12,6 +12,7 @@ import { addFavourite } from "../helpers/favouritesHelpers";
 import { isFavourite } from "../helpers/favouritesHelpers";
 import { getFavouriteId } from "../helpers/favouritesHelpers";
 import { unfavourite } from "../helpers/favouritesHelpers";
+import { deleteRecipe } from "../helpers/recipeHelpers";
 // components
 import Ingredient from "./Ingredient";
 import Steps from "./Steps";
@@ -67,6 +68,17 @@ export default function FullRecipe (props) {
     router.push('/favourites');
   };
 
+  const handleDelete = () => {
+    if (!authorizedUser) {
+      console.log('You are not authorized to delete this recipe', data);
+      return;
+    }
+    console.log(recipe.id);
+    deleteRecipe(recipe.id);
+    console.log('Deleted recipe')
+    router.push('/myRecipes');
+  };
+
   // format ingredients into proper quantities and strings
   const ingredientsArray = formatIngredientsData(ingredients);
 
@@ -119,7 +131,7 @@ export default function FullRecipe (props) {
                 {authorizedUser ? (
                   <>
                     <button onClick={handleEdit}>EDIT RECIPE</button>
-                    <button>DELETE RECIPE</button>
+                    <button onClick={handleDelete}>DELETE RECIPE</button>
                   </>
                 ) : null}
               </div>
@@ -133,7 +145,7 @@ export default function FullRecipe (props) {
                 {authorizedUser ? (
                   <>
                     <button onClick={handleEdit}>EDIT RECIPE</button>
-                    <button>DELETE RECIPE</button>
+                    <button onClick={handleDelete}> DELETE RECIPE</button>
                   </>
                 ) : null}
               </div>

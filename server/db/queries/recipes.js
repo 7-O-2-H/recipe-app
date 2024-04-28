@@ -16,7 +16,6 @@ const getAllRecipes = () => {
 
 const getRecipesByUserId = (id) => {
   return db.query(`SELECT recipes.id, user_id, recipe, time, measurement, serves, description, user_name FROM recipes JOIN users ON recipes.user_id = users.id JOIN measurements ON recipes.measurement_id = measurements.id WHERE users.id = $1`, [id]).then(data => {
-    console.log(data.rows);
     return data.rows;
   })
   .catch((err) => {
@@ -44,6 +43,18 @@ const getFullRecipeById = (id) => {
     return null;
   });
 };
+
+const deleteRecipeById = (id) => {
+  return db.query(`DELETE FROM recipes WHERE recipes.id = $1`, [id])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('delete recipe error: ', err.message);
+      return err.message;
+    });
+}; 
+
 // ingredients by recipe
 const getIngredientsByRecipeId = (id) => {
   return db.query("SELECT ingredient, quantity, measurement FROM recipes JOIN recipe_ingredients ON recipes.id = recipe_ingredients.recipe_id JOIN ingredients ON recipe_ingredients.ingredient_id = ingredients.id JOIN measurements ON recipe_ingredients.measurement_id = measurements.id WHERE recipes.id = $1", [id]).then(data => {
@@ -66,4 +77,4 @@ const getStepsByRecipeId = (id) => {
   });
 };
 
-module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, getIngredientsByRecipeId, getStepsByRecipeId };
+module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId };

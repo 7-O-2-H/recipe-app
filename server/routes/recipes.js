@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, getStepsByRecipeId, getIngredientsByRecipeId } = require('../db/queries/recipes');
+const { getAllRecipes, getRecipesByUserId, getRecipeById, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId } = require('../db/queries/recipes');
 
 // recipes
 router.get('/', (req, res) => {
@@ -24,6 +24,20 @@ router.get('/:id', (req, res) => {
   .then(data => {
     res.json(data);
   })
+});
+
+router.post('/delete', (req, res) => {
+
+  // req recipe id
+  const recipeId = req.body.id;
+
+  deleteRecipeById(recipeId)
+    .then(data => {
+      res.status(204).send();
+    })
+    .catch(err => {
+      res.status(500).json({err: "failed to delete recipe"})
+    });
 });
 
 // ingredients by recipe

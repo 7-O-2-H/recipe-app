@@ -36,7 +36,6 @@ router.post('/authorizeUser', (req, res) => {
       return res.sendStatus(403); // Forbidden
     }
     const userId = parseInt(decoded);
-    console.log(req.body);
     if (submitterId !== userId) {
       return res.json({ authorized: false });
     }

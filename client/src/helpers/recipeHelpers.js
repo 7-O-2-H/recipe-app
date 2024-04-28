@@ -36,6 +36,18 @@ export function getRecipesByUserId(id) {
   });
 };
 
+export function deleteRecipe(id) {
+
+  return axios.post(`http://localhost:8080/recipes/delete`, {id})
+    .then((res) => {
+      console.log('Response status: ', res.status);
+      return;
+    })
+    .catch((err) => {
+      console.log("axios error: ", err)
+    });
+};
+
 //ingredients functions
 export function getIngredientsByRecipeId(id) {
 
