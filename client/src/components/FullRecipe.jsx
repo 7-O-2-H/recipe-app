@@ -34,7 +34,6 @@ export default function FullRecipe (props) {
   const submitterId = recipe.user_id;
   const authorizedUser = useUserAuthorization(submitterId);
 
-  // console.log(submitterId, authorizedUser);
   // loading state
   if (loggedIn) {
     if (!userId || !recipe.id || !allFavourites) {
@@ -116,9 +115,13 @@ export default function FullRecipe (props) {
               <Spacer />
               <div className="favourites-option">
                 <button className="favourites-button" onClick={handleFavourite}>FAVOURITE</button>
-                <button onClick={handleEdit}>EDIT RECIPE</button>
                 <button>SHARE RECIPE</button>
-                <button>DELETE RECIPE</button>
+                {authorizedUser ? (
+                  <>
+                    <button onClick={handleEdit}>EDIT RECIPE</button>
+                    <button>DELETE RECIPE</button>
+                  </>
+                ) : null}
               </div>
             </>
           ) : (
@@ -126,9 +129,13 @@ export default function FullRecipe (props) {
               <Spacer />
               <div className="favourites-option">
                 <button onClick={handleUnfavourite}>UNFAVOURITE</button>
-                <button onClick={handleEdit}>EDIT RECIPE</button>
                 <button> SHARE RECIPE</button>
-                <button>DELETE RECIPE</button>
+                {authorizedUser ? (
+                  <>
+                    <button onClick={handleEdit}>EDIT RECIPE</button>
+                    <button>DELETE RECIPE</button>
+                  </>
+                ) : null}
               </div>
             </>
           )}
