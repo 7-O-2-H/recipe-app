@@ -73,11 +73,15 @@ export default function FullRecipe (props) {
       console.log('You are not authorized to delete this recipe');
       return;
     }
-    console.log(recipe.id);
     deleteRecipe(recipe.id);
     console.log('Deleted recipe')
     router.push('/myRecipes');
+    return;
   };
+
+  const handleSubmittedBy = () => {
+    router.push('/userRecipes');
+  }
 
   // format ingredients into proper quantities and strings
   const ingredientsArray = formatIngredientsData(ingredients);
@@ -104,7 +108,7 @@ export default function FullRecipe (props) {
       </h2>
       <Spacer />
       <div id="details">
-        <p>Submitted by: {recipe.user_name}</p>
+        <p onClick={handleSubmittedBy}>Submitted by: {recipe.user_name}</p>
         <p>Serves: {recipe.serves}</p>
         <p>Time: {recipe.time} {recipe.measurement}</p>
       </div>
