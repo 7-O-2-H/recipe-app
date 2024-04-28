@@ -93,7 +93,7 @@ button {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .edit-content {

@@ -38,10 +38,6 @@ export default function FullRecipe (props) {
     }
   }
 
-  // console.log("Rec: ", recipe);
-  // console.log("Ings: ", ingredients);
-  // console.log("Steps: ", steps);
-
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
  
@@ -77,6 +73,7 @@ export default function FullRecipe (props) {
     />
   ));
 
+  console.log(steps);
   const stepsArray = steps.map((step, index) => (
     <Steps
       key={index + 1}
@@ -84,10 +81,6 @@ export default function FullRecipe (props) {
       instruction={step.instruction}
     />  
   ));
-
-  // console.log("Rec: ", recipe);
-  // console.log("Ings: ", ingredients);
-  // console.log("Steps: ", steps);
 
   return (
     <div>
