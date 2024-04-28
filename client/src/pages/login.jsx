@@ -74,7 +74,9 @@ export default function Login() {
       //   return;
       // };
       addUser(userData);
-      router.push('/myRecipes');
+      localStorage.setItem("loggedIn", JSON.stringify(true));
+      toast.success("Account created succesfully.");
+      router.push('/');
   };
 
   // handle login/register toggle
