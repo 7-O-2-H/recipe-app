@@ -1,5 +1,8 @@
 // imports
 import { useState } from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import NavBar from "../components/NavBar";
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
@@ -19,13 +22,22 @@ export default function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     validateUser(email, password).then((data) => {
+      if (!email) {
+        toast.error('Please enter your email.');
+        return;
+      };
+      if (!password) {
+        toast.error('Please enter your password.');
+        return;
+      };
       if(data['data']) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
         localStorage.setItem("token", data['data']);
         setToken(data['data']);
         router.push('/');
       } else {
-        console.log("your email or password is incorrect");
+        toast.error("Invalid email or password.");
+        return;
       };
     });
   };
@@ -37,6 +49,7 @@ export default function Login() {
       <Spacer />
       <Header title="Login"/>
       <Spacer />
+      <ToastContainer />
       <div className="login">
         <h2>Login to Add Your Taste</h2>
         <form className="login-form" onSubmit={handleLogin}>

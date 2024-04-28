@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <Spacer />
       <Header />
       <Spacer />
-      <ToastContainer /> {/* Add ToastContainer here */}
+      <ToastContainer />
       <body className={inter.className}>{children}</body>
     </div>
   );
