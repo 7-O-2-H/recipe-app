@@ -70,7 +70,7 @@ export default function FullRecipe (props) {
 
   const handleDelete = () => {
     if (!authorizedUser) {
-      console.log('You are not authorized to delete this recipe', data);
+      console.log('You are not authorized to delete this recipe');
       return;
     }
     console.log(recipe.id);
@@ -130,8 +130,8 @@ export default function FullRecipe (props) {
                 <button>SHARE RECIPE</button>
                 {authorizedUser ? (
                   <>
-                    <button onClick={handleEdit}>EDIT RECIPE</button>
                     <button onClick={handleDelete}>DELETE RECIPE</button>
+                    <button onClick={handleEdit}>EDIT RECIPE</button>
                   </>
                 ) : null}
               </div>
