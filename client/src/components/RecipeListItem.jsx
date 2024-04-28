@@ -13,8 +13,6 @@ export default function RecipeListItem(props) {
   useEffect(() => {
     setRecipeId(id);
   }, [id]);
-
-   console.log(recipeId);
    
   // template
   return (

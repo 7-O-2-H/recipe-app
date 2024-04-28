@@ -38,6 +38,10 @@ export default function FullRecipe (props) {
     }
   }
 
+  // console.log("Rec: ", recipe);
+  // console.log("Ings: ", ingredients);
+  // console.log("Steps: ", steps);
+
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
  
@@ -49,7 +53,11 @@ export default function FullRecipe (props) {
   const handleEdit = () => {
     router.push({
       pathname: '/edit',
-      query: { recipe, ingredients, steps }
+      query: { 
+        recipe: JSON.stringify(recipe),
+        ingredients: JSON.stringify(ingredients),
+        steps: JSON.stringify(steps)
+      }
     });
   };
 
