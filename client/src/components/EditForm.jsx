@@ -26,8 +26,6 @@ export default function EditForm() {
   const stepArray = [];
 
   for (let i = 0; i < currentSteps.length; i++) {
-    // console.log("current step: ", currentSteps[i].instruction);
-    // console.log("current ing: ", ingredientsArray[i]);
     stepArray.push(currentSteps[i].instruction)
   }
 
@@ -38,26 +36,24 @@ export default function EditForm() {
     />  
   ));
 
-  // console.log("Rec: ", currentRecipe, ingredientsArray);
-  // console.log("Ings: ", currentIngredients);
-  console.log("Steps: ", stepArray);
-
   // template
   return (
     <div className="edit-form">
       <div className="edit-section">
         <h4 id="edit-category">TITLE</h4>
-        <p className="edit-content">{currentRecipe.recipe}</p>
+        <div className="edit-content">
+          {currentRecipe.recipe}
+        </div>
         <button className="edit-button">EDIT</button>
       </div>
       <div className="edit-section">
         <h4 id="edit-category">INGREDIENTS</h4>
-        <p className="edit-content">{ingredientArray}</p>
+        <div className="edit-content">{ingredientArray}</div>
         <button className="edit-button">EDIT</button>
       </div>
       <div className="edit-section">
         <h4 id="edit-category">INSTRUCTIONS</h4>
-        <p className="edit-content">{stepsArray}</p>
+        <div className="edit-content">{stepsArray}</div>
         <button className="edit-button">EDIT</button>
       </div>
     </div>

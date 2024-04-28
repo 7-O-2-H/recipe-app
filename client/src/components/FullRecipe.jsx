@@ -43,7 +43,8 @@ export default function FullRecipe (props) {
  
   // button handlers
   const handleFavourite = () => {
-      router.push('/favourites');
+    addFavourite(userId, recipe.id);
+    router.push('/favourites');
   };
 
   const handleEdit = () => {
@@ -73,7 +74,6 @@ export default function FullRecipe (props) {
     />
   ));
 
-  console.log(steps);
   const stepsArray = steps.map((step, index) => (
     <Steps
       key={index + 1}
