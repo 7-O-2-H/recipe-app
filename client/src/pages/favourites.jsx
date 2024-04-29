@@ -17,7 +17,6 @@ export default function Browse() {
       <div className="browse-body" >
         <Favourites />
       </div>
-      {/* <Spacer /> */}
     </div>
   );
 };

@@ -31,7 +31,6 @@ export default function UserRecipes() {
       <div className="browse-body" >
         <UserRecipeList userId={userId}/>
       </div>
-      {/* <Spacer /> */}
     </div>
   );
 };

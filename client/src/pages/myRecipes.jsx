@@ -19,7 +19,6 @@ export default function MyRecipes() {
       <div className="browse-body" >
         <MyRecipeList />
       </div>
-      {/* <Spacer /> */}
     </div>
   );
 };

@@ -8,14 +8,15 @@ router.get('/', (req, res) => {
   })
 });
 
-// router.get('/:id', (req, res) => {
-//   getTagsByRecipeId(id)
-//   .then(data => {
-//     res.json(data);
-//   })
-// });
-
 router.get('/:id', (req, res) => {
+  const id = req.params.id;
+  getTagsByRecipeId(id)
+  .then(data => {
+    res.json(data);
+  })
+});
+
+router.get('/recipes/:id', (req, res) => {
   const id = req.params.id;
   getRecipesByTagId(id)
   .then(data => {
