@@ -38,10 +38,11 @@ export default function Login() {
         toast.error('Please enter your password.');
         return;
       };
-      if(data['data']) {
+      if(data) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
-        localStorage.setItem("token", data['data']);
-        setToken(data['data']);
+        localStorage.setItem("token", data['data'].token);
+        localStorage.setItem("userName", data['data'].user_name);
+        setToken(data['data'].token);
         router.push('/');
       } else {
         toast.error("Invalid email or password.");
@@ -89,6 +90,7 @@ export default function Login() {
 
       if (response && response.success) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
+        localStorage.setItem("userName", userName);
         localStorage.setItem("token", response.token)
         toast.success(response.message || "Account created succesfully.");
         router.push('/');

@@ -6,7 +6,7 @@ import Spacer from '../components/Spacer';
 import MyRecipeList from "../components/MyRecipeList";
 import BrowseOptions from "../components/BrowseOptions";
 
-export default function Browse() {
+export default function MyRecipes() {
 
   // template
   return (

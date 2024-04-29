@@ -20,7 +20,6 @@ export default function UserRecipes() {
   };  
   const userRecipes = `${myRecipes[0]['user_name']}\'s Recipes`;
 
-  console.log(myRecipes);
   // template
   return (
     <div>

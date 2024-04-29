@@ -9,23 +9,6 @@ import useAppData from '../hooks/useAppData';
 import { useRecipe } from '../hooks/useRecipe';
 
 export default function Edit(recipeData) {
-
-  // // retreive all recipes
-  // const { allRecipes } = useAppData();
-
-  // // create random index
-  // const recipeIndex = Math.floor(Math.random() * allRecipes.length);
-
-  // // use random number to select random recipe
-  // const randomRecipe = allRecipes[recipeIndex];
-
-  // // get all recipe data
-  // const { currentRecipe, currentIngredients, currentSteps } = useRecipe(randomRecipe?.id);
-
-  // //loading state 
-  // if (!randomRecipe || !currentRecipe || !currentIngredients || !currentSteps) {
-  //   return <div>Loading...</div>;
-  // }
   
   // template
   return (
