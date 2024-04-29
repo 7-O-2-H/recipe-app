@@ -33,6 +33,7 @@ export function getRecipesByUserId(id) {
   })
   .catch((e) => {
     console.log("axios error: ", e);
+    return data;
   });
 };
 

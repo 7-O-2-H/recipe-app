@@ -13,18 +13,6 @@ const getAllUsers = () => {
     });
 };
 
-const getPasswordByEmail = (email) => {
-  return db
-    .query(`SELECT password FROM users WHERE users.email = $1`, [email])
-    .then((result) => {
-      return result.rows;
-    })
-    .catch((err) => {
-      console.log('add user error;', err.message);
-      return null;
-    });
-};
-
 const getUserById = (id) => {
   return db
     .query(`SELECT * FROM users WHERE users.id = $1`, [id])
@@ -40,6 +28,17 @@ const getUserById = (id) => {
 const getUserByEmail = (email) => {
   return db
     .query(`SELECT * FROM users WHERE email = $1`, [email])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      return null;
+    });
+};
+
+const getUserByUserName = (user_name) => {
+  return db
+    .query(`SELECT * FROM users WHERE user_name = $1`, [user_name])
     .then((result) => {
       return result.rows;
     })
@@ -71,4 +70,4 @@ const addUser = (userData) => {
     });
 };
 
-module.exports = { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail, addUser };
+module.exports = { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail, getUserByUserName, addUser };

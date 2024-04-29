@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail, addUser } = require('../db/queries/users');
+const { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail, getUserByUserName, addUser } = require('../db/queries/users');
 const { validUser, validateUserLogin } = require('../helpers/userHelpers');
 
 router.get('/', (req, res) => {
@@ -34,26 +34,60 @@ router.put('/login', async (req, res) => {
 
 });
 
-// router.get('/5', (req, res) => {
-//   getUserById(5)
-//   .then(data => {
-//     res.json(data);
-//   })
-// });
+router.put('/add', async(req, res) => {
 
-// router.get('/4', (req, res) => {
-//   getUserByRecipeId(4)
-//   .then(data => {
-//     res.json(data);
-//   })
-// });
-
-router.put('/add', (req, res) => {
+  // set user data from submitted form and inisital falsey values for exisiting user
   const userData = req.body.userData;
-  console.log(userData);
+  const existingUser = {
+    status: false,
+    user_name: null,
+    email: null
+  };
+
+  // check db for submitted user
+  try {
+    const data = await getUserByUserName(userData.user_name);
+    if (data[0]) {
+      existingUser.status = true;
+      existingUser.user_name = data[0].user_name;
+    }
+  } catch(error) {
+    console.log('error', error);
+    return;
+  };
+  
+  // check db for submitted email
+  try {
+    const data = await getUserByEmail(userData.email);
+    if (data[0]) {
+      existingUser.status = true;
+      existingUser.email = data[0].email;
+    }
+  } catch(error) {
+    console.log('error', error);
+    return;
+  };
+  console.log(existingUser);
+  
+  // return correct message dependent on reason for failure
+  if (existingUser.status) {
+    if (existingUser.user_name) {
+      return res.status(400).json({success: false, message: 'This usersname is already in our database.'})
+    };
+    if (existingUser.email) {
+      return res.status(400).json({success: false, message: 'This email is already in our database.'})
+    };
+    return res.status(400).json({success: false, message: 'Invalid registration.'});
+  };
+
+  // add user
   addUser(userData)
   .then(data => {
-    res.json(data);
+    res.status(201).json({success: true, message: 'Registration successful.'})
+  })
+  .catch((err) => {
+    console.log("error: ", err);
+    res.status(500).json({success: false, message: 'Failed to add user.'})
   })
 });
 

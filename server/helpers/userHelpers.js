@@ -57,4 +57,18 @@ async function validUser(email) {
 
 };
 
-module.exports = { validateUserLogin, validUser }
+async function validRegistration(userData) {
+
+  // get all existing users
+  try {
+    const data = await userQueries.getAllUsers();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error('Error: ', error);
+    return;
+  }
+  
+};
+
+module.exports = { validateUserLogin, validUser, validRegistration }
