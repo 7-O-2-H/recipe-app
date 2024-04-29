@@ -72,7 +72,7 @@ router.put('/add', async(req, res) => {
   // return correct message dependent on reason for failure
   if (existingUser.status) {
     if (existingUser.user_name) {
-      return res.status(400).json({success: false, message: 'This usersname is already in our database.'})
+      return res.status(400).json({success: false, message: 'This user name is already in our database.'})
     };
     if (existingUser.email) {
       return res.status(400).json({success: false, message: 'This email is already in our database.'})

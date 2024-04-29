@@ -51,7 +51,7 @@ export default function Login() {
   };
 
   // handle register
-  const handleRegister = (event) => {
+  const handleRegister = async (event) => {
     
     event.preventDefault();
 
@@ -83,19 +83,20 @@ export default function Login() {
       password: password
     };
 
-    // if(data['data']) {
-      //   localStorage.setItem("loggedIn", JSON.stringify(true));
-      //   localStorage.setItem("token", data['data']);
-      //   setToken(data['data']);
-      //   router.push('/');
-      // } else {
-      //   toast.error("Invalid email or password.");
-      //   return;
-      // };
-      addUser(userData);
-      localStorage.setItem("loggedIn", JSON.stringify(true));
-      toast.success("Account created succesfully.");
-      router.push('/');
+    try {
+
+      const response = await addUser(userData);
+
+      if (response && response.success) {
+        localStorage.setItem("loggedIn", JSON.stringify(true));
+        toast.success(response.message || "Account created succesfully.");
+        router.push('/');
+      } else {
+        toast.error(response.message || "Failed to create account.");
+      }    
+    } catch (error) {
+      toast.error("An unexpected error occurred. Please try again later.");
+    }
   };
 
   // handle login/register toggle
