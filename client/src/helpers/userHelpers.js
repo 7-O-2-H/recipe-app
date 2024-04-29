@@ -15,7 +15,6 @@ export function validateUser(email, password) {
 export async function addUser(userData) {
   try {
     const response = await axios.put('http://localhost:8080/users/add', { userData });
-    console.log('Response from backend:', response.data);
     return response.data;
   } catch (error) {
     if (error.response) {

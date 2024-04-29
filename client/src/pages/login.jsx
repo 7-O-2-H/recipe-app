@@ -89,6 +89,7 @@ export default function Login() {
 
       if (response && response.success) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
+        localStorage.setItem("token", response.token)
         toast.success(response.message || "Account created succesfully.");
         router.push('/');
       } else {
