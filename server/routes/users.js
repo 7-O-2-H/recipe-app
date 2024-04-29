@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { getAllUsers, getUserById, getUserByRecipeId, getUserByEmail, getUserByUserName, addUser } = require('../db/queries/users');
-const { validUser, validateUserLogin } = require('../helpers/userHelpers');
+const { validUser, validateUserLogin, generateToken } = require('../helpers/userHelpers');
 
 router.get('/', (req, res) => {
   getAllUsers()
@@ -67,7 +67,6 @@ router.put('/add', async(req, res) => {
     console.log('error', error);
     return;
   };
-  console.log(existingUser);
   
   // return correct message dependent on reason for failure
   if (existingUser.status) {
@@ -83,7 +82,9 @@ router.put('/add', async(req, res) => {
   // add user
   addUser(userData)
   .then(data => {
-    res.status(201).json({success: true, message: 'Registration successful.'})
+    const userId = data['data'][0]['id'];
+    const token = generateToken(userId);
+    res.status(201).json({token: token, success: true, message: 'Registration successful.'})
   })
   .catch((err) => {
     console.log("error: ", err);

@@ -62,7 +62,6 @@ async function validRegistration(userData) {
   // get all existing users
   try {
     const data = await userQueries.getAllUsers();
-    console.log(data);
     return data;
   } catch (error) {
     console.error('Error: ', error);
@@ -71,4 +70,4 @@ async function validRegistration(userData) {
   
 };
 
-module.exports = { validateUserLogin, validUser, validRegistration }
+module.exports = { validateUserLogin, validUser, validRegistration, generateToken }
