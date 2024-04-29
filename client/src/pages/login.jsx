@@ -20,7 +20,8 @@ export default function Login() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState('');
+  const [reEnterPassword, setReEnterPassword] = useState("");
+  const [token, setToken] = useState("");
 
   // set router
   const router = useRouter();
@@ -51,6 +52,29 @@ export default function Login() {
 
   // handle register
   const handleRegister = (event) => {
+    
+    event.preventDefault();
+
+    // check if user name, email, password have been entered and that passwords match
+    if (!userName) {
+      toast.error('Please enter a user name.');
+      return;
+    };
+
+    if (!email) {
+      toast.error('Please enter a password.');
+      return;
+    };
+
+    if (!password) {
+      toast.error('Please enter a password.');
+      return;
+    };
+
+    if (password !== reEnterPassword) {
+      toast.error('Passwords do not match.');
+      return;
+    };
 
     // assign form data to userData obj
     const userData = {
@@ -59,12 +83,7 @@ export default function Login() {
       password: password
     };
 
-    event.preventDefault();
-      // if (!password) {
-      //   toast.error('Please enter your password.');
-      //   return;
-      // };
-      // if(data['data']) {
+    // if(data['data']) {
       //   localStorage.setItem("loggedIn", JSON.stringify(true));
       //   localStorage.setItem("token", data['data']);
       //   setToken(data['data']);
@@ -150,6 +169,14 @@ export default function Login() {
               placeholder="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
+            />
+            <input
+              id="reenterpassword"
+              type="password"
+              className="input-field"
+              placeholder="re-enter password"
+              value={reEnterPassword}
+              onChange={(event) => setReEnterPassword(event.target.value)}
             />
             <button type="submit" className="submit-btn">
               Register
