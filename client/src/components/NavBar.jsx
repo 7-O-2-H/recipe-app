@@ -10,13 +10,14 @@ export default function NavBar() {
   const router = useRouter();
 
   // use hook to establish logged in status
-  let loggedIn = useLoggedInStatus();
+  let { loggedIn, userName } = useLoggedInStatus();
 
   //handle logout button click
   const handleLogout = () => {
     loggedIn = false;
     localStorage.setItem("token", '');
     localStorage.setItem("loggedIn", JSON.stringify(false));
+    localStorage.setItem("userName", userName);
     router.push('/login');
   };
 
@@ -41,7 +42,7 @@ export default function NavBar() {
       ) : (
         <ul className="links">
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/">{userName}</Link>
           </li>
           <li>
             <Link href="/favourites">Favourites</Link>
