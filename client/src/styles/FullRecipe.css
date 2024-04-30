@@ -59,6 +59,23 @@ button {
   background-color: #2E6171;
 }
 
+.tags-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.tag-title {
+  width: 10%;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .favourites-option {
   display: flex;
   flex-direction: row;

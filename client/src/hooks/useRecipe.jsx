@@ -23,7 +23,6 @@ export function useRecipe(recipeId) {
         setCurrentIngredients(all[1]['data']);
         setCurrentSteps(all[2]['data']);
         setCurrentTags(all[3]['data']);
-        console.log(currentTags);
       })
     };
     

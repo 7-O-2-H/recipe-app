@@ -17,6 +17,7 @@ import { deleteRecipe } from "../helpers/recipeHelpers";
 import Ingredient from "./Ingredient";
 import Steps from "./Steps";
 import Spacer from "./Spacer";
+import Tag from "./Tag"
 // styles
 import "../styles/FullRecipe.css"
 
@@ -31,16 +32,18 @@ export default function FullRecipe (props) {
   // use hooks and props to set user id, favourites, recipe data
   const userId = parseInt(useVerification());
   const { allFavourites } = useAllFavourites();
-  const { recipe, ingredients, steps } = props;
+  const { recipe, ingredients, steps, tags } = props;
   const submitterId = recipe.user_id;
   const authorizedUser = useUserAuthorization(submitterId);
 
   // loading state
   if (loggedIn) {
-    if (!userId || !recipe.id || !allFavourites) {
+    if (!userId || !recipe.id || !allFavourites || !tags) {
       return <div>Loading...</div>
     }
   }
+
+  console.log(tags);
 
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
@@ -91,6 +94,7 @@ export default function FullRecipe (props) {
   // format ingredients into proper quantities and strings
   const ingredientsArray = formatIngredientsData(ingredients);
 
+  // tags, ingredients, steps arrays
   const ingredientArray = ingredientsArray.map((ingredient, index) => (
     <Ingredient
       key={index + 1}
@@ -104,6 +108,18 @@ export default function FullRecipe (props) {
       step_name={step.step_name}
       instruction={step.instruction}
     />  
+  ));
+
+  // const tagArray = [];
+  // for (let i = 0; i < tags.length; i++) {
+
+  // }
+  const tagsArray = tags.map((tag, index) => (
+
+    <Tag
+      key={index + 1}
+      tag={tag['tag']}
+    />
   ));
 
   return (
@@ -127,6 +143,15 @@ export default function FullRecipe (props) {
         <div className="instructions">
           <h2>Instructions</h2>
           <div className="step-container">{stepsArray}</div>
+        </div>
+      </div>
+      <Spacer />
+      <div className="tags-container"> 
+        <div className="tag-title">
+          Tags
+        </div>
+        <div className="tags">
+          {tagsArray}
         </div>
       </div>
       {loggedIn ? (

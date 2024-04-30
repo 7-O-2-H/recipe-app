@@ -32,7 +32,8 @@ export default function Recipe( {id} ) {
       <FullRecipe 
         recipe={currentRecipe} 
         ingredients={currentIngredients}
-        steps={currentSteps} 
+        steps={currentSteps}
+        tags={currentTags}
       />
     </div>
   );
