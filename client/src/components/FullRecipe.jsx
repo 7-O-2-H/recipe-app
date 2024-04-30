@@ -44,8 +44,6 @@ export default function FullRecipe (props) {
     }
   }
 
-  console.log(tags);
-
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
  
