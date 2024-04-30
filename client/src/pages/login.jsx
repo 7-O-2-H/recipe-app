@@ -25,7 +25,6 @@ export default function Login() {
 
   // set router
   const router = useRouter();
-
   // handle login
   const handleLogin = (event) => {
     event.preventDefault();
@@ -38,7 +37,7 @@ export default function Login() {
         toast.error('Please enter your password.');
         return;
       };
-      if(data['data']['data']) {
+      if(data['data']) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
         localStorage.setItem("token", data['data'].token);
         localStorage.setItem("userName", data['data'].user_name);
