@@ -19,7 +19,7 @@ router.put('/login', async (req, res) => {
   const isValidUser = await validUser(email);
 
   if (!isValidUser) {
-    return res.json({ error: `Error: email not in database: ${email}` });
+    return res.json({ data: false, error: `Error: email not in database: ${email}` });
   };
 
   // validate user login by email
