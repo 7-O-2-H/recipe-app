@@ -38,8 +38,7 @@ export default function Login() {
         toast.error('Please enter your password.');
         return;
       };
-      console.log(data);
-      if(data['data']) {
+      if(data['data']['data']) {
         localStorage.setItem("loggedIn", JSON.stringify(true));
         localStorage.setItem("token", data['data'].token);
         localStorage.setItem("userName", data['data'].user_name);
