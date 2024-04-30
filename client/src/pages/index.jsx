@@ -22,10 +22,10 @@ export default function Home() {
   const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipe(randomRecipe?.id);
 
   //loading state 
-  if (!randomRecipe || !currentRecipe || !currentIngredients || !currentSteps) {
+  if (!randomRecipe || !currentRecipe || !currentIngredients || !currentSteps || !currentTags) {
     return <div>Loading...</div>;
-  }
-  console.log(randomRecipe,currentTags, currentIngredients, currentRecipe, currentSteps);
+  };
+
   // template
   return (
    <div>

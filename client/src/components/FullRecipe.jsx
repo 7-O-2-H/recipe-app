@@ -27,7 +27,7 @@ export default function FullRecipe (props) {
   const router = useRouter();
 
   // set default login status to false
-  const loggedIn = useLoggedInStatus();
+  const { loggedIn } = useLoggedInStatus();
 
   // use hooks and props to set user id, favourites, recipe data
   const userId = parseInt(useVerification());
@@ -38,7 +38,8 @@ export default function FullRecipe (props) {
 
   // loading state
   if (loggedIn) {
-    if (!userId || !recipe.id || !allFavourites || !tags) {
+    if (!userId || !recipe.id) {
+      // || !allFavourites || !tags) {
       return <div>Loading...</div>
     }
   }
