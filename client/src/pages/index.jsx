@@ -19,13 +19,13 @@ export default function Home() {
   const randomRecipe = allRecipes[recipeIndex];
 
   // get all recipe data
-  const { currentRecipe, currentIngredients, currentSteps } = useRecipe(randomRecipe?.id);
+  const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipe(randomRecipe?.id);
 
   //loading state 
   if (!randomRecipe || !currentRecipe || !currentIngredients || !currentSteps) {
     return <div>Loading...</div>;
   }
-  
+  console.log(randomRecipe,currentTags, currentIngredients, currentRecipe, currentSteps);
   // template
   return (
    <div>
@@ -37,6 +37,7 @@ export default function Home() {
       recipe={currentRecipe} 
       ingredients={currentIngredients}
       steps={currentSteps} 
+      tags={currentTags}
     />
    </div>
   );

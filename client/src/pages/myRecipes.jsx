@@ -15,7 +15,6 @@ export default function MyRecipes() {
       <Spacer />
       <Header title="My Recipes" />
       <Spacer />
-      <BrowseOptions />
       <div className="browse-body" >
         <MyRecipeList />
       </div>

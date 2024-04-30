@@ -3,6 +3,7 @@ import useVerification from "../hooks/useVerification";
 import { useMyRecipes } from "../hooks/useMyRecipes";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
+import BrowseOptions from "./BrowseOptions";
 
 export default function MyRecipeList() {
 
@@ -16,7 +17,20 @@ export default function MyRecipeList() {
   
   if (!userId || !myRecipes) {
     return <div>Loading...</div>
-  };  
+  };
+
+  if (!myRecipes.length) {
+    return (
+      <div>
+        <div id="empty-message">
+          <h3>There's nothing here right now . . . </h3>
+        </div>
+        <div>
+          <button className="">ADD RECIPE</button>
+        </div>
+      </div>
+    );
+  };
 
   const recipesArray = myRecipes.map(recipe => (  
       <RecipeListItem
@@ -35,7 +49,12 @@ export default function MyRecipeList() {
   // template
   return (
     <div className="recipe-list">
+      <div>
+        <BrowseOptions />
+      </div>
+      <div>
       {recipesArray}
+      </div>
       <div>
         <button className="">ADD RECIPE</button>
       </div>

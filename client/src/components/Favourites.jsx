@@ -3,6 +3,7 @@ import useVerification from "../hooks/useVerification";
 import { useFavourites } from "../hooks/useFavourites";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
+import BrowseOptions from "./BrowseOptions";
 
 export default function Favourites() {
 
@@ -41,6 +42,7 @@ export default function Favourites() {
   // template
   return (
     <div className="recipe-list">
+      <BrowseOptions />
       {recipesArray}
     </div>
   );
