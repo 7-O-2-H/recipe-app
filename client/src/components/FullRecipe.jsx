@@ -38,11 +38,10 @@ export default function FullRecipe (props) {
 
   // loading state
   if (loggedIn) {
-    if (!userId || !recipe.id) {
-      // || !allFavourites || !tags) {
+    if (!userId || !recipe.id || !allFavourites || !tags) {
       return <div>Loading...</div>
     }
-  }
+  };
 
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
@@ -109,10 +108,6 @@ export default function FullRecipe (props) {
     />  
   ));
 
-  // const tagArray = [];
-  // for (let i = 0; i < tags.length; i++) {
-
-  // }
   const tagsArray = tags.map((tag, index) => (
 
     <Tag
