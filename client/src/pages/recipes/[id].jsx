@@ -17,9 +17,8 @@ export default function Recipe( {id} ) {
   // use hook to retreive selected recipe
   const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipe(recipeId);
  
-  console.log(currentRecipe, currentIngredients, currentSteps, currentTags)
   // If recipe is not set, invoke loading state
-  if (!currentRecipe || !currentIngredients || !currentSteps || currentTags) {
+  if (!currentRecipe || !currentIngredients || !currentSteps || !currentTags) {
     return <div>Loading...</div>;
   }
 

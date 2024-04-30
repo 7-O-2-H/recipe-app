@@ -20,7 +20,6 @@ export default function Browse() {
       <div className="browse-body" >
         <RecipeList />
       </div>
-      {/* <Spacer /> */}
     </div>
   );
 };

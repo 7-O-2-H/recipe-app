@@ -38,13 +38,10 @@ export default function FullRecipe (props) {
 
   // loading state
   if (loggedIn) {
-    if (!userId || !recipe.id) {
-      // || !allFavourites || !tags) {
+    if (!userId || !recipe.id || !allFavourites || !tags) {
       return <div>Loading...</div>
     }
   }
-
-  console.log(tags);
 
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
