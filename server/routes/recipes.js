@@ -1,9 +1,18 @@
 const router = require('express').Router();
-const { getAllRecipes, getRecipesByUserId, getRecipeById, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId } = require('../db/queries/recipes');
+const { getAllRecipes, getRecipesByUserId, getRecipeById, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId, getRecipesBySortingData } = require('../db/queries/recipes');
 
 // recipes
 router.get('/', (req, res) => {
   getAllRecipes()
+  .then(data => {
+    res.json(data);
+  })
+});
+
+// sorting
+router.get('/sorting', (req, res) => {
+  const maxTime = parseInt(61);
+  getRecipesBySortingData('black pepper', 'hearty', maxTime)
   .then(data => {
     res.json(data);
   })
@@ -51,7 +60,8 @@ router.get('/:id/ingredients', (req, res) => {
 
 // steps
 router.get('/:id/steps', (req, res) => {
-  getStepsByRecipeId(4)
+  const id = req.params.id;
+  getStepsByRecipeId(id)
   .then(data => {
     res.json(data);
   })

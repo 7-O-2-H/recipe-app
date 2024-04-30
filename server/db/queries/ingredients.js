@@ -7,7 +7,7 @@ const getAllIngredients = () => {
     return data.rows;
   })
   .catch((err) => {
-    console.log('add user error;', err.message);
+    console.log('get all ingredients error;', err.message);
     return null;
   });
 };
@@ -17,7 +17,7 @@ const getIngredientByName = (ingredient) => {
     return data.rows;
   })
   .catch((err) => {
-    console.log('add user error;', err.message);
+    console.log('get ingredient by name error;', err.message);
     return null;
   });
 };
@@ -28,7 +28,7 @@ const getIngredientsByRecipeId = (id) => {
     return data.rows;
   })
   .catch((err) => {
-    console.log('add user error;', err.message);
+    console.log('get ingredients by rec error;', err.message);
     return null;
   });
 };

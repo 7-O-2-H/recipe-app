@@ -8,7 +8,7 @@ const getAllTags = () => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('get all tags error', err.message);
       return null;
     });
 };
@@ -20,7 +20,7 @@ const getTagsByRecipeId = (id) => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('get tags by rec error;', err.message);
       return null;
     });
 };
@@ -32,7 +32,7 @@ const getRecipesByTagId = (id) => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('get recs by tag error;', err.message);
       return null;
     });
 };

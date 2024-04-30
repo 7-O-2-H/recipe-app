@@ -54,7 +54,7 @@ const getUserByRecipeId = (id) => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('user  by rec error;', err.message);
       return null;
     });
 };

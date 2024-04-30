@@ -9,7 +9,7 @@ const getAllRecipes = () => {
       return result.rows;
     })
     .catch((err) => {
-      console.log('add user error;', err.message);
+      console.log('get recipes error;', err.message);
       return null;
     });
 };
@@ -19,7 +19,7 @@ const getRecipesByUserId = (id) => {
     return data.rows;
   })
   .catch((err) => {
-    console.log('add user error;', err.message);
+    console.log('get rec by user error;', err.message);
     return null;
   });
 };
@@ -29,7 +29,7 @@ const getRecipeById = (id) => {
     return data.rows;
   })
   .catch((err) => {
-    console.log('add user error;', err.message);
+    console.log('get rec by id error;', err.message);
     return null;
   });
 };
@@ -39,7 +39,7 @@ const getFullRecipeById = (id) => {
     return data.rows;
   })
   .catch((err) => {
-    console.log('add user error;', err.message);
+    console.log('Full recipe error;', err.message);
     return null;
   });
 };
@@ -61,7 +61,7 @@ const getIngredientsByRecipeId = (id) => {
     return data.rows;
   })
   .catch((err) => {
-    console.log('add user error;', err.message);
+    console.log('ingredients error;', err.message);
     return null;
   });
 };
@@ -72,9 +72,57 @@ const getStepsByRecipeId = (id) => {
     return data.rows;
   })
   .catch((err) => {
-    console.log('add user error;', err.message);
+    console.log('get steps error;', err.message);
     return null;
   });
 };
 
-module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId };
+// sorting
+const getRecipesBySortingData = (ingredient, tag, maxTime) => {
+
+  console.log(typeof ingredient, ingredient);
+  console.log(typeof tag, tag);
+  console.log(typeof maxTime, maxTime);
+
+
+  const values = [ingredient, tag, parseInt(maxTime)];
+
+  return db.query
+  (`SELECT 
+    recipes.id, 
+    user_id, 
+    recipe, 
+    time, 
+    measurement, 
+    serves, 
+    description, 
+    user_name 
+  FROM
+    recipes
+  JOIN
+    measurements ON recipes.measurement_id = measurements.id
+  JOIN 
+    users on recipes.user_id = users.id 
+  JOIN
+    recipe_ingredients ON recipes.id = recipe_ingredients.recipe_id
+  JOIN
+    ingredients ON recipe_ingredients.ingredient_id = ingredients.id
+  JOIN
+    recipe_tags ON recipes.id = recipe_tags.recipe_id
+  JOIN
+    tags on recipe_tags.tag_id = tags.id
+  WHERE 
+    ($1 = '' OR ingredients.ingredient = $1)
+    AND ($2 = '' OR tags.tag = $2 OR tags.tag IS NULL)
+    AND ($3::integer IS NULL OR recipes.time < $3::integer);
+  `, values)
+  .then((result) => {
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log("sorting error", err.message);
+    return null;
+  })
+};
+
+module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId, getRecipesBySortingData };
