@@ -9,10 +9,8 @@ export default function TagsDropdown({ tags, selectedOption, onSelect }) {
       <select onChange={(e) => onSelect(e.target.value)} value={selectedOption}>
         <option value="">TAGS</option>
         {tags.map((tag) => (
-          <option key={tag.id} value={tag.tag}>
-            <Link href={`/tags/${tag.id}`}>
+          <option key={tag.id} value={tag.tag}>            
               {tag.tag}
-            </Link>
           </option>
         ))}
       </select>   
