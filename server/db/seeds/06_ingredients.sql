@@ -40,3 +40,4 @@ INSERT INTO ingredients (ingredient) VALUES ('kosher salt');
 INSERT INTO ingredients (ingredient) VALUES ('chicken thighs');
 INSERT INTO ingredients (ingredient) VALUES ('paprika');
 INSERT INTO ingredients (ingredient) VALUES ('peas');
+INSERT INTO ingredients (ingredient) VALUES ('salt');
