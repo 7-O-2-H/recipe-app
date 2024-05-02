@@ -140,11 +140,11 @@ INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
   5,
   3,
   'Step 2',
-  'Remove foil, and based the carrots and meat with the water in the pan. Add peas evenly to the pan and increase heat to 400 degrees fahrenheit.'
+  'Remove foil, and baste the carrots and meat with the water in the pan. Add peas evenly to the pan and increase heat to 400 degrees fahrenheit.'
 );
 INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
   5,
   4,
-  'Step 2',
+  'Step 3',
   'Continue to cook for 30 minutes, basting every 10 minutes, until the chicken skin crisps.'
 );
