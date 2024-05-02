@@ -43,6 +43,12 @@ export function formatIngredientsData(ingredients) {
     // intialize formatted ingredients strings
     let str = '';
 
+    if (ing['measurement'] === '-') {
+      str += `${ing['quantity']} ${ing['ingredient']}`;
+      ingredientsArray.push(str);
+      continue;
+    }
+
     // convert to fraction and whole number if greater than 1
     if (ing['quantity'] > 1) {
 
