@@ -38,3 +38,5 @@ INSERT INTO ingredients (ingredient) VALUES ('minced garlic');
 INSERT INTO ingredients (ingredient) VALUES ('mild Italian sausage');
 INSERT INTO ingredients (ingredient) VALUES ('kosher salt');
 INSERT INTO ingredients (ingredient) VALUES ('chicken thighs');
+INSERT INTO ingredients (ingredient) VALUES ('paprika');
+INSERT INTO ingredients (ingredient) VALUES ('peas');
