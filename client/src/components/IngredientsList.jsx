@@ -2,9 +2,11 @@
 import { useState } from "react";
 import useAppData from "../hooks/useAppData";
 import IngredientsDropdown from "../components/IngredientsDropdown";
-import { useSortingData } from "../hooks/useSortingData";
+import { useRouter } from "next/router";
 
 export default function IngredientsList() {
+
+  const router = useRouter();
 
   // selected option state dec
   const [selectedOption, setSelectedOption] = useState('');
@@ -14,13 +16,14 @@ export default function IngredientsList() {
 
   const handleClear = () => {
     localStorage.setItem('ingredient', '');
-    useSortingData();
+    router.push('/browse');
   };
 
   const handleSelect = (selectedOption) => {
     // console.log('Selected Option:', selectedOption);
     localStorage.setItem('ingredient', selectedOption);
-    useSortingData();
+    router.push('/browse');
+
   };
 
   return (

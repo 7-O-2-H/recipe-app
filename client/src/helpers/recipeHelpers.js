@@ -73,7 +73,13 @@ export function getStepsByRecipeId(id) {
 };
 
 export function getRecipesBySortingData(sortingData) {
-  return axios.get(`http://localhost:8080/recipes/sorting`, {sortingData})
+  return axios.get(`http://localhost:8080/recipes/sorting`, {
+    params: {
+      ingredient: sortingData.ingredient,
+      tag: sortingData.tag,
+      maxTime: sortingData.maxTime
+    }
+  })
   .then((data) => {
     return data;
   })

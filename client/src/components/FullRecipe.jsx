@@ -156,6 +156,7 @@ export default function FullRecipe (props) {
               <div className="favourites-option">
                 <button className="favourites-button" onClick={handleFavourite}>FAVOURITE</button>
                 <button>SHARE RECIPE</button>
+                <button>CHANGE SERVING SIZE</button>
                 {authorizedUser ? (
                   <>
                     <button onClick={handleDelete}>DELETE RECIPE</button>
@@ -170,6 +171,7 @@ export default function FullRecipe (props) {
               <div className="favourites-option">
                 <button onClick={handleUnfavourite}>UNFAVOURITE</button>
                 <button> SHARE RECIPE</button>
+                <button>CHANGE SERVING SIZE</button>
                 {authorizedUser ? (
                   <>
                     <button onClick={handleEdit}>EDIT RECIPE</button>

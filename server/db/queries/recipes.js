@@ -80,11 +80,6 @@ const getStepsByRecipeId = (id) => {
 // sorting
 const getRecipesBySortingData = (ingredient, tag, maxTime) => {
 
-  console.log(typeof ingredient, ingredient);
-  console.log(typeof tag, tag);
-  console.log(typeof maxTime, maxTime);
-
-
   const values = [ingredient, tag, maxTime];
 
   return db.query

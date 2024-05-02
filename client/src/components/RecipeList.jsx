@@ -1,12 +1,13 @@
 // imports
 import useAppData from "../hooks/useAppData";
+import { useSortingData } from "../hooks/useSortingData";
+import { useState, useEffect } from "react";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 
 export default function RecipeList() {
 
-  // get recipes
-  const { allRecipes } = useAppData();
+  const { allRecipes } = useSortingData();
 
   const recipesArray = allRecipes.map(recipe => (  
       <RecipeListItem
