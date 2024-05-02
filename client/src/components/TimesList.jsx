@@ -18,7 +18,7 @@ export default function TimesList() {
   ];
 
   const handleClear = () => {
-    localStorage.setItem('maxTime', null);
+    localStorage.setItem('maxTime', 0);
     useSortingData();
   };
 
