@@ -12,6 +12,12 @@ export default function TagsList() {
   // retreive all tags
   const { allTags } = useAppData();
   
+  const handleClear = () => {
+    localStorage.setItem('tag', '');
+    useSortingData();
+
+  };
+
   const handleSelect = (selectedOption) => {
     // console.log('Selected Option:', selectedOption);
     localStorage.setItem('tag', selectedOption);
@@ -21,7 +27,7 @@ export default function TagsList() {
   return (
     <div>
       <TagsDropdown tags={allTags} selectOption={selectedOption} onSelect={handleSelect} />
-      <button>CLEAR</button>
+      <button onClick={handleClear}>CLEAR</button>
     </div>
   );
 }

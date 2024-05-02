@@ -1,8 +1,6 @@
-// imports
-import Link from "next/link";
-
 export default function TagsDropdown({ tags, selectedOption, onSelect }) {
   
+
   // template
   return (
     <div className="tags-dropdown">

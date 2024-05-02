@@ -85,10 +85,10 @@ const getRecipesBySortingData = (ingredient, tag, maxTime) => {
   console.log(typeof maxTime, maxTime);
 
 
-  const values = [ingredient, tag, parseInt(maxTime)];
+  const values = [ingredient, tag, maxTime];
 
   return db.query
-  (`SELECT 
+  (`SELECT DISTINCT
     recipes.id, 
     user_id, 
     recipe, 
@@ -114,7 +114,7 @@ const getRecipesBySortingData = (ingredient, tag, maxTime) => {
   WHERE 
     ($1 = '' OR ingredients.ingredient = $1)
     AND ($2 = '' OR tags.tag = $2 OR tags.tag IS NULL)
-    AND ($3::integer IS NULL OR recipes.time < $3::integer);
+    AND (recipes.time < $3 OR $3 = 0);
   `, values)
   .then((result) => {
     return result.rows;
