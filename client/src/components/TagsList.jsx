@@ -1,7 +1,8 @@
 // imports
-import { useState } from "react";
+import { use, useState } from "react";
 import useAppData from "../hooks/useAppData";
 import TagsDropdown from "../components/TagsDropdown";
+import { useSortingData } from "../hooks/useSortingData";
 
 export default function TagsList() {
 
@@ -12,7 +13,9 @@ export default function TagsList() {
   const { allTags } = useAppData();
   
   const handleSelect = (selectedOption) => {
-    console.log('Selected Option:', selectedOption);
+    // console.log('Selected Option:', selectedOption);
+    localStorage.setItem('tag', selectedOption);
+    useSortingData();
   };
 
   return (

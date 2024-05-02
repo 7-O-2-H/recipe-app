@@ -2,6 +2,8 @@
 import { useState } from "react";
 import useAppData from "../hooks/useAppData";
 import IngredientsDropdown from "../components/IngredientsDropdown";
+import { useSortingData } from "../hooks/useSortingData";
+
 
 export default function IngredientsList() {
 
@@ -12,7 +14,10 @@ export default function IngredientsList() {
   const { allIngredients } = useAppData();
 
   const handleSelect = (selectedOption) => {
-    console.log('Selected Option:', selectedOption);
+    // console.log('Selected Option:', selectedOption);
+    localStorage.setItem('ingredient', selectedOption);
+    useSortingData();
+
   };
 
   return (

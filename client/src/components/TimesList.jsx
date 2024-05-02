@@ -1,6 +1,8 @@
 // imports
 import { useState } from "react";
 import TimesDropdown from "../components/TimesDropdown";
+import { useSortingData } from "../hooks/useSortingData";
+
 
 export default function TimesList() {
 
@@ -17,7 +19,10 @@ export default function TimesList() {
   ];
 
   const handleSelect = (selectedOption) => {
-    console.log('Selected Option:', selectedOption);
+    // console.log('Selected Option:', selectedOption);
+    localStorage.setItem('maxTime', selectedOption);
+    useSortingData();
+
   };
 
   return (

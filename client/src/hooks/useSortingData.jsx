@@ -2,21 +2,29 @@
 import { useEffect, useState } from 'react';
 import { getRecipeBySortingData } from '../helpers/recipeHelpers';
 
-export function useSorintData(sortingData) {
+export function useSortingData() {
   
-  const [myRecipes, setMyRecipes] = useState([]);
+  // const [ingredient, setIngrediet] = useState('');
+  // const [tag, setTag] = useState('');
+  // const [time, useState] = useState([]);
   
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (userId) {
-      getRecipesByUserId(userId)
-      .then((data) => {
-        setMyRecipes(data['data']);
-      });
-    };
+    // if (userId) {
+    //   getRecipesByUserId(userId)
+    //   .then((data) => {
+    //     setMyRecipes(data['data']);
+    //   });
+    // };
+
+    const ingredient = localStorage.getItem('ingredient');
+    const tag = localStorage.getItem('tag');
+    const maxTime = localStorage.getItem('maxTime')
+
+    console.log('ing: ', ingredient, 'tag', tag, 'time', maxTime);
     
-  }, [userId]);
+  // }, []);
 
-  return { myRecipes };
+  return;
 
 };
