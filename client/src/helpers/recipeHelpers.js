@@ -71,3 +71,14 @@ export function getStepsByRecipeId(id) {
     console.log("axios error: ", e);
   });
 };
+
+export function getRecipesBySortingData(sortingData) {
+  return axios.get(`http://localhost:8080/recipes/sorting`, {sortingData})
+  .then((data) => {
+    return data;
+  })
+  .catch((e) => {
+    console.log("axios error: ", e);
+  });
+};
+

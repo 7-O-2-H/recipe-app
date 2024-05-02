@@ -19,11 +19,11 @@ export default function TimesList() {
 
   const handleClear = () => {
     localStorage.setItem('maxTime', 0);
+    setSelectedOption('');
     useSortingData();
   };
 
   const handleSelect = (selectedOption) => {
-    // console.log('Selected Option:', selectedOption);
     localStorage.setItem('maxTime', selectedOption);
     useSortingData();
 

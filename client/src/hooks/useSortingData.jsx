@@ -1,6 +1,6 @@
 // imports
 import { useEffect, useState } from 'react';
-import { getRecipeBySortingData } from '../helpers/recipeHelpers';
+import { getRecipesBySortingData } from '../helpers/recipeHelpers';
 
 // function to process values of sorting data array and convert them to expected data types in place of null
 function processValues(ingredient, tag, maxTime) {
@@ -9,9 +9,16 @@ function processValues(ingredient, tag, maxTime) {
   const processedTag = tag !== null ? tag : '';
   const processedMaxTime = maxTime !== null ? maxTime : 0;
 
-  return [processedIngredient, processedTag, processedMaxTime];
+  const processedData = {
+    ingredient: processedIngredient,
+    tag: processedTag,
+    maxTime: processedMaxTime
+  }
 
-}
+  return processedData;
+
+};
+
 export function useSortingData() {
   
   const ingredient = localStorage.getItem('ingredient');
@@ -20,19 +27,19 @@ export function useSortingData() {
 
   const processedData = processValues(ingredient, tag, maxTime);
   
-  // useEffect(() => {
+  useEffect(() => {
 
-    // if (userId) {
-    //   getRecipesByUserId(userId)
-    //   .then((data) => {
-    //     setMyRecipes(data['data']);
-    //   });
-    // };
-
-
-    console.log(processedData);
+   
+      getRecipesBySortingData(processedData)
+      .then((data) => {
+        console.log(data);
+      });
     
-  // }, []);
+
+
+    // console.log(processedData);
+    
+  }, [processedData]);
 
   return;
 
