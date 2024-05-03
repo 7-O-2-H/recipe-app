@@ -194,7 +194,15 @@ export default function FullRecipe (props) {
             </>
           )}
         </>
-      ) : null}
+      ) : (
+        <>
+          <Spacer />
+          <div className="favourites-option">
+            <button> SHARE RECIPE</button> 
+            <button onClick={handleConverter}>CHANGE SERVING SIZE</button>
+          </div>
+        </>
+      )}
     </div>
   )
   
