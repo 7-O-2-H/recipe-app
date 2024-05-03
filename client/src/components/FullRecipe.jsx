@@ -35,6 +35,11 @@ export default function FullRecipe (props) {
   const { recipe, ingredients, steps, tags } = props;
   const submitterId = recipe.user_id;
   const authorizedUser = useUserAuthorization(submitterId);
+  const converterProps = { 
+    recipe: JSON.stringify(recipe),
+    ingredients: JSON.stringify(ingredients),
+    steps: JSON.stringify(steps)
+  };
 
   // loading state
   if (loggedIn) {
@@ -86,6 +91,13 @@ export default function FullRecipe (props) {
       query: {
         submitterId: JSON.stringify(submitterId)
       }
+    });
+  };
+
+  const handleConverter = () => {
+    router.push({
+      pathname: '/converter', 
+      query: converterProps
     });
   };
 
@@ -156,7 +168,7 @@ export default function FullRecipe (props) {
               <div className="favourites-option">
                 <button className="favourites-button" onClick={handleFavourite}>FAVOURITE</button>
                 <button>SHARE RECIPE</button>
-                <button>CHANGE SERVING SIZE</button>
+                <button onClick={handleConverter}>CHANGE SERVING SIZE</button>
                 {authorizedUser ? (
                   <>
                     <button onClick={handleDelete}>DELETE RECIPE</button>
@@ -171,7 +183,7 @@ export default function FullRecipe (props) {
               <div className="favourites-option">
                 <button onClick={handleUnfavourite}>UNFAVOURITE</button>
                 <button> SHARE RECIPE</button>
-                <button>CHANGE SERVING SIZE</button>
+                <button onClick={handleConverter}>CHANGE SERVING SIZE</button>
                 {authorizedUser ? (
                   <>
                     <button onClick={handleEdit}>EDIT RECIPE</button>
