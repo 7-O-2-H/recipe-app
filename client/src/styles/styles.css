@@ -134,8 +134,3 @@ body {
   border-style: solid;
   border-width: 10px;
 }
-
-.conversion-chart {
-  display:flex;
-  flex-direction: row;
-}

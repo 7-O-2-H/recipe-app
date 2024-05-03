@@ -1,0 +1,9 @@
+.ingredients-table {
+  width: 100%;
+  padding: 5%;
+}
+
+.cell {
+  padding: 8px;
+  border: 1px solid #2E6171;
+}
