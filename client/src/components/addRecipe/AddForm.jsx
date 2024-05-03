@@ -1,7 +1,9 @@
 // imports
-// import "../styles/FullRecipe.css"
-import Spacer from '../Spacer'
-import RecipeForm from './RecipeForm'
+import "../../styles/FullRecipe.css"
+import Ingredients from "../Ingredients";
+import Spacer from '../Spacer';
+import RecipeForm from './RecipeForm';
+import IngredientsForm from './IngredientsForm'
 
 export default function EditForm() {
 
@@ -14,6 +16,7 @@ export default function EditForm() {
       </div>
       <div className="edit-section">
         <h4 id="edit-category">INGREDIENTS</h4>
+        <IngredientsForm />
       </div>
       <div className="edit-section">
         <h4 id="edit-category">INSTRUCTIONS</h4>
