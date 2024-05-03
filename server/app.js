@@ -12,6 +12,7 @@ const ingredientsRoutes = require('./routes/ingredients');
 const userRoutes = require('./routes/users');
 const tagRoutes = require('./routes/tags');
 const favouriteRoutes = require('./routes/favourites');
+const measurementsRoutes = require('./routes/measurements');
 const verificationRouter = require('./routes/tokenVerification');
 
 const app = express();
@@ -28,6 +29,7 @@ app.use('/ingredients', ingredientsRoutes);
 app.use('/users', userRoutes);
 app.use('/tags', tagRoutes);
 app.use('/favourites', favouriteRoutes);
+app.use('/measurements', measurementsRoutes);
 app.use('/verification', verificationRouter);
 
 // app.get('/', (req, res) => {
