@@ -1,3 +1,6 @@
+//imports
+import { useEffect } from "react";
+
 // converts rational decimals to fractions
 export function decimalToFraction(decimal) {
   
@@ -136,7 +139,7 @@ export function formatIngredientsData(ingredients) {
 export function formatQuantity(quantity, ratio) {
   
   let parsedQuantity = parseInt(quantity);
-  console.log(parsedQuantity);
+
   let accurateQuantity = 0;
   if (parsedQuantity === 0) {
     return '-';
@@ -144,6 +147,7 @@ export function formatQuantity(quantity, ratio) {
 
   if (parsedQuantity % 1 !== 0) {
     const decimal = parsedQuantity % 1;
+    console.log(decimal);
     if (decimal === 0.33) {
       accurateQuantity += ((parsedQuantity - decimal) + (1 / 3));
     } else if (decimal === 0.167) {
@@ -166,3 +170,19 @@ export function formatQuantity(quantity, ratio) {
   return `${wholeNum}${fraction}`;
 
 }
+
+export function updateQuantities(ingredients, ratio) {
+
+  useEffect(() => {
+    // Map over the ingredients array
+    return ingredients.map(ingredient => {
+      // Calculate the new quantity based on the given ratio
+      const newQuantity = formatQuantity(ingredient.quantity, ratio)
+      // Return a new object with the updated quantity and other properties unchanged
+      return {
+        ...ingredient,
+        quantity: newQuantity
+      };
+    });
+  }, [ingredients, ratio]);
+};

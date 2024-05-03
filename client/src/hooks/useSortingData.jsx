@@ -36,7 +36,6 @@ export function useSortingData() {
 
       getRecipesBySortingData(sortingData)
       .then((data) => {
-        console.log(data);
         setAllRecipes(data['data']);
       });
         
