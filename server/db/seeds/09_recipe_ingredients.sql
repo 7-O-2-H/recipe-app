@@ -25,13 +25,13 @@ INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (3, 35, 2, 3);
 -- Tomato Chicken
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 25, 3, 16); 
-INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 38, 0, 16);
-INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 1, 0, 16);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 38, 0, 18);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 1, 0, 18);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 4, 3, 8);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 16, 3, 8);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 19, 1, 8);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 17, 0.5, 9);
-INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 29, 0, 16);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 29, 0, 18);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 20, 1, 3);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 21, 0.75, 3);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (1, 22, 0.5, 3);

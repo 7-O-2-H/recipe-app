@@ -15,3 +15,4 @@ INSERT INTO measurements (measurement) VALUES ('fl oz');
 INSERT INTO measurements (measurement) VALUES ('packet');
 INSERT INTO measurements (measurement) VALUES ('-');
 INSERT INTO measurements (measurement) VALUES ('for serving');
+INSERT INTO measurements (measurement) VALUES ('to taste');
