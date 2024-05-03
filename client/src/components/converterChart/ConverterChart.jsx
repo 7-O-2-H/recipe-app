@@ -23,7 +23,7 @@ const IngredientsTable = (props) => {
 
   const newIngredients = updateQuantities(ingredients, servingRatio);
 
-  console.log(newIngredients);
+  // console.log(newIngredients);
 
   return (
     <table className="ingredients-table">

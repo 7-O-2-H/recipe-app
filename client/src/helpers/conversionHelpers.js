@@ -136,6 +136,7 @@ export function formatIngredientsData(ingredients) {
 export function formatQuantity(quantity, ratio) {
   
   let parsedQuantity = parseInt(quantity);
+  console.log(parsedQuantity);
   let accurateQuantity = 0;
   if (parsedQuantity === 0) {
     return '-';
@@ -155,7 +156,7 @@ export function formatQuantity(quantity, ratio) {
   }
   const newQuantity = accurateQuantity * ratio;
   if (newQuantity % 1 === 0) {
-    return newQuantity
+    return newQuantity;
   }
 
   const wholeNum = newQuantity - (newQuantity % 1);
