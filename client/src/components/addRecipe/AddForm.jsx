@@ -1,6 +1,7 @@
 // imports
 // import "../styles/FullRecipe.css"
 import Spacer from '../Spacer'
+import RecipeForm from './RecipeForm'
 
 export default function EditForm() {
 
@@ -9,6 +10,7 @@ export default function EditForm() {
     <div className="add-form">
       <div className="edit-section">
         <h4 id="recipe">RECIPE</h4>
+        <RecipeForm />
       </div>
       <div className="edit-section">
         <h4 id="edit-category">INGREDIENTS</h4>
