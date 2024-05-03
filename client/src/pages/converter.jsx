@@ -1,5 +1,6 @@
 // imports
 import '../styles/styles.css';
+import { useState } from 'react';
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
@@ -13,51 +14,36 @@ export default function Converter() {
   const { recipe, ingredients, steps } = router.query;
   const parsedRecipe = JSON.parse(recipe);
   const parsedIngredients = JSON.parse(ingredients);
-  // const parsedSteps = JSON.parse(steps);
 
-  // const quantitiesArray = [];
-  // const measurementsArray =[];
-  // const ingredientsArray = [];
-  // for (const ingredient of parsedIngredients) {
-  //   quantitiesArray.push(ingredient.quantity);
-  //   measurementsArray.push(ingredient.measurement);
-  //   ingredientsArray.push(ingredient.ingredient);
-  // }
-  
-  // const ingredientsColumn = ingredientsArray.map((ingredient, index) => (
-  //   <Column
-  //     key={index+1}
-  //     item={ingredient}
-  //   />
-  // ));
+  const [selectedServing, setSelectedServing] = useState(parseInt(parsedRecipe.serves));
+  const [servingRatio, setServingRatio] = useState(1);
 
-  // const quantitiesColumn = quantitiesArray.map((quantity, index) => (
-  //   <Column
-  //     key={index + 1}
-  //     item={quantity}
-  //   />
-  // ));
+  const handleServingChange = (event) => {
+    const newServing = parseInt(event.target.value);
+    setSelectedServing(newServing);
+    setServingRatio(newServing / parseInt(parsedRecipe.serves));
+  };
 
-  // const measurementsColumn = measurementsArray.map((measurement, index) => (
-  //   <Column  
-  //     key={index + 1}
-  //     item={measurement}
-  //   />
-  // ));
+  const servingOptions = Array.from({ length: 20 }, (_, i) => i + 1);
 
-  // console.log(parsed);
-  // console.log(measurementsArray, quantitiesArray, measurementsColumn)
-  // template
   return (
     <div>
       <NavBar />
       <Spacer />
       <Header title="Convert Serving Size" />
       <Spacer />
-        <h1>{parsedRecipe.recipe}</h1>
+        <h2 className='default-serving'>{parsedRecipe.recipe}</h2>
+        <div className='vary-serving'>
+          <h2>Serves:</h2>
+          <select className="serving-dropdown" value={selectedServing} onChange={handleServingChange}>
+          {servingOptions.map(option => (
+            <option key={option} value={option}>{option}</option>
+          ))}
+          </select>
+        </div>
       <Spacer />
         <div className='conversion-chart' >
-          <ConverterChart ingredients={parsedIngredients}/>
+          <ConverterChart ingredients={parsedIngredients} serves={parsedRecipe.serves} selectedServing={selectedServing}/>
         </div>
     </div>
   );

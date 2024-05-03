@@ -134,3 +134,25 @@ body {
   border-style: solid;
   border-width: 10px;
 }
+
+.vary-serving {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serving-dropdown {
+  width: 100px;
+  /* font-size: 40px;
+  font-family: 'Great Vibes'; */
+  text-align: center;
+}
+
+.serving-dropdown option:checked {
+  font-size: 40px;
+  font-family: 'Great Vibes';
+}
+
+.default-serving {
+  text-align: center;
+}
