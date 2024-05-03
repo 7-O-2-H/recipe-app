@@ -132,3 +132,36 @@ export function formatIngredientsData(ingredients) {
   return ingredientsArray;
 
 };
+
+export function formatQuantity(quantity, ratio) {
+  
+  let parsedQuantity = parseInt(quantity);
+  let accurateQuantity = 0;
+  if (parsedQuantity === 0) {
+    return '-';
+  };
+
+  if (parsedQuantity % 1 !== 0) {
+    const decimal = parsedQuantity % 1;
+    if (decimal === 0.33) {
+      accurateQuantity += ((parsedQuantity - decimal) + (1 / 3));
+    } else if (decimal === 0.167) {
+      accurateQuantity += ((parsedQuantity - decimal) + (1 / 6));
+    } else if (decimal === 0.66) {
+      accurateQuantity += ((parsedQuantity - decimal) + (2 / 3));
+    } else {
+      accurateQuantity = parsedQuantity;
+    }
+  }
+  const newQuantity = accurateQuantity * ratio;
+  if (newQuantity % 1 === 0) {
+    return newQuantity
+  }
+
+  const wholeNum = newQuantity - (newQuantity % 1);
+  const decimal = newQuantity % 1;
+  const fraction = decimalToFraction(decimal);
+
+  return `${wholeNum}${fraction}`;
+
+}
