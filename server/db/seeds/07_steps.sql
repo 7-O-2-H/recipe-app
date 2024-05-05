@@ -148,3 +148,34 @@ INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
   'Step 3',
   'Continue to cook for 30 minutes, basting every 10 minutes, until the chicken skin crisps.'
 );
+-- Baked Salmon
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  6,
+  1,
+  'Prep',
+  'Line a baking sheet with parhcment paper and pere-heat the oven to 400 degrees fahrenheit. Combine the garlic, sugar, salt, paprika and pepper in a small bowl and mix well.'
+);
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  6,
+  2,
+  'Step 1',
+  'Pat the salmon dry with paper towels, places them on the baking sheet,  and brush thw fillets with the olive oil. Be certain to cover the side and top of each fillet.'
+);
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  6,
+  3,
+  'Step 2',
+  'Sprinkle the spice mixture from the prep over the fillets. Make sure to coat the sides as well as the tops.'
+);
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  6,
+  4,
+  'Step 3',
+  'Bake the salmon until they\re cooked through their centers - they should flake easily at this point. This should take around 12 to 15 minutes.'
+);
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  6,
+  5,
+  'Step 4',
+  'Squeeze the lemon over the fish to add a citrusy flavour and serve. You may want to slice the lemon into wedges or use the peel as a garnish as well.'
+);
