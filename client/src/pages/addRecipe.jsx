@@ -8,9 +8,6 @@ import useAppData from '../hooks/useAppData';
 
 export default function AddRecipe() {
 
-  const { allMeasurements } = useAppData();
-  console.log(allMeasurements);
-  
   // template
   return (
    <div>
