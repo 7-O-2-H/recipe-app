@@ -12,7 +12,11 @@ router.get('/', (req, res) => {
 // sorting
 router.get('/sorting', (req, res) => {
   const { ingredient, tag, maxTime } = req.query;
-  getRecipesBySortingData(ingredient, tag, parseInt(maxTime))
+
+  const ingredientParam = ingredient ? ingredient : "";
+  const tagParam = tag ? tag : "";
+  const maxTimeParam = maxTime ? parseInt(maxTime) : 0;
+  getRecipesBySortingData(ingredientParam , tagParam, maxTimeParam)
   .then(data => {
     res.json(data);
   })
