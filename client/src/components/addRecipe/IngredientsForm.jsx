@@ -7,7 +7,7 @@ export default function IngredientsForm () {
   // initialize states
   const [ingredient, setIngredient] = useState('');
   const [quantity, setQuantity] = useState(undefined);
-  const [measurement] = useState('');
+  const [measurement, setMeasurement] = useState('');
   const [ingredientsQuery, setIngredientsQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
@@ -29,7 +29,7 @@ export default function IngredientsForm () {
   const handleIngredientSuggestion = (selectedIngredientId) => {
     
     const selectedIngredient = allIngredients.find(ingredient => ingredient.id === selectedIngredientId);
-    setIngredientsQuery(selectedIngredient.name);
+    setIngredientsQuery(selectedIngredient.ingredient);
     setSuggestions([]);
   };
   
@@ -41,7 +41,7 @@ export default function IngredientsForm () {
     if (existingIngredient) {
       submitForm(existingIngredient.id);
     } else {
-      addIngredient(query)
+      addIngredient(ingredientsQuery)
         .then((newIngredientId) => {
           console.log("New ingredient added with ID:", newIngredientId);
           submitForm(newIngredientId);
@@ -75,8 +75,8 @@ export default function IngredientsForm () {
       />
        <ul>
         {suggestions.map(ingredient => (
-          <li key={ingredient.id} onClick={() => handleSelectSuggestion(ingredient.id)}>
-            {ingredient.name}
+          <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
+            {ingredient.ingredient}
           </li>
         ))}
       </ul>
@@ -88,7 +88,7 @@ export default function IngredientsForm () {
         value={measurement}
         onChange={(event) => setMeasurement(event.target.value)}
       />
-      <button type="submit" className="submit-btn">
+      <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
         ADD INGREDIENT
       </button>
     </form>
