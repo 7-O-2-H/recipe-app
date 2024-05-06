@@ -10,6 +10,7 @@ export default function IngredientsForm () {
   const [measurement, setMeasurement] = useState('');
   const [ingredientsQuery, setIngredientsQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppData();
@@ -20,8 +21,11 @@ export default function IngredientsForm () {
     const inputValue = (e.target.value);
     setIngredientsQuery(inputValue);
 
-    const filteredIngredients = allIngredients.filter(ingredient => ingredient.ingredient.toLowerCase().includes(inputValue.toLowerCase()));
+    // filter ingredients to suggest, limit to 5 at a time
+    const filteredIngredients = allIngredients.filter(ingredient => ingredient.ingredient.toLowerCase().includes(inputValue.toLowerCase())).slice(0, 5);
     
+    // only show dropdown if user has input ingredients
+    setShowDropdown(inputValue.trim() !== '');
     setSuggestions(filteredIngredients);
   };
 
