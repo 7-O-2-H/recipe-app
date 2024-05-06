@@ -43,6 +43,17 @@ export function formatIngredientsData(ingredients) {
     // intialize formatted ingredients strings
     let str = '';
 
+    if (parseInt(ing['quantity']) === 0) {
+      if (ing['measurement'] !== '-') {
+        str += `${ing['ingredient']} ${ing['measurement']}`;
+        ingredientsArray.push(str);
+        continue;
+      }
+      str += `${ing['ingredient']}`;
+      ingredientsArray.push(str);
+      continue;
+    }
+
     if (ing['measurement'] === '-') {
       if (ing['quantity'] > 1) {
         str += `${ing['quantity']} ${ing['ingredient']}s`;
