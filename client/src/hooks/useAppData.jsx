@@ -2,6 +2,7 @@
 import { getAllRecipes } from "../helpers/recipeHelpers";
 import { getAllTags } from "../helpers/tagsHelpers";
 import { getAllIngredients } from "../helpers/ingredientsHelpers";
+import { getAllMeasurements } from "../helpers/measurementsHelpers";
 import { useState, useEffect } from "react";
 
 export default function useAppData() {
@@ -19,16 +20,17 @@ export default function useAppData() {
       getAllRecipes(),
       getAllTags(),
       getAllIngredients(),
-
+      getAllMeasurements(),
     ])
     .then((all) => {
       setAllRecipes(all[0]['data']);
       setAllTags(all[1]['data']);
       setAllIngredients(all[2]['data']);
+      setAllMeasurements(all[3]['data']);
     })
 
   }, []);
 
-  return { allRecipes, allTags, allIngredients };
+  return { allRecipes, allTags, allIngredients, allMeasurements };
   
 };

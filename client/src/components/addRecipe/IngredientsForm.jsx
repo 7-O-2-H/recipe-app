@@ -1,12 +1,58 @@
 // imports
 import { useState } from "react";
+import useAppData from "../../hooks/useAppData";
 
-export default function RecipeForm () {
+export default function IngredientsForm () {
 
-  // const { ingredients, }
+  // initialize states
   const [ingredient, setIngredient] = useState('');
   const [quantity, setQuantity] = useState(undefined);
   const [measurement] = useState('');
+  const [ingredientsQuery, setIngredientsQuery] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+
+  // retreive all ingredients and measurements
+  const { allMeasurements, allIngredients } = useAppData();
+
+  // handle ingredients input with query suggestions
+  const handleInputChange = (e) => {
+
+    const inputValue = (e.target.value);
+    setIngredientsQuery(inputValue);
+
+    const filteredIngredients = allIngredients.filter(ingredient => ingredient.ingredient.toLowerCase().includes(inputValue.toLowerCase()));
+    
+    setSuggestions(filteredIngredients);
+  };
+
+  
+  const handleIngredientSuggestion = (selectedIngredientId) => {
+    
+    const selectedIngredient = allIngredients.find(ingredient => ingredient.id === selectedIngredientId);
+    setIngredientsQuery(selectedIngredient.name);
+    setSuggestions([]);
+  };
+  
+  const handleAddIngredient = (event) => {
+    event.preventDefault();
+    
+    const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
+
+    if (existingIngredient) {
+      submitForm(existingIngredient.id);
+    } else {
+      addIngredient(query)
+        .then((newIngredientId) => {
+          console.log("New ingredient added with ID:", newIngredientId);
+          submitForm(newIngredientId);
+        })
+        .catch((error) => {
+          console.error("Error adding new ingredient:", error);
+          // Handle error, e.g., display an error message to the user
+        });
+    }
+  }
+  
 
   return (
     <form className="ingredient-form" >
@@ -15,9 +61,10 @@ export default function RecipeForm () {
         type="text"
         className="input-field"
         placeholder="ingredient"
-        value={ingredient}
-        onChange={(event) => setIngredient(event.target.value)}
+        value={ingredientsQuery}
+        onChange={handleInputChange}
       />
+
       <input
         id="quantity"
         type="number"
@@ -26,6 +73,13 @@ export default function RecipeForm () {
         value={quantity}
         onChange={(event) => setQuantity(event.target.value)}
       />
+       <ul>
+        {suggestions.map(ingredient => (
+          <li key={ingredient.id} onClick={() => handleSelectSuggestion(ingredient.id)}>
+            {ingredient.name}
+          </li>
+        ))}
+      </ul>
       <input
         id="measurement"
         type="number"
