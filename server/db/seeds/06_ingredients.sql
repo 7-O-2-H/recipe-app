@@ -23,7 +23,7 @@ INSERT INTO ingredients (ingredient) VALUES ('heavy cream');
 INSERT INTO ingredients (ingredient) VALUES ('grated Parmesan');
 INSERT INTO ingredients (ingredient) VALUES ('sun-dried totoes packed in oil');
 INSERT INTO ingredients (ingredient) VALUES ('fresh basil');
-INSERT INTO ingredients (ingredient) VALUES ('chicken breasts');
+INSERT INTO ingredients (ingredient) VALUES ('chicken breast');
 INSERT INTO ingredients (ingredient) VALUES ('shredded kale');
 INSERT INTO ingredients (ingredient) VALUES ('mini potatoes');
 INSERT INTO ingredients (ingredient) VALUES ('Italian sausage');
