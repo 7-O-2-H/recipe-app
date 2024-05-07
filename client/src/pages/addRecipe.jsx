@@ -31,13 +31,19 @@ export default function AddRecipe() {
     <Spacer />
     <div>
       {currentStep === 1 && (
-        <RecipeForm onNextStep={handleNextStep} />
+        <div>
+          <h3>Recipe Details</h3>
+          <RecipeForm onNextStep={handleNextStep} />
+        </div>
       )}
       {currentStep === 2 && (
-        <IngredientsForm 
-          onNextStep={handleNextStep}
-          onPreviousStep={handlePreviousStep}  
-        />
+        <div>
+          <h3>Ingredients</h3>
+          <IngredientsForm 
+            onNextStep={handleNextStep}
+            onPreviousStep={handlePreviousStep}  
+          />
+        </div>
       )}
     </div>
    </div>
