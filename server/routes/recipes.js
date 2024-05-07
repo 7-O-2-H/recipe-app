@@ -41,6 +41,19 @@ router.get('/:id', (req, res) => {
   })
 });
 
+// POST
+
+router.post('/add', (req, res) => {
+
+  // req recipe data
+  const recipeData = req.body.recipeData;
+
+  addRecipe(recipeDatae)
+  .then(data => {
+    res.json(data);
+  })
+});
+
 router.post('/delete', (req, res) => {
 
   // req recipe id
