@@ -15,7 +15,7 @@ import { addRecipe } from "../../helpers/recipeHelpers";
 export default function RecipeForm (props) {
 
   // set prop data
-  const { onNextStep } = props;
+  const { onNextStep,  } = props;
 
   // set states
   const [recipe, setRecipe] = useState('');
@@ -55,6 +55,8 @@ export default function RecipeForm (props) {
 
     // add recipe
     addRecipe(recipeData);
+    // const currentRecipe = addRecipe(recipeData);
+    // console.log(currentRecipe);
 
     // update step to move to ingredients form
     onNextStep();
@@ -101,7 +103,6 @@ export default function RecipeForm (props) {
           ADD RECIPE DETAILS
         </button>
       </form>
-      <button>CANCEL</button>
     </div>
   );
 };
