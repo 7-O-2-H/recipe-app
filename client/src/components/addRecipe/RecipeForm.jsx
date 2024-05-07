@@ -12,7 +12,10 @@ import useVerification from "../../hooks/useVerification";
 // Helpers
 import { addRecipe } from "../../helpers/recipeHelpers";
 
-export default function RecipeForm () {
+export default function RecipeForm (props) {
+
+  // set prop data
+  const { onNextStep } = props;
 
   // set states
   const [recipe, setRecipe] = useState('');
@@ -29,7 +32,7 @@ export default function RecipeForm () {
     return <div>Loading...</div>
   };
 
-  const handleRecipedSubmit = (event) => {
+  const handleRecipeSubmit = (event) => {
     event.preventDefault();
 
     // check if recipe already exists
@@ -53,12 +56,15 @@ export default function RecipeForm () {
     // add recipe
     addRecipe(recipeData);
 
+    // update step to move to ingredients form
+    onNextStep();
+
   };
 
   return (
     <div>
       <ToastContainer />
-      <form className="recipe-form" onSubmit={handleRecipedSubmit}>
+      <form className="recipe-form" onSubmit={handleRecipeSubmit}>
         <input
           id="recipe"
           type="text"

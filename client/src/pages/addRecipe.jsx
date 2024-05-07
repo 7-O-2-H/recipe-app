@@ -1,5 +1,6 @@
 // imports
 import '../styles/styles.css';
+import { useState } from 'react';
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
@@ -14,12 +15,13 @@ export default function AddRecipe() {
   // handle change between forms
   const handleNextStep = () => {
     setCurrentStep((prevStep) => prevStep + 1);
+    console.log(currentStep);
   };
 
   const handlePreviousStep = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
-  
+
   // template
   return (
    <div>
