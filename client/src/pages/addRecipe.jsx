@@ -3,11 +3,23 @@ import '../styles/styles.css';
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
-import AddForm from '../components/addRecipe/AddForm'
-import useAppData from '../hooks/useAppData';
+import RecipeForm from '../components/addRecipe/RecipeForm'
+import IngredientsForm from '../components/addRecipe/IngredientsForm';
 
 export default function AddRecipe() {
+  
+  // set initial states
+  const [currentStep, setCurrentStep] = useState(1);
 
+  // handle change between forms
+  const handleNextStep = () => {
+    setCurrentStep((prevStep) => prevStep + 1);
+  };
+
+  const handlePreviousStep = () => {
+    setCurrentStep((prevStep) => prevStep - 1);
+  };
+  
   // template
   return (
    <div>
@@ -15,7 +27,17 @@ export default function AddRecipe() {
     <Spacer />
     <Header title="Add Recipe" />
     <Spacer />
-    <AddForm />
+    <div>
+      {currentStep === 1 && (
+        <RecipeForm onNextStep={handleNextStep} />
+      )}
+      {currentStep === 2 && (
+        <IngredientsForm 
+          onNextStep={handleNextStep}
+          onPreviousStep={handlePreviousStep}  
+        />
+      )}
+    </div>
    </div>
   );
 }
