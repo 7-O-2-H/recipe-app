@@ -2,6 +2,7 @@ const { pool } = require('../../configs/db.config');
 const db = require('../../configs/db.config');
 
 // recipes
+// GET
 const getAllRecipes = () => {
   return db
     .query(`SELECT recipes.id, user_name, recipe, time, serves, description, measurement FROM users JOIN recipes ON users.id = recipes.user_id JOIN measurements ON recipes.measurement_id = measurements.id;`)
@@ -42,6 +43,22 @@ const getFullRecipeById = (id) => {
     console.log('Full recipe error;', err.message);
     return null;
   });
+};
+
+// POST/PUT
+
+
+const addRecipe = (recipeData) => {
+
+  
+  return db.query(`INSERT INTO recipes (user_id, recipe, time, measurement_id, serves, description) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`, values)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('delete recipe error: ', err.message);
+      return err.message;
+    });
 };
 
 const deleteRecipeById = (id) => {
