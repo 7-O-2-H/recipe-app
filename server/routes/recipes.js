@@ -47,7 +47,7 @@ router.post('/add', (req, res) => {
   // req recipe data
   const recipeData = req.body.recipeData;
 
-  addRecipe(recipeDatae)
+  addRecipe(recipeData)
   .then(data => {
     res.json(data);
   })

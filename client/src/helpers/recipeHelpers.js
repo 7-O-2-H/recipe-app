@@ -37,6 +37,20 @@ export function getRecipesByUserId(id) {
   });
 };
 
+export function addRecipe(recipeData) {
+
+  console.log(recipeData);
+
+  return axios.post(`http://localhost:8080/recipes/add`, {recipeData})
+    .then((res) => {
+      console.log('Response status: ', res.status);
+      return;
+    })
+    .catch((err) => {
+      console.log("axios error: ", err)
+    });
+};
+
 export function deleteRecipe(id) {
 
   return axios.post(`http://localhost:8080/recipes/delete`, {id})
