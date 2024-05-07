@@ -80,7 +80,6 @@ export default function FullRecipe (props) {
       return;
     }
     deleteRecipe(recipe.id);
-    console.log('Deleted recipe')
     router.push('/myRecipes');
     return;
   };

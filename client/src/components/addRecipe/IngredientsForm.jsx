@@ -95,6 +95,7 @@ export default function IngredientsForm () {
       <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
         ADD INGREDIENT
       </button>
+      <button>CANCEL</button>
     </form>
   );
 };

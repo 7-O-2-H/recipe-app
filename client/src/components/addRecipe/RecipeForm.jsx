@@ -101,6 +101,7 @@ export default function RecipeForm (props) {
           ADD RECIPE DETAILS
         </button>
       </form>
+      <button>CANCEL</button>
     </div>
   );
 };
