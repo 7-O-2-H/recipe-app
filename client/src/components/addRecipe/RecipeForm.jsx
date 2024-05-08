@@ -58,13 +58,12 @@ export default function RecipeForm (props) {
       description: description
     };
 
+    console.log(recipeData.recipe);
     // add recipe
-    addRecipe(recipeData);
-    // const currentRecipe = addRecipe(recipeData);
-    // console.log(currentRecipe);
+    // addRecipe(recipeData);
 
     // update step to move to ingredients form
-    onNextStep();
+    onNextStep(recipe);
 
   };
 

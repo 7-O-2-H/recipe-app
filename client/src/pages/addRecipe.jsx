@@ -17,19 +17,23 @@ export default function AddRecipe() {
   
   // set initial states
   const [currentStep, setCurrentStep] = useState(1);
-  const [recipeId, setRecipeId] = useState(null);
-  const [recipeData, setRecipeData] = useState([]);
-
-  if (recipeId) {
-    const { currentRecipe } = useRecipe(recipeId);
-    setRecipeData(currentRecipe);
-  };
+  const [recipe, setRecipe] = useState('');
+  const [ingredientData, setIngredientData] = useState([]);
+  const [stepData, setStepData] = useState([]);
+  const [tagData, setTagData] = useState([]);
 
   // handle change between forms
-  const handleNextStep = () => {
-    // if (currentStep === 1) {
-    //   setRecipeId(recipeId);
-    // };
+  const handleNextStep = (data) => {
+
+    // set previously input data states so they can be displayed
+    switch (currentStep) {
+      case 1:
+        setRecipe(data);
+        break;
+      case 2:
+        setIngredientData(data);
+        break;
+    }    
 
     setCurrentStep((prevStep) => prevStep + 1);
   };
@@ -38,7 +42,7 @@ export default function AddRecipe() {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
-  const handleCancel = () => {
+  const handleCancel = (recipeId) => {
     setCurrentStep(1);
     deleteRecipe(recipeId);
   };
@@ -51,9 +55,9 @@ export default function AddRecipe() {
     <Header title="Add Recipe" />
     <Spacer />
     <div>
-      {recipeId && (
+      {recipe && (
         <div>
-          <p>Recipe: {recipeData.recipe}</p>
+          <p>Recipe: {recipe}</p>
         </div>
       )}
     </div>
