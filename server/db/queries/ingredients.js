@@ -12,6 +12,7 @@ const getAllIngredients = () => {
   });
 };
 
+
 const getIngredientByName = (ingredient) => {
   return db.query("SELECT ingredient FROM ingredients WHERE ingredients.ingredient = $1", [ingredient]).then(data => {
     return data.rows;
@@ -33,4 +34,34 @@ const getIngredientsByRecipeId = (id) => {
   });
 };
 
-module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId };
+// POST
+const addRecipeIngredient = (ingredientData) => {
+
+  values = [ingredientData.recipe_id, ingredientData.ingredient_id, ingredientData.quantity, ingredientData.measurement_id];
+  return db.query
+    (`INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES ($1, $2, $3, $4), returning id;`, values)
+    .then((result) => {
+      return result.rows[0].id;
+    })
+    .catch((err) => {
+      console.log('add ingredient error: ', err.message);
+      return err.message;
+    });
+};
+
+const addIngredient = (ingredient) => {
+
+  return db.query
+    (`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, 
+    [ingredient]
+  )
+  .then((result) => {
+    return result.rows[0].id;
+  })
+  .catch((err) => {
+    console.log('add ingredient error: ', err.message);
+    return err.message;
+  });
+};
+
+module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, addRecipeIngredient, addIngredient };
