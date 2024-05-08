@@ -45,6 +45,7 @@ export default function AddRecipe() {
   };
 
   const handleCancel = () => {
+    setRecipe(null);
     deleteRecipe(parseInt(recipeId));
     setCurrentStep(1);
   };

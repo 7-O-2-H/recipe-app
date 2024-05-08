@@ -9,7 +9,7 @@ export default function IngredientsForm (props) {
 
   // initialize states
   const [ingredient, setIngredient] = useState('');
-  const [quantity, setQuantity] = useState(undefined);
+  const [quantity, setQuantity] = useState(0);
   const [measurement, setMeasurement] = useState('');
   const [ingredientsQuery, setIngredientsQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
