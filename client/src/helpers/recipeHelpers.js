@@ -39,18 +39,10 @@ export function getRecipesByUserId(id) {
 
 export function addRecipe(recipeData) {
 
-  // try {
-  //   const res = await axios.post(`http://localhost:8080/recipes/add`, { recipeData });
-  //   console.log('Response status: ', res.status);
-  //   return res.data;
-  // } catch (err) {
-  //   console.error("axios error: ", err);
-  //   throw err; // Rethrow the error to be caught by the caller
-  // }
   return axios.post(`http://localhost:8080/recipes/add`, {recipeData})
     .then((res) => {
-      console.log('Response status: ', res.status, "id ", res.data[0].id);
-      return res.data;
+      console.log('Response status: ', res.status);
+      return res.data[0].id;
     })
     .catch((err) => {
       console.log("axios error: ", err)
