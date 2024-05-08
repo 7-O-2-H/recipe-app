@@ -10,7 +10,7 @@ export default function StepsForm (props) {
   //  set initial states
   const [stepName, setStepName] = useState('');
   const [instruction, setInstruction] = useState('');
-  
+
   return (
     <div>
       <ToastContainer />
@@ -35,6 +35,9 @@ export default function StepsForm (props) {
           ADD RECIPE DETAILS
         </button>
       </form>
+      <button>BACK TO INGREDIENTS</button>
+      <button>PROCEED TO TAGS</button>
+      <button>CANCEL</button>
     </div>
   )
 };
