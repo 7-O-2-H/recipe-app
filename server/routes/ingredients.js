@@ -16,6 +16,15 @@ router.get('/Celery', (req, res) => {
   })
 });
 
+// add
+router.post('/add', (req, res) => {
+  const ingredientData = req.body.ingredientData;
+  addIngredient(ingredientData)
+  .then(data => {
+    res.json(data);
+  });
+});
+
 // `/#{id}`
 router.get('/1', (req, res) => {
   getIngredientsByRecipeId(1)
