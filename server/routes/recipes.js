@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllRecipes, getRecipesByUserId, getRecipeById, addRecipe, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId, getRecipesBySortingData, getRecipeIngredients} = require('../db/queries/recipes');
+const { getAllRecipes, getRecipesByUserId, getRecipeById, addRecipe, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId, getRecipesBySortingData } = require('../db/queries/recipes');
 
 // recipes
 router.get('/', (req, res) => {

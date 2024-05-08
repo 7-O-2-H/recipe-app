@@ -17,6 +17,7 @@ export default function AddRecipe() {
   
   // set initial states
   const [currentStep, setCurrentStep] = useState(1);
+  const [recipeId, setRecipeId] = useState(null);
   const [recipe, setRecipe] = useState('');
   const [ingredientData, setIngredientData] = useState([]);
   const [stepData, setStepData] = useState([]);
@@ -28,7 +29,8 @@ export default function AddRecipe() {
     // set previously input data states so they can be displayed
     switch (currentStep) {
       case 1:
-        setRecipe(data);
+        setRecipe(data.recipe);
+        setRecipeId(data.id);
         break;
       case 2:
         setIngredientData(data);
@@ -42,9 +44,10 @@ export default function AddRecipe() {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
-  const handleCancel = (recipeId) => {
+  const handleCancel = () => {
+    console.log(recipeId);
+    deleteRecipe(parseInt(recipeId));
     setCurrentStep(1);
-    deleteRecipe(recipeId);
   };
 
   // template
@@ -78,6 +81,7 @@ export default function AddRecipe() {
             onNextStep={handleNextStep}
             onPreviousStep={handlePreviousStep}  
             onCancel={handleCancel}
+            recipeId={recipeId}
             step={currentStep}
           />
         </div>

@@ -136,4 +136,4 @@ const getRecipesBySortingData = (ingredient, tag, maxTime) => {
   })
 };
 
-module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, addRecipe, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId, getRecipesBySortingData, getRecipeIngredients};
+module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, addRecipe, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId, getRecipesBySortingData };

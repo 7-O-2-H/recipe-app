@@ -37,16 +37,25 @@ export function getRecipesByUserId(id) {
   });
 };
 
-export function addRecipe(recipeData) {
+export async function addRecipe(recipeData) {
 
-  return axios.post(`http://localhost:8080/recipes/add`, {recipeData})
-    .then((res) => {
-      console.log('Response status: ', res.status);
-      return res.data[0].id;
-    })
-    .catch((err) => {
-      console.log("axios error: ", err)
-    });
+  try {
+    const res = await axios.post(`http://localhost:8080/recipes/add`, { recipeData });
+    console.log('Response status: ', res.status);
+    return res.data[0].id;
+  } catch (err) {
+    console.error("axios error: ", err);
+    throw err;
+  }
+
+  // return axios.post(`http://localhost:8080/recipes/add`, {recipeData})
+  //   .then((res) => {
+  //     console.log('Response status: ', res.status);
+  //     return res.data[0].id;
+  //   })
+  //   .catch((err) => {
+  //     console.log("axios error: ", err)
+  //   });
 };
 
 export function deleteRecipe(id) {

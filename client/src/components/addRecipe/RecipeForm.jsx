@@ -32,7 +32,7 @@ export default function RecipeForm (props) {
     return <div>Loading...</div>
   };
 
-  const handleRecipeSubmit = (event) => {
+  const handleRecipeSubmit = async (event) => {
     event.preventDefault();
 
     // check if recipe already exists
@@ -58,12 +58,13 @@ export default function RecipeForm (props) {
       description: description
     };
 
-    console.log(recipeData.recipe);
-    // add recipe
-    // addRecipe(recipeData);
+    // add recipe and set recipe id
+    const recipeId = await addRecipe(recipeData);
+    // add recipe id to recipe Data
+    recipeData.id = recipeId;
 
     // update step to move to ingredients form
-    onNextStep(recipe);
+    onNextStep(recipeData);
 
   };
 

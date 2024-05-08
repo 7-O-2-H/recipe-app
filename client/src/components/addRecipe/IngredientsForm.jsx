@@ -2,7 +2,10 @@
 import { useState } from "react";
 import useAppData from "../../hooks/useAppData";
 
-export default function IngredientsForm () {
+export default function IngredientsForm (props) {
+
+  // retrieve prop functions
+  const { onCancel, recipeId } = props;
 
   // initialize states
   const [ingredient, setIngredient] = useState('');
@@ -57,6 +60,11 @@ export default function IngredientsForm () {
     }
   }
   
+  const handleCancel = (event) => {
+    event.preventDefault();
+    onCancel(recipeId);
+    return;
+  }
 
   return (
     <form className="ingredient-form" >
@@ -95,7 +103,7 @@ export default function IngredientsForm () {
       <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
         ADD INGREDIENT
       </button>
-      <button>CANCEL</button>
+      <button onClick={handleCancel}>CANCEL</button>
     </form>
   );
 };
