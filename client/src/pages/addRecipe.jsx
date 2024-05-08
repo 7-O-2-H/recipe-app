@@ -10,6 +10,7 @@ import Header from '../components/Header';
 import Spacer from '../components/Spacer';
 import RecipeForm from '../components/addRecipe/RecipeForm'
 import IngredientsForm from '../components/addRecipe/IngredientsForm';
+import StepsForm from '../components/addRecipe/StepsForm';
 // styles
 import '../styles/styles.css';
 
@@ -84,6 +85,11 @@ export default function AddRecipe() {
             recipeId={recipeId}
             step={currentStep}
           />
+        </div>
+      )}
+      {currentStep === 3 && (
+        <div>
+          <StepsForm />
         </div>
       )}
     </div>
