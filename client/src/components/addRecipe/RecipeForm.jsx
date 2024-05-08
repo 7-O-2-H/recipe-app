@@ -44,6 +44,11 @@ export default function RecipeForm (props) {
       return;
     };
 
+    if (!recipe || !time || !serves || !description) {
+      toast.error("You must enter all values before submitting.");
+      return;
+    };
+
     // set rec data
     const recipeData = {
       user_id: userId,
