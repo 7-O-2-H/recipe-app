@@ -1,7 +1,6 @@
 // imports
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { addIngredient } from "../../helpers/ingredientsHelpers";
-import { useRecipe } from '../../hooks/useRecipe';
 import useAppData from "../../hooks/useAppData";
 
 export default function IngredientsForm (props) {
@@ -21,13 +20,6 @@ export default function IngredientsForm (props) {
 
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppData();
-  const { currentIngredients } = useRecipe(recipeId);
-
-  useEffect(() => {
-    setIngredientsArray(currentIngredients);
-  }, [currentIngredients]);
-
-  console.log(ingredientsArray);
 
   // handle ingredients input with query suggestions
   const handleInputChange = (e) => {
@@ -91,6 +83,7 @@ export default function IngredientsForm (props) {
       };
       
       await addIngredient(ingredientData);
+      setIngredient(ingredientData);
     };
 
   };
@@ -103,11 +96,6 @@ export default function IngredientsForm (props) {
 
   return (
     <div>
-      {/* {ingredientsArray && (
-        <div>
-          <p>{ingredientsArray[0]["ingredient"]}</p>
-        </div>
-      )} */}
       <form className="ingredient-form" >
         <input
           id="ingredient"

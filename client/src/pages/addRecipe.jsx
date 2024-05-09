@@ -1,6 +1,7 @@
 // imports
 // hooks/react
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRecipe } from '../hooks/useRecipe';
 // helpers
 import { deleteRecipe } from '../helpers/recipeHelpers';
 import useAppData from '../hooks/useAppData';
@@ -24,6 +25,14 @@ export default function AddRecipe() {
   const [stepData, setStepData] = useState([]);
   const [tagData, setTagData] = useState([]);
 
+  const { currentIngredients } = useRecipe(recipeId);
+
+  useEffect(() => {
+    setIngredientData(currentIngredients);
+  }, [currentIngredients]);
+
+  console.log(ingredientData);
+
   // handle change between forms
   const handleNextStep = (data) => {
 
@@ -34,7 +43,6 @@ export default function AddRecipe() {
         setRecipeId(data.id);
         break;
       case 2:
-        setIngredientData(currentIngredients);
         break;
     }    
 
