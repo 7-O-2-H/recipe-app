@@ -51,10 +51,11 @@ export default function IngredientsForm (props) {
     if (existingIngredient) {
       const ingredientData = {
         existingIngredient: true,
+        recipe_id: recipeId,
         ingredient: ingredientsQuery,
         ingredient_id: ingredientId,
-        measurement_id: measurement,
-        recipe_id: recipeId
+        quantity: quantity,
+        measurement_id: measurement
       }
       addIngredient(ingredientData);
     } else {
