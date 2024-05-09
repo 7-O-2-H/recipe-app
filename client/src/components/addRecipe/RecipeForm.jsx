@@ -85,7 +85,7 @@ export default function RecipeForm (props) {
           type="number"
           className="input-field"
           placeholder="time to cook in minutes"
-          value={time}
+          value={time || ''}
           onChange={(event) => setTime(event.target.value)}
         />
         <input
@@ -93,7 +93,7 @@ export default function RecipeForm (props) {
           type="number"
           className="input-field"
           placeholder="how many servings is this dish"
-          value={serves}
+          value={serves || ''}
           onChange={(event) => setServes(event.target.value)}
         />
         <input

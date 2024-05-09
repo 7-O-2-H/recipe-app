@@ -9,7 +9,7 @@ export default function IngredientsForm (props) {
 
   // initialize states
   const [ingredient, setIngredient] = useState('');
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(undefined);
   const [measurement, setMeasurement] = useState('');
   const [ingredientsQuery, setIngredientsQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -83,7 +83,7 @@ export default function IngredientsForm (props) {
         type="number"
         className="input-field"
         placeholder="quantity"
-        value={quantity}
+        value={quantity || ''}
         onChange={(event) => setQuantity(event.target.value)}
       />
        <ul>
