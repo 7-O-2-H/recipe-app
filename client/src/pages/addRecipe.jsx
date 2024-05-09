@@ -59,49 +59,6 @@ export default function AddRecipe() {
     setCurrentStep(1);
   };
 
-  // add handleAddIngredient
-  const handleAddIngredient = async (event) => {
-    event.preventDefault();
-    
-    // check if ingredient is already in db
-    const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
-
-    if (existingIngredient) {
-
-      // set ingredient data for existing ingredient case
-      const ingredientData = {
-        existingIngredient: true,
-        recipe_id: recipeId,
-        ingredient: ingredientsQuery,
-        ingredient_id: ingredientId,
-        quantity: quantity,
-        measurement_id: measurement
-      };
-
-      // add ingredient
-      await addIngredient(ingredientData);
-
-      // clear inputs
-      setIngredientsQuery('');
-      setQuantity('');
-      setMeasurement('');
-      setSuggestions([]);
-
-    } else {
-      
-      // set ingredient data where ingredient is new
-      const ingredientData = {
-        existingIngredient: false,
-        recipe_id: recipeId,
-        ingredient: ingredientsQuery,
-        quantity: quantity,
-        measurement_id: measurement
-      };
-      
-      await addIngredient(ingredientData);
-    };
-
-  };
 
   // template
   return (
@@ -134,7 +91,7 @@ export default function AddRecipe() {
             onNextStep={handleNextStep}
             onPreviousStep={handlePreviousStep}  
             onCancel={handleCancel}
-            onAdd={handleAddIngredient}
+            // onAdd={handleAddIngredient}
             recipeId={recipeId}
             step={currentStep}
           />
