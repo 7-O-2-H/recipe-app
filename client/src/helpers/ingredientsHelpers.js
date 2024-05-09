@@ -26,9 +26,9 @@ export function getIngredientById(id) {
 
 // post
 
-export function addIngredient(ingredient) {
+export function addIngredient(ingredientData) {
 
-  return axios.post(`http://localhost:8080/ingredients/add`, {ingredient})
+  return axios.post(`http://localhost:8080/ingredients/add`, {ingredientData})
     .then((res) => {
       console.log('Response status: ', res.status);
       return;

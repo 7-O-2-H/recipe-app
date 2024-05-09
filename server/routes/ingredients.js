@@ -20,11 +20,11 @@ router.get('/Celery', (req, res) => {
 router.post('/add', (req, res) => {
 
   const ingredientData = req.body.ingredientData;
-
-  addIngredient(ingredientData)
-  .then(data => {
-    res.json(data);
-  });
+  console.log(ingredientData);
+  // addIngredient(ingredientData)
+  // .then(data => {
+  //   res.json(data);
+  // });
 });
 
 // `/#{id}`

@@ -1,11 +1,12 @@
 // imports
 import { useState } from "react";
+import { addIngredient } from "../../helpers/ingredientsHelpers";
 import useAppData from "../../hooks/useAppData";
 
 export default function IngredientsForm (props) {
 
   // retrieve prop functions
-  const { onCancel } = props;
+  const { onCancel, recipeId } = props;
 
   // initialize states
   const [ingredient, setIngredient] = useState('');
@@ -14,6 +15,7 @@ export default function IngredientsForm (props) {
   const [ingredientsQuery, setIngredientsQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [ingredientId, setIngredientId] = useState(null);
 
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppData();
@@ -37,6 +39,7 @@ export default function IngredientsForm (props) {
     
     const selectedIngredient = allIngredients.find(ingredient => ingredient.id === selectedIngredientId);
     setIngredientsQuery(selectedIngredient.ingredient);
+    setIngredientId(selectedIngredient.id);
     setSuggestions([]);
   };
   
@@ -46,7 +49,14 @@ export default function IngredientsForm (props) {
     const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
 
     if (existingIngredient) {
-      submitForm(existingIngredient.id);
+      const ingredientData = {
+        existingIngredient: true,
+        ingredient: ingredientsQuery,
+        ingredient_id: ingredientId,
+        measurement_id: measurement,
+        recipe_id: recipeId
+      }
+      addIngredient(ingredientData);
     } else {
       addIngredient(ingredientsQuery)
         .then((newIngredientId) => {
@@ -58,13 +68,13 @@ export default function IngredientsForm (props) {
           // Handle error, e.g., display an error message to the user
         });
     }
-  }
+  };
   
   const handleCancel = (event) => {
     event.preventDefault();
     onCancel();
     return;
-  }
+  };
 
   return (
     <form className="ingredient-form" >
@@ -99,7 +109,7 @@ export default function IngredientsForm (props) {
       >
         <option value="">Select Measurement</option>
           {allMeasurements.map((measurement) => (
-            <option key={measurement.id} value={measurement.measurement}>
+            <option key={measurement.id} value={measurement.id}>
               {measurement.measurement}
           </option>
         ))}
