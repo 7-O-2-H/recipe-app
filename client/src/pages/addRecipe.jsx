@@ -25,8 +25,6 @@ export default function AddRecipe() {
   const [stepData, setStepData] = useState([]);
   const [tagData, setTagData] = useState([]);
 
-  let { allRecipes } = useAppData();
-
   // handle change between forms
   const handleNextStep = (data) => {
 
@@ -53,6 +51,11 @@ export default function AddRecipe() {
     await deleteRecipe(parseInt(recipeId));
     setCurrentStep(1);
   };
+
+
+  // retreive db data
+  const { currentIngredients } = useRecipe(recipeId);
+  console.log(currentIngredients);
 
   // template
   return (
@@ -81,6 +84,11 @@ export default function AddRecipe() {
       {currentStep === 2 && (
         <div>
           <h3>Ingredients</h3>
+          {currentIngredients && (
+            <div>
+              <p>hello</p>
+            </div>
+          )}
           <IngredientsForm 
             onNextStep={handleNextStep}
             onPreviousStep={handlePreviousStep}  

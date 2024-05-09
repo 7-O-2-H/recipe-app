@@ -39,7 +39,7 @@ const addRecipeIngredient = (ingredientData) => {
 
   values = [ingredientData.recipe_id, ingredientData.ingredient_id, ingredientData.quantity, ingredientData.measurement_id];
   return db.query
-    (`INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES ($1, $2, $3, $4), returning id;`, values)
+    (`INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES ($1, $2, $3, $4) RETURNING id;`, values)
     .then((result) => {
       return result.rows[0].id;
     })

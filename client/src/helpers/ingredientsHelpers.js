@@ -26,16 +26,25 @@ export function getIngredientById(id) {
 
 // post
 
-export function addIngredient(ingredientData) {
+export async function addIngredient(ingredientData) {
 
-  return axios.post(`http://localhost:8080/ingredients/add`, {ingredientData})
-    .then((res) => {
-      console.log('Response status: ', res.status);
-      return;
-    })
-    .catch((err) => {
-      console.log("axios error: ", err)
-    });
+  try {
+    const res = await axios.post(`http://localhost:8080/ingredients/add`, {ingredientData});
+    console.log('Response status: ', res.status);
+    return res.data[0];
+  } catch (err) {
+    console.error("axios error: ", err);
+    throw err;
+  }
+
+  // return axios.post(`http://localhost:8080/ingredients/add`, {ingredientData})
+  //   .then((res) => {
+  //     console.log('Response status: ', res.status);
+  //     return;
+  //   })
+  //   .catch((err) => {
+  //     console.log("axios error: ", err)
+  //   });
 };
 
 export function addRecipeIngredient(recipeIngredientData) {

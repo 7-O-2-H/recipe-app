@@ -43,7 +43,7 @@ export default function IngredientsForm (props) {
     setSuggestions([]);
   };
   
-  const handleAddIngredient = (event) => {
+  const handleAddIngredient = async (event) => {
     event.preventDefault();
     
     // check if ingredient is already in db
@@ -62,7 +62,7 @@ export default function IngredientsForm (props) {
       };
 
       // add ingredient
-      addIngredient(ingredientData);
+      await addIngredient(ingredientData);
 
     } else {
       
@@ -75,7 +75,7 @@ export default function IngredientsForm (props) {
         measurement_id: measurement
       };
       
-      addIngredient(ingredientData);
+      await addIngredient(ingredientData);
     };
 
   };
