@@ -64,6 +64,12 @@ export default function IngredientsForm (props) {
       // add ingredient
       await addIngredient(ingredientData);
 
+      // clear inputs
+      setIngredientsQuery('');
+      setQuantity('');
+      setMeasurement('');
+      setSuggestions([]);
+
     } else {
       
       // set ingredient data where ingredient is new
