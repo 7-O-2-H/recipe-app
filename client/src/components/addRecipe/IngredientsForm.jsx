@@ -1,6 +1,7 @@
 // imports
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { addIngredient } from "../../helpers/ingredientsHelpers";
+import { useRecipe } from '../../hooks/useRecipe';
 import useAppData from "../../hooks/useAppData";
 
 export default function IngredientsForm (props) {
@@ -16,9 +17,17 @@ export default function IngredientsForm (props) {
   const [suggestions, setSuggestions] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [ingredientId, setIngredientId] = useState(null);
+  const [ingredientsArray, setIngredientsArray] = useState([]);
 
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppData();
+  const { currentIngredients } = useRecipe(recipeId);
+
+  useEffect(() => {
+    setIngredientsArray(currentIngredients);
+  }, [currentIngredients]);
+
+  console.log(ingredientsArray);
 
   // handle ingredients input with query suggestions
   const handleInputChange = (e) => {
@@ -93,48 +102,55 @@ export default function IngredientsForm (props) {
   };
 
   return (
-    <form className="ingredient-form" >
-      <input
-        id="ingredient"
-        type="text"
-        className="input-field"
-        placeholder="ingredient"
-        value={ingredientsQuery}
-        onChange={handleInputChange}
-      />
+    <div>
+      {/* {ingredientsArray && (
+        <div>
+          <p>{ingredientsArray[0]["ingredient"]}</p>
+        </div>
+      )} */}
+      <form className="ingredient-form" >
+        <input
+          id="ingredient"
+          type="text"
+          className="input-field"
+          placeholder="ingredient"
+          value={ingredientsQuery}
+          onChange={handleInputChange}
+          />
 
-      <input
-        id="quantity"
-        type="number"
-        className="input-field"
-        placeholder="quantity"
-        value={quantity || ''}
-        onChange={(event) => setQuantity(event.target.value)}
-      />
-       <ul>
-        {suggestions.map(ingredient => (
-          <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
-            {ingredient.ingredient}
-          </li>
-        ))}
-      </ul>
-      <select
-        id="measurement"
-        value={measurement}
-        onChange={(event) => setMeasurement(event.target.value)}
-      >
-        <option value="">Select Measurement</option>
-          {allMeasurements.map((measurement) => (
-            <option key={measurement.id} value={measurement.id}>
-              {measurement.measurement}
-          </option>
-        ))}
-      </select>
-      <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
-        ADD INGREDIENT
-      </button>
-      <button>PROCEED TO STEPS</button>
-      <button onClick={handleCancel}>CANCEL</button>
-    </form>
+        <input
+          id="quantity"
+          type="number"
+          className="input-field"
+          placeholder="quantity"
+          value={quantity || ''}
+          onChange={(event) => setQuantity(event.target.value)}
+          />
+         <ul>
+          {suggestions.map(ingredient => (
+            <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
+              {ingredient.ingredient}
+            </li>
+          ))}
+        </ul>
+        <select
+          id="measurement"
+          value={measurement}
+          onChange={(event) => setMeasurement(event.target.value)}
+          >
+          <option value="">Select Measurement</option>
+            {allMeasurements.map((measurement) => (
+              <option key={measurement.id} value={measurement.id}>
+                {measurement.measurement}
+            </option>
+          ))}
+        </select>
+        <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
+          ADD INGREDIENT
+        </button>
+        <button>PROCEED TO STEPS</button>
+        <button onClick={handleCancel}>CANCEL</button>
+      </form>
+    </div>
   );
 };

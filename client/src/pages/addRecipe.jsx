@@ -3,7 +3,6 @@
 import { useState } from 'react';
 // helpers
 import { deleteRecipe } from '../helpers/recipeHelpers';
-import { useRecipe } from '../hooks/useRecipe';
 import useAppData from '../hooks/useAppData';
 // components
 import NavBar from '../components/NavBar';
@@ -35,7 +34,7 @@ export default function AddRecipe() {
         setRecipeId(data.id);
         break;
       case 2:
-        setIngredientData(data);
+        setIngredientData(currentIngredients);
         break;
     }    
 
@@ -51,11 +50,6 @@ export default function AddRecipe() {
     await deleteRecipe(parseInt(recipeId));
     setCurrentStep(1);
   };
-
-
-  // retreive db data
-  const { currentIngredients } = useRecipe(recipeId);
-  console.log(currentIngredients);
 
   // template
   return (
@@ -84,11 +78,6 @@ export default function AddRecipe() {
       {currentStep === 2 && (
         <div>
           <h3>Ingredients</h3>
-          {currentIngredients && (
-            <div>
-              <p>hello</p>
-            </div>
-          )}
           <IngredientsForm 
             onNextStep={handleNextStep}
             onPreviousStep={handlePreviousStep}  

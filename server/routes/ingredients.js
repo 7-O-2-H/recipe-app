@@ -20,7 +20,7 @@ router.get('/Celery', (req, res) => {
 router.post('/add', (req, res) => {
 
   const ingredientData = req.body.ingredientData;
-  // console.log(ingredientData, "type of existing: ", typeof ingredientData.existingIngredient);
+  console.log(ingredientData, "type of ing id, ing id: ", typeof ingredientData.ingredient_id, ingredientData.ingredient_id, "type of measurement id: ", typeof ingredientData.measurement_id);
   if (ingredientData.existingIngredient) {
     addRecipeIngredient(ingredientData)
     .then(data => {

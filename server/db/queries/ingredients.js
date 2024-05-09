@@ -37,7 +37,7 @@ const getIngredientsByRecipeId = (id) => {
 // POST
 const addRecipeIngredient = (ingredientData) => {
 
-  values = [ingredientData.recipe_id, ingredientData.ingredient_id, ingredientData.quantity, ingredientData.measurement_id];
+  values = [ingredientData.recipe_id, parseInt(ingredientData.ingredient_id), ingredientData.quantity, ingredientData.measurement_id];
   return db.query
     (`INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES ($1, $2, $3, $4) RETURNING id;`, values)
     .then((result) => {
