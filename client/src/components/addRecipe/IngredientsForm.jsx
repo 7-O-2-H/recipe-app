@@ -17,6 +17,7 @@ export default function IngredientsForm (props) {
 
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppData();
+  console.log(allMeasurements);
 
   // handle ingredients input with query suggestions
   const handleInputChange = (e) => {
@@ -92,14 +93,18 @@ export default function IngredientsForm (props) {
           </li>
         ))}
       </ul>
-      <input
+      <select
         id="measurement"
-        type="number"
-        className="input-field"
-        placeholder="unit"
         value={measurement}
         onChange={(event) => setMeasurement(event.target.value)}
-      />
+      >
+        <option value="">Select Measurement</option>
+          {allMeasurements.map((measurement) => (
+            <option key={measurement.id} value={measurement.measurement}>
+              {measurement.measurement}
+          </option>
+        ))}
+      </select>
       <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
         ADD INGREDIENT
       </button>
