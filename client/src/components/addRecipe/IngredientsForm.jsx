@@ -46,9 +46,12 @@ export default function IngredientsForm (props) {
   const handleAddIngredient = (event) => {
     event.preventDefault();
     
+    // check if ingredient is already in db
     const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
 
     if (existingIngredient) {
+
+      // set ingredient data for existing ingredient case
       const ingredientData = {
         existingIngredient: true,
         recipe_id: recipeId,
@@ -56,19 +59,25 @@ export default function IngredientsForm (props) {
         ingredient_id: ingredientId,
         quantity: quantity,
         measurement_id: measurement
-      }
+      };
+
+      // add ingredient
       addIngredient(ingredientData);
+
     } else {
-      addIngredient(ingredientsQuery)
-        .then((newIngredientId) => {
-          console.log("New ingredient added with ID:", newIngredientId);
-          submitForm(newIngredientId);
-        })
-        .catch((error) => {
-          console.error("Error adding new ingredient:", error);
-          // Handle error, e.g., display an error message to the user
-        });
-    }
+      
+      // set ingredient data where ingredient is new
+      const ingredientData = {
+        existingIngredient: false,
+        recipe_id: recipeId,
+        ingredient: ingredientsQuery,
+        quantity: quantity,
+        measurement_id: measurement
+      };
+      
+      addIngredient(ingredientData);
+    };
+
   };
   
   const handleCancel = (event) => {
