@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, addRecipeIngredient, addIngredient} = require('../db/queries/ingredients');
+const { getAllIngredients, getIngredientByName, getRecipeIngredients, addRecipeIngredient, addIngredient} = require('../db/queries/ingredients');
 
 // ingredients
 router.get('/', (req, res) => {
@@ -31,6 +31,14 @@ router.post('/add', (req, res) => {
   // .then(data => {
   //   res.json(data);
   // });
+});
+
+// test
+router.get('/recipeIngredients', (req, res) => {
+  getRecipeIngredients()
+  .then(data => {
+    res.json(data);
+  })
 });
 
 module.exports = router;

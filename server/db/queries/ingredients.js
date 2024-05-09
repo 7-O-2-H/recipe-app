@@ -64,4 +64,16 @@ const addIngredient = (ingredient) => {
   });
 };
 
-module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, addRecipeIngredient, addIngredient };
+// test
+const getRecipeIngredients = () => {
+  return db.query(`SELECT * FROM recipe_ingredients ORDER BY recipe_ingredients.recipe_id`)
+  .then(data => {
+    return data.rows;
+  })
+  .catch((err) => {
+    console.log('get all ingredients error;', err.message);
+    return null;
+  });
+};
+
+module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, addRecipeIngredient, addIngredient, getRecipeIngredients };
