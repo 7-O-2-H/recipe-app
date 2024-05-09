@@ -6,7 +6,7 @@ import useAppData from "../../hooks/useAppData";
 export default function IngredientsForm (props) {
 
   // retrieve prop functions
-  const { onCancel, recipeId } = props;
+  const { onCancel, recipeId, onAdd } = props;
 
   // initialize states
   const [ingredient, setIngredient] = useState('');
@@ -43,50 +43,50 @@ export default function IngredientsForm (props) {
     setIngredientId(selectedIngredient.id);
     setSuggestions([]);
   };
+
   
-  const handleAddIngredient = async (event) => {
-    event.preventDefault();
+  // const handleAddIngredient = async (event) => {
+  //   event.preventDefault();
     
-    // check if ingredient is already in db
-    const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
+  //   // check if ingredient is already in db
+  //   const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
 
-    if (existingIngredient) {
+  //   if (existingIngredient) {
 
-      // set ingredient data for existing ingredient case
-      const ingredientData = {
-        existingIngredient: true,
-        recipe_id: recipeId,
-        ingredient: ingredientsQuery,
-        ingredient_id: ingredientId,
-        quantity: quantity,
-        measurement_id: measurement
-      };
+  //     // set ingredient data for existing ingredient case
+  //     const ingredientData = {
+  //       existingIngredient: true,
+  //       recipe_id: recipeId,
+  //       ingredient: ingredientsQuery,
+  //       ingredient_id: ingredientId,
+  //       quantity: quantity,
+  //       measurement_id: measurement
+  //     };
 
-      // add ingredient
-      await addIngredient(ingredientData);
+  //     // add ingredient
+  //     await addIngredient(ingredientData);
 
-      // clear inputs
-      setIngredientsQuery('');
-      setQuantity('');
-      setMeasurement('');
-      setSuggestions([]);
+  //     // clear inputs
+  //     setIngredientsQuery('');
+  //     setQuantity('');
+  //     setMeasurement('');
+  //     setSuggestions([]);
 
-    } else {
+  //   } else {
       
-      // set ingredient data where ingredient is new
-      const ingredientData = {
-        existingIngredient: false,
-        recipe_id: recipeId,
-        ingredient: ingredientsQuery,
-        quantity: quantity,
-        measurement_id: measurement
-      };
+  //     // set ingredient data where ingredient is new
+  //     const ingredientData = {
+  //       existingIngredient: false,
+  //       recipe_id: recipeId,
+  //       ingredient: ingredientsQuery,
+  //       quantity: quantity,
+  //       measurement_id: measurement
+  //     };
       
-      await addIngredient(ingredientData);
-      setIngredient(ingredientData);
-    };
+  //     await addIngredient(ingredientData);
+  //   };
 
-  };
+  // };
   
   const handleCancel = (event) => {
     event.preventDefault();
@@ -133,7 +133,7 @@ export default function IngredientsForm (props) {
             </option>
           ))}
         </select>
-        <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
+        <button type="submit" className="submit-btn" onClick={onAdd}>
           ADD INGREDIENT
         </button>
         <button>PROCEED TO STEPS</button>
