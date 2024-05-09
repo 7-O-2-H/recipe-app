@@ -47,27 +47,27 @@ export async function addRecipe(recipeData) {
     console.error("axios error: ", err);
     throw err;
   }
+};
 
-  // return axios.post(`http://localhost:8080/recipes/add`, {recipeData})
+export async function deleteRecipe(id) {
+
+  try {
+    const res = await axios.post('http://localhost:8080/recipes/delete', {id});
+    console.log('Res status: ', res.status);
+    return;
+  } catch (e) {
+    console.error("axiois error: ", e);
+    throw e;
+  }
+
+  // return axios.post(`http://localhost:8080/recipes/delete`, {id})
   //   .then((res) => {
   //     console.log('Response status: ', res.status);
-  //     return res.data[0].id;
+  //     return;
   //   })
   //   .catch((err) => {
   //     console.log("axios error: ", err)
   //   });
-};
-
-export function deleteRecipe(id) {
-
-  return axios.post(`http://localhost:8080/recipes/delete`, {id})
-    .then((res) => {
-      console.log('Response status: ', res.status);
-      return;
-    })
-    .catch((err) => {
-      console.log("axios error: ", err)
-    });
 };
 
 //ingredients functions
@@ -102,7 +102,6 @@ export function getRecipesBySortingData(sortingData) {
     }
   })
   .then((data) => {
-    console.log(data);
     return data;
   })
   .catch((e) => {

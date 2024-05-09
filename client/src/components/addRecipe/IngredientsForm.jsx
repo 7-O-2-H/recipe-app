@@ -17,7 +17,6 @@ export default function IngredientsForm (props) {
 
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppData();
-  console.log(allMeasurements);
 
   // handle ingredients input with query suggestions
   const handleInputChange = (e) => {

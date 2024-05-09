@@ -15,7 +15,7 @@ import { addRecipe } from "../../helpers/recipeHelpers";
 export default function RecipeForm (props) {
 
   // set prop data
-  const { onNextStep,  } = props;
+  const { onNextStep } = props;
 
   // set states
   const [recipe, setRecipe] = useState('');

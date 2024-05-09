@@ -4,6 +4,7 @@ import { useState } from 'react';
 // helpers
 import { deleteRecipe } from '../helpers/recipeHelpers';
 import { useRecipe } from '../hooks/useRecipe';
+import useAppData from '../hooks/useAppData';
 // components
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
@@ -23,6 +24,8 @@ export default function AddRecipe() {
   const [ingredientData, setIngredientData] = useState([]);
   const [stepData, setStepData] = useState([]);
   const [tagData, setTagData] = useState([]);
+
+  let { allRecipes } = useAppData();
 
   // handle change between forms
   const handleNextStep = (data) => {
@@ -45,9 +48,9 @@ export default function AddRecipe() {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
-  const handleCancel = () => {
+  const handleCancel = async () => {
     setRecipe(null);
-    deleteRecipe(parseInt(recipeId));
+    await deleteRecipe(parseInt(recipeId));
     setCurrentStep(1);
   };
 
