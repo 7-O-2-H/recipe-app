@@ -98,7 +98,9 @@ export default function AddRecipe() {
         </div>
       )}
       <div>
-        <h2>Submitted Ingredients</h2>
+        {ingredientsData && ingredientsData[0] && (
+          <h2>Submitted Ingredients</h2>
+        )}
         <p>
           {ingredientsData && ingredientsData[0] && (
             ingredientsData.map((ingredient, index) => (
