@@ -20,6 +20,10 @@ export default function IngredientsForm (props) {
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppData();
 
+  // remove hours and minutes from measurements
+  const foodMeasurements = allMeasurements.slice(2);
+
+
   // handle ingredients input with query suggestions
   const handleInputChange = (e) => {
 
@@ -104,7 +108,6 @@ export default function IngredientsForm (props) {
           value={ingredientsQuery}
           onChange={handleInputChange}
           />
-
         <input
           id="quantity"
           type="number"
@@ -126,7 +129,7 @@ export default function IngredientsForm (props) {
           onChange={(event) => setMeasurement(event.target.value)}
           >
           <option value="">Select Measurement</option>
-            {allMeasurements.map((measurement) => (
+            {foodMeasurements.map((measurement) => (
               <option key={measurement.id} value={measurement.id}>
                 {measurement.measurement}
             </option>
