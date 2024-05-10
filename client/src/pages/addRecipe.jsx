@@ -2,6 +2,7 @@
 // hooks/react
 import { useState, useEffect } from 'react';
 import { useRecipe } from '../hooks/useRecipe';
+import useAppData from '../hooks/useAppData';
 // helpers
 import { deleteRecipe } from '../helpers/recipeHelpers';
 import { addIngredient } from '../helpers/ingredientsHelpers';
@@ -21,13 +22,12 @@ export default function AddRecipe() {
   const [currentStep, setCurrentStep] = useState(1);
   const [recipeId, setRecipeId] = useState(null);
   const [recipe, setRecipe] = useState('');
-  const [ingredientData, setIngredientData] = useState([]);
+  const [ingredientsData, setIngredientsData] = useState([]);
   const [stepData, setStepData] = useState([]);
   const [tagData, setTagData] = useState([]);
 
-  const { currentIngredients } = useRecipe(recipeId);
-
-  console.log(ingredientData);
+  // use useAppData to get all measurements to collect ingredients for current recipe
+  const { allMeasurements } = useAppData();
 
   // handle change between forms
   const handleNextStep = (data) => {
@@ -56,13 +56,22 @@ export default function AddRecipe() {
   };
 
   const handleAddIngredient = async (ingredientData) => {
+    // add ingredient
     await addIngredient(ingredientData);
-    // useEffect(() => {
-    //   setIngredientData(currentIngredients);
-    // }, [currentIngredients]);
-    setIngredientData(currentIngredients);
-  };
 
+    // get measurement name from all measurements
+    const measurementName = allMeasurements[(ingredientData.measurement_id)].measurement;
+    
+    // format ingredient
+    const formattedIngredient = {
+     ingredient: ingredientData.ingredient,
+     quantity: ingredientData.quantity,
+     measurement: measurementName 
+    }
+
+    // set ingredients data with formatted ingredient
+    setIngredientsData(prevData => [...prevData, formattedIngredient]);
+  };
 
   // template
   return (
@@ -85,9 +94,21 @@ export default function AddRecipe() {
           <RecipeForm 
             onNextStep={handleNextStep}
             onCancel={handleCancel}
-          />
+            />
         </div>
       )}
+      <div>
+        <h2>Submitted Ingredients</h2>
+        <p>
+          {ingredientsData && ingredientsData[0] && (
+            ingredientsData.map((ingredient, index) => (
+              <li key={index}>
+                {ingredient.quanity} {ingredient.measurment} {ingredient.ingredient} 
+              </li>
+            ))
+          )}
+        </p>
+      </div>
       {currentStep === 2 && (
         <div>
           <h3>Ingredients</h3>

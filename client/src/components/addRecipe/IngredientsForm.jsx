@@ -1,6 +1,5 @@
 // imports
 import { useState } from "react";
-import { addIngredient } from "../../helpers/ingredientsHelpers";
 import useAppData from "../../hooks/useAppData";
 
 export default function IngredientsForm (props) {
