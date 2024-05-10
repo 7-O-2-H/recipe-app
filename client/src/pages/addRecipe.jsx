@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRecipe } from '../hooks/useRecipe';
 // helpers
 import { deleteRecipe } from '../helpers/recipeHelpers';
-import useAppData from '../hooks/useAppData';
+import { addIngredient } from '../helpers/ingredientsHelpers';
 // components
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
@@ -26,10 +26,6 @@ export default function AddRecipe() {
   const [tagData, setTagData] = useState([]);
 
   const { currentIngredients } = useRecipe(recipeId);
-
-  useEffect(() => {
-    setIngredientData(currentIngredients);
-  }, [currentIngredients]);
 
   console.log(ingredientData);
 
@@ -57,6 +53,14 @@ export default function AddRecipe() {
     setRecipe(null);
     await deleteRecipe(parseInt(recipeId));
     setCurrentStep(1);
+  };
+
+  const handleAddIngredient = async (ingredientData) => {
+    await addIngredient(ingredientData);
+    // useEffect(() => {
+    //   setIngredientData(currentIngredients);
+    // }, [currentIngredients]);
+    setIngredientData(currentIngredients);
   };
 
 
@@ -91,7 +95,7 @@ export default function AddRecipe() {
             onNextStep={handleNextStep}
             onPreviousStep={handlePreviousStep}  
             onCancel={handleCancel}
-            // onAdd={handleAddIngredient}
+            addIngredient={handleAddIngredient}
             recipeId={recipeId}
             step={currentStep}
           />

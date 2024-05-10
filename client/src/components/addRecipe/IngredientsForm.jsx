@@ -6,7 +6,7 @@ import useAppData from "../../hooks/useAppData";
 export default function IngredientsForm (props) {
 
   // retrieve prop functions
-  const { onCancel, recipeId } = props;
+  const { onCancel, recipeId, addIngredient } = props;
 
   // initialize states
   const [ingredient, setIngredient] = useState('');
