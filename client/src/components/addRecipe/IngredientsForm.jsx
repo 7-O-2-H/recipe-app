@@ -71,8 +71,14 @@ export default function IngredientsForm (props) {
   
   const handleAddIngredient = async (event) => {
     event.preventDefault();
-    console.log(measurement);
-    
+    console.log(quantityFormat, quantityFraction, quantityWholeNumber);
+    // update quantity to decimal if quantity was input as fraction
+    if (quantityFormat === 'fraction') {
+      const totalFraction = parseInt(quantityWholeNumber) + parseInt(quantityFraction);
+      setQuantity(totalFraction);
+    };
+    console.log(quantity);
+
     if (!measurement || !quantity || !ingredientsQuery) {
       toast.error("You must enter all values before submitting.");
       return;
@@ -161,7 +167,7 @@ export default function IngredientsForm (props) {
               placeholder="quantity"
               value={quantity || ''}
               onChange={(event) => setQuantity(event.target.value)}
-              />
+            />
             <button onClick={updateQuantityFormat}>USE FRACTIONS</button>
           </div>
         ) : (
@@ -171,8 +177,10 @@ export default function IngredientsForm (props) {
             type="number"
             className="input-field"
             placeholder="quantity"
-            value={quantity || ''}
+            value={quantityWholeNumber !== undefined ? quantityWholeNumber.toString() : ''}
             onChange={(event) => setQuantityWholeNumber(event.target.value)}
+            min="0"
+            max="100"
           />
             <QuantityDropdown onSelect={handleQuantitySelect} selectedOption={selectedOption} />
             <button onClick={updateQuantityFormat}>USE DECIMALS</button>

@@ -52,6 +52,7 @@ export default function AddRecipe() {
   const handleCancel = async () => {
     setRecipe(null);
     await deleteRecipe(parseInt(recipeId));
+    setIngredientsData([]);
     setCurrentStep(1);
   };
 
