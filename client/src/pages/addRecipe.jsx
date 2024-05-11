@@ -71,6 +71,9 @@ export default function AddRecipe() {
 
     // set ingredients data with formatted ingredient
     setIngredientsData(prevData => [...prevData, formattedIngredient]);
+
+    // force re-render by updating current step to the current step in order to properly display ingredient
+    setCurrentStep(prevStep => prevStep);
   };
 
   // template
