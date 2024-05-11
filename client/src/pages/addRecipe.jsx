@@ -1,11 +1,11 @@
 // imports
 // hooks/react
 import { useState, useEffect } from 'react';
-import { useRecipe } from '../hooks/useRecipe';
 import useAppData from '../hooks/useAppData';
 // helpers
 import { deleteRecipe } from '../helpers/recipeHelpers';
 import { addIngredient } from '../helpers/ingredientsHelpers';
+import { formatSingleIngredient } from '../helpers/conversionHelpers';
 // components
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
@@ -69,8 +69,11 @@ export default function AddRecipe() {
      measurement: measurementName 
     }
 
+    const ingredientString = formatSingleIngredient(formattedIngredient);
+    console.log(ingredientString, formattedIngredient);
+
     // set ingredients data with formatted ingredient
-    setIngredientsData(prevData => [...prevData, formattedIngredient]);
+    setIngredientsData(prevData => [...prevData, ingredientString]);
 
     // force re-render by updating current step to the current step in order to properly display ingredient
     setCurrentStep(prevStep => prevStep);
@@ -106,9 +109,9 @@ export default function AddRecipe() {
         )}
         <p>
           {ingredientsData && ingredientsData[0] && (
-            ingredientsData.map((ingredient, index) => (
+            ingredientsData.map((ingredientString, index) => (
               <li key={index}>
-                {ingredient.quanity} {ingredient.measurment} {ingredient.ingredient} 
+                {index + 1}. {ingredientString} 
               </li>
             ))
           )}
