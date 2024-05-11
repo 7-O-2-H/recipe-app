@@ -128,9 +128,10 @@ export default function IngredientsForm (props) {
     };
   };
 
-  const handleQuantitySelect = (event) => {
-    setSelectedOption(event.target.value);
+  const handleQuantitySelect = (selectedValue) => {
+    setSelectedOption(selectedValue);
     setQuantityFraction(selectedOption);
+    console.log(quantityFraction);
   };
   
   const handleCancel = (event) => {
