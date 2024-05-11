@@ -157,7 +157,7 @@ export default function IngredientsForm (props) {
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           ADD INGREDIENT
         </button>
-        <button>PROCEED TO STEPS</button>
+        <button>ADD INGREDIENT AND PROCEED TO STEPS</button>
         <button onClick={handleCancel}>CANCEL</button>
       </form>
     </div>
