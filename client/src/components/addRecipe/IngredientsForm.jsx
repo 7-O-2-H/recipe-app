@@ -1,9 +1,13 @@
 // imports
+// react
 import { useState } from "react";
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// hooks
 import useAppData from "../../hooks/useAppData";
+//component
+import QuantityDropdown from "./QuantityDropDown";
 
 export default function IngredientsForm (props) {
 
@@ -13,7 +17,11 @@ export default function IngredientsForm (props) {
   // initialize states
   const [ingredient, setIngredient] = useState('');
   const [quantity, setQuantity] = useState(undefined);
-  const [measurement, setMeasurement] = useState('');
+  const [quantityFormat, setQuantityFormat] = useState('decimal');
+  const [quantityWholeNumber, setQuantityWholeNumber] = useState(undefined);
+  const [quantityFraction, setQuantityFraction] = useState(undefined);
+  const [selectedOption, setSelectedOption] = useState(undefined);
+  const [measurement, setMeasurement] = useState(undefined);
   const [ingredientsQuery, setIngredientsQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -108,6 +116,22 @@ export default function IngredientsForm (props) {
     };
 
   };
+
+  // handle quantity formats and dropdown selection
+  const updateQuantityFormat = (event) => {
+    if (quantityFormat === "decimal") {
+      setQuantityFormat('fraction');
+      return;
+    } else {
+      setQuantityFormat('decimal');
+      return;
+    };
+  };
+
+  const handleQuantitySelect = (event) => {
+    setSelectedOption(event.target.value);
+    setQuantityFraction(selectedOption);
+  };
   
   const handleCancel = (event) => {
     event.preventDefault();
@@ -126,15 +150,33 @@ export default function IngredientsForm (props) {
           placeholder="ingredient"
           value={ingredientsQuery}
           onChange={handleInputChange}
+        />
+        {quantityFormat === 'decimal' ? (
+          <div>
+            <input
+              id="quantity"
+              type="number"
+              className="input-field"
+              placeholder="quantity"
+              value={quantity || ''}
+              onChange={(event) => setQuantity(event.target.value)}
+              />
+            <button onClick={updateQuantityFormat}>USE FRACTIONS</button>
+          </div>
+        ) : (
+          <div>
+            <input
+            id="quantity"
+            type="number"
+            className="input-field"
+            placeholder="quantity"
+            value={quantity || ''}
+            onChange={(event) => setQuantityWholeNumber(event.target.value)}
           />
-        <input
-          id="quantity"
-          type="number"
-          className="input-field"
-          placeholder="quantity"
-          value={quantity || ''}
-          onChange={(event) => setQuantity(event.target.value)}
-          />
+            <QuantityDropdown onSelect={handleQuantitySelect} selectedOption={selectedOption} />
+            <button onClick={updateQuantityFormat}>USE DECIMALS</button>
+          </div>
+        )}
          <ul>
           {suggestions.map(ingredient => (
             <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
