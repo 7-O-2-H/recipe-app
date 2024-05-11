@@ -1,5 +1,8 @@
 // imports
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import useAppData from "../../hooks/useAppData";
 
 export default function IngredientsForm (props) {
@@ -60,7 +63,12 @@ export default function IngredientsForm (props) {
   
   const handleAddIngredient = async (event) => {
     event.preventDefault();
+    console.log(measurement);
     
+    if (!measurement || !quantity || !ingredientsQuery) {
+      toast.error("You must enter all values before submitting.");
+      return;
+    };
     // check if ingredient is already in db
     const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
 
@@ -109,6 +117,7 @@ export default function IngredientsForm (props) {
 
   return (
     <div>
+      <ToastContainer />
       <form className="ingredient-form" >
         <input
           id="ingredient"
