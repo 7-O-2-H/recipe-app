@@ -20,9 +20,19 @@ export default function IngredientsForm (props) {
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppData();
 
-  // remove hours and minutes from measurements
+  // remove hours and minutes from measurements and sort the array
   const foodMeasurements = allMeasurements.slice(2);
-
+  const sortedMeasurements = foodMeasurements.sort((a, b) => {
+    const measurementA = a.measurement.toLowerCase();
+    const measurementB = b.measurement.toLowerCase();
+    if (measurementA < measurementB) {
+      return -1; 
+    }
+    if (measurementA > measurementB) {
+      return 1;
+    }
+    return 0;
+  });
 
   // handle ingredients input with query suggestions
   const handleInputChange = (e) => {
@@ -129,7 +139,7 @@ export default function IngredientsForm (props) {
           onChange={(event) => setMeasurement(event.target.value)}
           >
           <option value="">Select Measurement</option>
-            {foodMeasurements.map((measurement) => (
+            {sortedMeasurements.map((measurement) => (
               <option key={measurement.id} value={measurement.id}>
                 {measurement.measurement}
             </option>
