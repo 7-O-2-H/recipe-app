@@ -186,13 +186,11 @@ export function formatSingleIngredient (ingredient) {
       const wholeNum = ingredient['quantity'] - (ingredient['quantity'] % 1);
       const decimal = (parseFloat(ingredient['quantity'] % 1)).toFixed(3);
 
-      console.log(decimal, typeof parseFloat(decimal));
-
-      if (decimal === 0.66) {
+      if (decimal.toFixed(2) === 0.66) {
 
         return `${wholeNum} 2/3 ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
 
-      } else if (decimal === 0.33) {
+      } else if (decimal.toFixed(2) === 0.33) {
 
         return `${wholeNum} 1/3 ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
 
@@ -222,11 +220,11 @@ export function formatSingleIngredient (ingredient) {
       // initialize decimal (to be converted) for decimal values checking fr 3rds and 6ths
       const decimal = ingredient['quantity'] % 1;
 
-      if (decimal === 0.66) {
+      if (decimal.toFixed(2) === 0.66) {
 
         return `2/3 ${ingredient['measurement']} of ${ingredient['ingredient']}`;
 
-      } else if (decimal === 0.33) {
+      } else if (decimal.toFixed(2) === 0.33) {
 
         return `1/3 ${ingredient['measurement']} of ${ingredient['ingredient']}`;
 
