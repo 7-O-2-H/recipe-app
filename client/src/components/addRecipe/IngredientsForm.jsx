@@ -71,12 +71,18 @@ export default function IngredientsForm (props) {
   
   const handleAddIngredient = async (event) => {
     event.preventDefault();
-    console.log(quantityFormat, quantityFraction, quantityWholeNumber, ingredientsQuery);
+    console.log(typeof quantityFraction, typeof quantityWholeNumber, ingredientsQuery);
     // update quantity to decimal if quantity was input as fraction
     if (quantityFormat === 'fraction') {
-      const totalFraction = parseInt(quantityWholeNumber) + parseFloat(quantityFraction);
-      setQuantity(totalFraction);
+      const totalFraction = parseInt(quantityWholeNumber || 0) + parseFloat(quantityFraction || 0);
+      setQuantity(prevQUantity => totalFraction);
     };
+
+    // if quantity state is not yet set return without adding ingredient
+    if (quantity === undefined) {
+      return;
+    };
+
     console.log(quantity);
 
     if (!measurement || !quantity || !ingredientsQuery) {
