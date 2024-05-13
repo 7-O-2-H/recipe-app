@@ -71,10 +71,10 @@ export default function IngredientsForm (props) {
   
   const handleAddIngredient = async (event) => {
     event.preventDefault();
-    console.log(quantityFormat, quantityFraction, quantityWholeNumber);
+    console.log(quantityFormat, quantityFraction, quantityWholeNumber, ingredientsQuery);
     // update quantity to decimal if quantity was input as fraction
     if (quantityFormat === 'fraction') {
-      const totalFraction = parseInt(quantityWholeNumber) + parseInt(quantityFraction);
+      const totalFraction = parseInt(quantityWholeNumber) + parseFloat(quantityFraction);
       setQuantity(totalFraction);
     };
     console.log(quantity);
@@ -103,9 +103,11 @@ export default function IngredientsForm (props) {
 
       // clear inputs
       setIngredientsQuery('');
-      setQuantity('');
-      setMeasurement('');
+      setQuantity(undefined);
+      setMeasurement(undefined);
       setSuggestions([]);
+      setQuantityFraction(undefined);
+      setQuantityWholeNumber(undefined);
 
     } else {
       
@@ -135,9 +137,10 @@ export default function IngredientsForm (props) {
   };
 
   const handleQuantitySelect = (selectedValue) => {
+    console.log(selectedValue);
     setSelectedOption(selectedValue);
     setQuantityFraction(selectedOption);
-    console.log(quantityFraction);
+    return
   };
   
   const handleCancel = (event) => {

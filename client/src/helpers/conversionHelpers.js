@@ -87,7 +87,7 @@ export function formatIngredientsData(ingredients) {
 
           str += `${wholeNum} 1/3 ${ing['measurement']}s of ${ing['ingredient']}`;
 
-        } else if (decimal === 0.167) {
+        } else if (parseFloat(decimal) === 0.167) {
 
           str += `${wholeNum} 1/6 ${ing['measurement']}s of ${ing['ingredient']}`;
         
@@ -153,6 +153,9 @@ export function formatIngredientsData(ingredients) {
 
 export function formatSingleIngredient (ingredient) {
 
+  console.log("type: ing, quantity, measurement: ", typeof ingredient['ingredient'], typeof ingredient['quantity'], typeof ingredient['measurement']);
+
+
   // return ingredient to taste or just ingredient name
   if (parseFloat(ingredient['quantity']) === 0) {
     if (ingredient['measurement'] !== '-') {
@@ -181,7 +184,9 @@ export function formatSingleIngredient (ingredient) {
 
       // initialize whole number and decimal (to be converted) for decimal values
       const wholeNum = ingredient['quantity'] - (ingredient['quantity'] % 1);
-      const decimal = ingredient['quantity'] % 1;
+      const decimal = (parseFloat(ingredient['quantity'] % 1)).toFixed(3);
+
+      console.log(decimal, typeof parseFloat(decimal));
 
       if (decimal === 0.66) {
 
@@ -191,7 +196,7 @@ export function formatSingleIngredient (ingredient) {
 
         return `${wholeNum} 1/3 ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
 
-      } else if (decimal === 0.167) {
+      } else if (parseFloat(decimal) === 0.167) {
 
         return `${wholeNum} 1/6 ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
     
