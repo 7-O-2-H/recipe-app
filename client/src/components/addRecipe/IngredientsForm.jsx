@@ -71,6 +71,10 @@ export default function IngredientsForm (props) {
   
   const handleAddIngredient = async (event) => {
     event.preventDefault();
+
+    // variable to ensure all variables are defined before enabling  submission
+    let canSubmit = true;
+
     console.log(typeof quantityFraction, typeof quantityWholeNumber, ingredientsQuery);
     // update quantity to decimal if quantity was input as fraction
     if (quantityFormat === 'fraction') {
@@ -80,58 +84,62 @@ export default function IngredientsForm (props) {
 
     // if quantity state is not yet set return without adding ingredient
     if (quantity === undefined) {
-      return;
+      canSubmit = false;
     };
 
     console.log(quantity);
 
     if (!measurement || !quantity || !ingredientsQuery) {
       toast.error("You must enter all values before submitting.");
+      canSubmit = false;
       return;
     };
-    // check if ingredient is already in db
-    const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
 
-    if (existingIngredient) {
+    if (canSubmit) {
 
-      // set ingredient data for existing ingredient case
-      const ingredientData = {
-        existingIngredient: true,
-        recipe_id: recipeId,
-        ingredient: ingredientsQuery,
-        ingredient_id: ingredientId,
-        quantity: quantity,
-        measurement_id: measurement
-      };
-
-      // add ingredient
-      await addIngredient(ingredientData);
-
-      // clear inputs
-      setIngredientsQuery('');
-      setQuantity(undefined);
-      setMeasurement(undefined);
-      setSuggestions([]);
-      setQuantityFraction(undefined);
-      setQuantityWholeNumber(undefined);
-
-    } else {
+      // check if ingredient is already in db
+      const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
       
-      // set ingredient data where ingredient is new
-      const ingredientData = {
-        existingIngredient: false,
-        recipe_id: recipeId,
-        ingredient: ingredientsQuery,
-        quantity: quantity,
-        measurement_id: measurement
+      if (existingIngredient) {
+        
+        // set ingredient data for existing ingredient case
+        const ingredientData = {
+          existingIngredient: true,
+          recipe_id: recipeId,
+          ingredient: ingredientsQuery,
+          ingredient_id: ingredientId,
+          quantity: quantity,
+          measurement_id: measurement
+        };
+        
+        // add ingredient
+        await addIngredient(ingredientData);
+        
+        // clear inputs
+        setIngredientsQuery('');
+        setQuantity(undefined);
+        setMeasurement(undefined);
+        setSuggestions([]);
+        setQuantityFraction(undefined);
+        setQuantityWholeNumber(undefined);
+        
+      } else {
+        
+        // set ingredient data where ingredient is new
+        const ingredientData = {
+          existingIngredient: false,
+          recipe_id: recipeId,
+          ingredient: ingredientsQuery,
+          quantity: quantity,
+          measurement_id: measurement
+        };
+        
+        await addIngredient(ingredientData);
       };
-      
-      await addIngredient(ingredientData);
-    };
-
+    };      
   };
-
-  // handle quantity formats and dropdown selection
+    
+    // handle quantity formats and dropdown selection
   const updateQuantityFormat = (event) => {
     if (quantityFormat === "decimal") {
       setQuantityFormat('fraction');
