@@ -102,7 +102,7 @@ export default function FullRecipe (props) {
 
   // format ingredients into proper quantities and strings
   const ingredientsArray = formatIngredientsData(ingredients);
-
+  console.log(ingredients);
   // tags, ingredients, steps arrays
   const ingredientArray = ingredientsArray.map((ingredient, index) => (
     <Ingredient

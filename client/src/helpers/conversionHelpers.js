@@ -43,7 +43,7 @@ export function formatIngredientsData(ingredients) {
     // intialize formatted ingredients strings
     let str = '';
 
-    if (parseInt(ing['quantity']) === 0) {
+    if (parseFloat(ing['quantity']) === 0) {
       if (ing['measurement'] !== '-') {
         str += `${ing['ingredient']} ${ing['measurement']}`;
         ingredientsArray.push(str);
@@ -121,7 +121,7 @@ export function formatIngredientsData(ingredients) {
 
         } else if (decimal === 0.167) {
 
-          str += `1/6 ${ing['measurement']}s of ${ing['ingredient']}`;
+          str += `1/6 ${ing['measurement']} of ${ing['ingredient']}`;
         
         } else {
 
@@ -146,7 +146,7 @@ export function formatIngredientsData(ingredients) {
 export function formatSingleIngredient (ingredient) {
 
   // return ingredient to taste or just ingredient name
-  if (parseInt(ingredient['quantity']) === 0) {
+  if (parseFloat(ingredient['quantity']) === 0) {
     if (ingredient['measurement'] !== '-') {
       return `${ingredient['ingredient']} ${ingredient['measurement']}`;
     };
