@@ -91,6 +91,10 @@ export function formatIngredientsData(ingredients) {
 
           str += `${wholeNum} 1/6 ${ing['measurement']}s of ${ing['ingredient']}`;
         
+        } else if (decimal === 0.833) {
+
+          str += `${wholeNum} 5/6 ${ing['measurement']}s of ${ing['ingredient']}`;
+
         } else {
 
           // use helper to convert decimal to fraction
@@ -122,6 +126,10 @@ export function formatIngredientsData(ingredients) {
         } else if (decimal === 0.167) {
 
           str += `1/6 ${ing['measurement']} of ${ing['ingredient']}`;
+
+        } else if (decimal === 0.833) {
+
+          str += `5/6 ${ing['measurement']} of ${ing['ingredient']}`;
         
         } else {
 
