@@ -79,19 +79,19 @@ export function formatIngredientsData(ingredients) {
         const wholeNum = ing['quantity'] - (ing['quantity'] % 1);
         const decimal = ing['quantity'] % 1;
 
-        if (decimal === 0.66) {
+        if (decimal.toFixed(2) === 0.66) {
 
           str += `${wholeNum} 2/3 ${ing['measurement']}s of ${ing['ingredient']}`;
 
-        } else if (decimal === 0.33) {
+        } else if (decimal.toFixed(2) === 0.33) {
 
           str += `${wholeNum} 1/3 ${ing['measurement']}s of ${ing['ingredient']}`;
 
-        } else if (parseFloat(decimal) === 0.167) {
+        } else if (decimal.toFixed === 0.167) {
 
           str += `${wholeNum} 1/6 ${ing['measurement']}s of ${ing['ingredient']}`;
         
-        } else if (decimal === 0.833) {
+        } else if (decimal.toFixed(3) === 0.833) {
 
           str += `${wholeNum} 5/6 ${ing['measurement']}s of ${ing['ingredient']}`;
 
@@ -127,7 +127,7 @@ export function formatIngredientsData(ingredients) {
 
           str += `1/6 ${ing['measurement']} of ${ing['ingredient']}`;
 
-        } else if (decimal === 0.833) {
+        } else if (parseFloat(decimal).toFixed(3) === 0.833) {
 
           str += `5/6 ${ing['measurement']} of ${ing['ingredient']}`;
         
