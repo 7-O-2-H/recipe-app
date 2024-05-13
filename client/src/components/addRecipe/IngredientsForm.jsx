@@ -137,10 +137,10 @@ export default function IngredientsForm (props) {
   };
 
   const handleQuantitySelect = (selectedValue) => {
-    console.log(selectedValue);
-    setSelectedOption(selectedValue);
-    setQuantityFraction(selectedOption);
-    return
+    console.log(selectedValue, quantityWholeNumber);
+    // setSelectedOption(selectedValue);
+    setQuantityFraction(selectedValue);
+    return;
   };
   
   const handleCancel = (event) => {
