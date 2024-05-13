@@ -153,9 +153,6 @@ export function formatIngredientsData(ingredients) {
 
 export function formatSingleIngredient (ingredient) {
 
-  console.log("type: ing, quantity, measurement: ", typeof ingredient['ingredient'], typeof ingredient['quantity'], typeof ingredient['measurement']);
-
-
   // return ingredient to taste or just ingredient name
   if (parseFloat(ingredient['quantity']) === 0) {
     if (ingredient['measurement'] !== '-') {
@@ -184,17 +181,17 @@ export function formatSingleIngredient (ingredient) {
 
       // initialize whole number and decimal (to be converted) for decimal values
       const wholeNum = ingredient['quantity'] - (ingredient['quantity'] % 1);
-      const decimal = (parseFloat(ingredient['quantity'] % 1)).toFixed(3);
+      const decimal = parseFloat(ingredient['quantity'] % 1)
 
-      if (decimal.toFixed(2) === 0.66) {
+      if (decimal === 0.66) {
 
         return `${wholeNum} 2/3 ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
 
-      } else if (decimal.toFixed(2) === 0.33) {
+      } else if (decimal === 0.33) {
 
         return `${wholeNum} 1/3 ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
 
-      } else if (parseFloat(decimal) === 0.167) {
+      } else if (decimal === 0.167) {
 
         return `${wholeNum} 1/6 ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
     
@@ -202,7 +199,7 @@ export function formatSingleIngredient (ingredient) {
 
         // use helper to convert decimal to fraction
         const fraction = decimalToFraction(decimal);
-
+        console.log(fraction);
         return `${wholeNum} ${fraction} ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
       };
     };
