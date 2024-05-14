@@ -87,7 +87,7 @@ export default function IngredientsForm (props) {
       canSubmit = false;
     };
 
-    console.log(quantity);
+    // console.log(quantity);
 
     if (!measurement || !quantity || !ingredientsQuery) {
       toast.error("You must enter all values before submitting.");

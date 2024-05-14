@@ -17,24 +17,39 @@ router.get('/Celery', (req, res) => {
 });
 
 // add
-router.post('/add', (req, res) => {
+router.post('/add', async (req, res) => {
 
   const ingredientData = req.body.ingredientData;
-  console.log(ingredientData);
+  // console.log(ingredientData);
   console.log(ingredientData, "type of measurement id: ", typeof ingredientData.measurement_id);
-  if (ingredientData.existingIngredient) {
-    addRecipeIngredient(ingredientData)
-    .then(data => {
+
+  try {
+    if (ingredientData.existingIngredient) {
+      const data = addRecipeIngredient(ingredientData);
+      res.json(data)
+    } else {
+      const ingredientId =  await addIngredient(ingredientData.ingredient);
+      ingredientData.ingredient_id = ingredientId;
+      const data = addRecipeIngredient(ingredientData);
       res.json(data);
-    });
-  } else {
-    const ingredientId =  await addIngredient(ingredientData.ingredient);
-    ingredientData.ingredient_id = ingredientId;
-    addRecipeIngredient(ingredientData)
-    .then(data => {
-      res.json(data);
-    });
-  };
+    }
+  } catch (error) {
+    console.error('Add ingredient error: ', error.message);
+    res.status(500).json({ error: 'Internal Server Error'});
+  }
+  // if (ingredientData.existingIngredient) {
+  //   addRecipeIngredient(ingredientData)
+  //   .then(data => {
+  //     res.json(data);
+  //   });
+  // } else {
+  //   const ingredientId =  await addIngredient(ingredientData.ingredient);
+  //   ingredientData.ingredient_id = ingredientId;
+  //   addRecipeIngredient(ingredientData)
+  //   .then(data => {
+  //     res.json(data);
+  //   });
+  // };
 });
 
 // test
