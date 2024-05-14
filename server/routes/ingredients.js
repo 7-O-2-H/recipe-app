@@ -20,17 +20,21 @@ router.get('/Celery', (req, res) => {
 router.post('/add', (req, res) => {
 
   const ingredientData = req.body.ingredientData;
-  console.log(ingredientData, "type of ing id, ing id: ", typeof ingredientData.ingredient_id, ingredientData.ingredient_id, "type of measurement id: ", typeof ingredientData.measurement_id);
+  console.log(ingredientData);
+  console.log(ingredientData, "type of measurement id: ", typeof ingredientData.measurement_id);
   if (ingredientData.existingIngredient) {
     addRecipeIngredient(ingredientData)
     .then(data => {
       res.json(data);
     });
-  }
-  // addIngredient(ingredientData)
-  // .then(data => {
-  //   res.json(data);
-  // });
+  } else {
+    const ingredientId =  await addIngredient(ingredientData.ingredient);
+    ingredientData.ingredient_id = ingredientId;
+    addRecipeIngredient(ingredientData)
+    .then(data => {
+      res.json(data);
+    });
+  };
 });
 
 // test

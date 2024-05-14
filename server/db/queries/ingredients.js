@@ -49,19 +49,27 @@ const addRecipeIngredient = (ingredientData) => {
     });
 };
 
-const addIngredient = (ingredient) => {
+const addIngredient = async (ingredient) => {
 
-  return db.query
-    (`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, 
-    [ingredient]
-  )
-  .then((result) => {
+  try {
+    const result = db.query(`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, [ingredient]);
     return result.rows[0].id;
-  })
-  .catch((err) => {
-    console.log('add ingredient error: ', err.message);
-    return err.message;
-  });
+  } catch {
+    console.error('add ing error: ', error.message);
+    throw error;
+  }
+
+  // return db.query
+  //   (`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, 
+  //   [ingredient]
+  // )
+  // .then((result) => {
+  //   return result.rows[0].id;
+  // })
+  // .catch((err) => {
+  //   console.log('add ingredient error: ', err.message);
+  //   return err.message;
+  // });
 };
 
 // test
