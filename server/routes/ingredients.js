@@ -21,7 +21,7 @@ router.post('/add', async (req, res) => {
 
   const ingredientData = req.body.ingredientData;
   // console.log(ingredientData);
-  console.log(ingredientData, "type of measurement id: ", typeof ingredientData.measurement_id);
+  // console.log(ingredientData, "type of measurement id: ", typeof ingredientData.measurement_id);
 
   try {
     if (ingredientData.existingIngredient) {

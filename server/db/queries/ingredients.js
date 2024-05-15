@@ -6,8 +6,8 @@ const getAllIngredients = () => {
   return db.query("SELECT * FROM ingredients ORDER BY ingredients.ingredient;").then(data => {
     return data.rows;
   })
-  .catch((err) => {
-    console.log('get all ingredients error;', err.message);
+  .catch((error) => {
+    console.log('get all ingredients error;', error.message);
     return null;
   });
 };
@@ -17,8 +17,8 @@ const getIngredientByName = (ingredient) => {
   return db.query("SELECT ingredient FROM ingredients WHERE ingredients.ingredient = $1", [ingredient]).then(data => {
     return data.rows;
   })
-  .catch((err) => {
-    console.log('get ingredient by name error;', err.message);
+  .catch((error) => {
+    console.log('get ingredient by name error;', error.message);
     return null;
   });
 };
@@ -28,29 +28,15 @@ const getIngredientsByRecipeId = (id) => {
     // console.log('data:', data);  
     return data.rows;
   })
-  .catch((err) => {
-    console.log('get ingredients by rec error;', err.message);
+  .catch((error) => {
+    console.log('get ingredients by rec error;', error.message);
     return null;
   });
 };
 
 // POST
-const addRecipeIngredient = (ingredientData) => {
-
-  values = [ingredientData.recipe_id, parseInt(ingredientData.ingredient_id), ingredientData.quantity, ingredientData.measurement_id];
-  return db.query
-    (`INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES ($1, $2, $3, $4) RETURNING id;`, values)
-    .then((result) => {
-      return result.rows[0].id;
-    })
-    .catch((err) => {
-      console.log('add ingredient error: ', err.message);
-      return err.message;
-    });
-};
-
 const addIngredient = async (ingredient) => {
-
+  console.log(ingredient);
   try {
     const result = db.query(`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, [ingredient]);
     return result.rows[0].id;
@@ -72,14 +58,28 @@ const addIngredient = async (ingredient) => {
   // });
 };
 
+const addRecipeIngredient = (ingredientData) => {
+
+  values = [ingredientData.recipe_id, parseInt(ingredientData.ingredient_id), ingredientData.quantity, ingredientData.measurement_id];
+  return db.query
+    (`INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES ($1, $2, $3, $4) RETURNING id;`, values)
+    .then((result) => {
+      return result.rows[0].id;
+    })
+    .catch((error) => {
+      console.log('add ingredient error: ', error.message);
+      return error.message;
+    });
+};
+
 // test
 const getRecipeIngredients = () => {
   return db.query(`SELECT * FROM recipe_ingredients ORDER BY recipe_ingredients.recipe_id`)
   .then(data => {
     return data.rows;
   })
-  .catch((err) => {
-    console.log('get all ingredients error;', err.message);
+  .catch((error) => {
+    console.log('get all ingredients error;', error.message);
     return null;
   });
 };
