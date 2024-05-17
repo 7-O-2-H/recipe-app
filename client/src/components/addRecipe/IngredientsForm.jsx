@@ -45,7 +45,6 @@ export default function IngredientsForm (props) {
     return 0;
   });
 
-  console.log(sortedMeasurements);
 
   // handle ingredients input with query suggestions
   const handleInputChange = (e) => {
