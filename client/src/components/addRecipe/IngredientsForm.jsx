@@ -12,7 +12,7 @@ import QuantityDropdown from "./QuantityDropDown";
 export default function IngredientsForm (props) {
 
   // retrieve prop functions
-  const { onCancel, recipeId, addIngredient } = props;
+  const { onCancel, recipeId, addIngredient, onNextStep } = props;
 
   // initialize states
   const [ingredient, setIngredient] = useState('');
@@ -185,6 +185,7 @@ export default function IngredientsForm (props) {
     };      
   };
   
+
   const handleCancel = (event) => {
     event.preventDefault();
     onCancel();
@@ -253,8 +254,8 @@ export default function IngredientsForm (props) {
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           ADD INGREDIENT
         </button>
-        <button>ADD INGREDIENT AND PROCEED TO STEPS</button>
-        <button onClick={handleCancel}>CANCEL</button>
+        <button onClick={handleNext}>GO TO STEPS</button>
+        <button onClick={onNextStep(null)}>CANCEL</button>
       </form>
     </div>
   );
