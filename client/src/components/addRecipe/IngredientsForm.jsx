@@ -84,7 +84,7 @@ export default function IngredientsForm (props) {
   
   const handleQuantitySelect = (selectedValue) => {
     console.log(selectedValue, quantityWholeNumber);
-
+    setSelectedOption(selectedValue);
     setQuantityFraction(parseFloat(selectedValue));
     const totalFraction = quantityWholeNumber + quantityFraction;
     setQuantity(totalFraction);
