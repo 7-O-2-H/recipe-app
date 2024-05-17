@@ -46,7 +46,7 @@ export default function QuantityDropdown({ onSelect, selectedOption }) {
   // template
   return (
     <div className="quantity-dropdown">
-      <select onChange={(e) => onSelect(e.target.value)} value={selectedOption || ''}>
+      <select onChange={(e) => onSelect(parseFloat(e.target.value))} value={selectedOption || ''}>
         {quantities.map((quantity) => (
           <option key={quantity.id} value={quantity.value || ''}>
             {quantity.quantity}

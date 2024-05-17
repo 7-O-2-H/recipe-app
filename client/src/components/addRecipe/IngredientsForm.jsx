@@ -71,28 +71,55 @@ export default function IngredientsForm (props) {
     setSuggestions([]);
   };
 
+  // handle quantity formats and dropdown selection
+  const updateQuantityFormat = (event) => {
+    if (quantityFormat === "decimal") {
+      setQuantityFormat('fraction');
+      return;
+    } else {
+      setQuantityFormat('decimal');
+      return;
+    };
+  };
   
+  const handleQuantitySelect = (selectedValue) => {
+    console.log(selectedValue, quantityWholeNumber);
+
+    setQuantityFraction(parseFloat(selectedValue));
+    const totalFraction = quantityWholeNumber + quantityFraction;
+    setQuantity(totalFraction);
+    return;
+  };
+
   const handleAddIngredient = async (event) => {
     event.preventDefault();
 
-    console.log(measurement, quantity, ingredientsQuery);
+    console.log(measurement, quantityWholeNumber, quantityFraction, ingredientsQuery);
+    // if (quantityWholeNumber) {
+      
+      // }
+      
+      // setQuantityWholeNumber((parseInt(quantityWholeNumber)) || undefined);
+      // setQuantityFraction((parseFloat(quantityFraction)) || undefined);
+      
+      console.log(typeof quantityFraction, typeof quantityWholeNumber, ingredientsQuery);
+
 
     // variable to ensure all variables are defined before enabling  submission
     let canSubmit = true;
 
-    console.log(typeof quantityFraction, typeof quantityWholeNumber, ingredientsQuery);
     // update quantity to decimal if quantity was input as fraction
-    if (quantityFormat === 'fraction') {
-      const totalFraction = parseInt(quantityWholeNumber || 0) + parseFloat(quantityFraction || 0);
-      setQuantity(prevQUantity => totalFraction);
-    };
+    // if (quantityFormat === 'fraction') {
+      
+    //   setQuantity(quantityWholeNumber + quantityFraction);
+    // };
 
     // if quantity state is not yet set return without adding ingredient
     if (quantity === undefined) {
       canSubmit = false;
     };
 
-    // console.log(quantity);
+    console.log(quantity);
 
     if (!measurement || !quantity || !ingredientsQuery) {
       toast.error("You must enter all values before submitting.");
@@ -151,24 +178,6 @@ export default function IngredientsForm (props) {
       };
     };      
   };
-    
-    // handle quantity formats and dropdown selection
-  const updateQuantityFormat = (event) => {
-    if (quantityFormat === "decimal") {
-      setQuantityFormat('fraction');
-      return;
-    } else {
-      setQuantityFormat('decimal');
-      return;
-    };
-  };
-
-  const handleQuantitySelect = (selectedValue) => {
-    console.log(selectedValue, quantityWholeNumber);
-    // setSelectedOption(selectedValue);
-    setQuantityFraction(selectedValue);
-    return;
-  };
   
   const handleCancel = (event) => {
     event.preventDefault();
@@ -208,7 +217,7 @@ export default function IngredientsForm (props) {
             className="input-field"
             placeholder="quantity"
             value={quantityWholeNumber !== undefined ? quantityWholeNumber.toString() : ''}
-            onChange={(event) => setQuantityWholeNumber(event.target.value)}
+            onChange={(event) => setQuantityWholeNumber(parseInt(event.target.value))}
             min="0"
             max="100"
           />
