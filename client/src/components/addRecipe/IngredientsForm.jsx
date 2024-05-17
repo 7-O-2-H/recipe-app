@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // hooks
-import useAppData from "../../hooks/useAppData";
+import { useAppDataWithRefresh } from "../../hooks/useAppData";
 //component
 import QuantityDropdown from "./QuantityDropDown";
 
@@ -26,10 +26,12 @@ export default function IngredientsForm (props) {
   const [suggestions, setSuggestions] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [ingredientId, setIngredientId] = useState(null);
+  const [refreshData, setRefreshData] = useState(false);
   const [ingredientsArray, setIngredientsArray] = useState([]);
+  
 
   // retreive all ingredients and measurements
-  const { allMeasurements, allIngredients } = useAppData();
+  const { allMeasurements, allIngredients } = useAppDataWithRefresh(refreshData);
 
   // remove hours and minutes from measurements and sort the array
   const foodMeasurements = allMeasurements.slice(2);
@@ -125,7 +127,10 @@ export default function IngredientsForm (props) {
         setSuggestions([]);
         setQuantityFraction(undefined);
         setQuantityWholeNumber(undefined);
-        
+
+        // update refreshData to force retreival of updated dd info from useAppData
+        setRefreshData(!refreshData);
+
       } else {
         
         // set ingredient data where ingredient is new
@@ -138,6 +143,11 @@ export default function IngredientsForm (props) {
         };
         
         await addIngredient(ingredientData);
+
+        // update refreshData to force retreival of updated dd info from useAppData
+        setRefreshData(!refreshData);
+        console.log(refreshData);
+
       };
     };      
   };

@@ -1,7 +1,7 @@
 // imports
 // hooks/react
 import { useState, useEffect } from 'react';
-import useAppData from '../hooks/useAppData';
+import { useAppData } from '../hooks/useAppData';
 // helpers
 import { deleteRecipe } from '../helpers/recipeHelpers';
 import { addIngredient } from '../helpers/ingredientsHelpers';

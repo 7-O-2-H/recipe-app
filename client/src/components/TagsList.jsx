@@ -1,6 +1,6 @@
 // imports
 import { use, useState } from "react";
-import useAppData from "../hooks/useAppData";
+import { useAppData } from "../hooks/useAppData";
 import TagsDropdown from "../components/TagsDropdown";
 import { useRouter } from "next/router";
 

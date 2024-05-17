@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Hooks
-import useAppData from "../../hooks/useAppData";
+import { useAppData } from "../../hooks/useAppData";
 import useVerification from "../../hooks/useVerification";
 
 // Helpers

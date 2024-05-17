@@ -1,6 +1,6 @@
 // imports
 import { useState } from "react";
-import useAppData from "../hooks/useAppData";
+import { useAppData } from "../hooks/useAppData";
 import IngredientsDropdown from "../components/IngredientsDropdown";
 import { useRouter } from "next/router";
 
