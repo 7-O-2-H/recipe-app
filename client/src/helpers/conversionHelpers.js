@@ -183,8 +183,6 @@ export function formatSingleIngredient (ingredient) {
       const wholeNum = ingredient['quantity'] - (ingredient['quantity'] % 1);
       const decimal = parseFloat((ingredient['quantity'] % 1).toFixed(3));
 
-      console.log(decimal, wholeNum, typeof decimal, typeof wholeNum, (decimal === 0.66));
-
       if (decimal === 0.66) {
 
         return `${wholeNum} 2/3 ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
@@ -201,7 +199,6 @@ export function formatSingleIngredient (ingredient) {
 
         // use helper to convert decimal to fraction
         const fraction = decimalToFraction(decimal);
-        console.log(fraction);
         return `${wholeNum} ${fraction} ${ingredient['measurement']}s of ${ingredient['ingredient']}`;
       };
     };
