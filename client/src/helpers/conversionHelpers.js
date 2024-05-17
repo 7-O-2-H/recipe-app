@@ -181,7 +181,9 @@ export function formatSingleIngredient (ingredient) {
 
       // initialize whole number and decimal (to be converted) for decimal values
       const wholeNum = ingredient['quantity'] - (ingredient['quantity'] % 1);
-      const decimal = parseFloat(ingredient['quantity'] % 1)
+      const decimal = parseFloat((ingredient['quantity'] % 1).toFixed(3));
+
+      console.log(decimal, wholeNum, typeof decimal, typeof wholeNum, (decimal === 0.66));
 
       if (decimal === 0.66) {
 
