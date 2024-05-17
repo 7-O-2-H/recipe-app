@@ -40,6 +40,8 @@ export default function AddRecipe() {
         break;
       case 2:
         break;
+      case 3:
+        break;
     }    
 
     setCurrentStep((prevStep) => prevStep + 1);
@@ -134,6 +136,7 @@ export default function AddRecipe() {
       )}
       {currentStep === 3 && (
         <div>
+          <h3>Steps</h3>
           <StepsForm />
         </div>
       )}
