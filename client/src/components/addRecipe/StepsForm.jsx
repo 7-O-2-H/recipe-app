@@ -12,7 +12,7 @@ export default function StepsForm (props) {
   //  set initial states
   const [stepName, setStepName] = useState('');
   const [instruction, setInstruction] = useState('');
-  const [instructionType, setIinstructionType] = useState('prep');
+  const [instructionType, setInstructionType] = useState('prep');
   const [instructionsArray, setInstructionsArray] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [stepCounter, setStepCounter] = useState(1);
@@ -27,9 +27,6 @@ export default function StepsForm (props) {
     const inputInstruction = e.target.value;
     setInstruction(inputInstruction);
     console.log(instruction);
-  };
-
-  const handleAddStep = (event) => {
 
     // set step name to prep or step number with if statement
     if (instructionType === 'prep') {
@@ -44,9 +41,40 @@ export default function StepsForm (props) {
 
       // update step object
       setStepObject(newStepObject);
+      console.log(stepObject);
+
+    } else {
+      
+      // format step name
+      const formattedName = `Step ${stepCounter}`;
+      setStepName(formattedName);
+
+      // create new step object based on new information
+      const newStepObject = {
+        ...stepObject, 
+        step_number: stepNumber,
+        step_name: stepName,
+        instruction: instruction
+      };
+
+      // update step object
+      setStepObject(newStepObject);
+      console.log(stepObject);
+
+    };
+  };
+
+  const handleAddStep = (event) => {
+    event.preventDefault();
+
+    
+    if (instructionType === 'prep') {
 
       // increment step number
       setStepNumber(prevStepNumber => prevStepNumber + 1);
+
+      // switch to steps
+      setInstructionType('step');
 
     } else {
 
@@ -66,9 +94,10 @@ export default function StepsForm (props) {
       setStepObject(newStepObject);
       
       // increment step number and counter
-      setStepNumber(prevStepCounter => prevStepCounter + 1);
+      setStepCounter(prevStepCounter => prevStepCounter + 1);
       setStepNumber(prevStepNumber => prevStepNumber + 1);
     };
+
   };
 
   return (
@@ -93,11 +122,11 @@ export default function StepsForm (props) {
           onChange={handleInstructionInput}
           />
         {instructionType === 'prep' ? (
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn" onClick={handleAddStep}>
             ADD PREP
           </button>
         ) : (
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn" onClick={handleAddStep}>
             ADD STEP
           </button>
         )}
