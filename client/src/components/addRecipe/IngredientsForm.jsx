@@ -178,7 +178,7 @@ export default function IngredientsForm (props) {
         setSuggestions([]);
         setQuantityFraction(undefined);
         setQuantityWholeNumber(undefined);
-
+        setSelectedOption(undefined);
         // update refreshData to force retreival of updated dd info from useAppData
         setRefreshData(!refreshData);
       };
