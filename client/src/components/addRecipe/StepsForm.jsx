@@ -59,7 +59,7 @@ export default function StepsForm (props) {
 
       // update step object
       setStepObject(newStepObject);
-      console.log(stepObject);
+      console.log(stepObject, instructionsArray);
 
     };
   };
@@ -75,6 +75,10 @@ export default function StepsForm (props) {
 
       // switch to steps
       setInstructionType('step');
+
+      setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
+      console.log(stepObject, instructionsArray);
+
 
     } else {
 
@@ -96,6 +100,11 @@ export default function StepsForm (props) {
       // increment step number and counter
       setStepCounter(prevStepCounter => prevStepCounter + 1);
       setStepNumber(prevStepNumber => prevStepNumber + 1);
+
+      setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
+      console.log(stepObject, instructionsArray);
+
+      
     };
 
   };
@@ -103,6 +112,19 @@ export default function StepsForm (props) {
   return (
     <div>
       <ToastContainer />
+      {instructionsArray && instructionsArray[0] && (
+        <div>
+          <h2>Submitted Steps:</h2>
+          <div></div>
+          <p>
+            {instructionsArray.map((step, index) => {
+              <li key={index}>
+                {step.step_name}: {step.instruction}
+              </li>
+            })}
+          </p>
+        </div>
+      )}
       {instructionType === 'prep' ? (
         <h3>
           Prep:
