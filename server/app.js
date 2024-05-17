@@ -14,6 +14,7 @@ const tagRoutes = require('./routes/tags');
 const favouriteRoutes = require('./routes/favourites');
 const measurementsRoutes = require('./routes/measurements');
 const verificationRouter = require('./routes/tokenVerification');
+const stepsRoutes = require('./routes/steps');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/tags', tagRoutes);
 app.use('/favourites', favouriteRoutes);
 app.use('/measurements', measurementsRoutes);
 app.use('/verification', verificationRouter);
+app.use('/steps', stepsRoutes);
 
 // app.get('/', (req, res) => {
 //   res.json({greetings: 'hello'});

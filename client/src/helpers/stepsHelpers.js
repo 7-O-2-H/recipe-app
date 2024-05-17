@@ -1,3 +1,6 @@
+// imports
+import axios from "axios";
+
 export function addStep(stepData) {
   return axios.post(`http://localhost:8080/steps/add`, {stepData}) 
     .then((data) => {

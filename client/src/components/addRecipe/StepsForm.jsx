@@ -3,7 +3,8 @@ import { useState } from "react";
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import useAppData from "../../hooks/useAppData";
+// import useAppData from "../../hooks/useAppData";
+import { addStep } from "../../helpers/stepsHelpers";
 
 export default function StepsForm (props) {
 
@@ -43,6 +44,7 @@ export default function StepsForm (props) {
       setStepObject(newStepObject);
       console.log(stepObject);
 
+
     } else {
       
       // format step name
@@ -59,6 +61,7 @@ export default function StepsForm (props) {
 
       // update step object
       setStepObject(newStepObject);
+      
       console.log(stepObject, instructionsArray);
 
     };
@@ -78,6 +81,8 @@ export default function StepsForm (props) {
 
       setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
       console.log(stepObject, instructionsArray);
+
+      addStep(stepObject);
 
 
     } else {
@@ -103,6 +108,8 @@ export default function StepsForm (props) {
 
       setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
       console.log(stepObject, instructionsArray);
+
+      addStep(stepObject);
 
       
     };
