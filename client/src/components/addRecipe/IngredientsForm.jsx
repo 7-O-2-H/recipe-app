@@ -171,10 +171,16 @@ export default function IngredientsForm (props) {
         
         await addIngredient(ingredientData);
 
+        // clear inputs
+        setIngredientsQuery('');
+        setQuantity(undefined);
+        setMeasurement(undefined);
+        setSuggestions([]);
+        setQuantityFraction(undefined);
+        setQuantityWholeNumber(undefined);
+
         // update refreshData to force retreival of updated dd info from useAppData
         setRefreshData(!refreshData);
-        console.log(refreshData);
-
       };
     };      
   };
