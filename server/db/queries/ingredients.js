@@ -38,7 +38,7 @@ const getIngredientsByRecipeId = (id) => {
 const addIngredient = async (ingredient) => {
   console.log(ingredient);
   try {
-    const result = db.query(`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, [ingredient]);
+    const result = await db.query(`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, [ingredient]);
     return result.rows[0].id;
   } catch {
     console.error('add ing error: ', error.message);
