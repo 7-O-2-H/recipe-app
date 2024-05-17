@@ -8,17 +8,20 @@ import useAppData from "../../hooks/useAppData";
 export default function StepsForm (props) {
 
   const { recipeId } = props;
-  
+
   //  set initial states
   const [stepName, setStepName] = useState('');
   const [instruction, setInstruction] = useState('');
   const [instructionType, setIinstructionType] = useState('prep');
   const [instructionsArray, setInstructionsArray] = useState([]);
-  const [stepNumber, setStepNumber] = useState(0);
+  const [stepNumber, setStepNumber] = useState(1);
+  const [stepCounter, setStepCounter] = useState(1);
   const [stepObject, setStepObject] = useState({
-    recipe_id: recipe
-    step_name
-  })
+    recipe_id: recipeId,
+    step_name: '',
+    step_number: 0,
+    instruction: ''
+  });
 
   const handleInstructionInput = (e) => {
     const inputInstruction = e.target.value;
@@ -28,26 +31,56 @@ export default function StepsForm (props) {
 
   const handleAddStep = (event) => {
 
-    // set step name to prep or step number
+    // set step name to prep or step number with if statement
     if (instructionType === 'prep') {
-      setStepName('Prep');
+
+      // create new step object based on new information
+      const newStepObject = {
+        ...stepObject, 
+        step_number: stepNumber,
+        step_name: 'Prep',
+        instruction: instruction
+      }
+
+      // update step object
+      setStepObject(newStepObject);
+
+      // increment step number
+      setStepNumber(prevStepNumber => prevStepNumber + 1);
+
     } else {
-      const formattedName = `Step ${stepNumber}`;
+
+      // format step name
+      const formattedName = `Step ${stepCounter}`;
       setStepName(formattedName);
-    };
-    const stepObject = {
-      step_name: stepName,
-      step_number: stepNumber,
-      instruction: instruction
+
+      // create new step object based on new information
+      const newStepObject = {
+        ...stepObject, 
+        step_number: stepNumber,
+        step_name: stepName,
+        instruction: instruction
+      };
+
+      // update step object
+      setStepObject(newStepObject);
+      
+      // increment step number and counter
+      setStepNumber(prevStepCounter => prevStepCounter + 1);
+      setStepNumber(prevStepNumber => prevStepNumber + 1);
     };
   };
 
   return (
     <div>
       <ToastContainer />
-      {instructionType === 'prep' && (
+      {instructionType === 'prep' ? (
         <h3>
           Prep:
+        </h3>
+      ) : (
+        <h3>
+          {stepName}:
         </h3>
       )}
       <form className="steps-form" >
@@ -59,17 +92,19 @@ export default function StepsForm (props) {
           value={instruction}
           onChange={handleInstructionInput}
           />
-        <button type="submit" className="submit-btn">
-          ADD STEP
-        </button>
+        {instructionType === 'prep' ? (
+          <button type="submit" className="submit-btn">
+            ADD PREP
+          </button>
+        ) : (
+          <button type="submit" className="submit-btn">
+            ADD STEP
+          </button>
+        )}
         <button type="submit" className="submit-btn">
           SUBMIT RECIPE
         </button>
       </form>
-          {/* 
-      <button>BACK TO INGREDIENTS</button>
-      <button>PROCEED TO TAGS</button>
-      <button>CANCEL</button> */}
     </div>
   )
 };
