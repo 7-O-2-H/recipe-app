@@ -7,12 +7,18 @@ import useAppData from "../../hooks/useAppData";
 
 export default function StepsForm (props) {
 
+  const { recipeId } = props;
+  
   //  set initial states
   const [stepName, setStepName] = useState('');
   const [instruction, setInstruction] = useState('');
   const [instructionType, setIinstructionType] = useState('prep');
   const [instructionsArray, setInstructionsArray] = useState([]);
-  const [stepNumber, setStepNumber] = useState(1);
+  const [stepNumber, setStepNumber] = useState(0);
+  const [stepObject, setStepObject] = useState({
+    recipe_id: recipe
+    step_name
+  })
 
   const handleInstructionInput = (e) => {
     const inputInstruction = e.target.value;
