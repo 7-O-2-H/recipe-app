@@ -59,9 +59,12 @@ export default function AddRecipe() {
   const handleAddIngredient = async (ingredientData) => {
     // add ingredient
     await addIngredient(ingredientData);
-
+    console.log(ingredientData, allMeasurements);
     // get measurement name from all measurements
-    const measurementName = allMeasurements[(ingredientData.measurement_id)].measurement;
+    // const measurementName = allMeasurements[(ingredientData.measurement_id)].measurement;
+    const measurementObject = allMeasurements.find(measurement => measurement.id === parseInt(ingredientData.measurement_id));
+    console.log(measurementObject);
+    const measurementName = measurementObject.measurement;
     
     // format ingredient
     const formattedIngredient = {

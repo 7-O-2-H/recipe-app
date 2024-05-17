@@ -45,6 +45,8 @@ export default function IngredientsForm (props) {
     return 0;
   });
 
+  console.log(sortedMeasurements);
+
   // handle ingredients input with query suggestions
   const handleInputChange = (e) => {
 
@@ -72,6 +74,8 @@ export default function IngredientsForm (props) {
   const handleAddIngredient = async (event) => {
     event.preventDefault();
 
+    console.log(measurement, quantity, ingredientsQuery);
+
     // variable to ensure all variables are defined before enabling  submission
     let canSubmit = true;
 
@@ -87,7 +91,7 @@ export default function IngredientsForm (props) {
       canSubmit = false;
     };
 
-    console.log(quantity);
+    // console.log(quantity);
 
     if (!measurement || !quantity || !ingredientsQuery) {
       toast.error("You must enter all values before submitting.");
