@@ -117,11 +117,11 @@ export default function StepsForm (props) {
           <h2>Submitted Steps:</h2>
           <div></div>
           <p>
-            {instructionsArray.map((step, index) => {
+            {instructionsArray.map((step, index) => (
               <li key={index}>
                 {step.step_name}: {step.instruction}
               </li>
-            })}
+            ))}
           </p>
         </div>
       )}
