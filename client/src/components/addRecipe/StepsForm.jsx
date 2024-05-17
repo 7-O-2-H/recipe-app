@@ -13,7 +13,7 @@ export default function StepsForm (props) {
 
   return (
     <div>
-      <ToastContainer />
+      {/* <ToastContainer />
       <form className="steps-form" onSubmit={handleRecipeSubmit}>
         <input
           id="step-name"
@@ -37,7 +37,7 @@ export default function StepsForm (props) {
       </form>
       <button>BACK TO INGREDIENTS</button>
       <button>PROCEED TO TAGS</button>
-      <button>CANCEL</button>
+      <button>CANCEL</button> */}
     </div>
   )
 };

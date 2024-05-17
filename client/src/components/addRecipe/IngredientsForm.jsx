@@ -184,7 +184,6 @@ export default function IngredientsForm (props) {
       };
     };      
   };
-  
 
   const handleCancel = (event) => {
     event.preventDefault();
@@ -254,8 +253,8 @@ export default function IngredientsForm (props) {
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           ADD INGREDIENT
         </button>
-        <button onClick={handleNext}>GO TO STEPS</button>
-        <button onClick={onNextStep(null)}>CANCEL</button>
+        <button onClick={onNextStep}>GO TO STEPS</button>
+        <button onClick={handleCancel}>CANCEL</button>
       </form>
     </div>
   );
