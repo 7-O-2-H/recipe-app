@@ -8,7 +8,7 @@ import { addStep } from "../../helpers/stepsHelpers";
 
 export default function StepsForm (props) {
 
-  const { recipeId } = props;
+  const { recipeId, onCancel } = props;
   
   const [instructionContainer, setInstructionContainer] = useState('');
   const [instructionType, setInstructionType] = useState('prep');
@@ -84,6 +84,13 @@ export default function StepsForm (props) {
     setInstructionContainer('');
   };
 
+  // handle cancel, delete recipe data
+  const handleCancel = (event) => {
+    event.preventDefault();
+    onCancel();
+    return;
+  };
+
   return (
         <div>
           <ToastContainer />
@@ -130,6 +137,7 @@ export default function StepsForm (props) {
             <button type="submit" className="submit-btn">
               SUBMIT RECIPE
             </button>
+            <button onClick={handleCancel}>CANCEL</button>
           </form>
         </div>
       )

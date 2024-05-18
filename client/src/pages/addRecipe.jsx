@@ -139,6 +139,7 @@ export default function AddRecipe() {
           <h3>Steps</h3>
           <StepsForm 
             recipeId={recipeId}
+            onCancel={handleCancel}
           />
         </div>
       )}
