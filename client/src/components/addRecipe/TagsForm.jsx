@@ -1,12 +1,16 @@
 // imports
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAppData } from "../../hooks/useAppData";
-import { addStep } from "../../helpers/stepsHelpers";
+import { addTags } from "../../helpers/tagsHelpers";
 
 export default function TagsForm (props) {
+  
+  // declare router
+  const router = useRouter();
 
   // rectreive recipe ID from props
   const { recipeId } = props;
@@ -42,11 +46,19 @@ export default function TagsForm (props) {
     });
   };
 
+  // add tags to list user wants to add
   const handleAddTag = (e) => {
     setTagsArray([
       ...tagsArray,
       tagObject
     ]);
+  };
+
+  // submit all tags as array
+  const handleSubmitTags = (e) => {
+    e.preventDefault();
+    addTags(tagsArray);
+    router.push(`/recipes/${recipeId}`);
   };
 
   // template
@@ -63,7 +75,7 @@ export default function TagsForm (props) {
         />
       </form>
       <button onClick={handleAddTag}>ADD TAG</button>
-      <button>SUBMIT TAGS</button>
+      <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
     </div>
   );
 };
