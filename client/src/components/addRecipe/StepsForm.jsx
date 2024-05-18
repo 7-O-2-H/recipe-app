@@ -19,7 +19,7 @@ export default function StepsForm (props) {
   const [stepObject, setStepObject] = useState({
     recipe_id: recipeId,
     step_name: 'Prep',
-    step_number: 0,
+    step_number: 1,
     instruction: ''
   });
 
@@ -50,16 +50,17 @@ export default function StepsForm (props) {
     if (instructionType === 'prep') {
       setStepObject({
         ...stepObject,
-        step_name: 'Prep',
         step_number: stepNumber
       });
+
+      // change instruction type
+      setInstructionType('step');
 
       // increment step number
       setStepNumber(stepNumber => stepNumber + 1);
       const formattedStep = `Step ${stepCounter}`;
       setStepName(formattedStep);
-      // change instruction type
-      setInstructionType('step');
+
     } else {
 
       // format step name
@@ -80,6 +81,7 @@ export default function StepsForm (props) {
 
     setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
     addStep(stepObject);
+    setInstructionContainer('');
   };
 
   return (

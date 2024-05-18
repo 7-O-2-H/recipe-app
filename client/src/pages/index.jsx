@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
 import FullRecipe from '../components/FullRecipe';
-import useAppData from '../hooks/useAppData';
+import { useAppData } from '../hooks/useAppData';
 import { useRecipe } from '../hooks/useRecipe';
 
 export default function Home() {
