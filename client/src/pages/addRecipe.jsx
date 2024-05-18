@@ -46,6 +46,7 @@ export default function AddRecipe() {
       case 2:
         break;
       case 3:
+        setStepData(data);
         break;
       case 4:
         break;
@@ -118,13 +119,27 @@ export default function AddRecipe() {
       )}
       <div>
         {ingredientsData && ingredientsData[0] && (
-          <h2>Submitted Ingredients:</h2>
+          <h2>Ingredients:</h2>
         )}
         <p>
           {ingredientsData && ingredientsData[0] && (
             ingredientsData.map((ingredientString, index) => (
               <li key={index}>
                 {index + 1}. {ingredientString} 
+              </li>
+            ))
+          )}
+        </p>
+      </div>
+      <div>
+        {stepData && stepData[0] && (
+          <h2>Steps:</h2>
+        )}
+        <p>
+          {stepData && stepData[0] && (
+            stepData.map((step, index) => (
+              <li key={index}>
+                {step.step_name}. {step.instruction} 
               </li>
             ))
           )}

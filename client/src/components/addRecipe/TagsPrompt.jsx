@@ -18,7 +18,7 @@ export default function TagsPrompt(props) {
       <p>Adding tags makes it easier for others to find your recipes.</p>
       <div className="tags-prompt-buttons">
         <button onClick={handleSkipTags}>SKIP</button>
-        <button >TAGS</button>
+        <button onClick={goToTags}>TAGS</button>
       </div>
     </div>
   )

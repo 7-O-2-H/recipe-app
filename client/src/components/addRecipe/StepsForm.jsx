@@ -105,7 +105,7 @@ export default function StepsForm (props) {
       toast.error('Your must submit at least one step for your recipe');
       return;
     }
-    onSubmitRecipe()
+    onSubmitRecipe(instructionsArray);
   };
 
   // handle cancel, delete recipe data
