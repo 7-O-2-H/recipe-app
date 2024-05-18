@@ -9,4 +9,3 @@ INSERT INTO tags (tag) VALUES ('creamy');
 INSERT INTO tags (tag) VALUES ('spicy');
 INSERT INTO tags (tag) VALUES ('tomato-sauce');
 INSERT INTO tags (tag) VALUES ('chicken');
-INSERT INTO tags (tag) VALUES ('');
