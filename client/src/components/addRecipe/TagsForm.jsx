@@ -13,15 +13,40 @@ export default function TagsForm (props) {
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
+  const [tagObject, setTagObject] = useState({
+    recipe_id: recipeId,
+    tag: ''
+  });
+  const [tagsArray, setTagsArray] = useState([]);
 
   // retreive tags from db
   const { allTags } = useAppData();
+
+  // use useEffect to ensure tagObject is using latest value
+  useEffect(() => {
+    setTagObject({
+      ...tagObject,
+      tag: tagContainer
+    })
+  }, [tagContainer]);
+
+  // handlers
 
   // handle tag input
   const handleTagChange = (e) => {
     const inputValue = e.target.value;
     setTagContainer(inputValue);
-    console.log(allTags);
+    setTagObject({
+      ...tagObject, 
+      tag: tagContainer
+    });
+  };
+
+  const handleAddTag = (e) => {
+    setTagsArray([
+      ...tagsArray,
+      tagObject
+    ]);
   };
 
   // template
@@ -37,6 +62,8 @@ export default function TagsForm (props) {
           onChange={handleTagChange}
         />
       </form>
+      <button onClick={handleAddTag}>ADD TAG</button>
+      <button>SUBMIT TAGS</button>
     </div>
   );
 };

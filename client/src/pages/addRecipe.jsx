@@ -179,7 +179,7 @@ export default function AddRecipe() {
       )}
       {currentStep === 5 && (
         <div>
-          <h3>Tags</h3>
+          <h3>Tags:</h3>
           <TagsForm 
             recipeId={recipeId}
           />
