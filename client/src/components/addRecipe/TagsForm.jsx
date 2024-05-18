@@ -58,7 +58,7 @@ export default function TagsForm (props) {
   const handleSubmitTags = (e) => {
     e.preventDefault();
     addTags(tagsArray);
-    router.push(`/recipes/${recipeId}`);
+    // router.push(`/recipes/${recipeId}`);
   };
 
   // template

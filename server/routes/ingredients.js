@@ -20,15 +20,13 @@ router.get('/Celery', (req, res) => {
 router.post('/add', async (req, res) => {
 
   const ingredientData = req.body.ingredientData;
-  // console.log(ingredientData);
-  // console.log(ingredientData, "type of measurement id: ", typeof ingredientData.measurement_id);
-
+  
   try {
     if (ingredientData.existingIngredient) {
       const data = addRecipeIngredient(ingredientData);
       res.json(data)
     } else {
-      const ingredientId =  await addIngredient(ingredientData.ingredient);
+      const ingredientId = await addIngredient(ingredientData.ingredient);
       ingredientData.ingredient_id = ingredientId;
       const data = addRecipeIngredient(ingredientData);
       res.json(data);
