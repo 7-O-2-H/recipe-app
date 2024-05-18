@@ -23,8 +23,15 @@ export default function StepsForm (props) {
     instruction: ''
   });
 
+  // update stepObject with useEffect
+  useEffect(() => {
+    setStepObject({
+      ...stepObject,
+      instruction: instructionContainer
+    })
+  }, [instructionContainer])
+  
   // handlers
-
   // handle instruction input
   const handleInstructionInput = (e) => {
     const inputInstruction = e.target.value;
