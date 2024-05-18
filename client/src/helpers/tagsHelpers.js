@@ -25,15 +25,15 @@ export function getTagsByRecipeId(id) {
 
 export function addTags(tagsArray) {
 
-  console.log("succesfully used helper: ", tagsArray);
+  // console.log("succesfully used helper: ", tagsArray);
 
-  // return axios.post(`http://localhost:8080/tags/add`)
-  // .then((data) => {
-  //   return data;
-  // })
-  // .catch((error) => {
-  //   console.log('axios error: ', error);
-  // });
+  return axios.post(`http://localhost:8080/tags/add`, {tagsArray})
+  .then((data) => {
+    return data;
+  })
+  .catch((error) => {
+    console.log('axios error: ', error);
+  });
 };
 
 export function getAllTags() {
