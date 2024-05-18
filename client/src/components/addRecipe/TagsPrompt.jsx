@@ -1,9 +1,10 @@
+import './styles/tagsPrompt.css';
 export default function TagsPrompt(props) {
 
   const { recipeId } = props;
 
   return (
-    <div>
+    <div className="tags=prompt">
       <h2>Add Tags?</h2>
       <p>Adding tags makes it easier for others to find your recipes.</p>
       <div className="tags-prompt-buttons">
