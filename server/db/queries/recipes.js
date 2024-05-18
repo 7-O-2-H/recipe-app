@@ -118,9 +118,9 @@ const getRecipesBySortingData = (ingredient, tag, maxTime) => {
     recipe_ingredients ON recipes.id = recipe_ingredients.recipe_id
   JOIN
     ingredients ON recipe_ingredients.ingredient_id = ingredients.id
-  JOIN
+  LEFT JOIN
     recipe_tags ON recipes.id = recipe_tags.recipe_id
-  JOIN
+  LEFT JOIN
     tags on recipe_tags.tag_id = tags.id
   WHERE 
     ($1 = '' OR ingredients.ingredient = $1)
