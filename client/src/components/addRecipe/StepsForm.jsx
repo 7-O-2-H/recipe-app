@@ -93,6 +93,17 @@ export default function StepsForm (props) {
     setInstructionContainer('');
   };
 
+  // handle submit with a check to see if the user has entered some instructions
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (instructionsArray.length === 0 || !instructionsArray[0]) {
+      toast.error('Your must submit at least one step for your recipe');
+      return;
+    }
+    onSubmitRecipe()
+  };
+
   // handle cancel, delete recipe data
   const handleCancel = (event) => {
     event.preventDefault();
@@ -142,7 +153,7 @@ export default function StepsForm (props) {
             ADD STEP
           </button>
         )}
-        <button type="submit" className="submit-btn" onClick={onSubmitRecipe}>
+        <button type="submit" className="submit-btn" onClick={handleSubmit}>
           SUBMIT RECIPE
         </button>
         <button onClick={handleCancel}>CANCEL</button>
