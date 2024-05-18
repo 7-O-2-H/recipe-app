@@ -13,6 +13,7 @@ import Spacer from '../components/Spacer';
 import RecipeForm from '../components/addRecipe/RecipeForm'
 import IngredientsForm from '../components/addRecipe/IngredientsForm';
 import StepsForm from '../components/addRecipe/StepsForm';
+import TagsForm from '../components/addRecipe/TagsForm';
 // styles
 import '../styles/styles.css';
 
@@ -41,6 +42,8 @@ export default function AddRecipe() {
       case 2:
         break;
       case 3:
+        break;
+      case 4:
         break;
     }    
 
@@ -140,6 +143,15 @@ export default function AddRecipe() {
           <StepsForm 
             recipeId={recipeId}
             onCancel={handleCancel}
+            onSubmitRecipe={handleNextStep}
+          />
+        </div>
+      )}
+      {currentStep === 4 && (
+        <div>
+          <h3>Tags</h3>
+          <TagsForm 
+            recipeId={recipeId}
           />
         </div>
       )}

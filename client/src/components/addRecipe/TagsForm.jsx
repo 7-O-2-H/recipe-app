@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import useAppData from "../../hooks/useAppData";
 import { addStep } from "../../helpers/stepsHelpers";
 
-export default function StepsForm (props) {
+export default function TagsForm (props) {
 
   // template
   return (

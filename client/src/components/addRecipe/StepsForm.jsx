@@ -8,7 +8,7 @@ import { addStep } from "../../helpers/stepsHelpers";
 
 export default function StepsForm (props) {
 
-  const { recipeId, onCancel } = props;
+  const { recipeId, onCancel, onSubmitRecipe } = props;
   
   const [instructionContainer, setInstructionContainer] = useState('');
   const [instructionType, setInstructionType] = useState('prep');
@@ -31,6 +31,7 @@ export default function StepsForm (props) {
     })
   }, [instructionContainer]);
 
+  // update instruction type if instructions array changes to avoid timing issues
   useEffect(() => {
     setInstructionType('step');
   }, [instructionsArray]);
@@ -141,7 +142,7 @@ export default function StepsForm (props) {
             ADD STEP
           </button>
         )}
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" onClick={onSubmitRecipe}>
           SUBMIT RECIPE
         </button>
         <button onClick={handleCancel}>CANCEL</button>
