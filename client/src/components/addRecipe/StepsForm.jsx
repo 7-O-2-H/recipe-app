@@ -33,7 +33,11 @@ export default function StepsForm (props) {
 
   // update instruction type if instructions array changes to avoid timing issues
   useEffect(() => {
-    setInstructionType('step');
+    if (instructionsArray && instructionsArray[0]) {
+      setInstructionType('step');
+    } else {
+      setInstructionType('prep');
+    }
   }, [instructionsArray]);
   
   // handlers
@@ -96,7 +100,7 @@ export default function StepsForm (props) {
   // handle submit with a check to see if the user has entered some instructions
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (instructionsArray.length === 0 || !instructionsArray[0]) {
       toast.error('Your must submit at least one step for your recipe');
       return;
@@ -125,14 +129,14 @@ export default function StepsForm (props) {
             </li>
           ))}
         </p>
-      )}
-      {instructionType === 'prep' ? (
+      )}        
+      {instructionType === 'step' ? (
         <h3>
-          Prep:
+          {stepName}:
         </h3>
       ) : (
         <h3>
-          {stepName}:
+          Prep:
         </h3>
       )}
       <form className="steps-form" >
