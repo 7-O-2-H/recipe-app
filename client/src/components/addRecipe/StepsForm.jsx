@@ -29,7 +29,11 @@ export default function StepsForm (props) {
       ...stepObject,
       instruction: instructionContainer
     })
-  }, [instructionContainer])
+  }, [instructionContainer]);
+
+  useEffect(() => {
+    setInstructionType('step');
+  }, [instructionsArray]);
   
   // handlers
   // handle instruction input
