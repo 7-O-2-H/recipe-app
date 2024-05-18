@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { addStep } = require('../db/queries/steps');
 
 // POST
 router.post('/add', (req, res) => {
@@ -6,8 +7,7 @@ router.post('/add', (req, res) => {
   // req recipe data
   const stepData = req.body.stepData;
 
-  console.log(stepData);
-
+  addStep(stepData);
   // addRecipe(recipeData)
   // .then(data => {
   //   res.json(data);
