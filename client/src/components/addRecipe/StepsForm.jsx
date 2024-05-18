@@ -46,6 +46,12 @@ export default function StepsForm (props) {
   const handleAddStep = (e) => {
     e.preventDefault();
 
+
+    if (!instructionContainer) {
+      toast.error("Please enter your instuctions to submit.");
+      return;
+    };
+
     if (instructionType === 'prep') {
       setStepObject({
         ...stepObject,
