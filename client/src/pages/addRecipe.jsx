@@ -13,6 +13,7 @@ import Spacer from '../components/Spacer';
 import RecipeForm from '../components/addRecipe/RecipeForm'
 import IngredientsForm from '../components/addRecipe/IngredientsForm';
 import StepsForm from '../components/addRecipe/StepsForm';
+import TagsPrompt from '../components/addRecipe/TagsPrompt';
 import TagsForm from '../components/addRecipe/TagsForm';
 // styles
 import '../styles/styles.css';
@@ -47,6 +48,8 @@ export default function AddRecipe() {
       case 3:
         break;
       case 4:
+        break;
+      case 5:
         break;
     }    
 
@@ -152,6 +155,13 @@ export default function AddRecipe() {
         </div>
       )}
       {currentStep === 4 && (
+        <div>
+          <TagsPrompt
+            recipeId={recipeId}
+          />
+        </div>
+      )}
+      {currentStep === 5 && (
         <div>
           <h3>Tags</h3>
           <TagsForm 
