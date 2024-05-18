@@ -26,9 +26,12 @@ export default function AddRecipe() {
   const [ingredientsData, setIngredientsData] = useState([]);
   const [stepData, setStepData] = useState([]);
   const [tagData, setTagData] = useState([]);
+  const [allowProceed, setAllowProceed] = useState(false);
 
   // use useAppData to get all measurements to collect ingredients for current recipe
   const { allMeasurements } = useAppData();
+
+  // setAllowProceed(ingredientsData && ingredientsData.length > 0);
   
   // handle change between forms
   const handleNextStep = (data) => {
@@ -134,6 +137,7 @@ export default function AddRecipe() {
             addIngredient={handleAddIngredient}
             recipeId={recipeId}
             step={currentStep}
+            ingredientsData={ingredientsData}
           />
         </div>
       )}

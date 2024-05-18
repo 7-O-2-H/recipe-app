@@ -12,7 +12,7 @@ import QuantityDropdown from "./QuantityDropDown";
 export default function IngredientsForm (props) {
 
   // retrieve prop functions
-  const { onCancel, recipeId, addIngredient, onNextStep } = props;
+  const { onCancel, recipeId, addIngredient, onNextStep, ingredientsData } = props;
 
   // initialize states
   const [ingredient, setIngredient] = useState('');
@@ -185,6 +185,17 @@ export default function IngredientsForm (props) {
     };      
   };
 
+  // handle submit with a check to see if the user has entered some ingredient
+  const handleNext = (e) => {
+    e.preventDefault();
+    
+    if (ingredientsData && ingredientsData.length > 0) {
+      onNextStep();
+    } else {
+      toast.error('You must enter at least one ingredient for your recipe.')
+    };
+  };
+
   const handleCancel = (event) => {
     event.preventDefault();
     onCancel();
@@ -253,7 +264,7 @@ export default function IngredientsForm (props) {
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           ADD INGREDIENT
         </button>
-        <button onClick={onNextStep}>GO TO STEPS</button>
+        <button onClick={handleNext}>GO TO STEPS</button>
         <button onClick={handleCancel}>CANCEL</button>
       </form>
     </div>
