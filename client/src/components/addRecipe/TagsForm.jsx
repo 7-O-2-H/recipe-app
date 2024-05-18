@@ -16,6 +16,7 @@ export default function TagsForm (props) {
   const handleTagChange = (e) => {
     const tag = onput.target.value;
     setTagContainer(tag);
+    console.log(tagContainer);
   };
 
   // template

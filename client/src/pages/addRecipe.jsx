@@ -158,6 +158,7 @@ export default function AddRecipe() {
         <div>
           <TagsPrompt
             recipeId={recipeId}
+            goToTags={handleNextStep}
           />
         </div>
       )}

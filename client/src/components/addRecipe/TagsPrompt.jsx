@@ -4,7 +4,8 @@ import { useRouter } from 'next/router';
 export default function TagsPrompt(props) {
 
   const router = useRouter();
-  const { recipeId } = props;
+
+  const { recipeId, goToTags } = props;
 
   // handlers
   const handleSkipTags = (e) => {
@@ -17,7 +18,7 @@ export default function TagsPrompt(props) {
       <p>Adding tags makes it easier for others to find your recipes.</p>
       <div className="tags-prompt-buttons">
         <button onClick={handleSkipTags}>SKIP</button>
-        <button>TAGS</button>
+        <button >TAGS</button>
       </div>
     </div>
   )
