@@ -21,17 +21,14 @@ router.post('/add', async (req, res) => {
 
   const tagsArray = req.body.tagsArray;
 
-  console.log(tagsArray);
-
   for (const tag of tagsArray) {
-    console.log(tag);
+    
     try {
 
       const tagId = await addTag(tag.tag);
       tag.tag_id = tagId;
-      console.log(tag);
       addRecipeTag(tag);
-      
+
     } catch (error) {
       console.error('Add tag error: ', error.message);
       res.status(500).json({error: "internal"});

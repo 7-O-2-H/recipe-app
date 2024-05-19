@@ -1,4 +1,4 @@
-const { pool } = require('../../configs/db.config');
+// const { pool } = require('../../configs/db.config');
 const db = require('../../configs/db.config');
 
 const getAllTags = () => {
@@ -43,7 +43,6 @@ const addTag = async (tag) => {
 
   try {
     const result = await db.query(`INSERT INTO tags (tag) VALUES ($1) RETURNING *;`, [tagName]);
-    console.log(result);
     return result.rows[0].id;
   } catch {
     console.error('add tag error: ', error.message);
@@ -58,14 +57,14 @@ const addRecipeTag = (tagData) => {
   const values = [tagData.recipe_id, tagData.tag_id];
   console.log(values);
 
-  // return db.query(`INSERT INTO recipe_tags (recipe_id, tag_id) VALUES ($1, $2) RETURNING *:`, values)
-  // .then((res) => {
-  //   return res.rows;
-  // })
-  // .catch((error) => {
-  //   console.error('add rec tag error: ', error.message);
-  //   throw error;
-  // });
+  return db.query(`INSERT INTO recipe_tags (recipe_id, tag_id) VALUES ($1, $2) RETURNING *;`, values)
+  .then((res) => {
+    return res.rows;
+  })
+  .catch((error) => {
+    console.error('add rec tag error: ', error.message);
+    throw error;
+  });
 };
 
 module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag };
