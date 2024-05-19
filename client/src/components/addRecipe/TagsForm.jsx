@@ -52,13 +52,14 @@ export default function TagsForm (props) {
       ...tagsArray,
       tagObject
     ]);
+    setTagContainer('');
   };
 
   // submit all tags as array
   const handleSubmitTags = (e) => {
     e.preventDefault();
     addTags(tagsArray);
-    // router.push(`/recipes/${recipeId}`);
+    router.push(`/recipes/${recipeId}`);
   };
 
   // template

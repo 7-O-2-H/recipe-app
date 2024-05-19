@@ -52,10 +52,7 @@ const addTag = async (tag) => {
 
 const addRecipeTag = (tagData) => {
 
-  console.log(tagData);
-
   const values = [tagData.recipe_id, tagData.tag_id];
-  console.log(values);
 
   return db.query(`INSERT INTO recipe_tags (recipe_id, tag_id) VALUES ($1, $2) RETURNING *;`, values)
   .then((res) => {

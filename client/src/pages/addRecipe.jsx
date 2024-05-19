@@ -84,7 +84,6 @@ export default function AddRecipe() {
     }
 
     const ingredientString = formatSingleIngredient(formattedIngredient);
-    console.log(ingredientString, formattedIngredient);
 
     // set ingredients data with formatted ingredient
     setIngredientsData(prevData => [...prevData, ingredientString]);
