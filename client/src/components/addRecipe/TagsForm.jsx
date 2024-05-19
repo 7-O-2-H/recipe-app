@@ -65,6 +65,18 @@ export default function TagsForm (props) {
   // template
   return (
     <div>
+      {tagsArray && tagsArray[0] && (
+        <h2>Tags:</h2>
+      )}
+      <p>
+        {tagsArray && tagsArray[0] && (
+          tagsArray.map((tag, index) => (
+            <li key={index} >
+              {tag.tag}
+            </li>
+          ))
+        )}
+      </p>
       <form className="tags-form" >
         <input
           id="tag"
