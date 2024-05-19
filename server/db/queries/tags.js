@@ -43,15 +43,29 @@ const addTag = async (tag) => {
 
   try {
     const result = await db.query(`INSERT INTO tags (tag) VALUES ($1) RETURNING *;`, [tagName]);
+    console.log(result);
     return result.rows[0].id;
   } catch {
     console.error('add tag error: ', error.message);
     throw error;
-  }
+  };
+};
 
-  console.log(tag);
-  // const values = tag;
-  // return db.query(`INSERT INTO tags (tag) VALUES ($1) RETURNING *;`, values);
-}
+const addRecipeTag = (tagData) => {
 
-module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag };
+  console.log(tagData);
+
+  const values = [tagData.recipe_id, tagData.tag_id];
+  console.log(values);
+
+  // return db.query(`INSERT INTO recipe_tags (recipe_id, tag_id) VALUES ($1, $2) RETURNING *:`, values)
+  // .then((res) => {
+  //   return res.rows;
+  // })
+  // .catch((error) => {
+  //   console.error('add rec tag error: ', error.message);
+  //   throw error;
+  // });
+};
+
+module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag };

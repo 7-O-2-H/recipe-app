@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag } = require('../db/queries/tags');
+const { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag } = require('../db/queries/tags');
 
 router.get('/recipes/:id', (req, res) => {
   const id = req.params.id;
@@ -30,7 +30,8 @@ router.post('/add', async (req, res) => {
       const tagId = await addTag(tag.tag);
       tag.tag_id = tagId;
       console.log(tag);
-      // addRecipeTag(tag);
+      addRecipeTag(tag);
+      
     } catch (error) {
       console.error('Add tag error: ', error.message);
       res.status(500).json({error: "internal"});
