@@ -46,6 +46,13 @@ export default function TagsForm (props) {
     });
   };
 
+  // handle dropdown suggestions
+  const handleTagSuggestions = (selectedTagId) = {
+
+    const selectedTag = allTags.find(tag => tag.id === selectedTagId);
+
+  };
+
   // add tags to list user wants to add
   const handleAddTag = (e) => {
     setTagsArray([
