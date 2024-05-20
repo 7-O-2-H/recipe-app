@@ -22,6 +22,8 @@ export default function TagsForm (props) {
     tag: ''
   });
   const [tagsArray, setTagsArray] = useState([]);
+  const [showDropDown, setShowDropdown] = useState(false);
+  const [tagSuggestions, setTagSuggestions] = useState([]);
 
   // retreive tags from db
   const { allTags } = useAppData();
@@ -44,13 +46,25 @@ export default function TagsForm (props) {
     
     const filteredTags = allTags.filter(tag => tag.tag.toLowerCase().includes(inputValue.toLowerCase())).slice(0, 5);
 
-    setTagObject({
-      ...tagObject, 
-      tag: tagContainer
-    });
+    // only show dropdown if there is input
+    setShowDropdown(inputValue.trim() !== '');
+    setTagSuggestions(filteredTags);
+
+    // setTagObject({
+    //   ...tagObject, 
+    //   tag: tagContainer
+    // });
   };
 
   // handle dropdown suggestions
+  const handleTagSuggestions = (selectedTagId) => {
+
+    const selectedTag = allTags.find(tag => tag.id === selectedTagId);
+    setTagContainer(selectedTag.tag);
+    selectedTagId(selectedTag.id);
+    setTagSuggestions([]);
+  };
+
   // const handleTagSuggestions = (selectedTagId) = {
 
   //   const selectedTag = allTags.find(tag => tag.id === selectedTagId);
@@ -97,9 +111,16 @@ export default function TagsForm (props) {
           value={tagContainer}
           onChange={handleTagChange}
         />
+        <ul>
+          {tagSuggestions.map(tag => (
+            <li key={tag.id} onClick={() => handleTagSuggestions(tag.id)}>
+              {tag.tag}
+            </li>
+          ))}
+        </ul>
+        <button onClick={handleAddTag}>ADD TAG</button>
+        <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
       </form>
-      <button onClick={handleAddTag}>ADD TAG</button>
-      <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
     </div>
   );
 };

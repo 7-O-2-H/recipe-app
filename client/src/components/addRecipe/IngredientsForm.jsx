@@ -242,7 +242,7 @@ export default function IngredientsForm (props) {
             <button onClick={updateQuantityFormat}>USE DECIMALS</button>
           </div>
         )}
-         <ul>
+        <ul>
           {suggestions.map(ingredient => (
             <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
               {ingredient.ingredient}
