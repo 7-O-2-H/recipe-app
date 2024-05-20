@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAppData } from "../../hooks/useAppData";
 import { addTags } from "../../helpers/tagsHelpers";
+import { suggestTags } from "./helpers/suggestTags";
 
 export default function TagsForm (props) {
   
@@ -13,7 +14,13 @@ export default function TagsForm (props) {
   const router = useRouter();
 
   // rectreive recipe ID from props
-  const { recipeId } = props;
+  const { recipeId, recipeName, description } = props;
+
+  console.log(recipeName, description);
+
+  const keyWords = suggestTags(recipeName, description);
+
+  console.log(keyWords);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');

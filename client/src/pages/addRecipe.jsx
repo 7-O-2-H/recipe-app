@@ -26,8 +26,9 @@ export default function AddRecipe() {
   const [recipe, setRecipe] = useState('');
   const [ingredientsData, setIngredientsData] = useState([]);
   const [stepData, setStepData] = useState([]);
-  const [tagData, setTagData] = useState([]);
-  const [allowProceed, setAllowProceed] = useState(false);
+  const [recipeDescription, setRecipeDescription] = useState('');
+  // const [tagData, setTagData] = useState([]);
+  // const [allowProceed, setAllowProceed] = useState(false);
 
   // use useAppData to get all measurements to collect ingredients for current recipe
   const { allMeasurements } = useAppData();
@@ -42,6 +43,7 @@ export default function AddRecipe() {
       case 1:
         setRecipe(data.recipe);
         setRecipeId(data.id);
+        setRecipeDescription(data.description);
         break;
       case 2:
         break;
@@ -181,6 +183,8 @@ export default function AddRecipe() {
           <h3>Tags:</h3>
           <TagsForm 
             recipeId={recipeId}
+            recipeName={recipe}
+            description={recipeDescription}
           />
         </div>
       )}
