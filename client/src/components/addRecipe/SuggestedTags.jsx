@@ -14,7 +14,9 @@ export default function SuggestedTags (props) {
 
   // templat
   return (
-    <div></div>
+    <div>
+      {tagButtons}
+    </div>
   );
 
 };

@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useAppData } from "../../hooks/useAppData";
 import { addTags } from "../../helpers/tagsHelpers";
 import { suggestTags } from "./helpers/suggestTags";
+import SuggestedTags from "./SuggestedTags";
 
 export default function TagsForm (props) {
   
@@ -130,6 +131,9 @@ export default function TagsForm (props) {
           ))
         )}
       </p>
+      <SuggestedTags 
+        tags={suggestedTags}
+      />
       <form className="tags-form" >
         <input
           id="tag"
