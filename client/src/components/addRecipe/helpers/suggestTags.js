@@ -7,15 +7,9 @@ export function suggestTags (name, description, tags) {
 
   const lowerCaseKeywords = keyWordArray.map(tag => tag.toLowerCase());
 
-  // console.log(keyWordArray, tags);
-
-  const filteredTags = tags
-    .filter(tagObj => lowerCaseKeywords.includes(tagObj.tag.toLowerCase()))
-    .map(tagObj => tagObj.tag);
-
-  // const filteredTags = keyWordArray.filter(tag =>
-  //   tags.some(tagObj => tagObj.tag.toLowerCase() === tag.toLowerCase())
-  // );
+  const filteredTags = tags.filter(tagObj => 
+    lowerCaseKeywords.includes(tagObj.tag.toLowerCase())
+  );
 
   console.log(filteredTags)
   return filteredTags;
