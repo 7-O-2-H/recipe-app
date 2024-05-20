@@ -21,19 +21,29 @@ router.get('/:id', (req, res) => {
 
 router.post('/add', async (req, res) => {
 
+  // get tag array from front end
   const tagsArray = req.body.tagsArray;
 
+  console.log(tagsArray);
+
+  // loop through tags to add
   for (const tag of tagsArray) {
-
-    try {
-
-      const tagId = await addTag(tag.tag);
-      tag.tag_id = tagId;
+    
+    // add recipe tag if tag already in db else use async add tag and use return tag id to add recipe tag
+    if (tag.tag_id !== null) {
       addRecipeTag(tag);
+    } else {
 
-    } catch (error) {
-      console.error('Add tag error: ', error.message);
-      res.status(500).json({error: "internal"});
+      try {
+        
+        const tagId = await addTag(tag.tag);
+        tag.tag_id = tagId;
+        addRecipeTag(tag);
+
+      } catch (error) {
+        console.error('Add tag error: ', error.message);
+        res.status(500).json({error: "internal"});
+      };
     };
   };
 });

@@ -18,7 +18,7 @@ export default function TagsForm (props) {
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
   const [tagObject, setTagObject] = useState({
-    id: null,
+    tag_id: null,
     recipe_id: recipeId,
     tag: ''
   });
@@ -41,7 +41,7 @@ export default function TagsForm (props) {
   useEffect(() => {
     setTagObject({
       ...tagObject,
-      id: null
+      tag_id: null
     })
   }, [tagsArray]);
 
@@ -74,7 +74,7 @@ export default function TagsForm (props) {
 
     setTagObject({
       ...tagObject,
-      id: selectedTag.id,
+      tag_id: selectedTag.id,
       tag: tagContainer
     });
 
@@ -96,7 +96,7 @@ export default function TagsForm (props) {
     setTagContainer('');
     setTagObject({
       ...tagObject,
-      id: selectedTagId,
+      tag_id: selectedTagId,
       tag: tagContainer
     });
 
