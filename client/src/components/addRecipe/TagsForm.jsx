@@ -18,9 +18,11 @@ export default function TagsForm (props) {
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
   const [tagObject, setTagObject] = useState({
+    id: null,
     recipe_id: recipeId,
     tag: ''
   });
+  const [selectedTagId, setSelectedTagId] = useState(null);
   const [tagsArray, setTagsArray] = useState([]);
   const [showDropDown, setShowDropdown] = useState(false);
   const [tagSuggestions, setTagSuggestions] = useState([]);
@@ -36,6 +38,13 @@ export default function TagsForm (props) {
     })
   }, [tagContainer]);
 
+  useEffect(() => {
+    setTagObject({
+      ...tagObject,
+      id: null
+    })
+  }, [tagsArray]);
+
   // handlers
 
   // handle tag input
@@ -50,10 +59,10 @@ export default function TagsForm (props) {
     setShowDropdown(inputValue.trim() !== '');
     setTagSuggestions(filteredTags);
 
-    // setTagObject({
-    //   ...tagObject, 
-    //   tag: tagContainer
-    // });
+    setTagObject({
+      ...tagObject, 
+      tag: tagContainer
+    });
   };
 
   // handle dropdown suggestions
@@ -61,23 +70,36 @@ export default function TagsForm (props) {
 
     const selectedTag = allTags.find(tag => tag.id === selectedTagId);
     setTagContainer(selectedTag.tag);
-    selectedTagId(selectedTag.id);
+    console.log(selectedTag);
+
+    setTagObject({
+      ...tagObject,
+      id: selectedTag.id,
+      tag: tagContainer
+    });
+
     setTagSuggestions([]);
   };
 
-  // const handleTagSuggestions = (selectedTagId) = {
-
-  //   const selectedTag = allTags.find(tag => tag.id === selectedTagId);
-
-  // };
-
   // add tags to list user wants to add
   const handleAddTag = (e) => {
+    e.preventDefault();
+
     setTagsArray([
       ...tagsArray,
       tagObject
     ]);
+
+    console.log(tagObject, tagsArray);
+
+    setSelectedTagId(null);
     setTagContainer('');
+    setTagObject({
+      ...tagObject,
+      id: selectedTagId,
+      tag: tagContainer
+    });
+
   };
 
   // submit all tags as array
@@ -90,9 +112,9 @@ export default function TagsForm (props) {
   // template
   return (
     <div>
-      {tagsArray && tagsArray[0] && (
+      {/* {tagsArray && tagsArray[0] && (
         <h2>Tags:</h2>
-      )}
+      )} */}
       <p>
         {tagsArray && tagsArray[0] && (
           tagsArray.map((tag, index) => (
