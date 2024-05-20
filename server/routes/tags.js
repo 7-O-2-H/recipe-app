@@ -17,12 +17,14 @@ router.get('/:id', (req, res) => {
   })
 });
 
+// get recipe tags - used for testing
+
 router.post('/add', async (req, res) => {
 
   const tagsArray = req.body.tagsArray;
 
   for (const tag of tagsArray) {
-    
+
     try {
 
       const tagId = await addTag(tag.tag);

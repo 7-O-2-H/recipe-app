@@ -38,8 +38,12 @@ export default function TagsForm (props) {
 
   // handle tag input
   const handleTagChange = (e) => {
+
     const inputValue = e.target.value;
     setTagContainer(inputValue);
+    
+    const filteredTags = allTags.filter(tag => tag.tag.toLowerCase().includes(inputValue.toLowerCase())).slice(0, 5);
+
     setTagObject({
       ...tagObject, 
       tag: tagContainer
@@ -47,11 +51,11 @@ export default function TagsForm (props) {
   };
 
   // handle dropdown suggestions
-  const handleTagSuggestions = (selectedTagId) = {
+  // const handleTagSuggestions = (selectedTagId) = {
 
-    const selectedTag = allTags.find(tag => tag.id === selectedTagId);
+  //   const selectedTag = allTags.find(tag => tag.id === selectedTagId);
 
-  };
+  // };
 
   // add tags to list user wants to add
   const handleAddTag = (e) => {
