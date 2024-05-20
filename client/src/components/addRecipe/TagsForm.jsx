@@ -13,14 +13,15 @@ export default function TagsForm (props) {
   // declare router
   const router = useRouter();
 
+  // retreive tags from db
+  const { allTags } = useAppData();
+
   // rectreive recipe ID from props
   const { recipeId, recipeName, description } = props;
 
-  console.log(recipeName, description);
+  const suggestedTags = suggestTags(recipeName, description, allTags);
 
-  const keyWords = suggestTags(recipeName, description);
-
-  console.log(keyWords);
+  console.log(suggestedTags);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
@@ -34,8 +35,6 @@ export default function TagsForm (props) {
   const [showDropDown, setShowDropdown] = useState(false);
   const [tagSuggestions, setTagSuggestions] = useState([]);
 
-  // retreive tags from db
-  const { allTags } = useAppData();
 
   // use useEffect to ensure tagObject is using latest value
   useEffect(() => {
