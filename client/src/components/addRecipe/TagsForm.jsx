@@ -20,9 +20,9 @@ export default function TagsForm (props) {
 
   // retreive tags from db
   const { allTags } = useAppData();
-  const { currentIngredients, currentRecipe } = useRecipe(recipeId);
+  const { currentIngredients } = useRecipe(recipeId);
 
-  const suggestedTags = suggestTags(recipeName, description, currentRecipe, currentIngredients, allTags);
+  const suggestedTags = suggestTags(recipeName, description, currentIngredients, allTags);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');

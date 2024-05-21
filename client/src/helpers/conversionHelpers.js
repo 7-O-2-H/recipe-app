@@ -169,6 +169,10 @@ export function formatSingleIngredient (ingredient) {
     return`${ingredient['quantity']} ${ingredient['ingredient']}`;
   };
 
+  if (ingredient['quantity'] === 1) {
+    return `1 ${ingredient['measurement']} of ${ingredient['ingredient']}`
+  }
+
     // convert to fraction and whole number if greater than 1
   if (ingredient['quantity'] > 1) {
 
