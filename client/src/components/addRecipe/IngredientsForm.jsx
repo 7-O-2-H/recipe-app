@@ -223,6 +223,7 @@ export default function IngredientsForm (props) {
               placeholder="quantity"
               value={quantity || ''}
               onChange={(event) => setQuantity(event.target.value)}
+              min="0"
             />
             <button onClick={updateQuantityFormat}>USE FRACTIONS</button>
           </div>
