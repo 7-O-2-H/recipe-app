@@ -1,5 +1,6 @@
-export function suggestTags (name, description, tags) {
+export function suggestTags (name, description, serves, time, tags) {
 
+  console.log(name, description, serves, time);
 
   const nameArray = name.split(' ');
   const descriptionArray = description.split(' ');

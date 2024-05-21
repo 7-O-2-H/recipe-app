@@ -25,9 +25,11 @@ export default function AddRecipe() {
   const [currentStep, setCurrentStep] = useState(1);
   const [recipeId, setRecipeId] = useState(null);
   const [recipe, setRecipe] = useState('');
+  const [recipeDescription, setRecipeDescription] = useState('');
+  const [recipeServes, setRecipeServes] = useState(null);
+  const [recipeTime, setRecipeTime] = useState(null);
   const [ingredientsData, setIngredientsData] = useState([]);
   const [stepData, setStepData] = useState([]);
-  const [recipeDescription, setRecipeDescription] = useState('');
   // const [tagData, setTagData] = useState([]);
   // const [allowProceed, setAllowProceed] = useState(false);
 
@@ -45,6 +47,8 @@ export default function AddRecipe() {
         setRecipe(data.recipe);
         setRecipeId(data.id);
         setRecipeDescription(data.description);
+        setRecipeServes(data.serves);
+        setRecipeTime(data.time);
         break;
       case 2:
         break;
@@ -186,6 +190,8 @@ export default function AddRecipe() {
             recipeId={recipeId}
             recipeName={recipe}
             description={recipeDescription}
+            serves={recipeServes}
+            time={recipeTime}
           />
         </div>
       )}
