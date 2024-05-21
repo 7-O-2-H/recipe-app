@@ -109,6 +109,35 @@ export default function TagsForm (props) {
 
   };
 
+  const handleAddTagWithButton = (tagId) => {
+
+    const selectedTag = allTags.find(tag => tag.id === tagId);
+    setTagContainer(selectedTag.tag);
+
+    setTagObject({
+      ...tagObject,
+      tag_id: tagId,
+      tag: selectedTag
+    });
+
+    console.log(tagObject);
+
+    setTagsArray([
+      ...tagsArray,
+      tagObject
+    ]);
+
+    console.log(tagsArray);
+    
+    setSelectedTagId(null);
+    setTagContainer('');
+    setTagObject({
+      ...tagObject,
+      tag_id: selectedTagId,
+      tag: tagContainer
+    });
+  };
+
   // submit all tags as array
   const handleSubmitTags = (e) => {
     e.preventDefault();
@@ -131,8 +160,10 @@ export default function TagsForm (props) {
           ))
         )}
       </p>
+      <h2>Suggested Tags</h2>
       <SuggestedTags 
         tags={suggestedTags}
+        handleClick={handleAddTagWithButton}
       />
       <form className="tags-form" >
         <input
