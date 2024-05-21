@@ -22,8 +22,6 @@ export default function TagsForm (props) {
 
   const suggestedTags = suggestTags(recipeName, description, allTags);
 
-  console.log(suggestedTags);
-
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
   const [tagObject, setTagObject] = useState({
@@ -114,28 +112,19 @@ export default function TagsForm (props) {
     const selectedTag = allTags.find(tag => tag.id === tagId);
     setTagContainer(selectedTag.tag);
 
-    setTagObject({
-      ...tagObject,
+    const tagButtonObject = {
       tag_id: tagId,
-      tag: selectedTag
-    });
-
-    console.log(tagObject);
+      recipe_id: recipeId,
+      tag: selectedTag.tag
+    }
 
     setTagsArray([
       ...tagsArray,
-      tagObject
+      tagButtonObject
     ]);
 
-    console.log(tagsArray);
-    
     setSelectedTagId(null);
     setTagContainer('');
-    setTagObject({
-      ...tagObject,
-      tag_id: selectedTagId,
-      tag: tagContainer
-    });
   };
 
   // submit all tags as array

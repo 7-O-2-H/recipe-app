@@ -11,6 +11,5 @@ export function suggestTags (name, description, tags) {
     lowerCaseKeywords.includes(tagObj.tag.toLowerCase())
   );
 
-  console.log(filteredTags)
   return filteredTags;
 };
