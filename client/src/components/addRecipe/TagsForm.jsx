@@ -22,9 +22,7 @@ export default function TagsForm (props) {
   const { allTags } = useAppData();
   const { currentIngredients, currentRecipe } = useRecipe(recipeId);
 
-  console.log(currentRecipe, currentIngredients);
-
-  const suggestedTags = suggestTags(recipeName, description, allTags);
+  const suggestedTags = suggestTags(recipeName, description, currentRecipe, currentIngredients, allTags);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
