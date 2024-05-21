@@ -8,7 +8,6 @@ import { useAppData } from "../../hooks/useAppData";
 import { addTags } from "../../helpers/tagsHelpers";
 import { suggestTags } from "./helpers/suggestTags";
 import SuggestedTags from "./SuggestedTags";
-import { useRecipe } from "../../hooks/useRecipe";
 
 export default function TagsForm (props) {
   
@@ -20,9 +19,8 @@ export default function TagsForm (props) {
 
   // retreive tags from db
   const { allTags } = useAppData();
-  const { currentIngredients } = useRecipe(recipeId);
 
-  const suggestedTags = suggestTags(recipeName, description, currentIngredients, allTags);
+  const suggestedTags = suggestTags(recipeName, description, allTags);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
