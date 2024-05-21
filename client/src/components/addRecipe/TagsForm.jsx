@@ -8,17 +8,21 @@ import { useAppData } from "../../hooks/useAppData";
 import { addTags } from "../../helpers/tagsHelpers";
 import { suggestTags } from "./helpers/suggestTags";
 import SuggestedTags from "./SuggestedTags";
+import { useRecipe } from "../../hooks/useRecipe";
 
 export default function TagsForm (props) {
   
   // declare router
   const router = useRouter();
 
-  // retreive tags from db
-  const { allTags } = useAppData();
-
   // rectreive recipe ID from props
   const { recipeId, recipeName, description } = props;
+
+  // retreive tags from db
+  const { allTags } = useAppData();
+  const { currentIngredients, currentRecipe } = useRecipe(recipeId);
+
+  console.log(currentRecipe, currentIngredients);
 
   const suggestedTags = suggestTags(recipeName, description, allTags);
 
