@@ -1,0 +1,12 @@
+.tag-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.tag-button {
+  border-radius: 25px;
+  width: 100px;
+  height: 40px;
+}

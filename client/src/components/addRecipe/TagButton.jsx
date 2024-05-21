@@ -1,3 +1,5 @@
+import './styles/tagButtons.css';
+
 export default function TagButton (props) {
 
   const { id, tag } = props;

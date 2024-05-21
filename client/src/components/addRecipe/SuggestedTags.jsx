@@ -1,4 +1,5 @@
 import TagButton from "./TagButton";
+import './styles/tagButtons.css';
 
 export default function SuggestedTags (props) {
 
@@ -12,9 +13,9 @@ export default function SuggestedTags (props) {
     />
   ));
 
-  // templat
+  // template
   return (
-    <div>
+    <div className="tag-button-container">
       {tagButtons}
     </div>
   );
