@@ -1,7 +1,5 @@
 export function suggestTags (name, description, serves, time, tags) {
 
-  console.log(serves, time, typeof serves, typeof time, tags, tags[10], tags[12]);
-
   const nameArray = name.split(' ');
   const descriptionArray = description.split(' ');
 
@@ -23,8 +21,6 @@ export function suggestTags (name, description, serves, time, tags) {
     const underSixtyTag = tags.find(tagObj => tagObj.tag === '60 minutes or less');
     filteredTags.push(underSixtyTag);
   };
-
-  console.log(filteredTags);
 
   return filteredTags;
 };

@@ -192,7 +192,8 @@ export default function AddRecipe() {
             description={recipeDescription}
             serves={recipeServes}
             time={recipeTime}
-            tags={allTags}
+            allTags={allTags}
+            onCancel={handleCancel}
           />
         </div>
       )}

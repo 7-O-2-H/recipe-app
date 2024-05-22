@@ -15,9 +15,9 @@ export default function TagsForm (props) {
   const router = useRouter();
 
   // rectreive recipe ID from props
-  const { recipeId, recipeName, description, serves, time, tags } = props;
+  const { recipeId, recipeName, description, serves, time, allTags, onCancel } = props;
 
-  const suggestedTags = suggestTags(recipeName, description, serves, time, tags);
+  const suggestedTags = suggestTags(recipeName, description, serves, time, allTags);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
@@ -131,6 +131,12 @@ export default function TagsForm (props) {
     router.push(`/recipes/${recipeId}`);
   };
 
+  const handleCancel = (event) => {
+    event.preventDefault();
+    onCancel();
+    return;
+  };
+
   // template
   return (
     <div>
@@ -169,6 +175,7 @@ export default function TagsForm (props) {
         </ul>
         <button onClick={handleAddTag}>ADD TAG</button>
         <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
+        <button onClick={handleCancel}>CANCEL</button>
       </form>
     </div>
   );
