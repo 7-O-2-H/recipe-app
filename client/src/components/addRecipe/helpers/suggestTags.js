@@ -1,7 +1,7 @@
-export function suggestTags (name, description, serves, time, tags) {
+export function suggestTags (recipe, tags) {
 
-  const nameArray = name.split(' ');
-  const descriptionArray = description.split(' ');
+  const nameArray = recipe.recipe.split(' ');
+  const descriptionArray = recipe.description.split(' ');
 
   const keyWordArray = nameArray.concat(descriptionArray);
 
@@ -12,12 +12,12 @@ export function suggestTags (name, description, serves, time, tags) {
   );
 
 
-  if (serves >= 4 && serves <= 6) {
+  if (recipe.serves >= 4 && recipe.serves <= 6) {
     const fourToSixTag = tags.find(tagObj => tagObj.tag === 'serves 4-6');
     filteredTags.push(fourToSixTag);
   };
 
-  if (time <= 60) {
+  if (recipe.time <= 60) {
     const underSixtyTag = tags.find(tagObj => tagObj.tag === '60 minutes or less');
     filteredTags.push(underSixtyTag);
   };

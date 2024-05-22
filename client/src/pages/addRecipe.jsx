@@ -25,9 +25,16 @@ export default function AddRecipe() {
   const [currentStep, setCurrentStep] = useState(1);
   const [recipeId, setRecipeId] = useState(null);
   const [recipe, setRecipe] = useState('');
-  const [recipeDescription, setRecipeDescription] = useState('');
-  const [recipeServes, setRecipeServes] = useState(null);
-  const [recipeTime, setRecipeTime] = useState(null);
+  const [recipeData, setRecipeData] = useState({
+    id: null, 
+    recipe: '',
+    description: '',
+    serves: null,
+    time: null,
+  });
+  // const [recipeDescription, setRecipeDescription] = useState('');
+  // const [recipeServes, setRecipeServes] = useState(null);
+  // const [recipeTime, setRecipeTime] = useState(null);
   const [ingredientsData, setIngredientsData] = useState([]);
   const [stepData, setStepData] = useState([]);
   // const [tagData, setTagData] = useState([]);
@@ -46,9 +53,16 @@ export default function AddRecipe() {
       case 1:
         setRecipe(data.recipe);
         setRecipeId(data.id);
-        setRecipeDescription(data.description);
-        setRecipeServes(data.serves);
-        setRecipeTime(data.time);
+        setRecipeData({
+          id: data.id,
+          recipe: data.recipe,
+          description: data.description,
+          serves: data.serves,
+          time: data.time
+        });
+        // setRecipeDescription(data.description);
+        // setRecipeServes(data.serves);
+        // setRecipeTime(data.time);
         break;
       case 2:
         break;
@@ -187,11 +201,11 @@ export default function AddRecipe() {
         <div>
           <h3>Tags:</h3>
           <TagsForm 
-            recipeId={recipeId}
-            recipeName={recipe}
-            description={recipeDescription}
-            serves={recipeServes}
-            time={recipeTime}
+            recipe={recipeData}
+            // recipeName={recipe}
+            // description={recipeDescription}
+            // serves={recipeServes}
+            // time={recipeTime}
             allTags={allTags}
             onCancel={handleCancel}
           />
