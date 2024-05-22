@@ -34,7 +34,7 @@ export default function AddRecipe() {
   // const [allowProceed, setAllowProceed] = useState(false);
 
   // use useAppData to get all measurements to collect ingredients for current recipe
-  const { allMeasurements } = useAppData();
+  const { allMeasurements, allTags } = useAppData();
 
   // setAllowProceed(ingredientsData && ingredientsData.length > 0);
   
@@ -192,6 +192,7 @@ export default function AddRecipe() {
             description={recipeDescription}
             serves={recipeServes}
             time={recipeTime}
+            tags={allTags}
           />
         </div>
       )}

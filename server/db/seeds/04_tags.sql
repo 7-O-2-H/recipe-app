@@ -9,7 +9,7 @@ INSERT INTO tags (tag) VALUES ('creamy');
 INSERT INTO tags (tag) VALUES ('spicy');
 INSERT INTO tags (tag) VALUES ('tomato-sauce');
 INSERT INTO tags (tag) VALUES ('chicken');
-INSERT INTO tags (tag) VALUES ('30 minutes or less');
+INSERT INTO tags (tag) VALUES ('60 minutes or less');
 INSERT INTO tags (tag) VALUES ('appetizers');
 INSERT INTO tags (tag) VALUES ('serves 4-6');
 INSERT INTO tags (tag) VALUES ('healthy');
