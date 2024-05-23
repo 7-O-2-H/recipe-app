@@ -94,32 +94,13 @@ export default function IngredientsForm (props) {
   const handleAddIngredient = async (event) => {
     event.preventDefault();
 
-    console.log(measurement, quantityWholeNumber, quantityFraction, ingredientsQuery);
-    // if (quantityWholeNumber) {
-      
-      // }
-      
-      // setQuantityWholeNumber((parseInt(quantityWholeNumber)) || undefined);
-      // setQuantityFraction((parseFloat(quantityFraction)) || undefined);
-      
-      console.log(typeof quantityFraction, typeof quantityWholeNumber, ingredientsQuery);
-
-
     // variable to ensure all variables are defined before enabling  submission
     let canSubmit = true;
-
-    // update quantity to decimal if quantity was input as fraction
-    // if (quantityFormat === 'fraction') {
-      
-    //   setQuantity(quantityWholeNumber + quantityFraction);
-    // };
 
     // if quantity state is not yet set return without adding ingredient
     if (quantity === undefined || quantity === '') {
       canSubmit = false;
     };
-
-    console.log(quantity);
 
     if (!measurement || !quantity || !ingredientsQuery) {
       toast.error("You must enter all values before submitting.");
