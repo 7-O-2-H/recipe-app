@@ -36,7 +36,8 @@ router.post('/add', async (req, res) => {
 
       try {
         
-        const tagId = await addTag(tag.tag);
+        const lowerCaseTag = tag.tag.toLowerCase();
+        const tagId = await addTag(lowerCaseTag);
         tag.tag_id = tagId;
         addRecipeTag(tag);
 
