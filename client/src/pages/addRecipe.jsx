@@ -86,6 +86,7 @@ export default function AddRecipe() {
     setRecipe(null);
     await deleteRecipe(parseInt(recipeId));
     setIngredientsData([]);
+    setStepData([]);
     setCurrentStep(1);
   };
 
