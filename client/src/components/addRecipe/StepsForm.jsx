@@ -28,7 +28,7 @@ export default function StepsForm (props) {
     setStepObject({
       ...stepObject,
       instruction: instructionContainer,
-      step_name: stepName,
+      step_name: stepName || 'Prep',
       step_number: stepNumber
     })
   }, [instructionContainer]);
@@ -62,6 +62,8 @@ export default function StepsForm (props) {
       toast.error("Please enter your instuctions to submit.");
       return;
     };
+
+    console.log
 
     if (instructionType === 'prep') {
       setStepObject({
