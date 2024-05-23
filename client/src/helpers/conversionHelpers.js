@@ -153,6 +153,11 @@ export function formatIngredientsData(ingredients) {
 
 export function formatSingleIngredient (ingredient) {
 
+  // handle for serving case
+  if (ingredient['measurement'] === 'for serving') {
+      return `${ingredient['ingredient']} ${ingredient['measurement']}`;
+  };
+
   // return ingredient to taste or just ingredient name
   if (parseFloat(ingredient['quantity']) === 0) {
     if (ingredient['measurement'] !== '-') {
