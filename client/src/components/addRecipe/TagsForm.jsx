@@ -72,7 +72,6 @@ export default function TagsForm (props) {
 
     const selectedTag = allTags.find(tag => tag.id === selectedTagId);
     setTagContainer(selectedTag.tag);
-    console.log(selectedTag);
 
     setTagObject({
       ...tagObject,
@@ -91,8 +90,6 @@ export default function TagsForm (props) {
       ...tagsArray,
       tagObject
     ]);
-
-    console.log(tagObject, tagsArray);
 
     setSelectedTagId(null);
     setTagContainer('');
