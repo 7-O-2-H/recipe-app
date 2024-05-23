@@ -78,9 +78,8 @@ export function formatIngredientsData(ingredients) {
         // initialize whole number and decimal (to be converted) for decimal values
         const wholeNum = ing['quantity'] - (ing['quantity'] % 1);
         const decimal = ing['quantity'] % 1;
-        console.log(decimal, decimal.toFixed(2));
 
-        if (decimal.toFixed(2) === 0.66) {
+        if (parseFloat(decimal.toFixed(2)) === 0.66) {
 
           str += `${wholeNum} 2/3 ${ing['measurement']}s of ${ing['ingredient']}`;
 
