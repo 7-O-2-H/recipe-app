@@ -27,18 +27,20 @@ export default function StepsForm (props) {
   useEffect(() => {
     setStepObject({
       ...stepObject,
-      instruction: instructionContainer
+      instruction: instructionContainer,
+      step_name: stepName,
+      step_number: stepNumber
     })
   }, [instructionContainer]);
 
   // update instruction type if instructions array changes to avoid timing issues
-  useEffect(() => {
-    if (instructionsArray && instructionsArray[0]) {
-      setInstructionType('step');
-    } else {
-      setInstructionType('prep');
-    }
-  }, [instructionsArray]);
+  // useEffect(() => {
+  //   if (instructionsArray && instructionsArray[0]) {
+  //     setInstructionType('step');
+  //   } else {
+  //     setInstructionType('prep');
+  //   }
+  // }, [instructionsArray]);
   
   // handlers
   // handle instruction input
@@ -64,8 +66,12 @@ export default function StepsForm (props) {
     if (instructionType === 'prep') {
       setStepObject({
         ...stepObject,
+        // step_name: 'Prep',
         step_number: stepNumber
       });
+
+      setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
+      addStep(stepObject);
 
       // change instruction type
       setInstructionType('step');
@@ -74,6 +80,7 @@ export default function StepsForm (props) {
       setStepNumber(stepNumber => stepNumber + 1);
       const formattedStep = `Step ${stepCounter}`;
       setStepName(formattedStep);
+      setStepCounter(stepCounter => stepCounter + 1);
 
     } else {
 
@@ -87,13 +94,14 @@ export default function StepsForm (props) {
         step_number: stepNumber
       });
 
+      setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
+      addStep(stepObject);
+
       // increment step number and counter
       setStepNumber(stepNumber => stepNumber + 1);
       setStepCounter(stepCounter => stepCounter + 1);
     };
 
-    setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
-    addStep(stepObject);
     setInstructionContainer('');
   };
 
