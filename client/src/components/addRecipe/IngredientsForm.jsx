@@ -115,7 +115,7 @@ export default function IngredientsForm (props) {
     // };
 
     // if quantity state is not yet set return without adding ingredient
-    if (quantity === undefined) {
+    if (quantity === undefined || quantity === '') {
       canSubmit = false;
     };
 
@@ -206,14 +206,6 @@ export default function IngredientsForm (props) {
     <div>
       <ToastContainer />
       <form className="ingredient-form" >
-        <input
-          id="ingredient"
-          type="text"
-          className="input-field"
-          placeholder="ingredient"
-          value={ingredientsQuery}
-          onChange={handleInputChange}
-        />
         {quantityFormat === 'decimal' ? (
           <div>
             <input
@@ -243,6 +235,14 @@ export default function IngredientsForm (props) {
             <button onClick={updateQuantityFormat}>USE DECIMALS</button>
           </div>
         )}
+        <input
+          id="ingredient"
+          type="text"
+          className="input-field"
+          placeholder="ingredient"
+          value={ingredientsQuery}
+          onChange={handleInputChange}
+        />
         <ul>
           {suggestions.map(ingredient => (
             <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
