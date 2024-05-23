@@ -86,7 +86,7 @@ export default function IngredientsForm (props) {
     console.log(selectedValue, quantityWholeNumber);
     setSelectedOption(selectedValue);
     setQuantityFraction(parseFloat(selectedValue));
-    const totalFraction = quantityWholeNumber + quantityFraction;
+    const totalFraction = quantityWholeNumber + parseFloat(selectedValue);
     setQuantity(totalFraction);
     return;
   };
@@ -235,6 +235,18 @@ export default function IngredientsForm (props) {
             <button onClick={updateQuantityFormat}>USE DECIMALS</button>
           </div>
         )}
+        <select
+          id="measurement"
+          value={measurement}
+          onChange={(event) => setMeasurement(event.target.value)}
+          >
+          <option value="">Select Measurement</option>
+            {sortedMeasurements.map((measurement) => (
+              <option key={measurement.id} value={measurement.id}>
+                {measurement.measurement}
+            </option>
+          ))}
+        </select>
         <input
           id="ingredient"
           type="text"
@@ -250,18 +262,6 @@ export default function IngredientsForm (props) {
             </li>
           ))}
         </ul>
-        <select
-          id="measurement"
-          value={measurement}
-          onChange={(event) => setMeasurement(event.target.value)}
-          >
-          <option value="">Select Measurement</option>
-            {sortedMeasurements.map((measurement) => (
-              <option key={measurement.id} value={measurement.id}>
-                {measurement.measurement}
-            </option>
-          ))}
-        </select>
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           ADD INGREDIENT
         </button>
