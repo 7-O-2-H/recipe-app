@@ -159,9 +159,14 @@ export default function StepsForm (props) {
           onChange={handleInstructionInput}
           />
         {instructionType === 'prep' ? (
-          <button type="submit" className="submit-btn" onClick={handleAddStep}>
-            ADD PREP
-          </button>
+          <div>
+            <button type="submit" className="submit-btn" onClick={handleAddStep}>
+              ADD PREP
+            </button>
+            <button>
+              SKIP PREP
+            </button>
+          </div>
         ) : (
           <button type="submit" className="submit-btn" onClick={handleAddStep}>
             ADD STEP
