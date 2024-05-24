@@ -150,7 +150,10 @@ export default function FullRecipe (props) {
           <div className="step-container">{stepsArray}</div>
         </div>
       </div>
+      {tagsArray.length > 0 &&
       <Spacer />
+      }
+      {tagsArray.length > 0 &&
       <div className="tags-container"> 
         <div className="tag-title">
           Tags
@@ -159,6 +162,7 @@ export default function FullRecipe (props) {
           {tagsArray}
         </div>
       </div>
+      }
       {loggedIn ? (
         <>
           {!favouriteStatus ? (
