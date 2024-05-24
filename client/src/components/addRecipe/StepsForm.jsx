@@ -53,6 +53,13 @@ export default function StepsForm (props) {
     });
   };
 
+  // handle skip prep
+  const handleSkipPrep = (e) => {
+    // e.preventntDefault();
+    setInstructionType('step');
+
+  };
+
   // handle step submission
   const handleAddStep = (e) => {
     e.preventDefault();
@@ -62,8 +69,6 @@ export default function StepsForm (props) {
       toast.error("Please enter your instuctions to submit.");
       return;
     };
-
-    console.log
 
     if (instructionType === 'prep') {
       setStepObject({
@@ -163,7 +168,7 @@ export default function StepsForm (props) {
             <button type="submit" className="submit-btn" onClick={handleAddStep}>
               ADD PREP
             </button>
-            <button>
+            <button type="submit" onClick={handleSkipPrep}>
               SKIP PREP
             </button>
           </div>
