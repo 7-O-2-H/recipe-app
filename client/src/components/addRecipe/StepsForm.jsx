@@ -55,13 +55,14 @@ export default function StepsForm (props) {
 
   // handle skip prep
   const handleSkipPrep = (e) => {
-    // e.preventntDefault();
+
+    // change to step state if prep is skipped, update step object and step counter accordingly
     setInstructionType('step');
     const formattedStep = `Step ${stepCounter}`;
     setStepObject({
       ...stepObject,
       step_name: formattedStep
-    })
+    });
 
   };
 
