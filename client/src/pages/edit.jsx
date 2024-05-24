@@ -3,10 +3,7 @@ import '../styles/styles.css';
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
-import EditForm from '../components/EditForm';
-// hooks
-import useAppData from '../hooks/useAppData';
-import { useRecipe } from '../hooks/useRecipe';
+import EditForm from '../components/editRecipe/EditForm';
 
 export default function Edit(recipeData) {
   
