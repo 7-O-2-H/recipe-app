@@ -32,15 +32,6 @@ export default function StepsForm (props) {
       step_number: stepNumber
     })
   }, [instructionContainer]);
-
-  // update instruction type if instructions array changes to avoid timing issues
-  // useEffect(() => {
-  //   if (instructionsArray && instructionsArray[0]) {
-  //     setInstructionType('step');
-  //   } else {
-  //     setInstructionType('prep');
-  //   }
-  // }, [instructionsArray]);
   
   // handlers
   // handle instruction input
