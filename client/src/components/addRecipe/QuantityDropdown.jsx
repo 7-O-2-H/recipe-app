@@ -51,7 +51,7 @@ export default function QuantityDropdown({ onSelect, selectedOption }) {
         value={selectedOption !== undefined ? selectedOption.toString() : ''}
       >
         {quantities.map((quantity) => (
-          <option key={quantity.id} value={quantity.value || ''}>
+          <option key={quantity.id} value={quantity.value === 0 ? 0 : quantity.value || ''}>
             {quantity.quantity}
           </option>
         ))}
