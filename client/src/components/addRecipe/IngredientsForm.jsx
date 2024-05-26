@@ -128,6 +128,12 @@ export default function IngredientsForm (props) {
         // add ingredient
         await addIngredient(ingredientData);
         
+        // keep track of data in array to use for toast check of duplicate ingredients
+        setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, {
+          ingredient_id: ingredientId,
+          ingredient: ingredientsQuery
+        }]);
+        
         // clear inputs
         setIngredientsQuery('');
         setQuantity(undefined);
@@ -151,6 +157,12 @@ export default function IngredientsForm (props) {
         };
         
         await addIngredient(ingredientData);
+
+         // keep track of data in array to use for toast check of duplicate ingredients
+         setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, {
+          ingredient_id: ingredientId,
+          ingredient: ingredientsQuery
+        }]);
 
         // clear inputs
         setIngredientsQuery('');
@@ -183,6 +195,7 @@ export default function IngredientsForm (props) {
     return;
   };
 
+  console.log(ingredientsData, ingredientsArray);
   return (
     <div>
       <ToastContainer />
