@@ -125,14 +125,19 @@ export default function IngredientsForm (props) {
           measurement_id: measurement
         };
         
+        //block submission if ingredient already exists
+        if (ingredientsArray.includes(ingredientData.ingredient)) {
+          toast.error(`${ingredientData.ingredient} already exists in this recipe`);
+          return;
+        };
+
+        // keep track of data in array to use for toast check of duplicate ingredients
+        setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, ingredientsQuery]);
+        
+
         // add ingredient
         await addIngredient(ingredientData);
         
-        // keep track of data in array to use for toast check of duplicate ingredients
-        setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, {
-          ingredient_id: ingredientId,
-          ingredient: ingredientsQuery
-        }]);
         
         // clear inputs
         setIngredientsQuery('');
@@ -155,14 +160,19 @@ export default function IngredientsForm (props) {
           quantity: quantity,
           measurement_id: measurement
         };
-        
-        await addIngredient(ingredientData);
 
-         // keep track of data in array to use for toast check of duplicate ingredients
-         setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, {
-          ingredient_id: ingredientId,
-          ingredient: ingredientsQuery
-        }]);
+        //block submission if ingredient already exists
+        if (ingredientsArray.includes(ingredientData.ingredient)) {
+          toast.error(`${ingredientData.ingredient} already exists in this recipe`);
+          return;
+        };
+        
+        // keep track of data in array to use for toast check of duplicate ingredients
+        setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, ingredientsQuery]);
+
+        console.log(ingredientsArray);
+
+        await addIngredient(ingredientData);
 
         // clear inputs
         setIngredientsQuery('');
@@ -195,7 +205,7 @@ export default function IngredientsForm (props) {
     return;
   };
 
-  console.log(ingredientsData, ingredientsArray);
+  // console.log(ingredientsData, ingredientsArray);
   return (
     <div>
       <ToastContainer />
