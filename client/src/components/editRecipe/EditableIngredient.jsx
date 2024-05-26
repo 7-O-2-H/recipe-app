@@ -155,9 +155,10 @@ export default function EditableIngredient({ index, ingredient, ingredientArray 
               </li>
             ))}
           </ul>
-          {/* <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
-            ADD INGREDIENT
+          <button type="submit" className="submit-btn">
+            UPDATE INGREDIENT
           </button>
+          {/* 
           <button onClick={handleNext}>GO TO STEPS</button>
           <button onClick={handleCancel}>CANCEL</button> */}
         </form>
