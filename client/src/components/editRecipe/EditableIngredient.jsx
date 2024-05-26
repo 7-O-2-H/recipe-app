@@ -1,8 +1,13 @@
 import { useState } from "react";
 
-export default function EditableIngredient(props) {
+export default function EditableIngredient({ key, index, ingredient, ingredientArray }) {
   
-  const { ingredient } = props;
+  // const { index, ingredient, ingredientData } = props;
+
+  const ingredientData = JSON.parse(ingredientArray)
+
+  // const ingredientsArray = ingredientData;
+  console.log(ingredient, ingredientData[index], index);
 
   const [editable, setEditable] = useState(false);
 

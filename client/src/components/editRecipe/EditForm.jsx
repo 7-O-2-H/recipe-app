@@ -15,11 +15,14 @@ export default function EditForm() {
   const currentSteps = JSON.parse(steps);
 
   const ingredientsArray = formatIngredientsData(currentIngredients);
+  // console.log(ingredients, ingredientsArray);
 
   const ingredientArray = ingredientsArray.map((ingredient, index) => (
     <EditableIngredient
       key={index + 1}
-      ingredient={ingredient}
+      index={index}
+      ingredient={JSON.stringify(ingredient)}
+      ingredientArray={ingredients}
     />
   ));
 
