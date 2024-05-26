@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-export default function EditableIngredient({ key, index, ingredient, ingredientArray }) {
+export default function EditableIngredient({ index, ingredient, ingredientArray }) {
   
   // parse JSON ingredients and extract data for current ingredient
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
 
   console.log(ingredientData, ingredient);
-  
+
   // set edit toggle
   const [editable, setEditable] = useState(false);
 
@@ -20,13 +20,17 @@ export default function EditableIngredient({ key, index, ingredient, ingredientA
   //template
   return (
     <div className="ingredients-container">
-      <div className="ingredient">
-        - &nbsp;
-        {ingredient}
-        <br></br>
-        <br></br>
-        <button className="edit-button" onClick={editIngredient}>EDIT</button>
-      </div>
+      {!editable ? (
+        <div className="ingredient">
+          - &nbsp;
+          {ingredient}
+          <br></br>
+          <br></br>
+          <button className="edit-button" onClick={editIngredient}>EDIT</button>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
