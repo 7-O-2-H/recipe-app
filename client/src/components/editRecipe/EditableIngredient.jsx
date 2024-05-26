@@ -2,13 +2,13 @@ import { useState } from "react";
 
 export default function EditableIngredient({ key, index, ingredient, ingredientArray }) {
   
-  // const { index, ingredient, ingredientData } = props;
+  // parse JSON ingredients and extract data for current ingredient
+  const parsedIngredientArray = JSON.parse(ingredientArray)
+  const ingredientData = parsedIngredientArray[index];
 
-  const ingredientData = JSON.parse(ingredientArray)
-
-  // const ingredientsArray = ingredientData;
-  console.log(ingredient, ingredientData[index], index);
-
+  console.log(ingredientData, ingredient);
+  
+  // set edit toggle
   const [editable, setEditable] = useState(false);
 
   // handle edit condition
