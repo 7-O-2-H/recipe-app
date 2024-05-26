@@ -133,7 +133,7 @@ export default function EditableIngredient({ index, ingredient, ingredientArray 
               value={measurement}
               onChange={(event) => setMeasurement(event.target.value)}
             >
-            <option value="">Select Measurement</option>
+            <option value="">{measurement ? measurement : 'Select Measurement'}</option>
               {sortedMeasurements.map((measurement) => (
                 <option key={measurement.id} value={measurement.id}>
                   {measurement.measurement}
