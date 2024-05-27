@@ -99,7 +99,7 @@ export default function EditableIngredient({ index, ingredient, ingredientArray 
         <div>
           <ToastContainer />
           <form className="ingredient-form" >
-            {/* {quantityFormat === 'decimal' ? (
+            {quantityFormat === 'decimal' ? (
               <div>
                 <input
                   id="quantity"
@@ -126,8 +126,8 @@ export default function EditableIngredient({ index, ingredient, ingredientArray 
                 />
                 <QuantityDropdown onSelect={handleQuantitySelect} selectedOption={selectedOption} />
                 <button onClick={updateQuantityFormat}>USE DECIMALS</button>
-              </div> */}
-            {/* )} */}
+              </div>
+            )}
             <select
               id="measurement"
               value={measurement}
@@ -158,9 +158,6 @@ export default function EditableIngredient({ index, ingredient, ingredientArray 
           <button type="submit" className="submit-btn">
             UPDATE INGREDIENT
           </button>
-          {/* 
-          <button onClick={handleNext}>GO TO STEPS</button>
-          <button onClick={handleCancel}>CANCEL</button> */}
         </form>
       </div>
       )}
