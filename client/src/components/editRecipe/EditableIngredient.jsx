@@ -34,7 +34,6 @@ export default function EditableIngredient({ index, ingredient, ingredientArray 
     setEditable(true);
   };
 
-  // handle input
   // remove hours and minutes from measurements and sort the array
   const foodMeasurements = allMeasurements.slice(2);
   const sortedMeasurements = foodMeasurements.sort((a, b) => {
