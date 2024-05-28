@@ -19,6 +19,10 @@ export default function EditableIngredient({ index, ingredient, ingredientArray 
   const [refreshData, setRefreshData] = useState(false);
   const [ingredientId, setIngredientId] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
+  const [quantity, setQuantity] = useState(undefined);
+  const [quantityFormat, setQuantityFormat] = useState('decimal');
+  const [quantityWholeNumber, setQuantityWholeNumber] = useState(undefined);
+  const [quantityFraction, setQuantityFraction] = useState(undefined);
   const [updatedIngredient, setUpdatedIngredient] = useState({
     ingredient: ingredientData.ingredient,
     quantity: ingredientData.quantity,
