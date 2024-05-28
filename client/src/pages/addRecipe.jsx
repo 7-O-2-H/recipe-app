@@ -32,14 +32,9 @@ export default function AddRecipe() {
     serves: null,
     time: null,
   });
-  // const [recipeDescription, setRecipeDescription] = useState('');
-  // const [recipeServes, setRecipeServes] = useState(null);
-  // const [recipeTime, setRecipeTime] = useState(null);
   const [ingredientsData, setIngredientsData] = useState([]);
   const [stepData, setStepData] = useState([]);
-  // const [tagData, setTagData] = useState([]);
-  // const [allowProceed, setAllowProceed] = useState(false);
-
+  
   // use useAppData to get all measurements to collect ingredients for current recipe
   const { allMeasurements, allTags } = useAppData();
 
