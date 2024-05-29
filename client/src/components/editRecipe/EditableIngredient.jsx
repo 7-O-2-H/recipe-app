@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAppDataWithRefresh } from "../../hooks/useAppData";
 import EditIngredientForm from "./EditIngredientForm";
-import { getRecipeIngredientsByRecipeId } from "../../helpers/ingredientsHelpers";
+import { useEditData } from "../../hooks/useEditData";
 
 export default function EditableIngredient({ recipeId, index, ingredient, ingredientArray }) {
   
@@ -12,16 +12,19 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
   
-  const fullIngredientData = getRecipeIngredientsByRecipeId(recipeId);
+  const { fullIngredientData } = useEditData(recipeId);
 
   console.log(fullIngredientData);
   // console.log('ingData: ', ingredientData);
 
-  if (fullIngredientData) {
-
-    const recipeIngredientId = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
-  }
-
+  if (fullIngredientData[0] === undefined) {
+    return (
+      <div>Loading...</div>
+    )
+  };
+  å
+  const recipeIngredientId = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
+  
   console.log(recipeIngredientId);
 
   // set edit toggle and ingredient data states
