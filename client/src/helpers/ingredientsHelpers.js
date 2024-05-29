@@ -27,7 +27,6 @@ export function getIngredientById(id) {
 // post
 
 export async function addIngredient(ingredientData) {
-  // console.log(ingredientData);
   try {
     const res = await axios.post(`http://localhost:8080/ingredients/add`, {ingredientData});
     console.log('Response status: ', res.status);

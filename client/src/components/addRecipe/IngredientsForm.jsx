@@ -170,8 +170,6 @@ export default function IngredientsForm (props) {
         // keep track of data in array to use for toast check of duplicate ingredients
         setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, ingredientsQuery]);
 
-        console.log(ingredientsArray);
-
         await addIngredient(ingredientData);
 
         // clear inputs
