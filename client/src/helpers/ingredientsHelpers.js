@@ -24,6 +24,16 @@ export function getIngredientById(id) {
   });
 };
 
+export function getRecipeIngredientsByRecipeId(id) {
+  return axios.get(`http://localhost:8080/ingredients/recipe_ingredients/${id}`)
+  .then((data) => {
+    return data;
+  })
+  .catch((error) => {
+    console.log("axios error, ", error);
+  });
+};
+
 // post
 
 export async function addIngredient(ingredientData) {
