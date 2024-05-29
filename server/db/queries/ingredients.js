@@ -34,20 +34,18 @@ const getIngredientsByRecipeId = (id) => {
   });
 };
 
-const getRecipeIngredientsByRecipeId = (id) => {
-  return db.query(`SELECT * FROM recipe_ingredients JOIN ingredients ON recipe_ingredients.ingredient_id = ingredients.id WHERE recipe_ingredients.recipe_id = $1;`, [id])
-  .then(data => {
-    return data.rows;
-  })
-  .catch((error) => {
-    console.log('get rec ingredients by rec id error;', error.message);
-    return null;
-  });
+const getRecipeIngredientsByRecipeId = async (id) => {
+  try {
+    const res = await db.query(`SELECT * FROM recipe_ingredients JOIN ingredients ON recipe_ingredients.ingredient_id = ingredients.id WHERE recipe_ingredients.recipe_id = $1;`, [id]);
+    return res.rows;
+  } catch {
+    console.error('get rec ingredients by rec id error;', error.message);
+    throw error;
+  };
 };
 
 // POST
 const addIngredient = async (ingredient) => {
-  console.log(ingredient);
   try {
     const result = await db.query(`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, [ingredient]);
     return result.rows[0].id;

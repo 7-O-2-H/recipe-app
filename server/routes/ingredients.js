@@ -16,12 +16,16 @@ router.get('/', (req, res) => {
 //   })
 // });
 
-router.get('/recipe_ingredients/:recipe_id', (req, res) => {
+router.get('/recipe_ingredients/:recipe_id', async (req, res) => {
+
   const id = req.params.recipe_id;
-  getRecipeIngredientsByRecipeId(id)
-  .then(data => {
+
+  try {
+    const data = getRecipeIngredientsByRecipeId(id);
     res.json(data);
-  })
+  } catch (error) {
+    console.error('rec ing by rec id: ', error);
+  }
 });
 
 // add

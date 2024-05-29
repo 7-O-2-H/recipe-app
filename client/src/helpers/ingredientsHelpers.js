@@ -24,14 +24,14 @@ export function getIngredientById(id) {
   });
 };
 
-export function getRecipeIngredientsByRecipeId(id) {
-  return axios.get(`http://localhost:8080/ingredients/recipe_ingredients/${id}`)
-  .then((data) => {
-    return data;
-  })
-  .catch((error) => {
+export async function getRecipeIngredientsByRecipeId(id) {
+  try {
+    const res = axios.get(`http://localhost:8080/ingredients/recipe_ingredients/${id}`)
+    return res.data;
+  } catch (error) {
     console.log("axios error, ", error);
-  });
+    throw error;
+  }
 };
 
 // post
