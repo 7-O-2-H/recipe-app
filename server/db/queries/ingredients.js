@@ -34,6 +34,17 @@ const getIngredientsByRecipeId = (id) => {
   });
 };
 
+const getRecipeIngredientsByRecipeId = (id) => {
+  return db.query(`SELECT * FROM recipe_ingredients JOIN ingredients ON recipe_ingredients.ingredient_id = ingredients.id WHERE recipe_ingredients.recipe_id = $1;`, [id])
+  .then(data => {
+    return data.rows;
+  })
+  .catch((error) => {
+    console.log('get rec ingredients by rec id error;', error.message);
+    return null;
+  });
+};
+
 // POST
 const addIngredient = async (ingredient) => {
   console.log(ingredient);
@@ -84,4 +95,4 @@ const getRecipeIngredients = () => {
   });
 };
 
-module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, addRecipeIngredient, addIngredient, getRecipeIngredients };
+module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, getRecipeIngredientsByRecipeId, addRecipeIngredient, addIngredient, getRecipeIngredients };
