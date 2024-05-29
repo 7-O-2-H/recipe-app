@@ -21,7 +21,7 @@ INSERT INTO ingredients (ingredient) VALUES ('tomato paste');
 INSERT INTO ingredients (ingredient) VALUES ('chicken stock');
 INSERT INTO ingredients (ingredient) VALUES ('heavy cream');
 INSERT INTO ingredients (ingredient) VALUES ('grated Parmesan');
-INSERT INTO ingredients (ingredient) VALUES ('sun-dried totoes packed in oil');
+INSERT INTO ingredients (ingredient) VALUES ('sun-dried tomatoes packed in oil');
 INSERT INTO ingredients (ingredient) VALUES ('fresh basil');
 INSERT INTO ingredients (ingredient) VALUES ('chicken breast');
 INSERT INTO ingredients (ingredient) VALUES ('shredded kale');
