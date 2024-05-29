@@ -7,9 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 // hooks
 import { useAppDataWithRefresh } from "../../hooks/useAppData";
 //component
-import QuantityDropdown from "./QuantityDropDown";
+import QuantityDropdown from "../addRecipe/QuantityDropdown";
 
-export default function IngredientsForm (props) {
+export default function EditIngredientForm (props) {
 
   // retrieve prop functions
   const { onCancel, recipeId, addIngredient, onNextStep, ingredientsData } = props;
