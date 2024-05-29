@@ -10,7 +10,7 @@ export default function EditableIngredient({ index, ingredient, ingredientArray 
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
 
-  console.log(ingredientData, ingredient);
+  // console.log("ingredietn Data: ", ingredientData, "ingredient: ",  ingredient);
   
   // set edit toggle and ingredient data states
   const [editable, setEditable] = useState(false);

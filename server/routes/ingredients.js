@@ -35,19 +35,6 @@ router.post('/add', async (req, res) => {
     console.error('Add ingredient error: ', error.message);
     res.status(500).json({ error: 'Internal Server Error'});
   }
-  // if (ingredientData.existingIngredient) {
-  //   addRecipeIngredient(ingredientData)
-  //   .then(data => {
-  //     res.json(data);
-  //   });
-  // } else {
-  //   const ingredientId =  await addIngredient(ingredientData.ingredient);
-  //   ingredientData.ingredient_id = ingredientId;
-  //   addRecipeIngredient(ingredientData)
-  //   .then(data => {
-  //     res.json(data);
-  //   });
-  // };
 });
 
 // test

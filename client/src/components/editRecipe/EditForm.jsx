@@ -14,6 +14,8 @@ export default function EditForm() {
   const currentIngredients = JSON.parse(ingredients);
   const currentSteps = JSON.parse(steps);
 
+  console.log(currentRecipe, currentIngredients);
+
   const ingredientsArray = formatIngredientsData(currentIngredients);
   // console.log(ingredients, ingredientsArray);
 
