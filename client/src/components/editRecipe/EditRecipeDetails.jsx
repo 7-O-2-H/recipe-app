@@ -20,10 +20,10 @@ export default function EditRecipeDetails (props) {
   
   
   // set states
-  const [recipe, setRecipe] = useState('');
-  // const [time, setTime] = useState(undefined);
-  // const [serves, setServes] = useState(undefined);
-  // const [description, setDescription] = useState('');
+  const [recipe, setRecipe] = useState(title);
+  const [newTime, setNewTime] = useState(time);
+  const [newServes, setNewServes] = useState(serves);
+  const [newDescription, setNewDescription] = useState(description);
 
   // // call hooks
   // const { allRecipes } = useAppData();
