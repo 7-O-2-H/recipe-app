@@ -70,6 +70,7 @@ export default function EditForm() {
           <EditRecipeDetails
             key={currentRecipe.id}
             id={currentRecipe.id}
+            recipeUserId={currentRecipe.user_id}
             title={currentRecipe.recipe}
             description={currentRecipe.description}
             serves={currentRecipe.serves}

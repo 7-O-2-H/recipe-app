@@ -14,9 +14,7 @@ import { addRecipe } from "../../helpers/recipeHelpers";
 
 export default function EditRecipeDetails (props) {
 
-  const { id, title, description, serves, time } = props
-
-  console.log(id, description, title, serves, time);
+  const { id, recipeUserId, title, description, serves, time } = props
   
   
   // set states
@@ -27,6 +25,9 @@ export default function EditRecipeDetails (props) {
 
   // call hooks
   const { allRecipes } = useAppData();
+  const userId = parseInt(useVerification());
+
+  console.log(userId, recipeUserId);
 
   // loading state
   if ( !allRecipes ) {
