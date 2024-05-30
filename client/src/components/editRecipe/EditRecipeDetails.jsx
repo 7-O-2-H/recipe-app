@@ -74,40 +74,52 @@ export default function EditRecipeDetails (props) {
     <div>
       <ToastContainer />
       <form className="recipe-form" >
-        <input
-          id="recipe"
-          type="text"
-          className="input-field"
-          placeholder="recipe name"
-          value={recipe}
-          onChange={(event) => setRecipe(event.target.value)}
-        />
-        <input
-          id="time"
-          type="number"
-          className="input-field"
-          placeholder="time to cook in minutes"
-          value={newTime || ''}
-          onChange={(event) => setNewTime(event.target.value)}
-        />
-        <input
-          id="serves"
-          type="number"
-          className="input-field"
-          placeholder="how many servings is this dish"
-          value={newServes || ''}
-          onChange={(event) => setNewServes(event.target.value)}
-        />
-        <input
-          id="description"
-          type="text"
-          className="input-field"
-          placeholder="description"
-          value={newDescription}
-          onChange={(event) => setNewDescription(event.target.value)}
-        />
+        <div>
+          <label>Recipe</label>
+          <input
+            id="recipe"
+            type="text"
+            className="input-field"
+            placeholder="recipe name"
+            value={recipe}
+            onChange={(event) => setRecipe(event.target.value)}
+          />
+        </div>
+        <div>
+          <label>Time to Cook</label>
+          <input
+            id="time"
+            type="number"
+            className="input-field"
+            placeholder="time to cook in minutes"
+            value={newTime || ''}
+            onChange={(event) => setNewTime(event.target.value)}
+          />
+        </div>
+        <div>
+          <label>Serves</label>
+          <input
+            id="serves"
+            type="number"
+            className="input-field"
+            placeholder="how many servings is this dish"
+            value={newServes || ''}
+            onChange={(event) => setNewServes(event.target.value)}
+          />
+          </div>
+        <div>
+          <label>Description</label>
+          <input
+            id="description"
+            type="text"
+            className="input-field"
+            placeholder="description"
+            value={newDescription}
+            onChange={(event) => setNewDescription(event.target.value)}
+          />
+        </div>
         <button type="submit" className="submit-btn">
-          ADD RECIPE DETAILS
+          EDIT RECIPE DETAILS
         </button>
       </form>
     </div>
