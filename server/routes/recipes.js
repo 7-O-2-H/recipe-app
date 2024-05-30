@@ -53,6 +53,16 @@ router.post('/add', (req, res) => {
   })
 });
 
+router.post('/edit', (req, res) => {
+
+  const recipeData = req.body.recipeData;
+  console.log(recipeData);
+  // EditRecipeDetails(recipeData)
+  // .then(data => {
+  //   res.json(data);
+  // })
+});
+
 router.post('/delete', (req, res) => {
 
   // req recipe id
