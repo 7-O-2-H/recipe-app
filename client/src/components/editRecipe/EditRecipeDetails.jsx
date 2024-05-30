@@ -25,16 +25,15 @@ export default function EditRecipeDetails (props) {
   const [newServes, setNewServes] = useState(serves);
   const [newDescription, setNewDescription] = useState(description);
 
-  // // call hooks
-  // const { allRecipes } = useAppData();
-  // const userId = parseInt(useVerification());
+  // call hooks
+  const { allRecipes } = useAppData();
 
-  // // loading state
-  // if ( !allRecipes || !userId ) {
-  //   return <div>Loading...</div>
-  // };
+  // loading state
+  if ( !allRecipes ) {
+    return <div>Loading...</div>
+  };
 
-  // const handleRecipeSubmit = async (event) => {
+  // const handleEditRecipeDetails = async (event) => {
   //   event.preventDefault();
 
   //   // check if recipe already exists
