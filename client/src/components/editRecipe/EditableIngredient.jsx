@@ -12,20 +12,15 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
   
-  const { fullIngredientData } = useEditData(recipeId);
+  // const { fullIngredientData } = useEditData(recipeId);
 
-  console.log(fullIngredientData);
+  // console.log(fullIngredientData);
   // console.log('ingData: ', ingredientData);
 
-  if (fullIngredientData[0] === undefined) {
-    return (
-      <div>Loading...</div>
-    )
-  };
-  å
-  const recipeIngredientId = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
+ 
+  // const recipeIngredientId = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
   
-  console.log(recipeIngredientId);
+  // console.log(recipeIngredientId);
 
   // set edit toggle and ingredient data states
   const [editable, setEditable] = useState(false);
