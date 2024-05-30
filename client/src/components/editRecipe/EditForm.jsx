@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import EditableIngredient from "./EditableIngredient";
 import Steps from "../Steps";
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
+import EditRecipeDetails from "./EditRecipeDetails";
 
 export default function EditForm() {
 
@@ -14,6 +15,8 @@ export default function EditForm() {
   const currentRecipe = JSON.parse(recipe);
   const currentIngredients = JSON.parse(ingredients);
   const currentSteps = JSON.parse(steps);
+
+  console.log(currentRecipe);
 
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
@@ -46,10 +49,11 @@ export default function EditForm() {
   ));
 
   // handlers 
-   const handleEditRecipe = (event) => {
+  const handleEditRecipe = (event) => {
     event.preventDefault();
     setEditRecipe(true);
-   };
+  };
+
   // template
   return (
     <div className="edit-form">
@@ -63,7 +67,14 @@ export default function EditForm() {
       </div>
       ) : (
         <div>
-          <p>Edit Recipe</p>
+          <EditRecipeDetails
+            key={currentRecipe.id}
+            id={currentRecipe.id}
+            title={currentRecipe.recipe}
+            description={currentRecipe.description}
+            serves={currentRecipe.serves}
+            time={currentRecipe.time}
+          />
         </div>
       )}
       <div className="edit-section">

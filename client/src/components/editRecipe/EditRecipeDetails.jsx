@@ -12,66 +12,68 @@ import useVerification from "../../hooks/useVerification";
 // Helpers
 import { addRecipe } from "../../helpers/recipeHelpers";
 
-export default function EditRecipeForm (props) {
+export default function EditRecipeDetails (props) {
 
-  // set prop data
-  const { onNextStep } = props;
+  const { id, title, description, serves, time } = props
 
+  console.log(id, description, title, serves, time);
+  
+  
   // set states
   const [recipe, setRecipe] = useState('');
-  const [time, setTime] = useState(undefined);
-  const [serves, setServes] = useState(undefined);
-  const [description, setDescription] = useState('');
+  // const [time, setTime] = useState(undefined);
+  // const [serves, setServes] = useState(undefined);
+  // const [description, setDescription] = useState('');
 
-  // call hooks
-  const { allRecipes } = useAppData();
-  const userId = parseInt(useVerification());
+  // // call hooks
+  // const { allRecipes } = useAppData();
+  // const userId = parseInt(useVerification());
 
-  // loading state
-  if ( !allRecipes || !userId ) {
-    return <div>Loading...</div>
-  };
+  // // loading state
+  // if ( !allRecipes || !userId ) {
+  //   return <div>Loading...</div>
+  // };
 
-  const handleRecipeSubmit = async (event) => {
-    event.preventDefault();
+  // const handleRecipeSubmit = async (event) => {
+  //   event.preventDefault();
 
-    // check if recipe already exists
-    const existingRecipe = allRecipes.find(rec => rec.recipe.toLowerCase() === (recipe.toLowerCase()));
+  //   // check if recipe already exists
+  //   const existingRecipe = allRecipes.find(rec => rec.recipe.toLowerCase() === (recipe.toLowerCase()));
     
-    // prevent add recipe if already in db
-    if (existingRecipe) {
-      toast.error("There is already a recipe with this name in our database.");
-      return;
-    };
+  //   // prevent add recipe if already in db
+  //   if (existingRecipe) {
+  //     toast.error("There is already a recipe with this name in our database.");
+  //     return;
+  //   };
 
-    if (!recipe || !time || !serves || !description) {
-      toast.error("You must enter all values before submitting.");
-      return;
-    };
+  //   if (!recipe || !time || !serves || !description) {
+  //     toast.error("You must enter all values before submitting.");
+  //     return;
+  //   };
 
-    // set rec data
-    const recipeData = {
-      user_id: userId,
-      recipe: recipe,
-      time: time,
-      serves: serves,
-      description: description
-    };
+  //   // set rec data
+  //   const recipeData = {
+  //     user_id: userId,
+  //     recipe: recipe,
+  //     time: time,
+  //     serves: serves,
+  //     description: description
+  //   };
 
-    // add recipe and set recipe id
-    const recipeId = await addRecipe(recipeData);
-    // add recipe id to recipe Data
-    recipeData.id = recipeId;
+  //   // add recipe and set recipe id
+  //   const recipeId = await addRecipe(recipeData);
+  //   // add recipe id to recipe Data
+  //   recipeData.id = recipeId;
 
-    // update step to move to ingredients form
-    onNextStep(recipeData);
+  //   // update step to move to ingredients form
+  //   onNextStep(recipeData);
 
-  };
+  // };
 
   return (
     <div>
       <ToastContainer />
-      <form className="recipe-form" onSubmit={handleRecipeSubmit}>
+      {/* <form className="recipe-form" onSubmit={handleRecipeSubmit}>
         <input
           id="recipe"
           type="text"
@@ -107,7 +109,7 @@ export default function EditRecipeForm (props) {
         <button type="submit" className="submit-btn">
           ADD RECIPE DETAILS
         </button>
-      </form>
+      </form> */}
     </div>
   );
 };
