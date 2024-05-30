@@ -10,7 +10,7 @@ import { useAppData } from "../../hooks/useAppData";
 import useVerification from "../../hooks/useVerification";
 
 // Helpers
-import { addRecipe } from "../../helpers/recipeHelpers";
+import { editRecipeDetails } from "../../helpers/recipeHelpers";
 
 export default function EditRecipeDetails (props) {
 
@@ -26,8 +26,6 @@ export default function EditRecipeDetails (props) {
   // call hooks
   const { allRecipes } = useAppData();
   const userId = parseInt(useVerification());
-
-  console.log(userId, recipeUserId);
 
   // loading state
   if ( !allRecipes ) {
@@ -51,14 +49,15 @@ export default function EditRecipeDetails (props) {
   //     return;
   //   };
 
-  //   // set rec data
-  //   const recipeData = {
-  //     user_id: userId,
-  //     recipe: recipe,
-  //     time: time,
-  //     serves: serves,
-  //     description: description
-  //   };
+    // set rec data
+    const recipeData = {
+      recipe: recipe,
+      time: time,
+      serves: serves,
+      description: description
+    };
+
+    editRecipeDetails(recipeData);
 
   //   // add recipe and set recipe id
   //   const recipeId = await addRecipe(recipeData);
@@ -118,7 +117,7 @@ export default function EditRecipeDetails (props) {
             onChange={(event) => setNewDescription(event.target.value)}
           />
         </div>
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" onClick={editRecipeDetails}>
           EDIT RECIPE DETAILS
         </button>
       </form>
