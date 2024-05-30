@@ -73,7 +73,7 @@ export default function EditRecipeDetails (props) {
   return (
     <div>
       <ToastContainer />
-      {/* <form className="recipe-form" onSubmit={handleRecipeSubmit}>
+      <form className="recipe-form" >
         <input
           id="recipe"
           type="text"
@@ -87,29 +87,29 @@ export default function EditRecipeDetails (props) {
           type="number"
           className="input-field"
           placeholder="time to cook in minutes"
-          value={time || ''}
-          onChange={(event) => setTime(event.target.value)}
+          value={newTime || ''}
+          onChange={(event) => setNewTime(event.target.value)}
         />
         <input
           id="serves"
           type="number"
           className="input-field"
           placeholder="how many servings is this dish"
-          value={serves || ''}
-          onChange={(event) => setServes(event.target.value)}
+          value={newServes || ''}
+          onChange={(event) => setNewServes(event.target.value)}
         />
         <input
           id="description"
           type="text"
           className="input-field"
           placeholder="description"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
+          value={newDescription}
+          onChange={(event) => setNewDescription(event.target.value)}
         />
         <button type="submit" className="submit-btn">
           ADD RECIPE DETAILS
         </button>
-      </form> */}
+      </form>
     </div>
   );
 };
