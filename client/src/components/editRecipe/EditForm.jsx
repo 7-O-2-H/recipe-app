@@ -1,5 +1,6 @@
 // imports
 // import "../styles/FullRecipe.css"
+import { useState } from "react";
 import { useRouter } from "next/router";
 import EditableIngredient from "./EditableIngredient";
 import Steps from "../Steps";
@@ -14,9 +15,11 @@ export default function EditForm() {
   const currentIngredients = JSON.parse(ingredients);
   const currentSteps = JSON.parse(steps);
 
-  console.log(currentRecipe);
+  // set states
+  const [editRecipe, setEditRecipe] = useState(false);
+
+  // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
-  // console.log(ingredients, ingredientsArray);
 
   const ingredientArray = ingredientsArray.map((ingredient, index) => (
     <EditableIngredient
@@ -28,6 +31,7 @@ export default function EditForm() {
     />
   ));
 
+  // format steps
   const stepArray = [];
 
   for (let i = 0; i < currentSteps.length; i++) {
@@ -41,16 +45,27 @@ export default function EditForm() {
     />  
   ));
 
+  // handlers 
+   const handleEditRecipe = (event) => {
+    event.preventDefault();
+    setEditRecipe(true);
+   };
   // template
   return (
     <div className="edit-form">
-      <div className="edit-section">
+      {!editRecipe ? (
+        <div className="edit-section">
         <h4 id="edit-category">TITLE</h4>
         <div className="edit-content">
           {currentRecipe.recipe}
         </div>
-        <button className="edit-button">EDIT</button>
+        <button className="edit-button" onClick={handleEditRecipe}>EDIT</button>
       </div>
+      ) : (
+        <div>
+          <p>Edit Recipe</p>
+        </div>
+      )}
       <div className="edit-section">
         <h4 id="edit-category">INGREDIENTS</h4>
         <div className="edit-content">{ingredientArray}</div>
