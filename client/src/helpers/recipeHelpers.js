@@ -49,6 +49,18 @@ export async function addRecipe(recipeData) {
   }
 };
 
+export async function editRecipeDetails(recipeData) {
+
+  try {
+    const res = await axios.post(`http://localhost:8080/recipes/edit`, { recipeData });
+    console.log('Response status: ', res.status);
+    // return res.data[0].id;
+  } catch (err) {
+    console.error("axios error: ", err);
+    throw err;
+  }
+};
+
 export async function deleteRecipe(id) {
 
   try {
