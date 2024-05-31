@@ -50,8 +50,7 @@ export default function EditForm() {
 
   // handlers 
   const handleEditRecipe = (event) => {
-    event.preventDefault();
-    setEditRecipe(true);
+    setEditRecipe(prevState => !prevState);
   };
 
   // template
@@ -75,6 +74,7 @@ export default function EditForm() {
             description={currentRecipe.description}
             serves={currentRecipe.serves}
             time={currentRecipe.time}
+            toggleEditability={handleEditRecipe}
           />
         </div>
       )}

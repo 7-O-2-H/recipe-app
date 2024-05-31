@@ -14,7 +14,7 @@ import { editRecipeDetails } from "../../helpers/recipeHelpers";
 
 export default function EditRecipeDetails (props) {
 
-  const { id, recipeUserId, title, description, serves, time } = props
+  const { id, recipeUserId, title, description, serves, time, toggleEditability } = props
   
   
   // set states
@@ -54,6 +54,7 @@ export default function EditRecipeDetails (props) {
     };
 
     editRecipeDetails(recipeData);
+    toggleEditability();
 
   //   // add recipe and set recipe id
   //   const recipeId = await addRecipe(recipeData);
