@@ -117,6 +117,9 @@ export default function EditRecipeDetails (props) {
         <button type="submit" className="submit-btn" onClick={handleEditRecipeDetails}>
           EDIT RECIPE DETAILS
         </button>
+        <button onClick={toggleEditability}>
+          CANCEL
+        </button>
       </form>
     </div>
   );
