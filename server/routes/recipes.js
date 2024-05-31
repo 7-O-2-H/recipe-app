@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllRecipes, getRecipesByUserId, getRecipeById, addRecipe, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId, getRecipesBySortingData } = require('../db/queries/recipes');
+const { getAllRecipes, getRecipesByUserId, getRecipeById, addRecipe, editRecipeDetails, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId, getRecipesBySortingData } = require('../db/queries/recipes');
 
 // recipes
 router.get('/', (req, res) => {
@@ -56,11 +56,11 @@ router.post('/add', (req, res) => {
 router.post('/edit', (req, res) => {
 
   const recipeData = req.body.recipeData;
-  console.log(recipeData);
-  // EditRecipeDetails(recipeData)
-  // .then(data => {
-  //   res.json(data);
-  // })
+
+  editRecipeDetails(recipeData)
+  .then(data => {
+    res.json(data);
+  })
 });
 
 router.post('/delete', (req, res) => {
