@@ -5,19 +5,20 @@ import { useRouter } from "next/router";
 import EditableIngredient from "./EditableIngredient";
 import Steps from "../Steps";
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
-import { useRecipe } from "../../hooks/useRecipe";
 import EditRecipeDetails from "./EditRecipeDetails";
 
-export default function EditForm() {
+export default function EditForm(props) {
 
-  const router = useRouter();
-  const { recipe, ingredients, steps } = router.query;
+  // const router = useRouter();
+  // const { recipe, ingredients, steps } = router.query;
 
-  const currentRecipe = JSON.parse(recipe);
-  const currentIngredients = JSON.parse(ingredients);
-  const currentSteps = JSON.parse(steps);
+  // const currentRecipe = JSON.parse(recipe);
+  // const currentIngredients = JSON.parse(ingredients);
+  // const currentSteps = JSON.parse(steps);
 
-  if (!currentRecipe || currentIngredients || currentSteps) {
+  const { currentRecipe, currentIngredients, currentSteps, currentTags } = props;
+
+  if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
       <div>Loading...</div>
     );
@@ -37,7 +38,7 @@ export default function EditForm() {
       recipeId={currentRecipe.id}
       index={index}
       ingredient={JSON.stringify(ingredient)}
-      ingredientArray={ingredients}
+      ingredientArray={JSON.stringify(currentIngredients)}
     />
   ));
 
