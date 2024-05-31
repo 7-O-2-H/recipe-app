@@ -36,13 +36,14 @@ export default function EditRecipeDetails (props) {
     event.preventDefault();
 
   //   // check if recipe already exists
-  //   const existingRecipe = allRecipes.find(rec => rec.recipe.toLowerCase() === (recipe.toLowerCase()));
+    const existingRecipe = allRecipes.find(rec => rec.recipe.toLowerCase() === (recipe.toLowerCase()));
+    console.log(existingRecipe.id, existingRecipe.id === id);
     
-  //   // prevent add recipe if already in db
-  //   if (existingRecipe) {
-  //     toast.error("There is already a recipe with this name in our database.");
-  //     return;
-  //   };
+    // prevent add recipe if already in db and is not the name of the recipe currently being edited
+    if (existingRecipe && existingRecipe.id !== id) {
+      toast.error("There is already a recipe with this name in our database.");
+      return;
+    };
 
   //   if (!recipe || !time || !serves || !description) {
   //     toast.error("You must enter all values before submitting.");
