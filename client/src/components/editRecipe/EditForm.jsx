@@ -11,9 +11,11 @@ import EditRecipeDetails from "./EditRecipeDetails";
 export default function EditForm() {
 
   const router = useRouter();
-  const { id } = router.query;
+  const { recipe, ingredients, steps } = router.query;
 
-  const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipe(id);
+  const currentRecipe = JSON.parse(recipe);
+  const currentIngredients = JSON.parse(ingredients);
+  const currentSteps = JSON.parse(steps);
 
   if (!currentRecipe || currentIngredients || currentSteps) {
     return (
