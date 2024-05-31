@@ -27,6 +27,8 @@ export default function EditRecipeDetails (props) {
   const { allRecipes } = useAppData();
   const userId = parseInt(useVerification());
 
+  console.log('currentUserId: ', userId, '\nRecipeUserId: ', recipeUserId, '\nId check: ', userId === recipeUserId);
+
   // loading state
   if ( !allRecipes ) {
     return <div>Loading...</div>
@@ -43,6 +45,12 @@ export default function EditRecipeDetails (props) {
       toast.error("There is already a recipe with this name in our database.");
       return;
     };
+
+    // add check to see if user is owner of recipe
+    if (userId !== recipeUserId) {
+      toast.error("You are not authorised to edit this recipe.");
+      return;
+    }
 
     // set rec data
     const recipeData = {
