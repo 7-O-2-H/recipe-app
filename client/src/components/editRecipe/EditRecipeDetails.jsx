@@ -50,7 +50,7 @@ export default function EditRecipeDetails (props) {
     if (userId !== recipeUserId) {
       toast.error("You are not authorised to edit this recipe.");
       return;
-    }
+    };
 
     // set rec data
     const recipeData = {
@@ -63,15 +63,6 @@ export default function EditRecipeDetails (props) {
 
     editRecipeDetails(recipeData);
     toggleEditability();
-
-  //   // add recipe and set recipe id
-  //   const recipeId = await addRecipe(recipeData);
-  //   // add recipe id to recipe Data
-  //   recipeData.id = recipeId;
-
-  //   // update step to move to ingredients form
-  //   onNextStep(recipeData);
-
   };
 
   return (
