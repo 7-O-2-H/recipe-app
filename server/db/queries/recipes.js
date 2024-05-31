@@ -60,6 +60,28 @@ const addRecipe = (recipeData) => {
     });
 };
 
+const editRecipeDetails = (recipeData) => {
+
+  values = [recipeData.id, recipeData.recipe, recipeData.time, recipeData.serves, recipeData.description];
+
+  return db.query(`
+    UPDATE recipes
+    SET recipe = $2, 
+      time = $3, 
+      serves = $4,
+      description = $5
+    WHERE id = $1
+    RETURNING *;
+  `, values)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((error) => {
+      console.log('edit recipe details error: ', error.message);
+      return error.message;
+    });
+};
+
 const deleteRecipeById = (id) => {
   return db.query(`DELETE FROM recipes WHERE recipes.id = $1`, [id])
     .then((result) => {
@@ -136,4 +158,4 @@ const getRecipesBySortingData = (ingredient, tag, maxTime) => {
   })
 };
 
-module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, addRecipe, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId, getRecipesBySortingData };
+module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, addRecipe, editRecipeDetails, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId, getRecipesBySortingData };
