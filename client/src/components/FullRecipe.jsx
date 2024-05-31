@@ -61,9 +61,7 @@ export default function FullRecipe (props) {
     router.push({
       pathname: '/edit',
       query: { 
-        recipe: JSON.stringify(recipe),
-        ingredients: JSON.stringify(ingredients),
-        steps: JSON.stringify(steps)
+        id: recipe.id
       }
     });
   };
