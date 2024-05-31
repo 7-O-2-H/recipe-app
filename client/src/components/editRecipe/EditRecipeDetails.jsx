@@ -32,8 +32,8 @@ export default function EditRecipeDetails (props) {
     return <div>Loading...</div>
   };
 
-  // const handleEditRecipeDetails = async (event) => {
-  //   event.preventDefault();
+  const handleEditRecipeDetails = async (event) => {
+    event.preventDefault();
 
   //   // check if recipe already exists
   //   const existingRecipe = allRecipes.find(rec => rec.recipe.toLowerCase() === (recipe.toLowerCase()));
@@ -51,10 +51,11 @@ export default function EditRecipeDetails (props) {
 
     // set rec data
     const recipeData = {
+      id: id,
       recipe: recipe,
-      time: time,
-      serves: serves,
-      description: description
+      time: newTime,
+      serves: newServes,
+      description: newDescription
     };
 
     editRecipeDetails(recipeData);
@@ -67,7 +68,7 @@ export default function EditRecipeDetails (props) {
   //   // update step to move to ingredients form
   //   onNextStep(recipeData);
 
-  // };
+  };
 
   return (
     <div>
@@ -117,7 +118,7 @@ export default function EditRecipeDetails (props) {
             onChange={(event) => setNewDescription(event.target.value)}
           />
         </div>
-        <button type="submit" className="submit-btn" onClick={editRecipeDetails}>
+        <button type="submit" className="submit-btn" onClick={handleEditRecipeDetails}>
           EDIT RECIPE DETAILS
         </button>
       </form>
