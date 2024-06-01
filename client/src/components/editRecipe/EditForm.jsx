@@ -18,10 +18,10 @@ export default function EditForm(props) {
       <div>Loading...</div>
     );
   };
-  
-  console.log()
+    
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
+  const [editSteps, setEditSteps] = useState(false);
 
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
@@ -86,11 +86,15 @@ export default function EditForm(props) {
         <h4 id="edit-category">INGREDIENTS</h4>
         <div className="edit-content">{ingredientArray}</div>
       </div>
-      <div className="edit-section">
-        <h4 id="edit-category">INSTRUCTIONS</h4>
-        <div className="edit-content">{stepsArray}</div>
-        <button className="edit-button">EDIT STEPS</button>
-      </div>
+      {!editSteps ? (
+        <div className="edit-section">
+          <h4 id="edit-category">STEPS</h4>
+          <div className="edit-content">{stepsArray}</div>
+          <button className="edit-button">EDIT STEPS</button>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   )
 };
