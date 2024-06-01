@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // hooks
 import { useAppDataWithRefresh } from "../../hooks/useAppData";
 //component
-import QuantityDropdown from "./QuantityDropDown";
+import QuantityDropdown from "./QuantityDropdown";
 
 export default function IngredientsForm (props) {
 

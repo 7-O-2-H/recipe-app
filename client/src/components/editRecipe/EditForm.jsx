@@ -16,7 +16,7 @@ export default function EditForm(props) {
   // const currentIngredients = JSON.parse(ingredients);
   // const currentSteps = JSON.parse(steps);
 
-  const { currentRecipe, currentIngredients, currentSteps, currentTags } = props;
+  const { currentRecipe, currentIngredients, currentSteps, currentTags, setRefreshData } = props;
 
   if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
@@ -24,8 +24,6 @@ export default function EditForm(props) {
     );
   };
   
-  console.log(currentRecipe);
-
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
 
@@ -83,6 +81,7 @@ export default function EditForm(props) {
             serves={currentRecipe.serves}
             time={currentRecipe.time}
             toggleEditability={handleEditRecipe}
+            setRefreshData={setRefreshData}
           />
         </div>
       )}

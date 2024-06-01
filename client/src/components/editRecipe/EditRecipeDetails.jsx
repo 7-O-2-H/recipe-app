@@ -14,7 +14,7 @@ import { editRecipeDetails } from "../../helpers/recipeHelpers";
 
 export default function EditRecipeDetails (props) {
 
-  const { id, recipeUserId, title, description, serves, time, toggleEditability } = props
+  const { id, recipeUserId, title, description, serves, time, toggleEditability, setRefreshData } = props
   
   
   // set states
@@ -60,6 +60,7 @@ export default function EditRecipeDetails (props) {
     };
 
     editRecipeDetails(recipeData);
+    setRefreshData(prevData => !prevData);
     toggleEditability();
   };
 
