@@ -6,6 +6,7 @@ import EditableIngredient from "./EditableIngredient";
 import Steps from "../Steps";
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import EditRecipeDetails from "./EditRecipeDetails";
+import EditSteps from "./EditSteps";
 
 export default function EditForm(props) {
 
@@ -45,6 +46,15 @@ export default function EditForm(props) {
 
   const stepsArray = currentSteps.map((step, index) => (
     <Steps
+      key={index + 1}
+      step_number={step.step_number}
+      step_name={step.step_name}
+      instruction={step.instruction}
+    />  
+  ));
+
+  const editStepsArray = currentSteps.map((step, index) => (
+    <EditSteps
       key={index + 1}
       step_number={step.step_number}
       step_name={step.step_name}
@@ -98,7 +108,9 @@ export default function EditForm(props) {
           <button className="edit-button" onClick={handleEditSteps}>EDIT STEPS</button>
         </div>
       ) : (
-        <div></div>
+        <div>
+          {editStepsArray}
+        </div>
       )}
     </div>
   )

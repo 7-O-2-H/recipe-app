@@ -6,7 +6,7 @@ export default function Steps(props) {
     <div className="steps-container">
       <div className="step">
         <h3>
-          {step_number !== undefined ? `${step_number}. ` : ''}{step_name}
+          {step_name}
         </h3>
         <br></br>
         {instruction}
