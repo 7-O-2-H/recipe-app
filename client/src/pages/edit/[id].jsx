@@ -1,6 +1,7 @@
 
 // imports
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import NavBar from "../../components/NavBar";
 import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
@@ -12,7 +13,7 @@ export default function Edit( { params } ) {
   // retrieve recipeId from router
   const router = useRouter();
   const recipe = router.query;
-  const recipeId = parseInt(recipe.id);
+  const [recipeId, setRecipeId] = useState(parseInt(recipe.id)); 
 
   console.log(recipeId, typeof recipeId);
   // use hook to retreive selected recipe
@@ -28,7 +29,7 @@ export default function Edit( { params } ) {
     <div>
       <NavBar />
       <Spacer />
-      <Header title={currentRecipe.recipe} />
+      <Header title={`Edit ${currentRecipe.recipe}`} />
       <Spacer />
       <EditForm
         currentRecipe={currentRecipe}
