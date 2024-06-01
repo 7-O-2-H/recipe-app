@@ -47,7 +47,7 @@ export default function FullRecipe (props) {
       return <div>Loading...</div>
     }
   };
-
+  
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
  

@@ -9,14 +9,9 @@ import EditRecipeDetails from "./EditRecipeDetails";
 
 export default function EditForm(props) {
 
-  // const router = useRouter();
-  // const { recipe, ingredients, steps } = router.query;
-
-  // const currentRecipe = JSON.parse(recipe);
-  // const currentIngredients = JSON.parse(ingredients);
-  // const currentSteps = JSON.parse(steps);
-
   const { currentRecipe, currentIngredients, currentSteps, currentTags, setRefreshData } = props;
+
+  console.log(currentSteps);
 
   if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
@@ -24,6 +19,7 @@ export default function EditForm(props) {
     );
   };
   
+  console.log()
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
 
@@ -40,17 +36,18 @@ export default function EditForm(props) {
     />
   ));
 
-  // format steps
-  const stepArray = [];
+  // // format steps
+  // const stepArray = [];
 
-  for (let i = 0; i < currentSteps.length; i++) {
-    stepArray.push(currentSteps[i].instruction)
-  }
+  // for (let i = 0; i < currentSteps.length; i++) {
+  //   stepArray.push(currentSteps[i].instruction)
+  // }
 
-  const stepsArray = stepArray.map((step, index) => (
+  const stepsArray = currentSteps.map((step, index) => (
     <Steps
       key={index + 1}
-      instruction={step}
+      step_name={step.step_name}
+      instruction={step.instruction}
     />  
   ));
 
@@ -92,7 +89,7 @@ export default function EditForm(props) {
       <div className="edit-section">
         <h4 id="edit-category">INSTRUCTIONS</h4>
         <div className="edit-content">{stepsArray}</div>
-        <button className="edit-button">EDIT</button>
+        <button className="edit-button">EDIT STEPS</button>
       </div>
     </div>
   )
