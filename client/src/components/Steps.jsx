@@ -1,12 +1,12 @@
 export default function Steps(props) {
   
-  const { step_name, instruction } = props;
+  const { step_number, step_name, instruction } = props;
   //template
   return (
     <div className="steps-container">
       <div className="step">
         <h3>
-          {step_name}
+          {step_number !== undefined ? `${step_number}. ` : ''}{step_name}
         </h3>
         <br></br>
         {instruction}

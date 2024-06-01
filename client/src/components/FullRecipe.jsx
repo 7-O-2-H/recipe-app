@@ -107,6 +107,7 @@ export default function FullRecipe (props) {
   const stepsArray = steps.map((step, index) => (
     <Steps
       key={index + 1}
+      // step_number={step.step_number}
       step_name={step.step_name}
       instruction={step.instruction}
     />  

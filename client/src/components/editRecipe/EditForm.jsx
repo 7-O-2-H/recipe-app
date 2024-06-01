@@ -46,6 +46,7 @@ export default function EditForm(props) {
   const stepsArray = currentSteps.map((step, index) => (
     <Steps
       key={index + 1}
+      step_number={step.step_number}
       step_name={step.step_name}
       instruction={step.instruction}
     />  
