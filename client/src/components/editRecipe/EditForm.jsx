@@ -56,6 +56,10 @@ export default function EditForm(props) {
     setEditRecipe(prevState => !prevState);
   };
 
+  const handleEditSteps = (event) => {
+    setEditSteps(prevState => !prevState);
+  };
+
   // template
   return (
     <div className="edit-form">
@@ -90,7 +94,7 @@ export default function EditForm(props) {
         <div className="edit-section">
           <h4 id="edit-category">STEPS</h4>
           <div className="edit-content">{stepsArray}</div>
-          <button className="edit-button">EDIT STEPS</button>
+          <button className="edit-button" onClick={handleEditSteps}>EDIT STEPS</button>
         </div>
       ) : (
         <div></div>
