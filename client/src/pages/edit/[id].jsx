@@ -15,6 +15,8 @@ export default function Edit( { params } ) {
   const router = useRouter();
   const recipe = router.query;
 
+  console.log(recipe);
+
   // set states
   const [recipeId, setRecipeId] = useState(parseInt(recipe.id)); 
   const [refreshData, setRefreshData] = useState(false);

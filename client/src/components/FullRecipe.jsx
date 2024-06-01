@@ -57,18 +57,6 @@ export default function FullRecipe (props) {
     router.push('/favourites');
   };
 
-  // const handleEdit = () => {
-  //   router.push({
-  //     pathname: `/edit/${recipe.id}`,
-  //     query: {
-  //       id: recipe.id,
-  //       recipe: JSON.stringify(recipe),
-  //       ingredients: JSON.stringify(ingredients),
-  //       steps: JSON.stringify(steps)
-  //     }
-  //   });
-  // };
-
   const handleEdit = () => {
     router.push(`/edit/${recipe.id}`);
   };
