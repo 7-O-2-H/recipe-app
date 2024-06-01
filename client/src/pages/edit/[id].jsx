@@ -29,7 +29,7 @@ export default function Edit( { params } ) {
     <div>
       <NavBar />
       <Spacer />
-      <Header title={`Edit ${currentRecipe.recipe}`} />
+      <Header title={`Edit`} />
       <Spacer />
       <EditForm
         currentRecipe={currentRecipe}
