@@ -70,7 +70,7 @@ export default function EditForm(props) {
         <div className="edit-content">
           {currentRecipe.recipe}
         </div>
-        <button className="edit-button" onClick={handleEditRecipe}>EDIT</button>
+        <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button>
       </div>
       ) : (
         <div>

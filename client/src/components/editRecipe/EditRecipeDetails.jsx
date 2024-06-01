@@ -27,8 +27,6 @@ export default function EditRecipeDetails (props) {
   const { allRecipes } = useAppData();
   const userId = parseInt(useVerification());
 
-  console.log('currentUserId: ', userId, '\nRecipeUserId: ', recipeUserId, '\nId check: ', userId === recipeUserId);
-
   // loading state
   if ( !allRecipes ) {
     return <div>Loading...</div>
@@ -67,6 +65,7 @@ export default function EditRecipeDetails (props) {
 
   return (
     <div>
+      <h2>Recipe Details</h2>
       <ToastContainer />
       <form className="recipe-form" >
         <div>
