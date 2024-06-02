@@ -191,70 +191,8 @@ export default function EditSteps(props) {
   //template
   return (
     <div className="steps-container">
-      <div className="step">
-        <h3>
-          {step_number}
-        </h3>
-        <h3>
-          {step_name}
-        </h3>
-        <br></br>
-        {instruction}
-        <br></br>
-        <br></br>
-      </div>
-    </div>
-    <div>
-    {instructionsArray && instructionsArray[0] && (
-              <h2>Submitted Steps:</h2>
-          )}
-          {instructionsArray && instructionsArray[0] && (
-            <p>
-              {instructionsArray.map((step, index) => (
-                <li key={index}>
-                  {step.step_name}: {step.instruction}
-                </li>
-              ))}
-            </p>
-          )}        
-          {instructionType === 'step' ? (
-            <h3>
-              {stepName}:
-            </h3>
-          ) : (
-            <h3>
-              Prep:
-            </h3>
-          )}
-          <form className="steps-form" >
-            <input
-              id="instruction"
-              type="text"
-              className="input-field"
-              placeholder="instruction"
-              value={instructionContainer}
-              onChange={handleInstructionInput}
-              />
-            {instructionType === 'prep' ? (
-              <div>
-                <button type="submit" className="submit-btn" onClick={handleAddStep}>
-                  ADD PREP
-                </button>
-                <button type="submit" onClick={handleSkipPrep}>
-                  SKIP PREP
-                </button>
-              </div>
-            ) : (
-              <button type="submit" className="submit-btn" onClick={handleAddStep}>
-                ADD STEP
-              </button>
-            )}
-            <button type="submit" className="submit-btn" onClick={handleSubmit}>
-              SUBMIT RECIPE
-            </button>
-            <button onClick={handleCancel}>CANCEL</button>
-          </form>
+      
         </div>
       )
-  );
+
 };
