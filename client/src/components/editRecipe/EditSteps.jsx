@@ -12,11 +12,21 @@ export default function EditSteps(props) {
   const [stepNumber, setStepNumber] = useState(step_number);
   const [stepName, setStepName] = useState(step_name);
   const [instructionContainer, setInstructionContainer] = useState(instruction);
+
   //template
   return (
     <div className="steps-container">
-      
-    
+      <form className="edit-steps-form" >
+        <input
+          label="Instruction"
+          id="instruction"
+          type="text"
+          className="input-field"
+          placeholder="instruction"
+          value={instructionContainer}
+          // onChange={handleInstructionInput}
+          />
+      </form>
     </div>
   )
 };
