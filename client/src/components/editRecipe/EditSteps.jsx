@@ -18,7 +18,7 @@ export default function EditSteps(props) {
     <div className="steps-container">
       <form className="edit-steps-form" >
         <input
-          label="Instruction"
+          label="Step Name"
           id="stepName"
           type="text"
           className="input-field"
