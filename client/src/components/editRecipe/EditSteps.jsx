@@ -16,7 +16,7 @@ export default function EditSteps(props) {
   return (
     <div className="steps-container">
       
-        </div>
-      )
-
+    
+    </div>
+  )
 };
