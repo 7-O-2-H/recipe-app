@@ -19,13 +19,22 @@ export default function EditSteps(props) {
       <form className="edit-steps-form" >
         <input
           label="Instruction"
+          id="stepName"
+          type="text"
+          className="input-field"
+          placeholder="Step Name"
+          value={stepName}
+          // onChange={handleInstructionInput}
+        />
+        <input
+          label="Instruction"
           id="instruction"
           type="text"
           className="input-field"
           placeholder="instruction"
           value={instructionContainer}
           // onChange={handleInstructionInput}
-          />
+        />
       </form>
     </div>
   )
