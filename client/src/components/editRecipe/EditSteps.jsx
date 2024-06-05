@@ -18,6 +18,15 @@ export default function EditSteps(props) {
     <div className="steps-container">
       <form className="edit-steps-form" >
         <input
+          label="Step Number"
+          id="stepNumber"
+          type="tenumberxt"
+          className="input-field"
+          placeholder="Step Number"
+          value={stepName}
+          // onChange={handleInstructionInput}
+        />
+        <input
           label="Step Name"
           id="stepName"
           type="text"
