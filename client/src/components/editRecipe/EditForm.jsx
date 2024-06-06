@@ -37,13 +37,6 @@ export default function EditForm(props) {
     />
   ));
 
-  // // format steps
-  // const stepArray = [];
-
-  // for (let i = 0; i < currentSteps.length; i++) {
-  //   stepArray.push(currentSteps[i].instruction)
-  // }
-
   const stepsArray = currentSteps.map((step, index) => (
     <Steps
       key={index + 1}
@@ -56,7 +49,7 @@ export default function EditForm(props) {
   const editStepsArray = currentSteps.map((step, index) => (
     <EditSteps
       key={index + 1}
-      step_number={step.step_number}
+      step_number={index + 1}
       step_name={step.step_name}
       instruction={step.instruction}
     />  
