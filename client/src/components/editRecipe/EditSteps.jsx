@@ -7,7 +7,7 @@ import { deleteStepById } from "../../helpers/stepsHelpers";
 
 export default function EditSteps(props) {
   
-  const { step_number, step_name, instruction } = props;
+  const { step_id, step_number, step_name, instruction } = props;
 
   // set states
   const [stepNumber, setStepNumber] = useState(step_number);
