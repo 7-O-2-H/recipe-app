@@ -23,7 +23,7 @@ export default function EditSteps(props) {
           type="tenumberxt"
           className="input-field"
           placeholder="Step Number"
-          value={stepName}
+          value={stepNumber}
           // onChange={handleInstructionInput}
         />
         <input
