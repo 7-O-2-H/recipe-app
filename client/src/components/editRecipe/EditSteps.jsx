@@ -13,13 +13,50 @@ export default function EditSteps(props) {
   const [stepNumber, setStepNumber] = useState(step_number);
   const [stepName, setStepName] = useState(step_name);
   const [instructionContainer, setInstructionContainer] = useState(instruction);
-  const [showStep, setShowStep] = useState(true);
+  const [showStep, setShowStep] = useState(true); // use this to hide step when deleted without refreshing page
+  const [updatedStep, setUpdatedStep] = useState({
+    step_id: step_id,
+    step_number: stepNumber, 
+    step_name: stepName,
+    instruction: instructionContainer
+  });
 
+  // use useEffect to update step when dependencies change
+  useEffect(() => {
+    setUpdatedStep({
+      ...updatedStep,
+      step_number: stepNumber,
+      step_name: stepName,
+      instruction: instructionContainer
+    })
+  }, [stepNumber, stepName, instructionContainer]);
+
+  // handlers
   // handle delete step
   const handleDeleteStep = (e) => {
     e.preventDefault();
     deleteStepById(step_id);
     setShowStep(false);
+  };
+
+  // on change handlers
+  const handleStepNumberChange = (e) => {
+    // const newStepNumber = e.target.value;
+    setStepNumber(e.target.value);
+  };
+
+  const handleStepNameChange = (e) => {
+    // const newStepNumber = e.target.value;
+    setStepName(e.target.value);
+  };
+  const handleInstructionChange = (e) => {
+    // const newStepNumber = e.target.value;
+    setInstructionContainer(e.target.value);
+  };
+
+  const handleSubmitChanges = (e) => {
+    e.preventDefault();
+    console.log(updatedStep);
   };
 
   //template
@@ -34,7 +71,7 @@ export default function EditSteps(props) {
           className="input-field"
           placeholder="Step Number"
           value={stepNumber}
-          // onChange={handleInstructionInput}
+          onChange={handleStepNumberChange}
         />
         <input
           label="Step Name"
@@ -43,7 +80,7 @@ export default function EditSteps(props) {
           className="input-field"
           placeholder="Step Name"
           value={stepName}
-          // onChange={handleInstructionInput}
+          onChange={handleStepNameChange}
         />
         <input
           label="Instruction"
@@ -52,9 +89,10 @@ export default function EditSteps(props) {
           className="input-field"
           placeholder="instruction"
           value={instructionContainer}
-          // onChange={handleInstructionInput}
+          onChange={handleInstructionChange}
         />
         <button type="submit" onClick={handleDeleteStep}>DELETE STEP</button>
+        <button type="submit" onClick={handleSubmitChanges}>SUBMIT EDIT</button>
       </form>
       )}
     </div>
