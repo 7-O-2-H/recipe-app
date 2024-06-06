@@ -18,7 +18,7 @@ export default function EditSteps(props) {
   const handleDeleteStep = (e) => {
     e.preventDefault();
 
-    // deleteStepById()
+    deleteStepById(step_id);
   };
 
   //template
