@@ -13,6 +13,13 @@ export default function EditSteps(props) {
   const [stepName, setStepName] = useState(step_name);
   const [instructionContainer, setInstructionContainer] = useState(instruction);
 
+  // handle delete step
+  const handleDeleteStep = (e) => {
+    e.preventDefault();
+
+    // deleteStepById()
+  };
+
   //template
   return (
     <div className="steps-container">
@@ -44,6 +51,7 @@ export default function EditSteps(props) {
           value={instructionContainer}
           // onChange={handleInstructionInput}
         />
+        <button type="submit" onClick={handleDeleteStep}>DELETE STEP</button>
       </form>
     </div>
   )
