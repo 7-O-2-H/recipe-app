@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { addStep } = require('../db/queries/steps');
+const { addStep, deleteStep } = require('../db/queries/steps');
 
 // POST
 router.post('/add', (req, res) => {
 
-  // req recipe data
+  // req step data
   const stepData = req.body.stepData;
 
   addStep(stepData)
@@ -15,14 +15,13 @@ router.post('/add', (req, res) => {
 
 router.post('/delete', (req, res) => {
 
-  // req recipe data
+  // req step id from body
   const id = req.body.id;
 
-  console.log(id);
-  // addStep(stepData)
-  // .then((data) => {
-  //   res.json(data);
-  // })
+  deleteStep(id)
+  .then((data) => {
+    res.json(data);
+  })
 });
 
 module.exports = router;

@@ -3,7 +3,6 @@ const db = require('../../configs/db.config');
 const addStep = (stepData) => {
 
   values = [stepData.recipe_id, stepData.step_number, stepData.step_name, stepData.instruction];
-  // console.log(values);
 
   return db.query(`INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES ($1, $2, $3, $4) RETURNING *;`, values)
     .then((result) => {
@@ -15,4 +14,15 @@ const addStep = (stepData) => {
     })
 };
 
-module.exports = { addStep };
+const deleteStep = (id) => {
+  return db.query(`DELETE FROM steps WHERE steps.id = $1;`, [id])
+    .then((result) => {
+      return result.status;
+    })
+    .catch((error) => {
+      console.log('delete Step error: ', error.message);
+      return error.message;
+    });
+};
+
+module.exports = { addStep, deleteStep };
