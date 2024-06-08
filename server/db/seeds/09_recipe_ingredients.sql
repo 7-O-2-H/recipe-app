@@ -71,3 +71,8 @@ INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (6, 45, 1, 9);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (6, 1, 0.5, 9);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (6, 46, 0.5, 17);
+-- Oven Baked Chicken Breast
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 25, 4, 16);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 16, 2, 9);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 44, 1.5, 8);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 40, 1, 9);
