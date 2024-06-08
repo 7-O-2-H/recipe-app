@@ -23,6 +23,20 @@ export default function EditForm(props) {
   const [editSteps, setEditSteps] = useState(false);
   const [updatedSteps, setUpdatedSteps] = useState([]);
 
+  // handlers 
+  const handleEditRecipe = (event) => {
+    setEditRecipe(prevState => !prevState);
+  };
+
+  const handleEditSteps = (event) => {
+    setEditSteps(prevState => !prevState);
+  };
+  
+  const handleUpdateStepsArray = (updatedStep) => {
+    setUpdatedSteps(prevUpdatedSteps => [...prevUpdatedSteps, updatedStep]);
+    console.log(updatedSteps);
+  };
+
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
 
@@ -52,17 +66,9 @@ export default function EditForm(props) {
       step_number={index + 1}
       step_name={step.step_name}
       instruction={step.instruction}
+      updatedStepsArray={handleUpdateStepsArray}
     />  
   ));
-
-  // handlers 
-  const handleEditRecipe = (event) => {
-    setEditRecipe(prevState => !prevState);
-  };
-
-  const handleEditSteps = (event) => {
-    setEditSteps(prevState => !prevState);
-  };
 
   // template
   return (

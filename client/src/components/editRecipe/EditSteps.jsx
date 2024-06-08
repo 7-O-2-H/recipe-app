@@ -7,7 +7,7 @@ import { deleteStepById } from "../../helpers/stepsHelpers";
 
 export default function EditSteps(props) {
   
-  const { step_id, step_number, step_name, instruction } = props;
+  const { step_id, step_number, step_name, instruction, handleUpdateStepsArray } = props;
 
   // set states
   const [stepNumber, setStepNumber] = useState(step_number);
@@ -56,7 +56,7 @@ export default function EditSteps(props) {
 
   const handleSubmitChanges = (e) => {
     e.preventDefault();
-    console.log(updatedStep);
+    handleUpdateStepsArray(updatedStep);    
   };
 
   //template
