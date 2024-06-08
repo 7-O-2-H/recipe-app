@@ -39,12 +39,23 @@ export default function EditForm(props) {
   const handleUpdateSteps = (event) => {
     console.log(updatedSteps);
 
-    const uniqueSteps = updatedSteps.reduce((accumulated, current) => {
-      accumulated[current.step_id] = current;
-      return accumulated;
-    }, {});
+    // function omit earlier edits based on repeat steps id
+    const trimArrayByStepId = (array) => {
 
-    console.log(uniqueSteps);
+      // use reduce to omit earlier edits and return object
+      const uniqueSteps = array.reduce((accumulated, current) => {
+        accumulated[current.step_id] = current;
+        return accumulated;
+      }, {});
+    
+    // convert obj to array and return it
+    return Object.values(uniqueSteps);
+  
+    };
+
+    // call trim function to only use latest edits
+    const trimmedSteps = trimArrayByStepId(updatedSteps)
+    console.log(trimmedSteps);
   };
 
   // format ingredients array
