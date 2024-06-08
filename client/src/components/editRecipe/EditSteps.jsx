@@ -1,8 +1,10 @@
 // imports
+// react
 import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// helpers
 import { deleteStepById } from "../../helpers/stepsHelpers";
 import { editSteps } from "../../helpers/stepsHelpers";
 
