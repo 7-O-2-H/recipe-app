@@ -12,8 +12,6 @@ export default function EditForm(props) {
 
   const { currentRecipe, currentIngredients, currentSteps, currentTags, setRefreshData } = props;
 
-  console.log(currentSteps);
-
   if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
       <div>Loading...</div>
@@ -23,6 +21,7 @@ export default function EditForm(props) {
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
   const [editSteps, setEditSteps] = useState(false);
+  const [updatedSteps, setUpdatedSteps] = useState([]);
 
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
