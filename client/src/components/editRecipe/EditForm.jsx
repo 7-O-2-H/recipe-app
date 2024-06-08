@@ -9,7 +9,7 @@ import EditRecipeDetails from "./EditRecipeDetails";
 import EditSteps from "./EditSteps";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
-import { editSteps } from "../../helpers/stepsHelpers";
+import { editExistingSteps } from "../../helpers/stepsHelpers";
 
 export default function EditForm(props) {
 
@@ -26,7 +26,7 @@ export default function EditForm(props) {
   const [editSteps, setEditSteps] = useState(false);
   const [updatedSteps, setUpdatedSteps] = useState([]);
 
-  // handlers 
+  // handlers
   const handleEditRecipe = (event) => {
     setEditRecipe(prevState => !prevState);
   };
@@ -40,7 +40,6 @@ export default function EditForm(props) {
   };
 
   const handleUpdateSteps = (event) => {
-    console.log(updatedSteps);
 
     // function omit earlier edits based on repeat steps id
     const trimArrayByStepId = (array) => {
@@ -59,7 +58,7 @@ export default function EditForm(props) {
     // call trim function to only use latest edits
     const trimmedSteps = trimArrayByStepId(updatedSteps)
 
-    editSteps(trimmedSteps);
+    editExistingSteps(trimmedSteps);
   };
 
   // format ingredients array
