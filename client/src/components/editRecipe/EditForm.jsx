@@ -38,6 +38,13 @@ export default function EditForm(props) {
 
   const handleUpdateSteps = (event) => {
     console.log(updatedSteps);
+
+    const uniqueSteps = updatedSteps.reduce((accumulated, current) => {
+      accumulated[current.step_id] = current;
+      return accumulated;
+    }, {});
+
+    console.log(uniqueSteps);
   };
 
   // format ingredients array
