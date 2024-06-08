@@ -45,3 +45,4 @@ INSERT INTO ingredients (ingredient) VALUES ('salmon fillet');
 INSERT INTO ingredients (ingredient) VALUES ('brown sugar');
 INSERT INTO ingredients (ingredient) VALUES ('sweet paprika');
 INSERT INTO ingredients (ingredient) VALUES ('lemon');
+INSERT INTO ingredients (ingredient) VALUES ('thyme');
