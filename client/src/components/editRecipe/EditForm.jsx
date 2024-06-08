@@ -1,12 +1,15 @@
 // imports
-// import "../styles/FullRecipe.css"
+// react
 import { useState } from "react";
 import { useRouter } from "next/router";
+// components
 import EditableIngredient from "./EditableIngredient";
 import Steps from "../Steps";
-import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import EditRecipeDetails from "./EditRecipeDetails";
 import EditSteps from "./EditSteps";
+// helpers
+import { formatIngredientsData } from "../../helpers/conversionHelpers";
+import { editSteps } from "../../helpers/stepsHelpers";
 
 export default function EditForm(props) {
 
@@ -55,7 +58,8 @@ export default function EditForm(props) {
 
     // call trim function to only use latest edits
     const trimmedSteps = trimArrayByStepId(updatedSteps)
-    console.log(trimmedSteps);
+
+    editSteps(trimmedSteps);
   };
 
   // format ingredients array
