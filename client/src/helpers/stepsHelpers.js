@@ -26,12 +26,12 @@ export function deleteStepById(id) {
 export async function editExistingSteps(updatedSteps) {
 
   console.log(updatedSteps);
-  // try {
-  //   const res = await axios.post(`http://localhost:8080/steps/edit`, {updatedSteps});
-  //   console.log('Response status: ', res.status);
-  //   // return res.data[0].id;
-  // } catch (err) {
-  //   console.error("axios error: ", err);
-  //   throw err;
-  // }
+  try {
+    const res = await axios.post(`http://localhost:8080/steps/edit`, {updatedSteps});
+    console.log('Response status: ', res.status);
+    // return res.data[0].id;
+  } catch (err) {
+    console.error("axios error: ", err);
+    throw err;
+  }
 };

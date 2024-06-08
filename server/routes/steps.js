@@ -24,4 +24,16 @@ router.post('/delete', (req, res) => {
   })
 });
 
-module.exports = router;
+router.post('/edit', (req, res) => {
+
+  // req updated steps from body
+  const stepsArray = req.body.updatedSteps;
+
+  console.log(stepsArray);
+  // deleteStep(id)
+  // .then((data) => {
+  //   res.json(data);
+  // })
+});
+
+module.exports = router; 
