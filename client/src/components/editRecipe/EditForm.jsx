@@ -34,6 +34,9 @@ export default function EditForm(props) {
 
   const handleUpdateStepsArray = (updatedStep) => {
     setUpdatedSteps(prevUpdatedSteps => [...prevUpdatedSteps, updatedStep]);
+  };
+
+  const handleUpdateSteps = (event) => {
     console.log(updatedSteps);
   };
 
@@ -109,6 +112,7 @@ export default function EditForm(props) {
       ) : (
         <div>
           {editStepsArray}
+          <button type="submit" onClick={handleUpdateSteps}>EDIT STEPS</button>
         </div>
       )}
     </div>
