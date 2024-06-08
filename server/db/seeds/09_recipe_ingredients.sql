@@ -76,3 +76,7 @@ INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 16, 2, 9);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 44, 1.5, 8);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 40, 1, 9);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 47, 1, 9);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 48, 0.25, 9);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 42, 0.5, 9);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 1, 0.5, 9);
