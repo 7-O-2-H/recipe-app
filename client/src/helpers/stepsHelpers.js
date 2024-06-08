@@ -22,3 +22,15 @@ export function deleteStepById(id) {
       return data;
     });
 };
+
+export async function editSteps(updatedSteps) {
+
+  try {
+    const res = await axios.post(`http://localhost:8080/steps/edit`, {updatedSteps});
+    console.log('Response status: ', res.status);
+    // return res.data[0].id;
+  } catch (err) {
+    console.error("axios error: ", err);
+    throw err;
+  }
+};

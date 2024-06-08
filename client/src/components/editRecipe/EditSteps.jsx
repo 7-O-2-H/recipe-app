@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { deleteStepById } from "../../helpers/stepsHelpers";
+import { editSteps } from "../../helpers/stepsHelpers";
 
 export default function EditSteps(props) {
   
