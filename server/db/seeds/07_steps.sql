@@ -179,4 +179,4 @@ INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
   'Step 4',
   'Squeeze the lemon over the fish to add a citrusy flavour and serve. You may want to slice the lemon into wedges or use the peel as a garnish as well.'
 );
--- Seed Baked Chickn
+-- Seed Baked Chicken
