@@ -180,3 +180,10 @@ INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
   'Squeeze the lemon over the fish to add a citrusy flavour and serve. You may want to slice the lemon into wedges or use the peel as a garnish as well.'
 );
 -- Seed Baked Chicken
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  7,
+  1,
+  'Prep',
+  'Preheat oven to 425 degrees fahrenheit and mix together all seasonings.'
+);
+
