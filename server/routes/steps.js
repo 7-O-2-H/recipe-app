@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { addStep, deleteStep } = require('../db/queries/steps');
+const { addStep, deleteStep, editStep } = require('../db/queries/steps');
 
 // POST
 router.post('/add', (req, res) => {
@@ -30,13 +30,13 @@ router.post('/edit', (req, res) => {
   const stepsArray = req.body.updatedSteps;
 
   for (const step of stepsArray) {
-    console.log(step);
+    // console.log(step);
+    editStep(step)
+    .then((data) => {
+      console.log(data);
+    });
   };
-  
-  // deleteStep(id)
-  // .then((data) => {
-  //   res.json(data);
-  // })
+
 });
 
 module.exports = router; 
