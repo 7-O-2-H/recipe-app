@@ -80,3 +80,4 @@ INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 48, 0.25, 9);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 42, 0.5, 9);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 1, 0.5, 9);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (7, 32, 0, 17);
