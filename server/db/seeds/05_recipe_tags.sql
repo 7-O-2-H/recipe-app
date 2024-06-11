@@ -16,3 +16,6 @@ INSERT INTO recipe_tags (recipe_id, tag_id) VALUES (4, 10);
 INSERT INTO recipe_tags (recipe_id, tag_id) VALUES (5, 10);
 INSERT INTO recipe_tags (recipe_id, tag_id) VALUES (5, 8);
 INSERT INTO recipe_tags (recipe_id, tag_id) VALUES (6, 4);
+INSERT INTO recipe_tags (recipe_id, tag_id) VALUES (7, 10);
+INSERT INTO recipe_tags (recipe_id, tag_id) VALUES (7, 11);
+INSERT INTO recipe_tags (recipe_id, tag_id) VALUES (7, 20);
