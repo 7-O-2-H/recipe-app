@@ -106,7 +106,7 @@ const getIngredientsByRecipeId = (id) => {
 
 // steps
 const getStepsByRecipeId = (id) => {
-  return db.query("SELECT * FROM steps WHERE recipe_id = $1", [id]).then(data => {
+  return db.query("SELECT * FROM steps WHERE recipe_id = $1 ORDER BY step_number;", [id]).then(data => {
     return data.rows;
   })
   .catch((err) => {
