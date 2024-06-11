@@ -192,4 +192,16 @@ INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
   'Step 1',
   'Line the baking sheet with tin foil. Place the chicken breasts upside down on the tray. Coat the exposed side of each breast with oil - about a quarter tsp per breast - then sprinkle with seasoning trying to coat as much of the surface as possible. Flip the chicken and repeat this step on the top side of each breast.'
 );
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  7,
+  3,
+  'Step 2',
+  'Bake for 18 minutes or until internal temperature is 165F/75C.'
+);
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  7,
+  4,
+  'Step 3',
+  'Transfer the chicken from the oven to plates for serving and garnish with parsley.'
+);
 
