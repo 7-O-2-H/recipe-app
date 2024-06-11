@@ -48,7 +48,7 @@ const getFullRecipeById = (id) => {
 // POST/PUT
 const addRecipe = (recipeData) => {
 
-  values = [recipeData.user_id, recipeData.recipe, recipeData.time, 1, recipeData.serves, recipeData.description];
+  const values = [recipeData.user_id, recipeData.recipe, recipeData.time, 1, recipeData.serves, recipeData.description];
   
   return db.query(`INSERT INTO recipes (user_id, recipe, time, measurement_id, serves, description) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`, values)
     .then((result) => {
@@ -62,7 +62,7 @@ const addRecipe = (recipeData) => {
 
 const editRecipeDetails = (recipeData) => {
 
-  values = [recipeData.id, recipeData.recipe, recipeData.time, recipeData.serves, recipeData.description];
+  const values = [recipeData.id, recipeData.recipe, recipeData.time, recipeData.serves, recipeData.description];
 
   return db.query(`
     UPDATE recipes
