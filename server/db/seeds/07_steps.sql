@@ -186,4 +186,10 @@ INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
   'Prep',
   'Preheat oven to 425 degrees fahrenheit and mix together all seasonings.'
 );
+INSERT INTO steps (recipe_id, step_number, step_name, instruction) VALUES (
+  7,
+  2,
+  'Step 1',
+  'Line the baking sheet with tin foil. Place the chicken breasts upside down on the tray. Coat the exposed side of each breast with oil - about a quarter tsp per breast - then sprinkle with seasoning trying to coat as much of the surface as possible. Flip the chicken and repeat this step on the top side of each breast.'
+);
 
