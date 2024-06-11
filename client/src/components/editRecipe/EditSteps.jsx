@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // helpers
 import { deleteStepById } from "../../helpers/stepsHelpers";
-import { editSteps } from "../../helpers/stepsHelpers";
 
 export default function EditSteps(props) {
   
@@ -45,7 +44,7 @@ export default function EditSteps(props) {
   // on change handlers
   const handleStepNumberChange = (e) => {
     // const newStepNumber = e.target.value;
-    setStepNumber(e.target.value);
+    setStepNumber(parseInt(e.target.value));
   };
 
   const handleStepNameChange = (e) => {

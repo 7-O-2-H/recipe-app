@@ -25,4 +25,13 @@ const deleteStep = (id) => {
     });
 };
 
+const editStep = (stepData) => {
+
+  const values = [stepData.id, stepData.step_number, stepData.step_name, stepData.instruction];
+
+  // return db.query(`
+  //   UPDATE steps
+  //   SET `)
+}
+
 module.exports = { addStep, deleteStep };
