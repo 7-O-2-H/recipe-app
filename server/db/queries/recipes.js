@@ -67,9 +67,9 @@ const editRecipeDetails = (recipeData) => {
   return db.query(`
     UPDATE recipes
     SET recipe = $2, 
-      time = $3, 
-      serves = $4,
-      description = $5
+        time = $3, 
+        serves = $4,
+        description = $5
     WHERE id = $1
     RETURNING *;
   `, values)

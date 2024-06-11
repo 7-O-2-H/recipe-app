@@ -32,17 +32,18 @@ const editStep = (stepData) => {
   return db.query(`
     UPDATE steps
     SET step_number = $2,
-      step_name = $3,
-      instruction = $4
+        step_name = $3,
+        instruction = $4
     WHERE id = $1
-    RETURNING recipe_id;`, values)
-      .then((result) => {
-        return result.rows;
-      })
-      .catch((error) => {
-        console.log('edit steps error: ', error.message);
-      return error.message;
-      });
+    RETURNING recipe_id;
+  `, values)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((error) => {
+      console.log('edit steps error: ', error.message);
+    return error.message;
+    });
 };
 
 module.exports = { addStep, deleteStep };
