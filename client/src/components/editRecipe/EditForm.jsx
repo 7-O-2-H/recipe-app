@@ -134,6 +134,7 @@ export default function EditForm(props) {
         <div>
           {editStepsArray}
           <button type="submit" onClick={handleUpdateSteps}>EDIT STEPS</button>
+          <button type="submit"> ADD STEP </button>
         </div>
       )}
     </div>
