@@ -61,6 +61,10 @@ export default function EditForm(props) {
     editExistingSteps(trimmedSteps);
   };
 
+  const handleAddStepToggle = () -> {
+
+  };
+
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
 
