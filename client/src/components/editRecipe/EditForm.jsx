@@ -62,8 +62,8 @@ export default function EditForm(props) {
     editExistingSteps(trimmedSteps);
   };
 
-  const handleAddStepToggle = () => {
-
+  const handleAddStepToggle = (event) => {
+    setShowAddStep(prevState => !prevState);
   };
 
   // format ingredients array
@@ -139,7 +139,7 @@ export default function EditForm(props) {
         <div>
           {editStepsArray}
           <button type="submit" onClick={handleUpdateSteps}>EDIT STEPS</button>
-          <button type="submit"> ADD STEP </button>
+          <button type="submit">ADD STEP</button>
         </div>
       )}
     </div>
