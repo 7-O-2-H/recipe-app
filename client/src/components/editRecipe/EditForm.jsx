@@ -25,6 +25,7 @@ export default function EditForm(props) {
   const [editRecipe, setEditRecipe] = useState(false);
   const [editSteps, setEditSteps] = useState(false);
   const [updatedSteps, setUpdatedSteps] = useState([]);
+  const [showAddStep, setShowAddStep] = useState(false);
 
   // handlers
   const handleEditRecipe = (event) => {
@@ -61,7 +62,7 @@ export default function EditForm(props) {
     editExistingSteps(trimmedSteps);
   };
 
-  const handleAddStepToggle = () -> {
+  const handleAddStepToggle = () => {
 
   };
 
