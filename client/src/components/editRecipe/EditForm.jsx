@@ -185,8 +185,8 @@ export default function EditForm(props) {
              type="text"
              className="input-field"
              placeholder="Step Name"
-            //  value={stepName}
-            //  onChange={handleStepNameChange}
+             value={stepName}
+             onChange={handleStepNameChange}
            />
            <input
              label="Instruction"
@@ -194,8 +194,8 @@ export default function EditForm(props) {
              type="text"
              className="input-field"
              placeholder="instruction"
-            //  value={instructionContainer}
-            //  onChange={handleInstructionChange}
+             value={instructionContainer}
+             onChange={handleInstructionChange}
            />
           </form>
           }
