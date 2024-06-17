@@ -84,6 +84,18 @@ export default function EditForm(props) {
     setShowAddStep(prevState => !prevState);
   };
 
+  // on change handlers
+  const handleStepNumberChange = (e) => {
+    setStepNumber(parseInt(e.target.value));
+  };
+
+  const handleStepNameChange = (e) => {
+    setStepName(e.target.value);
+  };
+  const handleInstructionChange = (e) => {
+    setInstructionContainer(e.target.value);
+  };
+
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
 
@@ -116,18 +128,6 @@ export default function EditForm(props) {
       updateStepsArray={handleUpdateStepsArray}
     />  
   ));
-
-  // on change handlers
-  const handleStepNumberChange = (e) => {
-    setStepNumber(parseInt(e.target.value));
-  };
-
-  const handleStepNameChange = (e) => {
-    setStepName(e.target.value);
-  };
-  const handleInstructionChange = (e) => {
-    setInstructionContainer(e.target.value);
-  };
 
   // template
   return (
