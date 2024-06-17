@@ -26,11 +26,24 @@ export default function EditForm(props) {
   const [editSteps, setEditSteps] = useState(false);
   const [updatedSteps, setUpdatedSteps] = useState([]);
   const [showAddStep, setShowAddStep] = useState(false);
+  const [stepNumber, setStepNumber] = useState(step_number);
+  const [stepName, setStepName] = useState(step_name);
+  const [instructionContainer, setInstructionContainer] = useState(instruction);
   const [newStep, setNewStep] = useState({
     step_number: 0,
     step_name: '',
     instruction: ''
   });
+
+  // use useEffect to update step when dependencies change
+  useEffect(() => {
+    setNewStep({
+      ...newStep,
+      step_number: stepNumber,
+      step_name: stepName,
+      instruction: instructionContainer
+    })
+  }, [stepNumber, stepName, instructionContainer]);
 
   // handlers
   const handleEditRecipe = (event) => {
@@ -104,6 +117,18 @@ export default function EditForm(props) {
     />  
   ));
 
+  // on change handlers
+  const handleStepNumberChange = (e) => {
+    setStepNumber(parseInt(e.target.value));
+  };
+
+  const handleStepNameChange = (e) => {
+    setStepName(e.target.value);
+  };
+  const handleInstructionChange = (e) => {
+    setInstructionContainer(e.target.value);
+  };
+
   // template
   return (
     <div className="edit-form">
@@ -152,7 +177,7 @@ export default function EditForm(props) {
              className="input-field"
              placeholder="Step Number"
              value={stepsArray.length + 1}
-            //  onChange={handleStepNumberChange}
+             onChange={handleStepNumberChange}
            />
            <input
              label="Step Name"
