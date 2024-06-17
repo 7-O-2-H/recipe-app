@@ -200,7 +200,9 @@ export default function EditForm(props) {
           </form>
           }
           <button type="submit" onClick={handleUpdateSteps}>EDIT STEPS</button>
-          <button type="submit" onClick={handleAddStepToggle}>ADD STEP</button>
+          {!showAddStep &&
+            <button type="submit" onClick={handleAddStepToggle}>ADD STEP</button>
+          }
         </div>
       )}
     </div>
