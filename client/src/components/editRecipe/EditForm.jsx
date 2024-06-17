@@ -26,6 +26,11 @@ export default function EditForm(props) {
   const [editSteps, setEditSteps] = useState(false);
   const [updatedSteps, setUpdatedSteps] = useState([]);
   const [showAddStep, setShowAddStep] = useState(false);
+  const [newStep, setNewStep] = useState({
+    step_number: 0,
+    step_name: '',
+    instruction: ''
+  });
 
   // handlers
   const handleEditRecipe = (event) => {
@@ -139,7 +144,35 @@ export default function EditForm(props) {
         <div>
           {editStepsArray}
           {showAddStep && 
-            <div>hello</div>
+           <form className="edit-steps-form" >
+           <input
+             label="Step Number"
+             id="stepNumber"
+             type="number"
+             className="input-field"
+             placeholder="Step Number"
+             value={stepsArray.length + 1}
+            //  onChange={handleStepNumberChange}
+           />
+           <input
+             label="Step Name"
+             id="stepName"
+             type="text"
+             className="input-field"
+             placeholder="Step Name"
+            //  value={stepName}
+            //  onChange={handleStepNameChange}
+           />
+           <input
+             label="Instruction"
+             id="instruction"
+             type="text"
+             className="input-field"
+             placeholder="instruction"
+            //  value={instructionContainer}
+            //  onChange={handleInstructionChange}
+           />
+          </form>
           }
           <button type="submit" onClick={handleUpdateSteps}>EDIT STEPS</button>
           <button type="submit" onClick={handleAddStepToggle}>ADD STEP</button>
