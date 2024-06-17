@@ -1,6 +1,6 @@
 // imports
 // react
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 // components
 import EditableIngredient from "./EditableIngredient";
@@ -26,9 +26,9 @@ export default function EditForm(props) {
   const [editSteps, setEditSteps] = useState(false);
   const [updatedSteps, setUpdatedSteps] = useState([]);
   const [showAddStep, setShowAddStep] = useState(false);
-  const [stepNumber, setStepNumber] = useState(step_number);
-  const [stepName, setStepName] = useState(step_name);
-  const [instructionContainer, setInstructionContainer] = useState(instruction);
+  const [stepNumber, setStepNumber] = useState(null);
+  const [stepName, setStepName] = useState('');
+  const [instructionContainer, setInstructionContainer] = useState('');
   const [newStep, setNewStep] = useState({
     step_number: 0,
     step_name: '',
@@ -193,7 +193,7 @@ export default function EditForm(props) {
              id="instruction"
              type="text"
              className="input-field"
-             placeholder="instruction"
+             placeholder="Instruction"
              value={instructionContainer}
              onChange={handleInstructionChange}
            />
