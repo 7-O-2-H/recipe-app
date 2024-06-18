@@ -30,6 +30,7 @@ export default function EditForm(props) {
   const [stepName, setStepName] = useState('');
   const [instructionContainer, setInstructionContainer] = useState('');
   const [newStep, setNewStep] = useState({
+    recipe_id: currentRecipe.id,
     step_number: 0,
     step_name: '',
     instruction: ''
