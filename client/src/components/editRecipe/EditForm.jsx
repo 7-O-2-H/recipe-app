@@ -84,6 +84,11 @@ export default function EditForm(props) {
     setShowAddStep(prevState => !prevState);
   };
 
+  const handleAddStep = (event) => {
+    event.preventDefault();
+    console.log(newStep);
+  };
+
   // on change handlers
   const handleStepNumberChange = (e) => {
     setStepNumber(parseInt(e.target.value));
@@ -176,7 +181,7 @@ export default function EditForm(props) {
               type="number"
               className="input-field"
               placeholder="Step Number"
-              value={stepsArray.length + 1}
+              value={stepNumber}
               onChange={handleStepNumberChange}
             />
             <input
@@ -198,6 +203,7 @@ export default function EditForm(props) {
               onChange={handleInstructionChange}
             />
             <button type="submit" onClick={handleAddStepToggle}>CANCEL ADD STEP</button>
+            <button type="submit" onClick={handleAddStep}>ADD STEP</button>
           </form>
           }
           <button type="submit" onClick={handleUpdateSteps}>EDIT STEPS</button>
