@@ -35,7 +35,7 @@ export default function EditForm(props) {
     instruction: ''
   });
 
-  // use useEffect to update step when dependencies change
+  // use useEffect to update new step when dependencies change
   useEffect(() => {
     setNewStep({
       ...newStep,
@@ -123,6 +123,13 @@ export default function EditForm(props) {
     />  
   ));
 
+  // useEffect to change value of steoNumber to default next step
+  useEffect(() => {
+    if (stepsArray && stepsArray.length > 0) {
+      setStepNumber(stepsArray.length);
+    };
+  }, [stepsArray]);
+
   const editStepsArray = currentSteps.map((step, index) => (
     <EditSteps
       key={index + 1}
@@ -181,7 +188,7 @@ export default function EditForm(props) {
               type="number"
               className="input-field"
               placeholder="Step Number"
-              value={stepNumber}
+              value={stepsArray.length + 1}
               onChange={handleStepNumberChange}
             />
             <input
