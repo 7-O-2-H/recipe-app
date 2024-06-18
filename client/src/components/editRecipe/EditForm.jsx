@@ -93,6 +93,7 @@ export default function EditForm(props) {
       editExistingSteps(trimmedSteps);
       addStep(newStep);
       setEditSteps(prevState => !prevState);
+      router.push(`/edit/${currentRecipe.id}`);
 
     };
   };
