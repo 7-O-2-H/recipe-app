@@ -2,6 +2,10 @@
 // react
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // components
 import EditableIngredient from "./EditableIngredient";
 import Steps from "../Steps";
@@ -10,6 +14,7 @@ import EditSteps from "./EditSteps";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
+import { addStep } from "../../helpers/stepsHelpers";
 
 export default function EditForm(props) {
 
@@ -61,24 +66,35 @@ export default function EditForm(props) {
 
   const handleUpdateSteps = (event) => {
 
-    // function omit earlier edits based on repeat steps id
-    const trimArrayByStepId = (array) => {
+    if (!newStep.recipe_id || !newStep.step_number || !newStep.step_name || !newStep.instruction) {
 
-      // use reduce to omit earlier edits and return object
-      const uniqueSteps = array.reduce((accumulated, current) => {
-        accumulated[current.step_id] = current;
-        return accumulated;
-      }, {});
-    
-    // convert obj to array and return it
-    return Object.values(uniqueSteps);
-  
+      toast.error("You must enter all information for your new step.");
+      return;
+
+    } else {
+
+      // function omit earlier edits based on repeat steps id
+      const trimArrayByStepId = (array) => {
+        
+        // use reduce to omit earlier edits and return object
+        const uniqueSteps = array.reduce((accumulated, current) => {
+          accumulated[current.step_id] = current;
+          return accumulated;
+        }, {});
+        
+        // convert obj to array and return it
+        return Object.values(uniqueSteps);
+        
+      };
+      
+      // call trim function to only use latest edits
+      const trimmedSteps = trimArrayByStepId(updatedSteps)
+      
+      editExistingSteps(trimmedSteps);
+      addStep(newStep);
+      setEditSteps(prevState => !prevState);
+
     };
-
-    // call trim function to only use latest edits
-    const trimmedSteps = trimArrayByStepId(updatedSteps)
-
-    editExistingSteps(trimmedSteps);
   };
 
   const handleAddStepToggle = (event) => {
@@ -145,6 +161,7 @@ export default function EditForm(props) {
   // template
   return (
     <div className="edit-form">
+      <ToastContainer />
       {!editRecipe ? (
         <div className="edit-section">
         <h4 id="edit-category">TITLE</h4>
