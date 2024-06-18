@@ -18,6 +18,8 @@ import { addStep } from "../../helpers/stepsHelpers";
 
 export default function EditForm(props) {
 
+  const router = useRouter();
+
   const { currentRecipe, currentIngredients, currentSteps, currentTags, setRefreshData } = props;
 
   if (!currentRecipe || !currentIngredients || !currentSteps) {
@@ -40,6 +42,7 @@ export default function EditForm(props) {
     step_name: '',
     instruction: ''
   });
+  const [submitAdd, setSunmitAdd] = useState(false);
 
   // use useEffect to update new step when dependencies change
   useEffect(() => {
@@ -66,36 +69,33 @@ export default function EditForm(props) {
 
   const handleUpdateSteps = (event) => {
 
-    if (!newStep.recipe_id || !newStep.step_number || !newStep.step_name || !newStep.instruction) {
 
-      toast.error("You must enter all information for your new step.");
-      return;
-
-    } else {
-
-      // function omit earlier edits based on repeat steps id
-      const trimArrayByStepId = (array) => {
+    // function omit earlier edits based on repeat steps id
+    const trimArrayByStepId = (array) => {
         
-        // use reduce to omit earlier edits and return object
-        const uniqueSteps = array.reduce((accumulated, current) => {
-          accumulated[current.step_id] = current;
-          return accumulated;
-        }, {});
+      // use reduce to omit earlier edits and return object
+      const uniqueSteps = array.reduce((accumulated, current) => {
+        accumulated[current.step_id] = current;
+        return accumulated;
+      }, {});
         
-        // convert obj to array and return it
-        return Object.values(uniqueSteps);
+      // convert obj to array and return it
+      return Object.values(uniqueSteps);
         
-      };
-      
-      // call trim function to only use latest edits
-      const trimmedSteps = trimArrayByStepId(updatedSteps)
-      
-      editExistingSteps(trimmedSteps);
-      addStep(newStep);
-      setEditSteps(prevState => !prevState);
-      router.push(`/edit/${currentRecipe.id}`);
-
     };
+      
+    // call trim function to only use latest edits
+    const trimmedSteps = trimArrayByStepId(updatedSteps)
+      
+    editExistingSteps(trimmedSteps);
+
+    if (submitAdd) {
+      addStep(newStep);
+    };
+    
+    setEditSteps(prevState => !prevState);
+    router.push(`/edit/${currentRecipe.id}`);
+
   };
 
   const handleAddStepToggle = (event) => {
@@ -104,7 +104,17 @@ export default function EditForm(props) {
 
   const handleAddStep = (event) => {
     event.preventDefault();
-    console.log(newStep);
+    if (!newStep.recipe_id || !newStep.step_number || !newStep.step_name || !newStep.instruction) {
+
+      toast.error("You must enter all information for your new step.");
+      return;
+
+    } else {
+      
+      setSubmitAdd(true);
+
+    };
+
   };
 
   // on change handlers
