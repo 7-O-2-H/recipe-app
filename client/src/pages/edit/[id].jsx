@@ -21,7 +21,6 @@ export default function Edit( { params } ) {
   const [recipeId, setRecipeId] = useState(parseInt(recipe.id)); 
   const [refreshData, setRefreshData] = useState(false);
 
-  
   // use hook to retreive selected recipe
   const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipe(recipeId);
   
