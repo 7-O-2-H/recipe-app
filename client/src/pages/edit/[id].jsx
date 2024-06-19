@@ -26,11 +26,18 @@ export default function Edit( { params } ) {
   const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipe(recipeId);
   
   useAppDataWithRefresh(refreshData);
+  
+  // function to trigger refresh on update submission
+  const triggerRefresh = () => {
+    setRefreshData(prevState => !prevState);
+    console.log(refreshData);
+  };
+
   // If recipe is not set, invoke loading state
   if (!currentRecipe || !currentIngredients || !currentSteps || !currentTags) {
     return <div>Loading...</div>;
   };
-
+  
   // call useAppData with refresh to get updated recipe
   // Render the recipe details
   return (
@@ -44,7 +51,7 @@ export default function Edit( { params } ) {
         currentIngredients={currentIngredients}
         currentSteps={currentSteps}
         currentTags={currentTags}
-        setRefreshData={setRefreshData}
+        triggerRefresh={triggerRefresh}
       />
     </div>
   );

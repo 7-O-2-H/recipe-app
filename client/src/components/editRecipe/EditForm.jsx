@@ -20,7 +20,7 @@ export default function EditForm(props) {
 
   const router = useRouter();
 
-  const { currentRecipe, currentIngredients, currentSteps, currentTags, setRefreshData } = props;
+  const { currentRecipe, currentIngredients, currentSteps, currentTags, triggerRefresh } = props;
 
   if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
@@ -42,7 +42,7 @@ export default function EditForm(props) {
     step_name: '',
     instruction: ''
   });
-  const [submitAdd, setSunmitAdd] = useState(false);
+  const [submitAdd, setSubmitAdd] = useState(false);
 
   // use useEffect to update new step when dependencies change
   useEffect(() => {
@@ -85,7 +85,7 @@ export default function EditForm(props) {
     };
       
     // call trim function to only use latest edits
-    const trimmedSteps = trimArrayByStepId(updatedSteps)
+    const trimmedSteps = trimArrayByStepId(updatedSteps);
       
     editExistingSteps(trimmedSteps);
 
@@ -94,8 +94,10 @@ export default function EditForm(props) {
     };
     
     setEditSteps(prevState => !prevState);
-    router.push(`/edit/${currentRecipe.id}`);
 
+
+    triggerRefresh();
+    
   };
 
   const handleAddStepToggle = (event) => {
