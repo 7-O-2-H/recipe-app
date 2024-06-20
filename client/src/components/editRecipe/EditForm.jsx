@@ -255,7 +255,7 @@ export default function EditForm(props) {
       )}
       {/* Tags */}
         <div className="edit-section">
-        <h4 id="edit-category">TITLE</h4>
+        <h4 id="edit-category">TAGS</h4>
         <div className="edit-content">
           {currentRecipe.recipe}
         </div>
