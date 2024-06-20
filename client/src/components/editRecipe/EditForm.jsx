@@ -11,6 +11,7 @@ import EditableIngredient from "./EditableIngredient";
 import Steps from "../Steps";
 import EditRecipeDetails from "./EditRecipeDetails";
 import EditSteps from "./EditSteps";
+import TagButton from "../addRecipe/TagButton"; 
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
@@ -153,6 +154,13 @@ export default function EditForm(props) {
     />  
   ));
 
+  const tagsArray = currentTags.map((tag, index) => {
+    <TagButton
+      key={index + 1}
+      tag_name={tag.tag}
+    />
+  });
+
   // useEffect to change value of steoNumber to default next step
   useEffect(() => {
     if (stepsArray && stepsArray.length > 0) {
@@ -257,9 +265,8 @@ export default function EditForm(props) {
         <div className="edit-section">
         <h4 id="edit-category">TAGS</h4>
         <div className="edit-content">
-          {currentRecipe.recipe}
         </div>
-        <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button>
+        {/* <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button> */}
       </div>
     </div>
   )
