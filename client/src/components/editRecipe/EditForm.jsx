@@ -175,14 +175,15 @@ export default function EditForm(props) {
   return (
     <div className="edit-form">
       <ToastContainer />
+      {/* Recipe Details */}
       {!editRecipe ? (
         <div className="edit-section">
-        <h4 id="edit-category">TITLE</h4>
+          <h4 id="edit-category">TITLE</h4>
         <div className="edit-content">
           {currentRecipe.recipe}
         </div>
-        <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button>
-      </div>
+          <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button>
+        </div>
       ) : (
         <div>
           <EditRecipeDetails
@@ -198,10 +199,12 @@ export default function EditForm(props) {
           />
         </div>
       )}
+      {/* Ingredients */}
       <div className="edit-section">
         <h4 id="edit-category">INGREDIENTS</h4>
         <div className="edit-content">{ingredientArray}</div>
       </div>
+      {/* Steps */}
       {!editSteps ? (
         <div className="edit-section">
           <h4 id="edit-category">STEPS</h4>
@@ -250,6 +253,14 @@ export default function EditForm(props) {
           }
         </div>
       )}
+      {/* Tags */}
+        <div className="edit-section">
+        <h4 id="edit-category">TITLE</h4>
+        <div className="edit-content">
+          {currentRecipe.recipe}
+        </div>
+        <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button>
+      </div>
     </div>
   )
 };
