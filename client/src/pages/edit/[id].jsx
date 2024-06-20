@@ -24,13 +24,13 @@ export default function Edit( { params } ) {
   // use hook to retreive selected recipe
   const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipe(recipeId);
   
-  useAppDataWithRefresh(refreshData);
-  
   // function to trigger refresh on update submission
   const triggerRefresh = () => {
     setRefreshData(prevState => !prevState);
     console.log(refreshData);
   };
+  
+  useAppDataWithRefresh(refreshData);
 
   // If recipe is not set, invoke loading state
   if (!currentRecipe || !currentIngredients || !currentSteps || !currentTags) {
