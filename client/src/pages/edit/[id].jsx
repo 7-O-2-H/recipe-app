@@ -5,8 +5,8 @@ import { useState } from 'react';
 import NavBar from "../../components/NavBar";
 import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
-import { useRecipe } from '../../hooks/useRecipe';
-import { useAppDataWithRefresh } from '../../hooks/useAppData';
+import { useRecipeWithRefresh } from '../../hooks/useRecipe';
+// import { useAppDataWithRefresh } from '../../hooks/useAppData';
 import EditForm from '../../components/editRecipe/EditForm';
 
 export default function Edit( { params } ) {
@@ -15,14 +15,12 @@ export default function Edit( { params } ) {
   const router = useRouter();
   const recipe = router.query;
 
-  console.log(recipe);
-
   // set states
   const [recipeId, setRecipeId] = useState(parseInt(recipe.id)); 
   const [refreshData, setRefreshData] = useState(false);
 
   // use hook to retreive selected recipe
-  const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipe(recipeId);
+  const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipeWithRefresh(recipeId, refreshData);
   
   // function to trigger refresh on update submission
   const triggerRefresh = () => {
@@ -30,7 +28,7 @@ export default function Edit( { params } ) {
     console.log(refreshData);
   };
   
-  useAppDataWithRefresh(refreshData);
+  // useAppDataWithRefresh(refreshData);
 
   // If recipe is not set, invoke loading state
   if (!currentRecipe || !currentIngredients || !currentSteps || !currentTags) {
