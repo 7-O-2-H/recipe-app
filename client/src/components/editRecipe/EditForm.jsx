@@ -194,7 +194,7 @@ export default function EditForm(props) {
             serves={currentRecipe.serves}
             time={currentRecipe.time}
             toggleEditability={handleEditRecipe}
-            setRefreshData={setRefreshData}
+            refresh={triggerRefresh}
           />
         </div>
       )}
