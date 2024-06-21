@@ -44,6 +44,7 @@ export default function EditForm(props) {
     instruction: ''
   });
   const [submitAdd, setSubmitAdd] = useState(false);
+  const [editTags, setEditTags] = useState(false);
 
   // use useEffect to update new step when dependencies change
   useEffect(() => {
@@ -122,6 +123,10 @@ export default function EditForm(props) {
 
   const handleSelectTag = (event) => {
     console.log(tag);
+  };
+
+  const handleEditTags = (event) => {
+    setEditTags(prevState => !prevState);
   };
 
   // on change handlers
@@ -274,10 +279,16 @@ export default function EditForm(props) {
       {/* Tags */}
         <div className="edit-section">
         <h4 id="edit-category">TAGS</h4>
+        {!editTags && 
         <div className="edit-content">
           {tagsArray}
         </div>
-        {/* <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button> */}
+        }
+        {editTags ? (
+          <button className="edit-button" onClick={handleEditTags}>CANCEL</button>
+        ) : (
+          <button className="edit-button" onClick={handleEditTags}>EDIT TAGS</button>
+        )}   
       </div>
     </div>
   )
