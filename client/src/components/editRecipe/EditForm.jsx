@@ -162,8 +162,8 @@ export default function EditForm(props) {
 
   const tagsArray = currentTags.map((tag) => {
     <TagButton
-      key={tag.id}
-      id={tag.id}
+      key={tag.tag_id}
+      id={tag.tag_id}
       tag={tag.tag}
       handleClick={handleSelectTag}
     />

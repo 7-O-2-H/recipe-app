@@ -15,7 +15,7 @@ const getAllTags = () => {
 
 const getTagsByRecipeId = (id) => {
   return db
-    .query(`SELECT tag FROM tags JOIN recipe_tags ON tags.id = recipe_tags.tag_id JOIN recipes ON recipe_tags.recipe_id = recipes.id WHERE recipes.id = $1;`, [id])
+    .query(`SELECT tag_id, tag FROM tags JOIN recipe_tags ON tags.id = recipe_tags.tag_id JOIN recipes ON recipe_tags.recipe_id = recipes.id WHERE recipes.id = $1;`, [id])
     .then((result) => {
       return result.rows;
     })
