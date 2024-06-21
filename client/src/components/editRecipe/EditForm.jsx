@@ -160,16 +160,16 @@ export default function EditForm(props) {
     />  
   ));
 
-  const tagsArray = currentTags.map((tag) => {
-    <TagButton
-      key={tag.tag_id}
-      id={tag.tag_id}
-      tag={tag.tag}
-      handleClick={handleSelectTag}
-    />
-  });
+  // const tagsArray = currentTags.map((tag) => {
+  //   <TagButton
+  //     key={tag.tag_id}
+  //     id={tag.tag_id}
+  //     tag={tag.tag}
+  //     handleClick={handleSelectTag}
+  //   />
+  // });
 
-  console.log(tagsArray);
+  // console.log(tagsArray);
 
   // useEffect to change value of steoNumber to default next step
   useEffect(() => {
@@ -284,7 +284,13 @@ export default function EditForm(props) {
               ))
             )}
           </p> */}
-          {tagsArray}
+          {/* {tagsArray} */}
+          <TagButton
+            key={currentTags[0].tag_id}
+            id={currentTags[0].tag_id}
+            tag={currentTags[0].tag}
+            handleClick={handleSelectTag}
+          />
         </div>
         {/* <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button> */}
       </div>
