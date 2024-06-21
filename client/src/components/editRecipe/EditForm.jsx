@@ -160,13 +160,16 @@ export default function EditForm(props) {
     />  
   ));
 
-  const tagsArray = currentTags.map((tag, index) => {
+  const tagsArray = currentTags.map((tag) => {
     <TagButton
-      key={index + 1}
-      tag_name={tag.tag}
+      key={tag.id}
+      id={tag.id}
+      tag={tag.tag}
       handleClick={handleSelectTag}
     />
   });
+
+  console.log(tagsArray);
 
   // useEffect to change value of steoNumber to default next step
   useEffect(() => {
@@ -272,15 +275,16 @@ export default function EditForm(props) {
         <div className="edit-section">
         <h4 id="edit-category">TAGS</h4>
         <div className="edit-content">
-        <p>
-        {currentTags && currentTags[0] && (
-          currentTags.map((tag, index) => (
-            <li key={index} >
-              {tag.tag}
-            </li>
-          ))
-        )}
-      </p>
+          {/* <p>
+            {currentTags && currentTags[0] && (
+              currentTags.map((tag, index) => (
+                <li key={index} >
+                  {tag.tag}
+                </li>
+              ))
+            )}
+          </p> */}
+          {tagsArray}
         </div>
         {/* <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button> */}
       </div>
