@@ -5,13 +5,12 @@ import { useRouter } from "next/router";
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 // components
 import EditableIngredient from "./EditableIngredient";
 import Steps from "../Steps";
 import EditRecipeDetails from "./EditRecipeDetails";
 import EditSteps from "./EditSteps";
-import TagButton from "../addRecipe/TagButton"; 
+import TagButton from "../addRecipe/TagButton";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
@@ -279,11 +278,14 @@ export default function EditForm(props) {
       {/* Tags */}
         <div className="edit-section">
         <h4 id="edit-category">TAGS</h4>
-        {!editTags && 
-        <div className="edit-content">
-          {tagsArray}
-        </div>
-        }
+        {editTags ? (
+          <div>
+          </div>
+        ) : (
+          <div className="edit-content">
+            {tagsArray}
+          </div>
+        )}
         {editTags ? (
           <button className="edit-button" onClick={handleEditTags}>CANCEL</button>
         ) : (
