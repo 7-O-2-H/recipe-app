@@ -11,6 +11,7 @@ import Steps from "../Steps";
 import EditRecipeDetails from "./EditRecipeDetails";
 import EditSteps from "./EditSteps";
 import TagButton from "../addRecipe/TagButton";
+import EditTags from "./EditTags";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
@@ -287,7 +288,12 @@ export default function EditForm(props) {
           </div>
         )}
         {editTags ? (
-          <button className="edit-button" onClick={handleEditTags}>CANCEL</button>
+          <div>
+            <EditTags
+              recipe={currentRecipe}
+            />
+            <button className="edit-button" onClick={handleEditTags}>CANCEL</button>
+          </div>
         ) : (
           <button className="edit-button" onClick={handleEditTags}>EDIT TAGS</button>
         )}   
