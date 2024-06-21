@@ -28,6 +28,8 @@ export default function EditForm(props) {
       <div>Loading...</div>
     );
   };
+
+  console.log(currentTags);
     
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
@@ -120,6 +122,10 @@ export default function EditForm(props) {
 
   };
 
+  const handleSelectTag = (event) => {
+    console.log(tag);
+  };
+
   // on change handlers
   const handleStepNumberChange = (e) => {
     setStepNumber(parseInt(e.target.value));
@@ -158,6 +164,7 @@ export default function EditForm(props) {
     <TagButton
       key={index + 1}
       tag_name={tag.tag}
+      handleClick={handleSelectTag}
     />
   });
 
@@ -265,6 +272,15 @@ export default function EditForm(props) {
         <div className="edit-section">
         <h4 id="edit-category">TAGS</h4>
         <div className="edit-content">
+        <p>
+        {currentTags && currentTags[0] && (
+          currentTags.map((tag, index) => (
+            <li key={index} >
+              {tag.tag}
+            </li>
+          ))
+        )}
+      </p>
         </div>
         {/* <button className="edit-button" onClick={handleEditRecipe}>EDIT RECIPE DETAILS</button> */}
       </div>
