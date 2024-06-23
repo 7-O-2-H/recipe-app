@@ -61,6 +61,7 @@ export default function EditForm(props) {
     setEditRecipe(prevState => !prevState);
   };
 
+  // steps handlers
   const handleEditSteps = (event) => {
     setEditSteps(prevState => !prevState);
   };
@@ -121,6 +122,7 @@ export default function EditForm(props) {
 
   };
 
+  // tags handlers
   const handleSelectTag = (event) => {
     console.log(tag);
   };
