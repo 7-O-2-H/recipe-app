@@ -28,6 +28,20 @@ export default function EditTags (props) {
   const [showDropDown, setShowDropdown] = useState(false);
   const [tagSuggestions, setTagSuggestions] = useState([]);
 
+  const handleSelectTag = (tag) => {
+    console.log(tag);
+  };
+
+  const existingTags = tags.map((tag) => {
+    return (
+      <TagButton
+        key={tag.tag_id}
+        id={tag.tag_id}
+        tag={tag.tag}
+        handleClick={handleSelectTag}
+      />
+    )
+  });
 
   // use useEffect to ensure tagObject is using latest value
   // useEffect(() => {
@@ -147,7 +161,7 @@ export default function EditTags (props) {
         )}
       </p> */}
       <h2>Existing Tags</h2>
-
+      <div>{existingTags}</div>
       <form className="tags-form" >
         <input
           id="tag"
