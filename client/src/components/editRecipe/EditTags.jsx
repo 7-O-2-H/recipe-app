@@ -12,7 +12,9 @@ export default function EditTags (props) {
   
 
   // rectreive recipe ID from props
-  const { recipe } = props;
+  const { recipe, tags } = props;
+
+  console.log(tags);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');

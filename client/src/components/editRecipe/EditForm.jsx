@@ -293,6 +293,7 @@ export default function EditForm(props) {
           <div>
             <EditTags
               recipe={currentRecipe}
+              tags={currentTags}
             />
             <button className="edit-button" onClick={handleEditTags}>CANCEL</button>
           </div>
