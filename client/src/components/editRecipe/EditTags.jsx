@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import 'react-toastify/dist/ReactToastify.css';
 import { useAppData } from "../../hooks/useAppData";
+import TagButton from "../addRecipe/TagButton";
 // import { addTags } from "../../helpers/tagsHelpers";
 // import { suggestTags } from "./helpers/suggestTags";
 // import SuggestedTags from "./SuggestedTags";
@@ -144,6 +145,7 @@ export default function EditTags (props) {
         )}
       </p> */}
       <h2>Existing Tags</h2>
+
       <form className="tags-form" >
         <input
           id="tag"
