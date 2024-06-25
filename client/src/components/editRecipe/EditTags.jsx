@@ -20,8 +20,6 @@ export default function EditTags (props) {
 
   const { fullTagsInfo } = useFullTags(recipe.id);
 
-  console.log(fullTagsInfo);
-
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
   const [tagObject, setTagObject] = useState({
@@ -33,16 +31,20 @@ export default function EditTags (props) {
   const [tagsArray, setTagsArray] = useState([]);
   const [showDropDown, setShowDropdown] = useState(false);
   const [tagSuggestions, setTagSuggestions] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
 
   const handleSelectTag = (tag) => {
-    console.log(tag);
+    
+    setSelectedTags((prevSelectedTags) => [...prevSelectedTags, tag]);
   };
 
-  const existingTags = tags.map((tag) => {
+  console.log(selectedTags);
+
+  const existingTags = fullTagsInfo.map((tag) => {
     return (
       <TagButton
         key={tag.tag_id}
-        id={tag.tag_id}
+        id={tag.id}
         tag={tag.tag}
         handleClick={handleSelectTag}
       />
