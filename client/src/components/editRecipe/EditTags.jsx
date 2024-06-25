@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import 'react-toastify/dist/ReactToastify.css';
 import { useAppData } from "../../hooks/useAppData";
 import TagButton from "../addRecipe/TagButton";
+import { getFullTagsInfo } from "../../helpers/tagsHelpers";
 // import { addTags } from "../../helpers/tagsHelpers";
 // import { suggestTags } from "./helpers/suggestTags";
 // import SuggestedTags from "./SuggestedTags";
