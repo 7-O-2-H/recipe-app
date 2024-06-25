@@ -76,4 +76,15 @@ const getFullTagsInfo = (id) => {
     });
 };
 
+const deleteRecipeTagById = (recipeTagId) => {
+  return db.query(`DELETE FROM recipe_tags WHERE recipe_tags.id = $1;`, [recipeTagId])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((error) => {
+      console.log('delete tag error: ', error.message);
+      return error.message;
+    })
+}
+
 module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag, getFullTagsInfo };

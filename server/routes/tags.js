@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag, getFullTagsInfo } = require('../db/queries/tags');
+const { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag, getFullTagsInfo, deleteRecipeTagById } = require('../db/queries/tags');
 
 router.get('/recipes/:id', (req, res) => {
   const id = req.params.id;
@@ -71,13 +71,17 @@ router.post('/delete', (req, res) => {
 
   console.log(recipeTagIds);
 
-  // deleteRecipeById(recipeId)
-  //   .then(data => {
-  //     res.status(204).send();
-  //   })
-  //   .catch(err => {
-  //     res.status(500).json({err: "failed to delete recipe"})
-  //   });
+  for (id of recipeTagIds) {
+
+    deleteRecipeTagById(id)
+      .then(data => {
+        res.status(204).send();
+      })
+      .catch(error => {
+        res.status(500).json({err: "failed to delete selected tags"})
+      });
+
+  };
 });
 
 module.exports = router;
