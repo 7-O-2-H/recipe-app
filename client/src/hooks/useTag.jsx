@@ -29,9 +29,9 @@ export function useFullTags(recipeId) {
 
     if (recipeId) {
       getFullTagsInfo(recipeId)
-      .then((data) => {
-        setFullTagsInfo(data['data']);
-      });
+      // .then((data) => {
+      //   setFullTagsInfo(data['data']);
+      // });
     };
     
   }, [recipeId]);

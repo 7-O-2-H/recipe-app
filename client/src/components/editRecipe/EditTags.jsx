@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import 'react-toastify/dist/ReactToastify.css';
 // hooks
 import { useAppData } from "../../hooks/useAppData";
-import { getFullTagsInfo } from "../../helpers/tagsHelpers";
+import { useFullTags } from "../../hooks/useTag";
 // components
 import TagButton from "../addRecipe/TagButton";
 // import { addTags } from "../../helpers/tagsHelpers";
@@ -19,7 +19,7 @@ export default function EditTags (props) {
   const { recipe, tags } = props;
 
   console.log(recipe);
-  getFullTagsInfo(recipe.id);
+  useFullTags(recipe.id);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');

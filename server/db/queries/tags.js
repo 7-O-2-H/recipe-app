@@ -64,4 +64,16 @@ const addRecipeTag = (tagData) => {
   });
 };
 
+const getFullTagsInfo = (id) => {
+  return db
+    .query(`SELECT tag_id, tag, recipe_tags.id FROM tags JOIN recipe_tags ON tags.id = recipe_tags.tag_id JOIN recipes ON recipe_tags.recipe_id = recipes.id WHERE recipes.id = $1;`, [id])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('get tags by rec error;', err.message);
+      return null;
+    });
+};
+
 module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag };
