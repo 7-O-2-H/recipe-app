@@ -19,7 +19,9 @@ export default function EditTags (props) {
   const { recipe, tags } = props;
 
   console.log(recipe);
-  useFullTags(recipe.id);
+  const { fullTagsInfo } = useFullTags(recipe.id);
+
+  console.log(fullTagsInfo);
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
