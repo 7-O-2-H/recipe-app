@@ -71,15 +71,6 @@ export async function deleteRecipe(id) {
     console.error("axiois error: ", e);
     throw e;
   }
-
-  // return axios.post(`http://localhost:8080/recipes/delete`, {id})
-  //   .then((res) => {
-  //     console.log('Response status: ', res.status);
-  //     return;
-  //   })
-  //   .catch((err) => {
-  //     console.log("axios error: ", err)
-  //   });
 };
 
 //ingredients functions
