@@ -177,7 +177,7 @@ export default function EditTags (props) {
       </p> */}
       <h2>Existing Tags</h2>
       <div>{existingTags}</div>
-      <button type="submit">DELETE SELECTED</button>
+      <button type="submit" onClick={handleDeleteTags}>DELETE SELECTED</button>
       <form className="tags-form" >
         <input
           id="tag"

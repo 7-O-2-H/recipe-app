@@ -64,4 +64,20 @@ router.get('/full/:id', (req, res) => {
   })
 });
 
+router.post('/delete', (req, res) => {
+
+  // req tags
+  const recipeTagIds = req.body.tags;
+
+  console.log(recipeTagIds);
+
+  // deleteRecipeById(recipeId)
+  //   .then(data => {
+  //     res.status(204).send();
+  //   })
+  //   .catch(err => {
+  //     res.status(500).json({err: "failed to delete recipe"})
+  //   });
+});
+
 module.exports = router;
