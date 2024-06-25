@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag } = require('../db/queries/tags');
+const { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag, getFullTagsInfo } = require('../db/queries/tags');
 
 router.get('/recipes/:id', (req, res) => {
   const id = req.params.id;
@@ -58,7 +58,10 @@ router.get('/', (req, res) => {
 
 router.get('/full/:id', (req, res) => {
   const id = req.params.id;
-  console.log(id);
+  getFullTagsInfo(id)
+  .then(data => {
+    res.json(data);
+  })
 });
 
 module.exports = router;

@@ -76,4 +76,4 @@ const getFullTagsInfo = (id) => {
     });
 };
 
-module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag };
+module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag, getFullTagsInfo };
