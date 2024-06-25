@@ -1,10 +1,13 @@
 // imports
+// react
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import 'react-toastify/dist/ReactToastify.css';
+// hooks
 import { useAppData } from "../../hooks/useAppData";
-import TagButton from "../addRecipe/TagButton";
 import { getFullTagsInfo } from "../../helpers/tagsHelpers";
+// components
+import TagButton from "../addRecipe/TagButton";
 // import { addTags } from "../../helpers/tagsHelpers";
 // import { suggestTags } from "./helpers/suggestTags";
 // import SuggestedTags from "./SuggestedTags";
