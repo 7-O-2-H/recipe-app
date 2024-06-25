@@ -56,4 +56,9 @@ router.get('/', (req, res) => {
   })
 });
 
+router.get('/full/:id', (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+});
+
 module.exports = router;
