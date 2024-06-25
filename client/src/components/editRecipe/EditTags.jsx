@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 // hooks
 import { useAppData } from "../../hooks/useAppData";
 import { useFullTags } from "../../hooks/useTag";
+// helpers
+import { deleteTags } from "../../helpers/tagsHelpers";
 // components
 import TagButton from "../addRecipe/TagButton";
 // import { addTags } from "../../helpers/tagsHelpers";
@@ -39,6 +41,11 @@ export default function EditTags (props) {
   };
 
   console.log(selectedTags);
+
+  // handlers
+  const handleDeleteTags = (event) => {
+    deleteTags(selectedTags);
+  };
 
   const existingTags = fullTagsInfo.map((tag) => {
     return (
@@ -170,6 +177,7 @@ export default function EditTags (props) {
       </p> */}
       <h2>Existing Tags</h2>
       <div>{existingTags}</div>
+      <button type="submit">DELETE SELECTED</button>
       <form className="tags-form" >
         <input
           id="tag"

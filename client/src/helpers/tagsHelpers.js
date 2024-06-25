@@ -57,3 +57,15 @@ export function getFullTagsInfo(id) {
     console.log("axios error: ", e);
   });
 };
+
+export async function deleteTags(tags) {
+
+  try {
+    const res = await axios.post('http://localhost:8080/tags/delete', {tags});
+    console.log('Res status: ', res.status);
+    return;
+  } catch (e) {
+    console.error("axiois error: ", e);
+    throw e;
+  }
+};
