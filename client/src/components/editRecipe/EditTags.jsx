@@ -18,7 +18,7 @@ export default function EditTags (props) {
   
 
   // rectreive recipe ID from props
-  const { recipe, tags } = props;
+  const { recipe, tags, refresh } = props;
 
   const { fullTagsInfo } = useFullTags(recipe.id);
 

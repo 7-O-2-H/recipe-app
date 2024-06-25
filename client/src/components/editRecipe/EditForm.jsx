@@ -294,6 +294,7 @@ export default function EditForm(props) {
             <EditTags
               recipe={currentRecipe}
               tags={currentTags}
+              refresh={triggerRefresh}
             />
             <button className="edit-button" onClick={handleEditTags}>CANCEL</button>
           </div>
