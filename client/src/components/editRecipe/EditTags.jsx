@@ -16,6 +16,8 @@ import TagButton from "../addRecipe/TagButton";
 
 export default function EditTags (props) {
   
+  // dec router
+  const router = useRouter();
 
   // rectreive recipe ID from props
   const { recipe, tags, refresh } = props;
@@ -45,6 +47,8 @@ export default function EditTags (props) {
   // handlers
   const handleDeleteTags = (event) => {
     deleteTags(selectedTags);
+    refresh();
+    router.push(`edit/${recipe.id}`)
   };
 
   const existingTags = fullTagsInfo.map((tag) => {
