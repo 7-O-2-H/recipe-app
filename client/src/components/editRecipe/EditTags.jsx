@@ -18,6 +18,9 @@ export default function EditTags (props) {
   // rectreive recipe ID from props
   const { recipe, tags } = props;
 
+  console.log(recipe);
+  getFullTagsInfo(recipe.id);
+
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
   const [tagObject, setTagObject] = useState({
