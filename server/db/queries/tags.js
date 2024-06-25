@@ -87,4 +87,4 @@ const deleteRecipeTagById = (recipeTagId) => {
     })
 }
 
-module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag, getFullTagsInfo };
+module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag, getFullTagsInfo, deleteRecipeTagById };
