@@ -1,7 +1,6 @@
 // imports
 // react
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import 'react-toastify/dist/ReactToastify.css';
 // hooks
 import { useAppData } from "../../hooks/useAppData";
@@ -15,14 +14,9 @@ import TagButton from "../addRecipe/TagButton";
 // import SuggestedTags from "./SuggestedTags";
 
 export default function EditTags (props) {
-  
-  // dec router
-  const router = useRouter();
 
   // rectreive recipe ID from props
-  const { recipe, tags, refresh } = props;
-
-  const { fullTagsInfo } = useFullTags(recipe.id);
+  const { recipe, tags } = props;
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
@@ -36,6 +30,9 @@ export default function EditTags (props) {
   const [showDropDown, setShowDropdown] = useState(false);
   const [tagSuggestions, setTagSuggestions] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
+  const [refresh, setRefresh] = useState(true);
+  
+  const { fullTagsInfo } = useFullTags(recipe.id);
 
   const handleSelectTag = (tag) => {
     
@@ -47,8 +44,7 @@ export default function EditTags (props) {
   // handlers
   const handleDeleteTags = (event) => {
     deleteTags(selectedTags);
-    refresh();
-    router.push(`edit/${recipe.id}`)
+    setSelectedTags([]);
   };
 
   const existingTags = fullTagsInfo.map((tag) => {
