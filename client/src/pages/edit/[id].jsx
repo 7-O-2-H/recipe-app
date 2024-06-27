@@ -35,8 +35,6 @@ export default function Edit( { params } ) {
     setRefreshData(prevState => !prevState);
   };
   
-  // useAppDataWithRefresh(refreshData);
-
   // If recipe is not set, invoke loading state
   if (!currentRecipe || !currentIngredients || !currentSteps || !currentTags) {
     return <div>Loading...</div>;
