@@ -114,19 +114,19 @@ export default function EditTags (props) {
   };
 
   // // handle dropdown suggestions
-  // const handleTagSuggestions = (selectedTagId) => {
+  const handleTagSuggestions = (selectedTagId) => {
 
-  //   const selectedTag = allTags.find(tag => tag.id === selectedTagId);
-  //   setTagContainer(selectedTag.tag);
+    const selectedTag = allTags.find(tag => tag.id === selectedTagId);
+    setTagContainer(selectedTag.tag);
 
-  //   setTagObject({
-  //     ...tagObject,
-  //     tag_id: selectedTag.id,
-  //     tag: tagContainer
-  //   });
+    setTagObject({
+      ...tagObject,
+      tag_id: selectedTag.id,
+      tag: tagContainer
+    });
 
-  //   setTagSuggestions([]);
-  // };
+    setTagSuggestions([]);
+  };
 
   // // add tags to list user wants to add
   // const handleAddTag = (e) => {
