@@ -1,7 +1,7 @@
 
 // imports
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from "../../components/NavBar";
 import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
@@ -14,11 +14,19 @@ export default function Edit( { params } ) {
   // retrieve recipeId from router
   const router = useRouter();
   const recipe = router.query;
+  const { id } = router.query;
 
   // set states
-  const [recipeId, setRecipeId] = useState(parseInt(recipe.id)); 
+  const [recipeId, setRecipeId] = useState(parseInt(null)); 
   const [refreshData, setRefreshData] = useState(false);
 
+  // use effect to immediately update recipe Id when available to avoid triggering loading state
+  useEffect(() => {
+    if (id) {
+      setRecipeId(parseInt(id));
+    }
+  }, [id]);
+  
   // use hook to retreive selected recipe
   const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipeWithRefresh(recipeId, refreshData);
   
