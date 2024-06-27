@@ -129,6 +129,7 @@ export default function EditForm(props) {
 
   const handleEditTags = (event) => {
     setEditTags(prevState => !prevState);
+    triggerRefresh();
   };
 
   // on change handlers
