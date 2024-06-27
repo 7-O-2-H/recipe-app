@@ -26,14 +26,13 @@ export default function Edit( { params } ) {
       setRecipeId(parseInt(id));
     }
   }, [id]);
-  
+
   // use hook to retreive selected recipe
   const { currentRecipe, currentIngredients, currentSteps, currentTags } = useRecipeWithRefresh(recipeId, refreshData);
   
   // function to trigger refresh on update submission
   const triggerRefresh = () => {
     setRefreshData(prevState => !prevState);
-    console.log(refreshData);
   };
   
   // useAppDataWithRefresh(refreshData);
