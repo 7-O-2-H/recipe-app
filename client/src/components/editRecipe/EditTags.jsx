@@ -129,23 +129,23 @@ export default function EditTags (props) {
   };
 
   // // add tags to list user wants to add
-  // const handleAddTag = (e) => {
-  //   e.preventDefault();
+  const handleAddTag = (e) => {
+    e.preventDefault();
 
-  //   setTagsArray([
-  //     ...tagsArray,
-  //     tagObject
-  //   ]);
+    setTagsArray([
+      ...tagsArray,
+      tagObject
+    ]);
 
-  //   setSelectedTagId(null);
-  //   setTagContainer('');
-  //   setTagObject({
-  //     ...tagObject,
-  //     tag_id: selectedTagId,
-  //     tag: tagContainer
-  //   });
+    setSelectedTagId(null);
+    setTagContainer('');
+    setTagObject({
+      ...tagObject,
+      tag_id: selectedTagId,
+      tag: tagContainer
+    });
 
-  // };
+  };
 
   // const handleAddTagWithButton = (tagId) => {
 
@@ -216,7 +216,8 @@ export default function EditTags (props) {
             ))}
           </ul>
         )}
-        {/* <button onClick={handleAddTag}>ADD TAG</button>
+        <button onClick={handleAddTag}>ADD TAG</button>
+        {/* 
         <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
         <button onClick={handleCancel}>CANCEL</button> */}
       </form>
