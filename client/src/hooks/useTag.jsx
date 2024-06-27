@@ -21,7 +21,7 @@ export function useTag(tagId) {
 
 };
 
-export function useFullTags(recipeId) {
+export function useFullTags(recipeId, refresh) {
 
   const [fullTagsInfo, setFullTagsInfo] = useState([]);
 
@@ -34,7 +34,7 @@ export function useFullTags(recipeId) {
       });
     };
     
-  }, [recipeId]);
+  }, [recipeId, refresh]);
 
   return { fullTagsInfo };
 

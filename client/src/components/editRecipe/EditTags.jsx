@@ -32,7 +32,7 @@ export default function EditTags (props) {
   const [selectedTags, setSelectedTags] = useState([]);
   const [refresh, setRefresh] = useState(true);
   
-  const { fullTagsInfo } = useFullTags(recipe.id);
+  const { fullTagsInfo } = useFullTags(recipe.id, refresh);
 
   const handleSelectTag = (tag) => {
     
@@ -42,9 +42,12 @@ export default function EditTags (props) {
   console.log(selectedTags);
 
   // handlers
-  const handleDeleteTags = (event) => {
-    deleteTags(selectedTags);
+  const handleDeleteTags = async (event) => {
+    await deleteTags(selectedTags);
     setSelectedTags([]);
+    setRefresh((prevState) => !prevState);
+    // debug tool:
+    console.log(refresh);
   };
 
   const existingTags = fullTagsInfo.map((tag) => {
