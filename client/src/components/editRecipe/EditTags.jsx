@@ -54,8 +54,6 @@ export default function EditTags (props) {
     setSelectedTags((prevSelectedTags) => [...prevSelectedTags, tag]);
   };
 
-  console.log(selectedTags);
-
   // handlers
   const handleDeleteTags = async (event) => {
 
@@ -80,12 +78,13 @@ export default function EditTags (props) {
   });
 
   // use useEffect to ensure tagObject is using latest value
-  // useEffect(() => {
-  //   setTagObject({
-  //     ...tagObject,
-  //     tag: tagContainer
-  //   })
-  // }, [tagContainer]);
+  useEffect(() => {
+    setTagObject({
+      ...tagObject,
+      tag: tagContainer
+    })
+    console.log(tagObject)
+  }, [tagContainer]);
 
   // useEffect(() => {
   //   setTagObject({
