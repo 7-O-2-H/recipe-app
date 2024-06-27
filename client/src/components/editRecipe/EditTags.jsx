@@ -36,6 +36,19 @@ export default function EditTags (props) {
 
   const handleSelectTag = (tag) => {
     
+    // remove tag from array if in selected Tags
+    if (selectedTags.includes(tag)) {
+
+      // create new array without reselected tag
+      const updatedSelectedTags = selectedTags.filter(tagId => tagId !== tag);
+
+      // set selected tag to updated tags
+      setSelectedTags(updatedSelectedTags);
+
+      // debug log
+      console.log(selectedTags);
+      return;
+    };
     setSelectedTags((prevSelectedTags) => [...prevSelectedTags, tag]);
   };
 
@@ -43,6 +56,7 @@ export default function EditTags (props) {
 
   // handlers
   const handleDeleteTags = async (event) => {
+
     await deleteTags(selectedTags);
     setSelectedTags([]);
     setRefresh((prevState) => !prevState);
