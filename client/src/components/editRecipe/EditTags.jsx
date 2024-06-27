@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 // hooks
-import { useAppData } from "../../hooks/useAppData";
+import { useAppDataWithRefresh } from "../../hooks/useAppData";
 import { useFullTags } from "../../hooks/useTag";
 // helpers
 import { deleteTags } from "../../helpers/tagsHelpers";
@@ -33,6 +33,10 @@ export default function EditTags (props) {
   const [refresh, setRefresh] = useState(true);
   
   const { fullTagsInfo } = useFullTags(recipe.id, refresh);
+  console.log(fullTagsInfo);
+
+  const { allTags } = useAppDataWithRefresh(refresh);
+  console.log(allTags);
 
   const handleSelectTag = (tag) => {
     
@@ -45,8 +49,6 @@ export default function EditTags (props) {
       // set selected tag to updated tags
       setSelectedTags(updatedSelectedTags);
 
-      // debug log
-      console.log(selectedTags);
       return;
     };
     setSelectedTags((prevSelectedTags) => [...prevSelectedTags, tag]);
@@ -60,8 +62,7 @@ export default function EditTags (props) {
     await deleteTags(selectedTags);
     setSelectedTags([]);
     setRefresh((prevState) => !prevState);
-    // debug tool:
-    console.log(refresh);
+
   };
 
   const existingTags = fullTagsInfo.map((tag) => {
@@ -93,22 +94,22 @@ export default function EditTags (props) {
   // handlers
 
   // handle tag input
-  // const handleTagChange = (e) => {
+  const handleTagChange = (e) => {
 
-  //   const inputValue = e.target.value;
-  //   setTagContainer(inputValue);
+    const inputValue = e.target.value;
+    setTagContainer(inputValue);
     
-  //   const filteredTags = allTags.filter(tag => tag.tag.toLowerCase().includes(inputValue.toLowerCase())).slice(0, 5);
+    const filteredTags = allTags.filter(tag => tag.tag.toLowerCase().includes(inputValue.toLowerCase())).slice(0, 5);
 
-  //   // only show dropdown if there is input
-  //   setShowDropdown(inputValue.trim() !== '');
-  //   setTagSuggestions(filteredTags);
+    // only show dropdown if there is input
+    setShowDropdown(inputValue.trim() !== '');
+    setTagSuggestions(filteredTags);
 
-  //   setTagObject({
-  //     ...tagObject, 
-  //     tag: tagContainer
-  //   });
-  // };
+    setTagObject({
+      ...tagObject, 
+      tag: tagContainer
+    });
+  };
 
   // // handle dropdown suggestions
   // const handleTagSuggestions = (selectedTagId) => {
@@ -202,7 +203,7 @@ export default function EditTags (props) {
           className="tag"
           placeholder=" Search for tag"
           value={tagContainer}
-          // onChange={handleTagChange}
+          onChange={handleTagChange}
         />
         {/* <ul>
           {tagSuggestions.map(tag => (

@@ -198,10 +198,6 @@ export default function AddRecipe() {
           <h3>Tags:</h3>
           <TagsForm 
             recipe={recipeData}
-            // recipeName={recipe}
-            // description={recipeDescription}
-            // serves={recipeServes}
-            // time={recipeTime}
             allTags={allTags}
             onCancel={handleCancel}
           />
