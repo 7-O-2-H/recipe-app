@@ -205,13 +205,15 @@ export default function EditTags (props) {
           value={tagContainer}
           onChange={handleTagChange}
         />
-        <ul>
-          {tagSuggestions.map(tag => (
-            <li key={tag.id} onClick={() => handleTagSuggestions(tag.id)}>
-              {tag.tag}
-            </li>
-          ))}
-        </ul>
+        {showDropDown && (
+          <ul>
+            {tagSuggestions.map(tag => (
+              <li key={tag.id} onClick={() => handleTagSuggestions(tag.id)}>
+                {tag.tag}
+              </li>
+            ))}
+          </ul>
+        )}
         {/* <button onClick={handleAddTag}>ADD TAG</button>
         <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
         <button onClick={handleCancel}>CANCEL</button> */}
