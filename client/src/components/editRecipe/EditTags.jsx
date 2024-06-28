@@ -132,15 +132,27 @@ export default function EditTags (props) {
   const handleAddTag = (e) => {
     e.preventDefault();
 
+    // init variable to prevent submission if tag is already in tagsArray
     let tagExists = false
 
+    // update var if tag is in tagsArray
     tagExists = tagsArray.some(existingTag => existingTag.tag.toLowerCase() === tagObject.tag.toLowerCase());
 
+    // prevent submission and show toast error
     if (tagExists) {
       toast.error("This tag is already scheduled to be added.")
       return;
     };
-    
+
+    // check if tag is aleady in existing tags 
+    tagExists = fullTagsInfo.some(existingTag => existingTag.tag.toLowerCase() === tagObject.tag.toLowerCase());
+
+    // prevent submission and show toast error - separate case from prior check to show different toast error
+    if (tagExists) {
+      toast.error("This recipe already has this tag.")
+      return;
+    };
+
     setTagsArray([
       ...tagsArray,
       tagObject
