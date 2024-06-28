@@ -83,12 +83,12 @@ export default function EditTags (props) {
     })
   }, [tagContainer]);
 
-  // useEffect(() => {
-  //   setTagObject({
-  //     ...tagObject,
-  //     tag_id: null
-  //   })
-  // }, [tagsArray]);
+  useEffect(() => {
+    setTagObject({
+      ...tagObject,
+      tag_id: null
+    })
+  }, [tagsArray]);
 
   // handlers
 
@@ -143,6 +143,14 @@ export default function EditTags (props) {
       tag: tagContainer
     });
 
+
+  };
+
+  const handleRemoveScheduledTag = (tagName) => {
+    // e.preventDefault();
+    const updatedTagsArray = tagsArray.filter(tag => tag.tag.toLowerCase() !== tagName.toLowerCase());
+    setTagsArray(updatedTagsArray);
+    setRefresh(prevState => !prevState);
   };
 
   // const handleAddTagWithButton = (tagId) => {
@@ -207,7 +215,7 @@ export default function EditTags (props) {
           <div>
             <h2>New Tags</h2>
             <ul>{tagsArray.map(tag => (
-              <li key={tag.id}>{tag.tag}</li>
+              <li key={tag.id} onClick={() => handleRemoveScheduledTag(tag.tag)}>{tag.tag}</li>
             ))}</ul>
           </div>
           )}
