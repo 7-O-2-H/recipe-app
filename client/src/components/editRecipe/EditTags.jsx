@@ -181,21 +181,10 @@ export default function EditTags (props) {
   // template
   return (
     <div>
-      {/* {tagsArray && tagsArray[0] && (
-        <h2>Tags:</h2>
-      )} */}
-      {/* <p>
-        {tagsArray && tagsArray[0] && (
-          tagsArray.map((tag, index) => (
-            <li key={index} >
-              {tag.tag}
-            </li>
-          ))
-        )}
-      </p> */}
       <h2>Existing Tags</h2>
       <div>{existingTags}</div>
       <button type="submit" onClick={handleDeleteTags}>DELETE SELECTED</button>
+      <h2>Add Tags</h2>
       <form className="tags-form" >
         <input
           id="tag"
@@ -215,10 +204,13 @@ export default function EditTags (props) {
           </ul>
         )}
         {tagsArray && tagsArray[0] && (
-          <ul>{tagsArray.map(tag => (
-            <li key={tag.id}>{tag.tag}</li>
-          ))}</ul>
-        )}
+          <div>
+            <h2>New Tags</h2>
+            <ul>{tagsArray.map(tag => (
+              <li key={tag.id}>{tag.tag}</li>
+            ))}</ul>
+          </div>
+          )}
         <button onClick={handleAddTag}>ADD TAG</button>
         {/* 
         <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
