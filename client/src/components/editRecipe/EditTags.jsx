@@ -143,7 +143,7 @@ export default function EditTags (props) {
       tag: tagContainer
     });
 
-
+    setTagSuggestions([]);
   };
 
   const handleRemoveScheduledTag = (tagName) => {
