@@ -33,10 +33,8 @@ export default function EditTags (props) {
   const [refresh, setRefresh] = useState(true);
   
   const { fullTagsInfo } = useFullTags(recipe.id, refresh);
-  console.log(fullTagsInfo);
 
   const { allTags } = useAppDataWithRefresh(refresh);
-  console.log(allTags);
 
   const handleSelectTag = (tag) => {
     
@@ -83,7 +81,6 @@ export default function EditTags (props) {
       ...tagObject,
       tag: tagContainer
     })
-    console.log(tagObject)
   }, [tagContainer]);
 
   // useEffect(() => {
@@ -106,6 +103,7 @@ export default function EditTags (props) {
     // only show dropdown if there is input
     setShowDropdown(inputValue.trim() !== '');
     setTagSuggestions(filteredTags);
+    console.log(tagSuggestions);
 
     setTagObject({
       ...tagObject, 
@@ -132,6 +130,7 @@ export default function EditTags (props) {
   const handleAddTag = (e) => {
     e.preventDefault();
 
+    console.log(tagObject);
     setTagsArray([
       ...tagsArray,
       tagObject
