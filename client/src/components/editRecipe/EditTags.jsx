@@ -130,7 +130,6 @@ export default function EditTags (props) {
   const handleAddTag = (e) => {
     e.preventDefault();
 
-    console.log(tagObject);
     setTagsArray([
       ...tagsArray,
       tagObject
@@ -214,6 +213,9 @@ export default function EditTags (props) {
               </li>
             ))}
           </ul>
+        )}
+        {tagsArray && tagsArray[0] && (
+          <ul>{tagsArray}</ul>
         )}
         <button onClick={handleAddTag}>ADD TAG</button>
         {/* 
