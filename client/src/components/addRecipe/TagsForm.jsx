@@ -86,6 +86,14 @@ export default function TagsForm (props) {
   const handleAddTag = (e) => {
     e.preventDefault();
 
+    // check if tag is already selected and prevent submission, return toast error message
+    const tagExists = tagsArray.some(existingTag => existingTag.tag.toLowerCase() === tagObject.tag.toLowerCase());
+
+    if (tagExists) {
+      toast.error("You've already added this tag.");
+      return;
+    };
+
     setTagsArray([
       ...tagsArray,
       tagObject
@@ -104,6 +112,15 @@ export default function TagsForm (props) {
   const handleAddTagWithButton = (tagId) => {
 
     const selectedTag = allTags.find(tag => tag.id === tagId);
+
+    // check if tag is already selected and prevent submission, return toast error message
+    const tagExists = tagsArray.some(existingTag => existingTag.tag.toLowerCase() === selectedTag.tag.toLowerCase());
+
+    if (tagExists) {
+      toast.error("You've already added this tag.");
+      return;
+    };
+
     setTagContainer(selectedTag.tag);
 
     const tagButtonObject = {
@@ -137,6 +154,7 @@ export default function TagsForm (props) {
   // template
   return (
     <div>
+      <ToastContainer/>
       {/* {tagsArray && tagsArray[0] && (
         <h2>Tags:</h2>
       )} */}
