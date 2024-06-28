@@ -215,7 +215,9 @@ export default function EditTags (props) {
           </ul>
         )}
         {tagsArray && tagsArray[0] && (
-          <ul>{tagsArray}</ul>
+          <ul>{tagsArray.map(tag => (
+            <li key={tag.id}>{tag.tag}</li>
+          ))}</ul>
         )}
         <button onClick={handleAddTag}>ADD TAG</button>
         {/* 
