@@ -132,6 +132,15 @@ export default function EditTags (props) {
   const handleAddTag = (e) => {
     e.preventDefault();
 
+    let tagExists = false
+
+    tagExists = tagsArray.some(existingTag => existingTag.tag.toLowerCase() === tagObject.tag.toLowerCase());
+
+    if (tagExists) {
+      toast.error("This tag is already scheduled to be added.")
+      return;
+    };
+    
     setTagsArray([
       ...tagsArray,
       tagObject
@@ -191,6 +200,7 @@ export default function EditTags (props) {
   // template
   return (
     <div>
+      <ToastContainer />
       <h2>Existing Tags</h2>
       <div>{existingTags}</div>
       <button type="submit" onClick={handleDeleteTags}>DELETE SELECTED</button>
