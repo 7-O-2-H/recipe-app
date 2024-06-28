@@ -201,7 +201,7 @@ export default function EditTags (props) {
           placeholder=" Search for tag"
           value={tagContainer}
           onChange={handleTagChange}
-        />
+          />
         {showDropDown && (
           <ul>
             {tagSuggestions.map(tag => (
@@ -211,6 +211,7 @@ export default function EditTags (props) {
             ))}
           </ul>
         )}
+        <button onClick={handleAddTag}>ADD TAG</button>
         {tagsArray && tagsArray[0] && (
           <div>
             <h2>New Tags</h2>
@@ -218,8 +219,7 @@ export default function EditTags (props) {
               <li key={tag.id} onClick={() => handleRemoveScheduledTag(tag.tag)}>{tag.tag}</li>
             ))}</ul>
           </div>
-          )}
-        <button onClick={handleAddTag}>ADD TAG</button>
+        )}
         {/* 
         <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
         <button onClick={handleCancel}>CANCEL</button> */}
