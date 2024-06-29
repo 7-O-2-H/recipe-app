@@ -16,7 +16,7 @@ import TagButton from "../addRecipe/TagButton";
 export default function EditTags (props) {
 
   // rectreive recipe ID from props
-  const { recipe, tags } = props;
+  const { recipe, revertToEditForm } = props;
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
@@ -177,14 +177,12 @@ export default function EditTags (props) {
   // // submit all tags as array
   const handleSubmitNewTags = (e) => {
     e.preventDefault();
-    addTags(tagsArray);
-    router.push(`/recipes/${recipe.id}`);
-  };
 
-  const handleCancel = (event) => {
-    event.preventDefault();
-    onCancel();
-    return;
+    // call add tags helper
+    addTags(tagsArray);
+
+    // revert to edit form
+    revertToEditForm();
   };
 
   // template
@@ -223,8 +221,6 @@ export default function EditTags (props) {
           </div>
         )}
         <button onClick={handleSubmitNewTags}>SUBMIT NEW TAGS</button>
-        {/* 
-        <button onClick={handleCancel}>CANCEL</button> */}
       </form>
     </div>
   );
