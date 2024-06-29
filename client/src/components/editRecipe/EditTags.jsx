@@ -176,38 +176,18 @@ export default function EditTags (props) {
     setRefresh(prevState => !prevState);
   };
 
-  // const handleAddTagWithButton = (tagId) => {
-
-  //   const selectedTag = allTags.find(tag => tag.id === tagId);
-  //   setTagContainer(selectedTag.tag);
-
-  //   const tagButtonObject = {
-  //     tag_id: tagId,
-  //     recipe_id: recipe.id,
-  //     tag: selectedTag.tag
-  //   }
-
-  //   setTagsArray([
-  //     ...tagsArray,
-  //     tagButtonObject
-  //   ]);
-
-  //   setSelectedTagId(null);
-  //   setTagContainer('');
-  // };
-
   // // submit all tags as array
-  // const handleSubmitTags = (e) => {
-  //   e.preventDefault();
-  //   addTags(tagsArray);
-  //   router.push(`/recipes/${recipe.id}`);
-  // };
+  const handleSubmitNewTags = (e) => {
+    e.preventDefault();
+    addTags(tagsArray);
+    router.push(`/recipes/${recipe.id}`);
+  };
 
-  // const handleCancel = (event) => {
-  //   event.preventDefault();
-  //   onCancel();
-  //   return;
-  // };
+  const handleCancel = (event) => {
+    event.preventDefault();
+    onCancel();
+    return;
+  };
 
   // template
   return (
