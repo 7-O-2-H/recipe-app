@@ -9,11 +9,9 @@ import { useAppDataWithRefresh } from "../../hooks/useAppData";
 import { useFullTags } from "../../hooks/useTag";
 // helpers
 import { deleteTags } from "../../helpers/tagsHelpers";
+import { addTags } from "../../helpers/tagsHelpers";
 // components
 import TagButton from "../addRecipe/TagButton";
-// import { addTags } from "../../helpers/tagsHelpers";
-// import { suggestTags } from "./helpers/suggestTags";
-// import SuggestedTags from "./SuggestedTags";
 
 export default function EditTags (props) {
 
@@ -224,7 +222,7 @@ export default function EditTags (props) {
             ))}</ul>
           </div>
         )}
-        <button onClick={handleSubmitTags}>SUBMIT NEW TAGS</button>
+        <button onClick={handleSubmitNewTags}>SUBMIT NEW TAGS</button>
         {/* 
         <button onClick={handleCancel}>CANCEL</button> */}
       </form>
