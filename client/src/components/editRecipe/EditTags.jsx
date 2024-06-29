@@ -244,8 +244,8 @@ export default function EditTags (props) {
             ))}</ul>
           </div>
         )}
+        <button onClick={handleSubmitTags}>SUBMIT NEW TAGS</button>
         {/* 
-        <button onClick={handleSubmitTags}>SUBMIT TAGS</button>
         <button onClick={handleCancel}>CANCEL</button> */}
       </form>
     </div>
