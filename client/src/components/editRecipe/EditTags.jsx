@@ -175,11 +175,11 @@ export default function EditTags (props) {
   };
 
   // // submit all tags as array
-  const handleSubmitNewTags = (e) => {
+  const handleSubmitNewTags = async (e) => {
     e.preventDefault();
 
     // call add tags helper
-    addTags(tagsArray);
+    await addTags(tagsArray);
 
     // refresh edit form 
     refreshEditForm();

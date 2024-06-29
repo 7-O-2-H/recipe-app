@@ -23,17 +23,25 @@ export function getTagsByRecipeId(id) {
   });
 };
 
-export function addTags(tagsArray) {
+export async function addTags(tagsArray) {
 
-  // console.log("succesfully used helper: ", tagsArray);
+  // return axios.post(`http://localhost:8080/tags/add`, {tagsArray})
+  // .then((data) => {
+  //   return data;
+  // })
+  // .catch((error) => {
+  //   console.log('axios error: ', error);
+  // });
 
-  return axios.post(`http://localhost:8080/tags/add`, {tagsArray})
-  .then((data) => {
-    return data;
-  })
-  .catch((error) => {
-    console.log('axios error: ', error);
-  });
+  try {
+    const res = await axios.post('http://localhost:8080/tags/add', {tagsArray});
+    console.log('Res status: ', res.status);
+    return res.data;
+    
+  } catch (e) {
+    console.error("axiois error: ", e);
+    throw e;
+  }
 };
 
 export function getAllTags() {
