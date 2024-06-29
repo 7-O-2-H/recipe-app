@@ -16,7 +16,7 @@ import TagButton from "../addRecipe/TagButton";
 export default function EditTags (props) {
 
   // rectreive recipe ID from props
-  const { recipe, revertToEditForm } = props;
+  const { recipe, revertToEditForm, refreshEditForm } = props;
 
   // set initial states
   const [tagContainer, setTagContainer] = useState('');
@@ -181,6 +181,9 @@ export default function EditTags (props) {
     // call add tags helper
     addTags(tagsArray);
 
+    // refresh edit form 
+    refreshEditForm();
+    
     // revert to edit form
     revertToEditForm();
   };
