@@ -123,7 +123,7 @@ export default function EditForm(props) {
   };
 
   // tags handlers
-  const handleSelectTag = (event) => {
+  const handleSelectTag = (tag) => {
     console.log(tag);
   };
 

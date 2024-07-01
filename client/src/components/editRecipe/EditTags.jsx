@@ -98,6 +98,7 @@ export default function EditTags (props) {
     const inputValue = e.target.value;
     setTagContainer(inputValue);
     
+    console.log(tag);
     const filteredTags = allTags.filter(tag => tag.tag.toLowerCase().includes(inputValue.toLowerCase())).slice(0, 5);
 
     // only show dropdown if there is input
@@ -129,6 +130,18 @@ export default function EditTags (props) {
   // // add tags to list user wants to add
   const handleAddTag = (e) => {
     e.preventDefault();
+
+    // Check if the current input matches a suggestion
+    const matchingSuggestion = tagSuggestions.find(tag => tag.tag.toLowerCase() === tagObject.tag.toLowerCase());
+
+    // If there is a matching suggestion, use its data
+    if (matchingSuggestion) {
+      setTagObject({
+        ...tagObject,
+        tag_id: matchingSuggestion.id,
+        tag: matchingSuggestion.tag
+      });
+    };
 
     // init variable to prevent submission if tag is already in tagsArray
     let tagExists = false
@@ -178,6 +191,8 @@ export default function EditTags (props) {
   const handleSubmitNewTags = async (e) => {
     e.preventDefault();
 
+
+    console.log(tagsArray);
     // call add tags helper
     await addTags(tagsArray);
 
