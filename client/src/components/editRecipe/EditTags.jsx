@@ -131,6 +131,8 @@ export default function EditTags (props) {
   const handleAddTag = (e) => {
     e.preventDefault();
 
+    console.log(tagSuggestions, tagObject);
+
     // Check if the current input matches a suggestion
     const matchingSuggestion = tagSuggestions.find(tag => tag.tag.toLowerCase() === tagObject.tag.toLowerCase());
 
