@@ -64,24 +64,26 @@ router.get('/full/:id', (req, res) => {
   })
 });
 
-router.post('/delete', (req, res) => {
+router.post('/delete', async (req, res) => {
 
   // req tags
   const recipeTagIds = req.body.tags;
 
   console.log(recipeTagIds);
 
-  for (id of recipeTagIds) {
+  for (const id of recipeTagIds) {
 
-    deleteRecipeTagById(id)
-      .then(data => {
-        res.status(204).send();
-      })
-      .catch(error => {
+    try {
+
+      deleteRecipeTagById(id)
+      // .then(data => {
+      //   res.status(204).send();
+      } catch (error) {
         res.status(500).json({err: "failed to delete selected tags"})
-      });
-
-  };
+      }
+      
+    }
+  
 });
 
 module.exports = router;

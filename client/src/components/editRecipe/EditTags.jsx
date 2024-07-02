@@ -219,6 +219,8 @@ export default function EditTags (props) {
 
     // refresh edit form 
     refreshEditForm();
+
+    setTagSuggestions([]);
     
     // revert to edit form
     // revertToEditForm();
