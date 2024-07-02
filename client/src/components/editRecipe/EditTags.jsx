@@ -31,6 +31,8 @@ export default function EditTags (props) {
   const [tagSuggestions, setTagSuggestions] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [refresh, setRefresh] = useState(true);
+  const [addTagTrigger, setAddTagTrigger] = useState(false);
+
   
   const { fullTagsInfo } = useFullTags(recipe.id, refresh);
 
@@ -125,6 +127,14 @@ export default function EditTags (props) {
     setTagSuggestions([]);
   };
 
+    // useEffect to handle adding tag to array after tagObject is updated
+    useEffect(() => {
+      if (addTagTrigger) {
+        addTagObjectToArray();
+        setAddTagTrigger(false);
+      }
+    }, [tagObject]);
+
   // // add tags to list user wants to add
   const handleAddTag = (e) => {
     e.preventDefault();
@@ -142,10 +152,9 @@ export default function EditTags (props) {
         ...prevState,
         tag_id: matchingSuggestion.id,
         tag: matchingSuggestion.tag
-      }), () => {
+      }));
         // if matching suggestion add tag to tags Array with tag id from existing tags else add to tags array with null id
-        addTagObjectToArray();
-      });  
+        setAddTagTrigger(true);
     } else {
       addTagObjectToArray();
     }
