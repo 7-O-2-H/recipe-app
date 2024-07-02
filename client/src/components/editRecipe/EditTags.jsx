@@ -151,6 +151,8 @@ export default function EditTags (props) {
     }
   };
 
+  const addTagObjectToArray = () => {
+
     // init variable to prevent submission if tag is already in tagsArray
     let tagExists = false
 
