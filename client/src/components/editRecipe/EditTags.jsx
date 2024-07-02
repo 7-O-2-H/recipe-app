@@ -215,11 +215,13 @@ export default function EditTags (props) {
     // call add tags helper
     await addTags(tagsArray);
 
+    setTagsArray([]);
+
     // refresh edit form 
     refreshEditForm();
     
     // revert to edit form
-    revertToEditForm();
+    // revertToEditForm();
   };
 
   // template
