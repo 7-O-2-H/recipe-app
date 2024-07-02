@@ -138,14 +138,18 @@ export default function EditTags (props) {
 
     // If there is a matching suggestion, use its data
     if (matchingSuggestion) {
-      setTagObject({
-        ...tagObject,
+      setTagObject((prevState) => ({
+        ...prevState,
         tag_id: matchingSuggestion.id,
         tag: matchingSuggestion.tag
-      });
-    };
-
-    console.log(tagObject);
+      }), () => {
+        // if matching suggestion add tag to tags Array with tag id from existing tags else add to tags array with null id
+        addTagObjectToArray();
+      });  
+    } else {
+      addTagObjectToArray();
+    }
+  };
 
     // init variable to prevent submission if tag is already in tagsArray
     let tagExists = false
