@@ -140,12 +140,8 @@ export default function EditTags (props) {
   const handleAddTag = (e) => {
     e.preventDefault();
 
-    console.log("suggestions: ", tagSuggestions, "object: ", tagObject);
-
     // Check if the current input matches a suggestion
     const matchingSuggestion = tagSuggestions.find(tag => tag.tag.toLowerCase() === tagObject.tag.toLowerCase());
-
-    console.log("matcing: ", matchingSuggestion, "Conainer: ", tagContainer);
 
     // If there is a matching suggestion, use its data
     if (matchingSuggestion) {
@@ -211,8 +207,6 @@ export default function EditTags (props) {
   const handleSubmitNewTags = async (e) => {
     e.preventDefault();
 
-
-    console.log(tagsArray);
     // call add tags helper
     await addTags(tagsArray);
 
