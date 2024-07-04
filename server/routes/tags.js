@@ -24,8 +24,6 @@ router.post('/add', async (req, res) => {
   // get tag array from front end
   const tagsArray = req.body.tagsArray;
 
-  console.log(tagsArray);
-
   // loop through tags to add
   for (const tag of tagsArray) {
     
