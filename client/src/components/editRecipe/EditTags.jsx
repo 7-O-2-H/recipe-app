@@ -224,7 +224,7 @@ export default function EditTags (props) {
     setTagSuggestions([]);
     
     // revert to edit form
-    // revertToEditForm();
+    revertToEditForm();
   };
 
   // template
