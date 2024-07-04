@@ -25,14 +25,6 @@ export function getTagsByRecipeId(id) {
 
 export async function addTags(tagsArray) {
 
-  // return axios.post(`http://localhost:8080/tags/add`, {tagsArray})
-  // .then((data) => {
-  //   return data;
-  // })
-  // .catch((error) => {
-  //   console.log('axios error: ', error);
-  // });
-
   try {
     const res = await axios.post('http://localhost:8080/tags/add', {tagsArray});
     console.log('Res status: ', res.status);
