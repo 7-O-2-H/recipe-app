@@ -69,21 +69,12 @@ router.post('/delete', async (req, res) => {
   // req tags
   const recipeTagIds = req.body.tags;
 
-  console.log(recipeTagIds);
-
-  for (const id of recipeTagIds) {
-
-    try {
-
-      deleteRecipeTagById(id)
-      // .then(data => {
-        res.status(204).send();
-      } catch (error) {
-        res.status(500).json({err: "failed to delete selected tags"})
-      }
-      
-    }
-  
+  try {
+    await Promise.all(recipeTagIds.map(id => deleteRecipeTagById(id)));
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ err: "Failed to delete selected tags" });
+  }
 });
 
 module.exports = router;
