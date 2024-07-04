@@ -41,27 +41,6 @@ router.post('/add', async (req, res) => {
     res.status(500).json({ error: "internal" });
   };
 
-  // // loop through tags to add
-  // for (const tag of tagsArray) {
-    
-  //   // add recipe tag if tag already in db else use async add tag and use return tag id to add recipe tag
-  //   if (tag.tag_id !== null) {
-  //     addRecipeTag(tag);
-  //   } else {
-
-  //     try {
-        
-  //       const lowerCaseTag = tag.tag.toLowerCase();
-  //       const tagId = await addTag(lowerCaseTag);
-  //       tag.tag_id = tagId;
-  //       addRecipeTag(tag);
-
-  //     } catch (error) {
-  //       console.error('Add tag error: ', error.message);
-  //       res.status(500).json({error: "internal"});
-  //     };
-  //   };
-  // };
 });
 
 router.get('/', (req, res) => {
