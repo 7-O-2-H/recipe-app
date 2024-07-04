@@ -77,7 +77,7 @@ router.post('/delete', async (req, res) => {
 
       deleteRecipeTagById(id)
       // .then(data => {
-      //   res.status(204).send();
+        res.status(204).send();
       } catch (error) {
         res.status(500).json({err: "failed to delete selected tags"})
       }
