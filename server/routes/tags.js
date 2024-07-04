@@ -24,27 +24,44 @@ router.post('/add', async (req, res) => {
   // get tag array from front end
   const tagsArray = req.body.tagsArray;
 
-  // loop through tags to add
-  for (const tag of tagsArray) {
-    
-    // add recipe tag if tag already in db else use async add tag and use return tag id to add recipe tag
-    if (tag.tag_id !== null) {
-      addRecipeTag(tag);
-    } else {
-
-      try {
-        
+  try {
+    await Promise.all(tagsArray.map(async (tag) => {
+      if (tag.tag_id != null) {
+        await addRecipeTag(tag);
+      } else {
         const lowerCaseTag = tag.tag.toLowerCase();
         const tagId = await addTag(lowerCaseTag);
         tag.tag_id = tagId;
-        addRecipeTag(tag);
-
-      } catch (error) {
-        console.error('Add tag error: ', error.message);
-        res.status(500).json({error: "internal"});
-      };
-    };
+        await addRecipeTag(tag);
+      }
+    }));
+    res.status(200).send();
+  } catch (error) {
+    console.error('Add tag error: ', error.message);
+    res.status(500).json({ error: "internal" });
   };
+
+  // // loop through tags to add
+  // for (const tag of tagsArray) {
+    
+  //   // add recipe tag if tag already in db else use async add tag and use return tag id to add recipe tag
+  //   if (tag.tag_id !== null) {
+  //     addRecipeTag(tag);
+  //   } else {
+
+  //     try {
+        
+  //       const lowerCaseTag = tag.tag.toLowerCase();
+  //       const tagId = await addTag(lowerCaseTag);
+  //       tag.tag_id = tagId;
+  //       addRecipeTag(tag);
+
+  //     } catch (error) {
+  //       console.error('Add tag error: ', error.message);
+  //       res.status(500).json({error: "internal"});
+  //     };
+  //   };
+  // };
 });
 
 router.get('/', (req, res) => {
