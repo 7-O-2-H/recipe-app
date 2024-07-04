@@ -63,6 +63,7 @@ export default function EditTags (props) {
     // refresh component and parent so they only show existing tags
     setSelectedTags([]);
     setRefresh((prevState) => !prevState);
+    console.log(refresh);
 
   };
 
