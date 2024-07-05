@@ -207,18 +207,24 @@ export default function EditTags (props) {
   const handleSubmitNewTags = async (e) => {
     e.preventDefault();
 
-    // call add tags helper
-    await addTags(tagsArray);
+    try {
 
-    setTagsArray([]);
-
-    // refresh edit form 
-    refreshEditForm();
-
-    setTagSuggestions([]);
+      // call add tags helper
+      await addTags(tagsArray);
+      
+      setTagsArray([]);
+      
+      // refresh edit form 
+      
+      setTagSuggestions([]);
+      
+      // revert to edit form
+      revertToEditForm();
+    } catch {
+      toast.error("an error occured");
+    }
     
-    // revert to edit form
-    revertToEditForm();
+    refreshEditForm();
   };
 
   // template
