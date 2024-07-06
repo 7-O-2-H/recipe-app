@@ -13,8 +13,6 @@ export default function EditIngredient (props) {
 
   // retrieve prop functions
   const { handleCancel, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement } = props;
-
-  console.log(initialMeasurement)
   
   // initialize states
   const [ingredient, setIngredient] = useState(currentIngredient);
@@ -31,16 +29,8 @@ export default function EditIngredient (props) {
   const [refreshData, setRefreshData] = useState(false);
   const [ingredientsArray, setIngredientsArray] = useState([]);
   
-  const { allMeasurements, allIngredients } = useAppDataWithRefresh(refreshData);
-  
-  // const currentMeasurementObject = allMeasurements.find(measurement => measurement.measurement === currentMeasurement);
-  
-  // // console.log(allMeasurements, currentMeasurement);
-  // console.log(currentMeasurementObject.id);
-
-  // const initialMeasurement = (currentMeasurementObject.id).toString();
-  
   // retreive all ingredients and measurements
+  const { allMeasurements, allIngredients } = useAppDataWithRefresh(refreshData);
 
   // remove hours and minutes from measurements and sort the array
   const foodMeasurements = allMeasurements.slice(2);

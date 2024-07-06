@@ -38,6 +38,7 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
 
   let currentMeasurementObject = {};
   let initialMeasurement = '';
+
   // retreive measurement ID as string
   if (allMeasurements && allMeasurements[0]) {
 
@@ -52,9 +53,8 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   };
 
   const handleCancel = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     setEditable(false);
-    console.log(editable);
   };
 
   //template
