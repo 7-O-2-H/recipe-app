@@ -12,26 +12,35 @@ import QuantityDropdown from "../addRecipe/QuantityDropdown";
 export default function EditIngredient (props) {
 
   // retrieve prop functions
-  const { handleCancel } = props;
+  const { handleCancel, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement } = props;
 
+  console.log(initialMeasurement)
+  
   // initialize states
-  const [ingredient, setIngredient] = useState('');
-  const [quantity, setQuantity] = useState(undefined);
+  const [ingredient, setIngredient] = useState(currentIngredient);
+  const [quantity, setQuantity] = useState(currentQuantity);
   const [quantityFormat, setQuantityFormat] = useState('decimal');
   const [quantityWholeNumber, setQuantityWholeNumber] = useState(undefined);
   const [quantityFraction, setQuantityFraction] = useState(undefined);
   const [selectedOption, setSelectedOption] = useState(undefined);
-  const [measurement, setMeasurement] = useState(undefined);
-  const [ingredientsQuery, setIngredientsQuery] = useState('');
+  const [measurement, setMeasurement] = useState(currentMeasurement);
+  const [ingredientsQuery, setIngredientsQuery] = useState(currentIngredient);
   const [suggestions, setSuggestions] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [ingredientId, setIngredientId] = useState(null);
   const [refreshData, setRefreshData] = useState(false);
   const [ingredientsArray, setIngredientsArray] = useState([]);
   
-
-  // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppDataWithRefresh(refreshData);
+  
+  // const currentMeasurementObject = allMeasurements.find(measurement => measurement.measurement === currentMeasurement);
+  
+  // // console.log(allMeasurements, currentMeasurement);
+  // console.log(currentMeasurementObject.id);
+
+  // const initialMeasurement = (currentMeasurementObject.id).toString();
+  
+  // retreive all ingredients and measurements
 
   // remove hours and minutes from measurements and sort the array
   const foodMeasurements = allMeasurements.slice(2);
@@ -227,7 +236,7 @@ export default function EditIngredient (props) {
             id="quantity"
             type="number"
             className="input-field"
-            placeholder="quantity"
+            placeholder={"quantity"}
             value={quantityWholeNumber !== undefined ? quantityWholeNumber.toString() : ''}
             onChange={(event) => setQuantityWholeNumber(parseInt(event.target.value))}
             min="0"
@@ -239,10 +248,10 @@ export default function EditIngredient (props) {
         )}
         <select
           id="measurement"
-          value={measurement}
+          value={initialMeasurement || ''}
           onChange={(event) => setMeasurement(event.target.value)}
           >
-          <option value="">Select Measurement</option>
+          <option value=''>Select Measurement</option>
             {sortedMeasurements.map((measurement) => (
               <option key={measurement.id} value={measurement.id}>
                 {measurement.measurement}

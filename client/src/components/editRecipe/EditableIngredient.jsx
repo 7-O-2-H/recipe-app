@@ -12,7 +12,7 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
 
-  console.log(ingredientData);
+  // console.log(ingredientData);
   
   // const { fullIngredientData } = useEditData(recipeId);
 
@@ -35,6 +35,15 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   
   // retrieve measurements and ingredients
   const { allMeasurements, allIngredients } = useAppDataWithRefresh(refreshData);
+
+  let currentMeasurementObject = {};
+  let initialMeasurement = '';
+  // retreive measurement ID as string
+  if (allMeasurements && allMeasurements[0]) {
+
+    currentMeasurementObject = allMeasurements.find(measurement => measurement.measurement === ingredientData.measurement);
+    initialMeasurement = (currentMeasurementObject.id).toString();
+  }
 
   // handle edit condition
   const editIngredient = (e) => {
@@ -63,6 +72,10 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
         <div>
           <EditIngredient
             handleCancel={handleCancel}
+            currentIngredient={ingredientData.ingredient}
+            currentQuantity={ingredientData.quantity}
+            currentMeasurement={ingredientData.measurement}
+            initialMeasurement={initialMeasurement}
           />
         </div>
       )}
