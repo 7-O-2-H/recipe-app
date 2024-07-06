@@ -23,7 +23,7 @@ export default function EditIngredient (props) {
   const [quantityWholeNumber, setQuantityWholeNumber] = useState(undefined);
   const [quantityFraction, setQuantityFraction] = useState(undefined);
   const [selectedOption, setSelectedOption] = useState(undefined);
-  const [measurement, setMeasurement] = useState(currentMeasurement);
+  const [measurement, setMeasurement] = useState(initialMeasurement);
   const [ingredientsQuery, setIngredientsQuery] = useState(currentIngredient);
   const [suggestions, setSuggestions] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -248,7 +248,7 @@ export default function EditIngredient (props) {
         )}
         <select
           id="measurement"
-          value={initialMeasurement || ''}
+          value={measurement || ''}
           onChange={(event) => setMeasurement(event.target.value)}
           >
           <option value=''>Select Measurement</option>
