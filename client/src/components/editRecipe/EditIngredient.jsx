@@ -196,12 +196,6 @@ export default function EditIngredient (props) {
     };
   };
 
-  // const handleCancel = (event) => {
-  //   event.preventDefault();
-  //   onCancel();
-  //   return;
-  // };
-
   // console.log(ingredientsData, ingredientsArray);
   return (
     <div>
