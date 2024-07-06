@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAppDataWithRefresh } from "../../hooks/useAppData";
-import EditIngredientForm from "./EditIngredientForm";
+import EditIngredient from "./EditIngredient";
 import { useEditData } from "../../hooks/useEditData";
 
 export default function EditableIngredient({ recipeId, index, ingredient, ingredientArray }) {
@@ -11,6 +11,8 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   // parse JSON ingredients and extract data for current ingredient
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
+
+  console.log(ingredientData);
   
   // const { fullIngredientData } = useEditData(recipeId);
 
@@ -40,11 +42,17 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
     setEditable(true);
   };
 
+  const handleCancel = (e) => {
+    // e.preventDefault();
+    setEditable(false);
+    console.log(editable);
+  };
+
   //template
   return (
-    <div className="ingredients-container" onClick={editIngredient}>
+    <div className="ingredients-container" >
       {!editable ? (
-        <div className="ingredient">
+        <div className="ingredient" onClick={editIngredient}>
           - &nbsp;
           {ingredient}
           <br></br>
@@ -53,7 +61,9 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
         </div>
       ) : (
         <div>
-          <EditIngredientForm />
+          <EditIngredient
+            handleCancel={handleCancel}
+          />
         </div>
       )}
     </div>
