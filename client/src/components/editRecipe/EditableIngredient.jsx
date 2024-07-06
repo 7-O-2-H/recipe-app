@@ -42,14 +42,14 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
 
   //template
   return (
-    <div className="ingredients-container">
+    <div className="ingredients-container" onClick={editIngredient}>
       {!editable ? (
         <div className="ingredient">
           - &nbsp;
           {ingredient}
           <br></br>
           <br></br>
-          <button className="edit-button" onClick={editIngredient}>EDIT</button>
+          {/* <button className="edit-button" onClick={editIngredient}>EDIT</button> */}
         </div>
       ) : (
         <div>

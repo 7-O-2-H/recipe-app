@@ -122,7 +122,7 @@ export default function EditForm(props) {
 
   };
 
-  // tags handlers
+  // tags handlers 
   const handleSelectTag = (tag) => {
     console.log(tag);
   };
@@ -177,7 +177,6 @@ export default function EditForm(props) {
     )
   });
 
-  // console.log(tagsArray);
 
   // useEffect to change value of steoNumber to default next step
   useEffect(() => {
@@ -227,8 +226,12 @@ export default function EditForm(props) {
       )}
       {/* Ingredients */}
       <div className="edit-section">
-        <h4 id="edit-category">INGREDIENTS</h4>
+        <div>
+          <h4 id="edit-category">INGREDIENTS</h4>
+          <p>Click ingredient to edit</p>
+        </div>
         <div className="edit-content">{ingredientArray}</div>
+        {/* <button className="edit-button" onClick={handleEditSteps}>EDIT INGREDIENTS</button> */}
       </div>
       {/* Steps */}
       {!editSteps ? (
