@@ -220,6 +220,8 @@ export default function EditTags (props) {
       
       // revert to edit form
       revertToEditForm();
+
+      setRefresh(prevState => !prevState);
     } catch {
       toast.error("an error occured");
     }
