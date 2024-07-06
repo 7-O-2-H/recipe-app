@@ -196,6 +196,11 @@ export default function EditIngredient (props) {
     };
   };
 
+  // handle delete ingredient
+  const handleDelete = (event) => {
+    console.log(ingredientsQuery);
+  }
+
   // console.log(ingredientsData, ingredientsArray);
   return (
     <div>

@@ -14,9 +14,9 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
 
   // console.log(ingredientData);
   
-  // const { fullIngredientData } = useEditData(recipeId);
+  const { fullIngredientData } = useEditData(recipeId);
 
-  // console.log(fullIngredientData);
+  console.log(fullIngredientData);
   // console.log('ingData: ', ingredientData);
 
  
