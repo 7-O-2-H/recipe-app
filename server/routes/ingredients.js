@@ -63,7 +63,13 @@ router.post('/delete', async (req, res) => {
   // retreive ingredientData
   const ingredientData = req.body.ingredientData;
 
-  console.log(ingredientData);
+  try {
+    await deleteIngredient(ingredientData);
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete ingredient" });
+  }
 });
+
 
 module.exports = router;
