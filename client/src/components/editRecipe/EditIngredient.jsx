@@ -204,9 +204,16 @@ export default function EditIngredient (props) {
     const ingredientObject = allIngredients.find(ingredient => ingredient.ingredient === currentIngredient);
 
     console.log(ingredientObject.id, 'ingredientId:', ingredientId, 'recipeId: ', recipeId);
+
+    const ingredientData = {
+      ingredient_id: ingredientObject.id,
+      recipe_id: recipeId
+    };
+
+    await deleteIngredient(ingredientData);
+    
   };
 
-  // console.log(ingredientsData, ingredientsArray);
   return (
     <div>
       <ToastContainer />

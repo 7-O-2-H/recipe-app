@@ -57,4 +57,13 @@ router.get('/recipeIngredients', (req, res) => {
   })
 });
 
+// delete
+router.post('/delete', async (req, res) => {
+
+  // retreive ingredientData
+  const ingredientData = req.body.ingredientData;
+
+  console.log(ingredientData);
+});
+
 module.exports = router;
