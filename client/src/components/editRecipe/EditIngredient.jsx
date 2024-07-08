@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useAppDataWithRefresh } from "../../hooks/useAppData";
 //component
 import QuantityDropdown from "../addRecipe/QuantityDropdown";
+// helpers
+import { deleteIngredient } from "../../helpers/ingredientsHelpers";
 
 export default function EditIngredient (props) {
 
@@ -197,9 +199,9 @@ export default function EditIngredient (props) {
   };
 
   // handle delete ingredient
-  const handleDelete = (event) => {
+  const handleDelete = async (event) => {
     console.log(ingredientsQuery);
-  }
+  };
 
   // console.log(ingredientsData, ingredientsArray);
   return (
