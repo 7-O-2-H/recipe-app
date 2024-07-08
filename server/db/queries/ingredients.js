@@ -53,18 +53,6 @@ const addIngredient = async (ingredient) => {
     console.error('add ing error: ', error.message);
     throw error;
   }
-
-  // return db.query
-  //   (`INSERT INTO ingredients (ingredient) VALUES ($1) RETURNING id;`, 
-  //   [ingredient]
-  // )
-  // .then((result) => {
-  //   return result.rows[0].id;
-  // })
-  // .catch((err) => {
-  //   console.log('add ingredient error: ', err.message);
-  //   return err.message;
-  // });
 };
 
 const addRecipeIngredient = (ingredientData) => {
@@ -97,8 +85,6 @@ const getRecipeIngredients = () => {
 const deleteIngredient = (ingredientData) => {
 
   const values = [ingredientData.recipe_id, ingredientData.ingredient_id];
-
-  console.log(values, typeof values[1]);
 
   return db.query(`DELETE FROM recipe_ingredients WHERE recipe_id = $1 AND ingredient_id = $2;`, values)
     .then((result) => {
