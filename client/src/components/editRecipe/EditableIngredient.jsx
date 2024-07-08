@@ -12,11 +12,7 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
 
-  // console.log(ingredientData);
   
-  const { fullIngredientData } = useEditData(recipeId);
-
-  console.log(fullIngredientData);
   // console.log('ingData: ', ingredientData);
 
  
@@ -76,6 +72,7 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
             currentQuantity={ingredientData.quantity}
             currentMeasurement={ingredientData.measurement}
             initialMeasurement={initialMeasurement}
+            recipeId={recipeId}
           />
         </div>
       )}
