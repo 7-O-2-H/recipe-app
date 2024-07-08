@@ -200,7 +200,7 @@ export default function EditIngredient (props) {
 
   // handle delete ingredient
   const handleDelete = async (event) => {
-    console.log(ingredientsQuery);
+    console.log('ingredientId:', ingredientId, 'recipeId: ', recipeId);
   };
 
   // console.log(ingredientsData, ingredientsArray);
@@ -267,6 +267,7 @@ export default function EditIngredient (props) {
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           UPDATE INGREDIENT
         </button>
+        <button type="submit" className="submit-btn" onClick={deleteIngredient}>DELETE INGREDIENT</button>
         <button onClick={handleCancel}>CANCEL</button>
       </form>
     </div>
