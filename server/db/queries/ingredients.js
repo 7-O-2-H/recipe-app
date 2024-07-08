@@ -108,4 +108,4 @@ const deleteIngredient = (ingredientData) => {
     });
 };
 
-module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, getRecipeIngredientsByRecipeId, addRecipeIngredient, addIngredient, getRecipeIngredients };
+module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, getRecipeIngredientsByRecipeId, addRecipeIngredient, addIngredient, getRecipeIngredients, deleteIngredient };
