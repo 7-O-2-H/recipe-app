@@ -12,6 +12,7 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
 
+  console.log(recipeId);
   
   // console.log('ingData: ', ingredientData);
 

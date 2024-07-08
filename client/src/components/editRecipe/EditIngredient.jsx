@@ -14,7 +14,7 @@ import { deleteIngredient } from "../../helpers/ingredientsHelpers";
 export default function EditIngredient (props) {
 
   // retrieve prop functions
-  const { handleCancel, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement } = props;
+  const { handleCancel, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement, recipeId } = props;
   
   // initialize states
   const [ingredient, setIngredient] = useState(currentIngredient);
@@ -188,19 +188,22 @@ export default function EditIngredient (props) {
   };
 
   // handle submit with a check to see if the user has entered some ingredient
-  const handleNext = (e) => {
-    e.preventDefault();
+  // const handleNext = (e) => {
+  //   e.preventDefault();
     
-    if (ingredientsData && ingredientsData.length > 0) {
-      onNextStep();
-    } else {
-      toast.error('You must enter at least one ingredient for your recipe.')
-    };
-  };
+  //   if (ingredientsData && ingredientsData.length > 0) {
+  //     onNextStep();
+  //   } else {
+  //     toast.error('You must enter at least one ingredient for your recipe.')
+  //   };
+  // };
 
   // handle delete ingredient
   const handleDelete = async (event) => {
-    console.log('ingredientId:', ingredientId, 'recipeId: ', recipeId);
+
+    const ingredientObject = allIngredients.find(ingredient => ingredient.ingredient === currentIngredient);
+
+    console.log(ingredientObject.id, 'ingredientId:', ingredientId, 'recipeId: ', recipeId);
   };
 
   // console.log(ingredientsData, ingredientsArray);
@@ -267,7 +270,7 @@ export default function EditIngredient (props) {
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           UPDATE INGREDIENT
         </button>
-        <button type="submit" className="submit-btn" onClick={deleteIngredient}>DELETE INGREDIENT</button>
+        <button type="submit" className="submit-btn" onClick={handleDelete}>DELETE INGREDIENT</button>
         <button onClick={handleCancel}>CANCEL</button>
       </form>
     </div>
