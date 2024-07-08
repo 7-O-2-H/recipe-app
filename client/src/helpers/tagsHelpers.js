@@ -64,8 +64,8 @@ export async function deleteTags(tags) {
     const res = await axios.post('http://localhost:8080/tags/delete', {tags});
     console.log('Res status: ', res.status);
     return;
-  } catch (e) {
+  } catch (error) {
     console.error("axiois error: ", e);
-    throw e;
+    throw error;
   }
 };

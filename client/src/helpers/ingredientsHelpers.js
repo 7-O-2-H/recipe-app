@@ -58,3 +58,15 @@ export function addRecipeIngredient(recipeIngredientData) {
       console.log("axios error: ", err)
     });
 };
+
+export async function deleteIngredient(ingredientData) {
+
+  try {
+    const res = await axios.post(`http://localhost:8080/ingredients/delete`, {ingredientData});
+    console.log('Res status: ', res.status);
+    return;
+  } catch (error) {
+    console.error('axios error: ', error);
+    throw error;
+  }
+};
