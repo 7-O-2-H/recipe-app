@@ -98,7 +98,9 @@ const deleteIngredient = (ingredientData) => {
 
   const values = [ingredientData.recipe_id, ingredientData.ingredient_id];
 
-  return db.query(`DELETE FROM recipe_ingredients WHERE recipe_id = $1 AND ingredient_id = $2;`, [values])
+  console.log(values, typeof values[1]);
+
+  return db.query(`DELETE FROM recipe_ingredients WHERE recipe_id = $1 AND ingredient_id = $2;`, values)
     .then((result) => {
       return result.rows;
     })
