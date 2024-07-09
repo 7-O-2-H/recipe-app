@@ -70,3 +70,16 @@ export async function deleteIngredient(ingredientData) {
     throw error;
   }
 };
+
+export async function editIngredient(ingredientData) {
+
+  console.log(ingredientData);
+  // try {
+  //   const res = await axios.post(`http://localhost:8080/steps/edit`, {updatedSteps});
+  //   console.log('Response status: ', res.status);
+  //   // return res.data[0].id;
+  // } catch (err) {
+  //   console.error("axios error: ", err);
+  //   throw err;
+  // }
+};

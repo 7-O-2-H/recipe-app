@@ -10,14 +10,13 @@ import { useAppDataWithRefresh } from "../../hooks/useAppData";
 import QuantityDropdown from "../addRecipe/QuantityDropdown";
 // helpers
 import { deleteIngredient } from "../../helpers/ingredientsHelpers";
+import { editIngredient } from "../../helpers/ingredientsHelpers";
 
 export default function EditIngredient (props) {
 
   // retrieve prop functions
   const { handleCancel, recipeIngredientId, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement, recipeId, refresh } = props;
-  
-  console.log(typeof recipeIngredientId, recipeIngredientId);
-  
+    
   // initialize states
   const [ingredient, setIngredient] = useState(currentIngredient);
   const [quantity, setQuantity] = useState(currentQuantity);
@@ -120,6 +119,7 @@ export default function EditIngredient (props) {
         
         // set ingredient data for existing ingredient case
         const ingredientData = {
+          id: recipeIngredientId,
           existingIngredient: true,
           ingredient: ingredientsQuery,
           ingredient_id: ingredientId,
@@ -128,29 +128,29 @@ export default function EditIngredient (props) {
         };
         
         //block submission if ingredient already exists
-        if (ingredientsArray.includes(ingredientData.ingredient)) {
-          toast.error(`${ingredientData.ingredient} already exists in this recipe`);
-          return;
-        };
+        // if (ingredientsArray.includes(ingredientData.ingredient)) {
+        //   toast.error(`${ingredientData.ingredient} already exists in this recipe`);
+        //   return;
+        // };
 
         // keep track of data in array to use for toast check of duplicate ingredients
-        setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, ingredientsQuery]);
+        // setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, ingredientsQuery]);
         
 
         // add ingredient
-        await addIngredient(ingredientData);
+        await editIngredient(ingredientData);
         
         
         // clear inputs
-        setIngredientsQuery('');
-        setQuantity(undefined);
-        setMeasurement(undefined);
-        setSuggestions([]);
-        setQuantityFraction(undefined);
-        setQuantityWholeNumber(undefined);
+        // setIngredientsQuery('');
+        // setQuantity(undefined);
+        // setMeasurement(undefined);
+        // setSuggestions([]);
+        // setQuantityFraction(undefined);
+        // setQuantityWholeNumber(undefined);
 
         // update refreshData to force retreival of updated dd info from useAppData
-        setRefreshData(!refreshData);
+        // setRefreshData(!refreshData);
 
       } else {
         
