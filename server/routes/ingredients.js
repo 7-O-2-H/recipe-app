@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllIngredients, getIngredientByName, getRecipeIngredients, getRecipeIngredientsByRecipeId, addRecipeIngredient, addIngredient, deleteIngredient} = require('../db/queries/ingredients');
+const { getAllIngredients, getIngredientByName, getRecipeIngredients, getRecipeIngredientsByRecipeId, addRecipeIngredient, addIngredient, deleteIngredient, editIngredient} = require('../db/queries/ingredients');
 
 // ingredients
 router.get('/', (req, res) => {
@@ -67,12 +67,16 @@ router.post('/delete', async (req, res) => {
 // edit
 router.post('/edit', async (req, res) => {
 
+  // retreive updated data
   const ingredientData = req.body.ingredientData;
 
-  try {
-    console.log(ingredientData);
-  } catch (error) {
-    res.status(500).json( { error: "Failed to edit ingredient"});
+  // check if ingredient exists in db
+  if (ingredientData.existingIngredient) {
+    try {
+      editIngredient(ingredientData);
+    } catch (error) {
+      res.status(500).json( { error: "Failed to edit ingredient"});
+    }
   }
 });
 

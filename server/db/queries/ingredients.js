@@ -113,4 +113,13 @@ const deleteIngredient = (ingredientData) => {
     });
 };
 
-module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, getRecipeIngredientsByRecipeId, addRecipeIngredient, addIngredient, getRecipeIngredients, deleteIngredient };
+// edit
+const editIngredient = ingredientData => {
+
+  const values = [ingredientData.id, ingredientData.ingredient_id, parseInt(ingredientData.quantity), parseInt(ingredientData.measurement_id)];
+
+  console.log(values);
+
+};
+
+module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, getRecipeIngredientsByRecipeId, addRecipeIngredient, addIngredient, getRecipeIngredients, deleteIngredient, editIngredient };
