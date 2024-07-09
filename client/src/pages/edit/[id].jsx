@@ -33,6 +33,7 @@ export default function Edit( { params } ) {
   // function to trigger refresh on update submission
   const triggerRefresh = () => {
     setRefreshData(prevState => !prevState);
+    console.log('Triggering refresh. State: ', refreshData);
   };
   
   // If recipe is not set, invoke loading state

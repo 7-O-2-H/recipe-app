@@ -154,6 +154,7 @@ export default function EditForm(props) {
       index={index}
       ingredient={JSON.stringify(ingredient)}
       ingredientArray={JSON.stringify(currentIngredients)}
+      refresh={triggerRefresh}
     />
   ));
 

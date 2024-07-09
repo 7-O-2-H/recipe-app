@@ -14,7 +14,7 @@ import { deleteIngredient } from "../../helpers/ingredientsHelpers";
 export default function EditIngredient (props) {
 
   // retrieve prop functions
-  const { handleCancel, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement, recipeId } = props;
+  const { handleCancel, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement, recipeId, refresh } = props;
   
   // initialize states
   const [ingredient, setIngredient] = useState(currentIngredient);
@@ -200,7 +200,8 @@ export default function EditIngredient (props) {
 
   // handle delete ingredient
   const handleDelete = async (event) => {
-
+    event.preventDefault();
+    
     const ingredientObject = allIngredients.find(ingredient => ingredient.ingredient === currentIngredient);
 
     console.log(ingredientObject.id, 'ingredientId:', ingredientId, 'recipeId: ', recipeId);
@@ -212,6 +213,10 @@ export default function EditIngredient (props) {
 
     await deleteIngredient(ingredientData);
     
+    refresh();
+    
+    handleCancel(event);
+
   };
 
   return (
