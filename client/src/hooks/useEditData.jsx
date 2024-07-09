@@ -13,7 +13,6 @@ export function useEditData(id) {
     // get full ing data array
     getRecipeIngredientsByRecipeId(id)
     .then((data) => {
-      console.log(data);
       setFullIngredientData(data);
     })
 

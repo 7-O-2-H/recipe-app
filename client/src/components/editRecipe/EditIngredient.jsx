@@ -14,7 +14,9 @@ import { deleteIngredient } from "../../helpers/ingredientsHelpers";
 export default function EditIngredient (props) {
 
   // retrieve prop functions
-  const { handleCancel, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement, recipeId, refresh } = props;
+  const { handleCancel, recipeIngredientId, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement, recipeId, refresh } = props;
+  
+  console.log(recipeIngredientId);
   
   // initialize states
   const [ingredient, setIngredient] = useState(currentIngredient);

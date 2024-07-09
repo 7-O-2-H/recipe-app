@@ -16,11 +16,10 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
 
   const { fullIngredientData } = useEditData(recipeId);
 
-  console.log(fullIngredientData);
- 
-  // const recipeIngredientId = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
   
-  // console.log(recipeIngredientId);
+  const recipeIngredient = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
+  
+  const recipeIngredientId = recipeIngredient.id;
 
   // set edit toggle and ingredient data states
   const [editable, setEditable] = useState(false);
@@ -70,6 +69,7 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
         <div>
           <EditIngredient
             handleCancel={handleCancel}
+            recipeIngredientId={recipeIngredientId}
             currentIngredient={ingredientData.ingredient}
             currentQuantity={ingredientData.quantity}
             currentMeasurement={ingredientData.measurement}
