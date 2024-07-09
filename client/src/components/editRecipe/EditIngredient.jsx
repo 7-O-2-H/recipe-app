@@ -16,7 +16,7 @@ export default function EditIngredient (props) {
   // retrieve prop functions
   const { handleCancel, recipeIngredientId, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement, recipeId, refresh } = props;
   
-  console.log(recipeIngredientId);
+  console.log(typeof recipeIngredientId, recipeIngredientId);
   
   // initialize states
   const [ingredient, setIngredient] = useState(currentIngredient);
@@ -94,7 +94,7 @@ export default function EditIngredient (props) {
     return;
   };
 
-  const handleAddIngredient = async (event) => {
+  const handleUpdateIngredient = async (event) => {
     event.preventDefault();
 
     // variable to ensure all variables are defined before enabling  submission
@@ -121,7 +121,6 @@ export default function EditIngredient (props) {
         // set ingredient data for existing ingredient case
         const ingredientData = {
           existingIngredient: true,
-          recipe_id: recipeId,
           ingredient: ingredientsQuery,
           ingredient_id: ingredientId,
           quantity: quantity,
@@ -281,7 +280,7 @@ export default function EditIngredient (props) {
             </li>
           ))}
         </ul>
-        <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
+        <button type="submit" className="submit-btn" onClick={handleUpdateIngredient}>
           UPDATE INGREDIENT
         </button>
         <button type="submit" className="submit-btn" onClick={handleDelete}>DELETE INGREDIENT</button>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,23 +12,30 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
   
+  // remove unwanted chars
   const cleanIngredient = ingredient.replace(/^"|"$/g, '');
 
   const { fullIngredientData } = useEditData(recipeId);
-
   
-  const recipeIngredient = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
-  
-  const recipeIngredientId = recipeIngredient.id;
-
   // set edit toggle and ingredient data states
   const [editable, setEditable] = useState(false);
   const [refreshData, setRefreshData] = useState(false);
+  const [recipeIngredientId, setRecipeIngredientId] = useState(null);
   const [updatedIngredient, setUpdatedIngredient] = useState({
     ingredient: ingredientData.ingredient,
     quantity: ingredientData.quantity,
     measurement: ingredientData.measurement
   });
+
+  // get full ingredient info with rec ing id and update state
+  useEffect(() => {
+    if (fullIngredientData && fullIngredientData.length > 0) {
+      const recipeIngredient = fullIngredientData.find(ing => ing.ingredient === ingredientData.ingredient);
+      if (recipeIngredient) {
+        setRecipeIngredientId(recipeIngredient.id);
+      }
+    }
+  }, [fullIngredientData]);
   
   // retrieve measurements and ingredients
   const { allMeasurements, allIngredients } = useAppDataWithRefresh(refreshData);
