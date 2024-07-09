@@ -120,6 +120,21 @@ const editIngredient = ingredientData => {
 
   console.log(values);
 
+  return db.query(`
+    UPDATE recipe_ingredients
+    SET ingredient_id = $2,
+        quantity = $3,
+        measurement_id = $4
+    WHERE id = $1
+    RETURNING id;
+  `, values)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((error) => {
+      console.log("edit ingredient error: ", error.message);
+      return error.message;
+    });
 };
 
 module.exports = { getAllIngredients, getIngredientByName, getIngredientsByRecipeId, getRecipeIngredientsByRecipeId, addRecipeIngredient, addIngredient, getRecipeIngredients, deleteIngredient, editIngredient };
