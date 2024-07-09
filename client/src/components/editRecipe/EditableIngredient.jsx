@@ -11,11 +11,8 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   // parse JSON ingredients and extract data for current ingredient
   const parsedIngredientArray = JSON.parse(ingredientArray)
   const ingredientData = parsedIngredientArray[index];
-
-  // console.log(ingredientArray);
   
-  // console.log('ingData: ', ingredientData);
-
+  const cleanIngredient = ingredient.replace(/^"|"$/g, '');
  
   // const recipeIngredientId = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
   
@@ -60,7 +57,7 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
       {!editable ? (
         <div className="ingredient" onClick={editIngredient}>
           - &nbsp;
-          {ingredient}
+          {cleanIngredient}
           <br></br>
           <br></br>
           {/* <button className="edit-button" onClick={editIngredient}>EDIT</button> */}
