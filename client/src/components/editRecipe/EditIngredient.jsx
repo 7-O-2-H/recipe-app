@@ -202,10 +202,10 @@ export default function EditIngredient (props) {
   const handleDelete = async (event) => {
     event.preventDefault();
     
+    // find ingredient id from ingredient string
     const ingredientObject = allIngredients.find(ingredient => ingredient.ingredient === currentIngredient);
 
-    console.log(ingredientObject.id, 'ingredientId:', ingredientId, 'recipeId: ', recipeId);
-
+    // format ingredient id and recipe id
     const ingredientData = {
       ingredient_id: ingredientObject.id,
       recipe_id: recipeId
@@ -213,8 +213,8 @@ export default function EditIngredient (props) {
 
     await deleteIngredient(ingredientData);
     
+    // refresh ingredients and revert to edit form
     refresh();
-    
     handleCancel(event);
 
   };
