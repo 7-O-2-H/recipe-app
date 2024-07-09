@@ -36,8 +36,25 @@ const getIngredientsByRecipeId = (id) => {
 
 const getRecipeIngredientsByRecipeId = async (id) => {
   try {
-    const res = await db.query(`SELECT * FROM recipe_ingredients JOIN ingredients ON recipe_ingredients.ingredient_id = ingredients.id WHERE recipe_ingredients.recipe_id = $1;`, [id]);
+    const res = await db.query(`SELECT 
+  recipe_ingredients.id AS id,
+  recipe_ingredients.recipe_id,
+  recipe_ingredients.ingredient_id,
+  recipe_ingredients.quantity,
+  recipe_ingredients.measurement_id,
+  ingredients.ingredient
+FROM 
+  recipe_ingredients
+JOIN 
+  ingredients 
+ON 
+  recipe_ingredients.ingredient_id = ingredients.id
+WHERE 
+  recipe_ingredients.recipe_id = $1
+ORDER BY 
+  recipe_ingredients.id;`, [id]);
     return res.rows;
+    //SELECT * FROM recipe_ingredients JOIN ingredients ON recipe_ingredients.ingredient_id = ingredients.id WHERE recipe_ingredients.recipe_id = $1 ORDER BY recipe_ingredients.id;`
   } catch {
     console.error('get rec ingredients by rec id error;', error.message);
     throw error;

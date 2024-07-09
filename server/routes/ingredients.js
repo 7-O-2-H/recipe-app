@@ -9,19 +9,12 @@ router.get('/', (req, res) => {
   })
 });
 
-// router.get('/Celery', (req, res) => {
-//   getIngredientByName('Celery')
-//   .then(data => {
-//     res.json(data);
-//   })
-// });
-
 router.get('/recipe_ingredients/:recipe_id', async (req, res) => {
 
   const id = req.params.recipe_id;
 
   try {
-    const data = getRecipeIngredientsByRecipeId(id);
+    const data = await getRecipeIngredientsByRecipeId(id);
     res.json(data);
   } catch (error) {
     console.error('rec ing by rec id: ', error);

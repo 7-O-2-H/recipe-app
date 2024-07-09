@@ -13,6 +13,10 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
   const ingredientData = parsedIngredientArray[index];
   
   const cleanIngredient = ingredient.replace(/^"|"$/g, '');
+
+  const { fullIngredientData } = useEditData(recipeId);
+
+  console.log(fullIngredientData);
  
   // const recipeIngredientId = fullIngredientData.find((ingredient) => ingredient.ingredient === ingredientData.ingredient);
   

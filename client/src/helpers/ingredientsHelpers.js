@@ -26,7 +26,7 @@ export function getIngredientById(id) {
 
 export async function getRecipeIngredientsByRecipeId(id) {
   try {
-    const res = axios.get(`http://localhost:8080/ingredients/recipe_ingredients/${id}`)
+    const res = await axios.get(`http://localhost:8080/ingredients/recipe_ingredients/${id}`)
     return res.data;
   } catch (error) {
     console.log("axios error, ", error);
