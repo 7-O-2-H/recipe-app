@@ -73,7 +73,9 @@ router.post('/edit', async (req, res) => {
   // check if ingredient exists in db
   if (ingredientData.existingIngredient) {
     try {
-      editIngredient(ingredientData);
+      await editIngredient(ingredientData);
+      console.log(result.rows);
+      res.status(204).send();
     } catch (error) {
       res.status(500).json( { error: "Failed to edit ingredient"});
     }

@@ -140,7 +140,11 @@ export default function EditIngredient (props) {
         // add ingredient
         await editIngredient(ingredientData);
         
-        
+        // refresh and revert to non-edit state
+        refresh();
+        handleCancel(event);
+
+        return;
         // clear inputs
         // setIngredientsQuery('');
         // setQuantity(undefined);

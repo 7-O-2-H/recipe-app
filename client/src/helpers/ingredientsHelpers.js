@@ -76,6 +76,7 @@ export async function editIngredient(ingredientData) {
   try {
     const res = await axios.post(`http://localhost:8080/ingredients/edit`, {ingredientData});
     console.log('Response status: ', res.status);
+    return res.status;
   } catch (err) {
     console.error("axios error: ", err);
     throw err;
