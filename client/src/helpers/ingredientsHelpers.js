@@ -72,11 +72,9 @@ export async function deleteIngredient(ingredientData) {
 };
 
 export async function editIngredient(ingredientData) {
-
-  console.log(ingredientData);
   
   try {
-    const res = await axios.post(`http://localhost:8080/ingredients/edit`, {updatedSteps});
+    const res = await axios.post(`http://localhost:8080/ingredients/edit`, {ingredientData});
     console.log('Response status: ', res.status);
   } catch (err) {
     console.error("axios error: ", err);

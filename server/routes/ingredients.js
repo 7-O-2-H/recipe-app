@@ -64,5 +64,16 @@ router.post('/delete', async (req, res) => {
   }
 });
 
+// edit
+router.post('/edit', async (req, res) => {
+
+  const ingredientData = req.body.ingredientData;
+
+  try {
+    console.log(ingredientData);
+  } catch (error) {
+    res.status(500).json( { error: "Failed to edit ingredient"});
+  }
+});
 
 module.exports = router;
