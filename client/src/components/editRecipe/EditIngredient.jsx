@@ -170,17 +170,7 @@ export default function EditIngredient (props) {
             toast.error("Failed to update ingredient");
           };              
         };
-        // clear inputs
-        // setIngredientsQuery('');
-        // setQuantity(undefined);
-        // setMeasurement(undefined);
-        // setSuggestions([]);
-        // setQuantityFraction(undefined);
-        // setQuantityWholeNumber(undefined);
-
-        // update refreshData to force retreival of updated dd info from useAppData
-        // setRefreshData(!refreshData);
-
+        
       } else {
         
         // set ingredient data where ingredient is new
@@ -203,16 +193,7 @@ export default function EditIngredient (props) {
 
         await addIngredient(ingredientData);
 
-        // clear inputs
-        setIngredientsQuery('');
-        setQuantity(undefined);
-        setMeasurement(undefined);
-        setSuggestions([]);
-        setQuantityFraction(undefined);
-        setQuantityWholeNumber(undefined);
-        setSelectedOption(undefined);
         // update refreshData to force retreival of updated dd info from useAppData
-        setRefreshData(!refreshData);
       };
     };      
   };
