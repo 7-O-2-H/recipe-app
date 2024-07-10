@@ -118,8 +118,6 @@ const editIngredient = ingredientData => {
 
   const values = [ingredientData.id, ingredientData.ingredient_id, parseInt(ingredientData.quantity), parseInt(ingredientData.measurement_id)];
 
-  console.log(values);
-
   return db.query(`
     UPDATE recipe_ingredients
     SET ingredient_id = $2,
