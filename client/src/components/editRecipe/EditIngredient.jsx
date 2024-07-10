@@ -132,7 +132,18 @@ export default function EditIngredient (props) {
             measurement_id: measurement
           };
 
-          console.log(ingredientData);
+          try {
+
+            await editIngredient(ingredientData);
+
+            // refresh and revert to pre edit state
+            refresh();
+            handleCancel(event);
+
+          } catch (err) {
+            console.error("Error updating ingredient: ", err);
+            toast.error("Failed to update ingredient");
+          };
 
         } else {
 
