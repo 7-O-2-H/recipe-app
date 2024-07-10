@@ -137,14 +137,19 @@ export default function EditIngredient (props) {
         // setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, ingredientsQuery]);
         
 
-        // add ingredient
-        await editIngredient(ingredientData);
-        
-        // refresh and revert to non-edit state
-        refresh();
-        handleCancel(event);
+        // edit ingredient using recipe ingredient from ingredientData
+        try {
+          await editIngredient(ingredientData);
 
-        return;
+          // refresh and revert to non-edit state
+          refresh();
+          handleCancel(event);
+
+        } catch (err) {
+          console.error("Error updating ingredient: ", err);
+          toast.error("Failed to update ingredient");
+        };
+
         // clear inputs
         // setIngredientsQuery('');
         // setQuantity(undefined);
