@@ -182,7 +182,7 @@ export default function EditIngredient (props) {
           measurement_id: measurement
         };
         
-        await addIngredient(ingredientData);
+        await editIngredient(ingredientData);
 
         // update refreshData to force retreival of updated dd info from useAppData
       };
