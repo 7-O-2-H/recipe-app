@@ -115,50 +115,52 @@ export default function EditIngredient (props) {
       // check if ingredient is already in db
       const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
       
+      console.log(existingIngredient);
+
       if (existingIngredient) {
 
+        // check if ingredient remains the same: ingredientId will be null and needs to be established
         if (!ingredientId) {
 
-          // find ingredient id from ingredient string
-          const ingredientObject = allIngredients.find(ingredient => ingredient.ingredient === currentIngredient);
-          const currentIngredientId = ingredientObject.id;
+          // set ingredient data with established ingredient id
+          const ingredientData = {
+            id: recipeIngredientId,
+            existingIngredient: true,
+            ingredient: ingredientsQuery,
+            ingredient_id: existingIngredient.id,
+            quantity: quantity,
+            measurement_id: measurement
+          };
 
-        }
-        // set ingredient data for existing ingredient case
-        const ingredientData = {
-          id: recipeIngredientId,
-          existingIngredient: true,
-          ingredient: ingredientsQuery,
-          ingredient_id: ingredientId,
-          quantity: quantity,
-          measurement_id: measurement
+          console.log(ingredientData);
+
+        } else {
+
+          // set ingredient data for existing ingredient case
+          const ingredientData = {
+            id: recipeIngredientId,
+            existingIngredient: true,
+            ingredient: ingredientsQuery,
+            ingredient_id: ingredientId,
+            quantity: quantity,
+            measurement_id: measurement
+          };
+          
+          console.log(ingredientData);
+            
+            // edit ingredient using recipe ingredient from ingredientData
+          // try {
+          //   await editIngredient(ingredientData);
+            
+          //   // refresh and revert to non-edit state
+          //   refresh();
+          //   handleCancel(event);
+            
+          // } catch (err) {
+          //   console.error("Error updating ingredient: ", err);
+          //   toast.error("Failed to update ingredient");
+          // };              
         };
-        
-        console.log(ingredientData);
-
-        //block submission if ingredient already exists
-        // if (ingredientsArray.includes(ingredientData.ingredient)) {
-        //   toast.error(`${ingredientData.ingredient} already exists in this recipe`);
-        //   return;
-        // };
-
-        // keep track of data in array to use for toast check of duplicate ingredients
-        // setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, ingredientsQuery]);
-        
-
-        // edit ingredient using recipe ingredient from ingredientData
-        // try {
-        //   await editIngredient(ingredientData);
-
-        //   // refresh and revert to non-edit state
-        //   refresh();
-        //   handleCancel(event);
-
-        // } catch (err) {
-        //   console.error("Error updating ingredient: ", err);
-        //   toast.error("Failed to update ingredient");
-        // };
-
         // clear inputs
         // setIngredientsQuery('');
         // setQuantity(undefined);
