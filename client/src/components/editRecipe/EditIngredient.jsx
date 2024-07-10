@@ -116,7 +116,14 @@ export default function EditIngredient (props) {
       const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
       
       if (existingIngredient) {
-        
+
+        if (!ingredientId) {
+
+          // find ingredient id from ingredient string
+          const ingredientObject = allIngredients.find(ingredient => ingredient.ingredient === currentIngredient);
+          const currentIngredientId = ingredientObject.id;
+
+        }
         // set ingredient data for existing ingredient case
         const ingredientData = {
           id: recipeIngredientId,
@@ -127,6 +134,8 @@ export default function EditIngredient (props) {
           measurement_id: measurement
         };
         
+        console.log(ingredientData);
+
         //block submission if ingredient already exists
         // if (ingredientsArray.includes(ingredientData.ingredient)) {
         //   toast.error(`${ingredientData.ingredient} already exists in this recipe`);
@@ -138,17 +147,17 @@ export default function EditIngredient (props) {
         
 
         // edit ingredient using recipe ingredient from ingredientData
-        try {
-          await editIngredient(ingredientData);
+        // try {
+        //   await editIngredient(ingredientData);
 
-          // refresh and revert to non-edit state
-          refresh();
-          handleCancel(event);
+        //   // refresh and revert to non-edit state
+        //   refresh();
+        //   handleCancel(event);
 
-        } catch (err) {
-          console.error("Error updating ingredient: ", err);
-          toast.error("Failed to update ingredient");
-        };
+        // } catch (err) {
+        //   console.error("Error updating ingredient: ", err);
+        //   toast.error("Failed to update ingredient");
+        // };
 
         // clear inputs
         // setIngredientsQuery('');
