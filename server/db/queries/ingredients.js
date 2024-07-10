@@ -116,7 +116,7 @@ const deleteIngredient = (ingredientData) => {
 // edit
 const editIngredient = ingredientData => {
 
-  const values = [ingredientData.id, ingredientData.ingredient_id, parseInt(ingredientData.quantity), parseInt(ingredientData.measurement_id)];
+  const values = [ingredientData.id, ingredientData.ingredient_id, parseFloat(ingredientData.quantity), parseInt(ingredientData.measurement_id)];
 
   return db.query(`
     UPDATE recipe_ingredients

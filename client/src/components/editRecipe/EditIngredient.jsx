@@ -130,6 +130,8 @@ export default function EditIngredient (props) {
             measurement_id: measurement
           };
 
+          console.log(ingredientData);
+
           try {
 
             await editIngredient(ingredientData);
@@ -259,7 +261,7 @@ export default function EditIngredient (props) {
               className="input-field"
               placeholder="quantity"
               value={quantity || ''}
-              onChange={(event) => setQuantity(event.target.value)}
+              onChange={(event) => setQuantity(parseFloat(event.target.value))}
               min="0"
             />
             <button onClick={updateQuantityFormat}>USE FRACTIONS</button>
