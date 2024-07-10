@@ -115,8 +115,6 @@ export default function EditIngredient (props) {
       // check if ingredient is already in db
       const existingIngredient = allIngredients.find(ingredient => ingredient.ingredient.toLowerCase() === ingredientsQuery.toLowerCase());
       
-      console.log(existingIngredient);
-
       if (existingIngredient) {
 
         // check if ingredient remains the same: ingredientId will be null and needs to be established
@@ -156,9 +154,7 @@ export default function EditIngredient (props) {
             quantity: quantity,
             measurement_id: measurement
           };
-          
-          console.log(ingredientData);
-            
+                      
           // edit ingredient using recipe ingredient from ingredientData
           try {
             await editIngredient(ingredientData);
