@@ -181,16 +181,7 @@ export default function EditIngredient (props) {
           quantity: quantity,
           measurement_id: measurement
         };
-
-        //block submission if ingredient already exists
-        if (ingredientsArray.includes(ingredientData.ingredient)) {
-          toast.error(`${ingredientData.ingredient} already exists in this recipe`);
-          return;
-        };
         
-        // keep track of data in array to use for toast check of duplicate ingredients
-        setIngredientsArray(prevIngredientsArray => [...prevIngredientsArray, ingredientsQuery]);
-
         await addIngredient(ingredientData);
 
         // update refreshData to force retreival of updated dd info from useAppData
