@@ -127,6 +127,11 @@ export default function AddIngredient (props) {
           measurement_id: measurement
         };
 
+        if (existingIngredients.includes(ingredientData.ingredient)) {
+          toast.error(`${ingredientData.ingredient} already exists in this recipe`);
+          return;
+        };
+        
         // add ingredient
         await addIngredient(ingredientData);
 
@@ -146,10 +151,10 @@ export default function AddIngredient (props) {
         };
 
         //block submission if ingredient already exists
-        // if (ingredientsArray.includes(ingredientData.ingredient)) {
-        //   toast.error(`${ingredientData.ingredient} already exists in this recipe`);
-        //   return;
-        // };
+        if (existingIngredients.includes(ingredientData.ingredient)) {
+          toast.error(`${ingredientData.ingredient} already exists in this recipe`);
+          return;
+        };
 
         await addIngredient(ingredientData);
 
