@@ -69,7 +69,7 @@ router.post('/edit', async (req, res) => {
 
   // retreive updated data
   const ingredientData = req.body.ingredientData;
-
+  console.log(ingredientData);
   // check if ingredient exists in db
   try {
     if (ingredientData.existingIngredient) {
@@ -78,8 +78,9 @@ router.post('/edit', async (req, res) => {
       res.status(204).send();
     } else {
       const ingredientId = await addIngredient(ingredientData.ingredient);
+      console.log(ingredientId);
       ingredientData.ingredient_id = ingredientId;
-      const result = editIngredient(ingredientData);
+      const result =  await editIngredient(ingredientData);
       console.log(result);
     };
   } catch (error) {
