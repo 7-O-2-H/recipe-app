@@ -8,11 +8,10 @@ const IngredientsTable = (props) => {
   const {ingredients, serves, selectedServing} = props;
   const servingRatio = parseInt(selectedServing) / parseInt(serves);
 
-  const convertedQuantityDecimalArray = ingredients.map(ingredient => (ingredient.quantity * servingRatio).toFixed(2));
-
-  console.log(convertedQuantityDecimalArray);
-
-  const formattedQuantity = formatConvertedData
+  for (const ingredient of ingredients) {
+    const convertedQuantity = (ingredient.quantity * servingRatio).toFixed(2);
+    ingredient.formattedQuantity = formatConvertedData(convertedQuantity);
+  };
 
   return (
     <table className="ingredients-table">
@@ -26,7 +25,7 @@ const IngredientsTable = (props) => {
       <tbody>
         {ingredients.map((ingredient, index) => (
           <tr key={index} className="row">
-            <TableCell>{(ingredient.quantity * servingRatio).toFixed(2)}</TableCell>
+            <TableCell>{ingredient.formattedQuantity}</TableCell>
             <TableCell>{ingredient.measurement}</TableCell>
             <TableCell>{ingredient.ingredient}</TableCell>
           </tr>
