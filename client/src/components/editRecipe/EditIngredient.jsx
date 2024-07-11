@@ -175,8 +175,8 @@ export default function EditIngredient (props) {
         
         // set ingredient data where ingredient is new
         const ingredientData = {
+          id: recipeIngredientId,
           existingIngredient: false,
-          recipe_id: recipeId,
           ingredient: ingredientsQuery,
           quantity: quantity,
           measurement_id: measurement
@@ -184,7 +184,9 @@ export default function EditIngredient (props) {
         
         await editIngredient(ingredientData);
 
-        // update refreshData to force retreival of updated dd info from useAppData
+        // refresh and revert to non-edit state
+        refresh();
+        handleCancel(event);
       };
     };      
   };
