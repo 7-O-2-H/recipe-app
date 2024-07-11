@@ -74,14 +74,11 @@ router.post('/edit', async (req, res) => {
   try {
     if (ingredientData.existingIngredient) {
       const result = await editIngredient(ingredientData);
-      console.log(result);
       res.status(204).send();
     } else {
       const ingredientId = await addIngredient(ingredientData.ingredient);
-      console.log(ingredientId);
       ingredientData.ingredient_id = ingredientId;
       const result =  await editIngredient(ingredientData);
-      console.log(result);
     };
   } catch (error) {
       res.status(500).json( { error: "Failed to edit ingredient"});
