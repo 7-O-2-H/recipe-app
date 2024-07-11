@@ -248,3 +248,70 @@ export function formatSingleIngredient (ingredient) {
     };
   };
 };
+
+export function formatConvertedData(quantityString) {
+
+  const quantity = parseFloat(quantityString);
+
+  // non decimal value case
+  if (quantity % 1 === 0) {
+    return quantity;
+  };
+
+  if (quantity > 1) {
+
+    // break number down to whole number and decimal
+    const wholeNumber = quantity - (quantity % 1);
+    const decimal = quantity % 1;
+
+    if (decimal > 0.9) {
+      return (wholeNumber + 1).toString(); 
+    };
+
+    if (decimal > 0.75) {
+      return `${wholeNumber} 5/6`
+    };
+
+    if (decimal > 0.66) {
+      return `${wholeNumber} 3/4`
+    };
+
+    if (decimal > 0.5) {
+      return `${wholeNumber} 2/3`
+    };
+    if (decimal > 0.33) {
+      return `${wholeNumber} 1/2`
+    };
+    if (decimal > 0.167) {
+      return `${wholeNumber} 1/3`
+    };
+
+    return `${wholeNumber} 1/6`
+
+  } else {
+    if (decimal > 0.9) {
+      return '1'; 
+    };
+    if (decimal > 0.75) {
+      return `5/6`
+    };
+
+    if (decimal > 0.66) {
+      return `3/4`
+    };
+
+    if (decimal > 0.5) {
+      return `2/3`
+    };
+
+    if (decimal > 0.33) {
+      return `1/2`
+    };
+
+    if (decimal > 0.167) {
+      return `1/3`
+    };
+
+    return `1/6`
+  };
+};

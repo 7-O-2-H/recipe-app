@@ -1,6 +1,6 @@
 import { useState } from 'react'; 
 import TableCell from './TableCell';
-import { formatQuantity, updateQuantities } from '../../helpers/conversionHelpers';
+import { formatConvertedData } from '../../helpers/conversionHelpers';
 import './converterTable.css';
 
 const IngredientsTable = (props) => {
@@ -8,9 +8,11 @@ const IngredientsTable = (props) => {
   const {ingredients, serves, selectedServing} = props;
   const servingRatio = parseInt(selectedServing) / parseInt(serves);
 
-  // const newIngredients = updateQuantities(ingredients, servingRatio);
+  const convertedQuantityDecimalArray = ingredients.map(ingredient => (ingredient.quantity * servingRatio).toFixed(2));
 
-  // console.log(newIngredients);
+  console.log(convertedQuantityDecimalArray);
+
+  const formattedQuantity = formatConvertedData
 
   return (
     <table className="ingredients-table">
