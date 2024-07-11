@@ -131,6 +131,8 @@ export default function AddIngredient (props) {
         await addIngredient(ingredientData);
 
         // update refreshData to force retreival of updated dd info from useAppData
+        refresh();
+        onCancelorSubmit(event);
 
       } else {
         
@@ -144,12 +146,16 @@ export default function AddIngredient (props) {
         };
 
         //block submission if ingredient already exists
-        if (ingredientsArray.includes(ingredientData.ingredient)) {
-          toast.error(`${ingredientData.ingredient} already exists in this recipe`);
-          return;
-        };
+        // if (ingredientsArray.includes(ingredientData.ingredient)) {
+        //   toast.error(`${ingredientData.ingredient} already exists in this recipe`);
+        //   return;
+        // };
 
         await addIngredient(ingredientData);
+
+        // refresh and revert to parent form
+        refresh();
+        onCancelorSubmit(event);
 
       };
     };      
