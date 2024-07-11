@@ -61,6 +61,12 @@ export default function EditForm(props) {
     setEditRecipe(prevState => !prevState);
   };
 
+  // add ingredient handler
+  const handleAddIngredient = (event) => {
+    event.preventDefault();
+    return;
+  };
+
   // steps handlers
   const handleEditSteps = (event) => {
     setEditSteps(prevState => !prevState);
@@ -232,7 +238,7 @@ export default function EditForm(props) {
           <p>Click ingredient to edit</p>
         </div>
         <div className="edit-content">{ingredientArray}</div>
-        {/* <button className="edit-button" onClick={handleEditSteps}>EDIT INGREDIENTS</button> */}
+        <button className="edit-button" onClick={handleAddIngredient}>ADD INGREDIENT</button>
       </div>
       {/* Steps */}
       {!editSteps ? (

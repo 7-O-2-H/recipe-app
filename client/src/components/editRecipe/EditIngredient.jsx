@@ -15,7 +15,7 @@ import { editIngredient } from "../../helpers/ingredientsHelpers";
 export default function EditIngredient (props) {
 
   // retrieve prop functions
-  const { handleCancel, recipeIngredientId, currentIngredient, currentQuantity, currentMeasurement, initialMeasurement, recipeId, refresh } = props;
+  const { handleCancel, recipeIngredientId, currentIngredient, currentQuantity, initialMeasurement, recipeId, refresh } = props;
     
   // initialize states
   const [ingredient, setIngredient] = useState(currentIngredient);
@@ -30,7 +30,6 @@ export default function EditIngredient (props) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [ingredientId, setIngredientId] = useState(null);
   const [refreshData, setRefreshData] = useState(false);
-  const [ingredientsArray, setIngredientsArray] = useState([]);
   
   // retreive all ingredients and measurements
   const { allMeasurements, allIngredients } = useAppDataWithRefresh(refreshData);
