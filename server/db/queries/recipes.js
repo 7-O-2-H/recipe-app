@@ -2,6 +2,7 @@ const { pool } = require('../../configs/db.config');
 const db = require('../../configs/db.config');
 
 // recipes
+// GET
 const getAllRecipes = () => {
   return db
     .query(`SELECT recipes.id, user_name, recipe, time, serves, description, measurement FROM users JOIN recipes ON users.id = recipes.user_id JOIN measurements ON recipes.measurement_id = measurements.id;`)
@@ -44,6 +45,43 @@ const getFullRecipeById = (id) => {
   });
 };
 
+// POST/PUT
+const addRecipe = (recipeData) => {
+
+  const values = [recipeData.user_id, recipeData.recipe, recipeData.time, 1, recipeData.serves, recipeData.description];
+  
+  return db.query(`INSERT INTO recipes (user_id, recipe, time, measurement_id, serves, description) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`, values)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('delete recipe error: ', err.message);
+      return err.message;
+    });
+};
+
+const editRecipeDetails = (recipeData) => {
+
+  const values = [recipeData.id, recipeData.recipe, recipeData.time, recipeData.serves, recipeData.description];
+
+  return db.query(`
+    UPDATE recipes
+    SET recipe = $2, 
+        time = $3, 
+        serves = $4,
+        description = $5
+    WHERE id = $1
+    RETURNING *;
+  `, values)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((error) => {
+      console.log('edit recipe details error: ', error.message);
+      return error.message;
+    });
+};
+
 const deleteRecipeById = (id) => {
   return db.query(`DELETE FROM recipes WHERE recipes.id = $1`, [id])
     .then((result) => {
@@ -68,7 +106,7 @@ const getIngredientsByRecipeId = (id) => {
 
 // steps
 const getStepsByRecipeId = (id) => {
-  return db.query("SELECT * FROM steps JOIN recipes ON steps.recipe_id = recipes.id WHERE recipes.id = $1", [id]).then(data => {
+  return db.query("SELECT * FROM steps WHERE recipe_id = $1 ORDER BY step_number;", [id]).then(data => {
     return data.rows;
   })
   .catch((err) => {
@@ -102,9 +140,9 @@ const getRecipesBySortingData = (ingredient, tag, maxTime) => {
     recipe_ingredients ON recipes.id = recipe_ingredients.recipe_id
   JOIN
     ingredients ON recipe_ingredients.ingredient_id = ingredients.id
-  JOIN
+  LEFT JOIN
     recipe_tags ON recipes.id = recipe_tags.recipe_id
-  JOIN
+  LEFT JOIN
     tags on recipe_tags.tag_id = tags.id
   WHERE 
     ($1 = '' OR ingredients.ingredient = $1)
@@ -120,4 +158,4 @@ const getRecipesBySortingData = (ingredient, tag, maxTime) => {
   })
 };
 
-module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId, getRecipesBySortingData };
+module.exports = { getAllRecipes, getRecipesByUserId, getRecipeById, getFullRecipeById, addRecipe, editRecipeDetails, deleteRecipeById, getIngredientsByRecipeId, getStepsByRecipeId, getRecipesBySortingData };

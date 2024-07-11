@@ -47,7 +47,7 @@ export default function FullRecipe (props) {
       return <div>Loading...</div>
     }
   };
-
+  
   // get favourite status with helper
   const favouriteStatus = isFavourite(allFavourites, userId, recipe.id);
  
@@ -58,14 +58,7 @@ export default function FullRecipe (props) {
   };
 
   const handleEdit = () => {
-    router.push({
-      pathname: '/edit',
-      query: { 
-        recipe: JSON.stringify(recipe),
-        ingredients: JSON.stringify(ingredients),
-        steps: JSON.stringify(steps)
-      }
-    });
+    router.push(`/edit/${recipe.id}`);
   };
 
   const handleUnfavourite = () => {
@@ -80,7 +73,6 @@ export default function FullRecipe (props) {
       return;
     }
     deleteRecipe(recipe.id);
-    console.log('Deleted recipe')
     router.push('/myRecipes');
     return;
   };
@@ -151,7 +143,10 @@ export default function FullRecipe (props) {
           <div className="step-container">{stepsArray}</div>
         </div>
       </div>
+      {tagsArray.length > 0 &&
       <Spacer />
+      }
+      {tagsArray.length > 0 &&
       <div className="tags-container"> 
         <div className="tag-title">
           Tags
@@ -160,6 +155,7 @@ export default function FullRecipe (props) {
           {tagsArray}
         </div>
       </div>
+      }
       {loggedIn ? (
         <>
           {!favouriteStatus ? (

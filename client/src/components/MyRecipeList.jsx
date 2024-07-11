@@ -1,11 +1,14 @@
 // imports
 import useVerification from "../hooks/useVerification";
 import { useMyRecipes } from "../hooks/useMyRecipes";
+import { useRouter } from "next/router";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 import BrowseOptions from "./BrowseOptions";
 
 export default function MyRecipeList() {
+
+  const router = useRouter();
 
   //set user
   const userId = useVerification();
@@ -32,6 +35,11 @@ export default function MyRecipeList() {
     );
   };
 
+  // button handlers
+  const handleAddButton = () => {
+    router.push('/addRecipe')
+  }
+
   const recipesArray = myRecipes.map(recipe => (  
       <RecipeListItem
         key={recipe.id}
@@ -56,7 +64,7 @@ export default function MyRecipeList() {
       {recipesArray}
       </div>
       <div>
-        <button className="">ADD RECIPE</button>
+        <button className="add-button" onClick={handleAddButton}>ADD RECIPE</button>
       </div>
     </div>
   );

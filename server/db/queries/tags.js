@@ -1,4 +1,4 @@
-const { pool } = require('../../configs/db.config');
+// const { pool } = require('../../configs/db.config');
 const db = require('../../configs/db.config');
 
 const getAllTags = () => {
@@ -15,7 +15,7 @@ const getAllTags = () => {
 
 const getTagsByRecipeId = (id) => {
   return db
-    .query(`SELECT tag FROM tags JOIN recipe_tags ON tags.id = recipe_tags.tag_id JOIN recipes ON recipe_tags.recipe_id = recipes.id WHERE recipes.id = $1;`, [id])
+    .query(`SELECT tag_id, tag FROM tags JOIN recipe_tags ON tags.id = recipe_tags.tag_id JOIN recipes ON recipe_tags.recipe_id = recipes.id WHERE recipes.id = $1;`, [id])
     .then((result) => {
       return result.rows;
     })
@@ -37,4 +37,54 @@ const getRecipesByTagId = (id) => {
     });
 };
 
-module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId };
+const addTag = async (tag) => {
+
+  const tagName = tag;
+
+  try {
+    const result = await db.query(`INSERT INTO tags (tag) VALUES ($1) RETURNING *;`, [tagName]);
+    return result.rows[0].id;
+  } catch {
+    console.error('add tag error: ', error.message);
+    throw error;
+  };
+};
+
+const addRecipeTag = (tagData) => {
+
+  const values = [tagData.recipe_id, tagData.tag_id];
+
+  return db.query(`INSERT INTO recipe_tags (recipe_id, tag_id) VALUES ($1, $2) RETURNING *;`, values)
+  .then((res) => {
+    return res.rows;
+  })
+  .catch((error) => {
+    console.error('add rec tag error: ', error.message);
+    throw error;
+  });
+};
+
+const getFullTagsInfo = (id) => {
+  return db
+    .query(`SELECT tag_id, tag, recipe_tags.id FROM tags JOIN recipe_tags ON tags.id = recipe_tags.tag_id JOIN recipes ON recipe_tags.recipe_id = recipes.id WHERE recipes.id = $1;`, [id])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('get tags by rec error;', err.message);
+      return null;
+    });
+};
+
+const deleteRecipeTagById = (recipeTagId) => {
+  return db.query(`DELETE FROM recipe_tags WHERE recipe_tags.id = $1;`, [recipeTagId])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((error) => {
+      console.log('delete tag error: ', error.message);
+      return error.message;
+    })
+}
+
+module.exports = { getAllTags, getTagsByRecipeId, getRecipesByTagId, addTag, addRecipeTag, getFullTagsInfo, deleteRecipeTagById };

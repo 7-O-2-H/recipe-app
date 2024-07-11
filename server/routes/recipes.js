@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllRecipes, getRecipesByUserId, getRecipeById, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId, getRecipesBySortingData } = require('../db/queries/recipes');
+const { getAllRecipes, getRecipesByUserId, getRecipeById, addRecipe, editRecipeDetails, deleteRecipeById, getStepsByRecipeId, getIngredientsByRecipeId, getRecipesBySortingData } = require('../db/queries/recipes');
 
 // recipes
 router.get('/', (req, res) => {
@@ -12,7 +12,13 @@ router.get('/', (req, res) => {
 // sorting
 router.get('/sorting', (req, res) => {
   const { ingredient, tag, maxTime } = req.query;
-  getRecipesBySortingData(ingredient, tag, parseInt(maxTime))
+
+  // backend check for valid values
+  const ingredientParam = ingredient ? ingredient : "";
+  const tagParam = tag ? tag : "";
+  const maxTimeParam = maxTime ? parseInt(maxTime) : 0;
+
+  getRecipesBySortingData(ingredientParam , tagParam, maxTimeParam)
   .then(data => {
     res.json(data);
   })
@@ -30,6 +36,28 @@ router.get('/users/:id', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = req.params.id;
   getRecipeById(id)
+  .then(data => {
+    res.json(data);
+  })
+});
+
+// POST
+router.post('/add', (req, res) => {
+
+  // req recipe data
+  const recipeData = req.body.recipeData;
+
+  addRecipe(recipeData)
+  .then(data => {
+    res.json(data);
+  })
+});
+
+router.post('/edit', (req, res) => {
+
+  const recipeData = req.body.recipeData;
+
+  editRecipeDetails(recipeData)
   .then(data => {
     res.json(data);
   })

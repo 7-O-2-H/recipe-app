@@ -1,6 +1,6 @@
 export default function Steps(props) {
   
-  const { step_name, instruction } = props;
+  const { step_number, step_name, instruction } = props;
   //template
   return (
     <div className="steps-container">

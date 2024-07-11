@@ -1,6 +1,6 @@
 // imports
-import { use, useState } from "react";
-import useAppData from "../hooks/useAppData";
+import { useState } from "react";
+import { useAppData } from "../hooks/useAppData";
 import TagsDropdown from "../components/TagsDropdown";
 import { useRouter } from "next/router";
 
@@ -20,7 +20,6 @@ export default function TagsList() {
   };
 
   const handleSelect = (selectedOption) => {
-    // console.log('Selected Option:', selectedOption);
     localStorage.setItem('tag', selectedOption);
     router.push('/browse');
   };

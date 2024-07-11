@@ -42,3 +42,20 @@ INSERT INTO recipes (user_id, recipe, time, measurement_id, serves, description)
   8,
   'Chicken thighs that are crispy on the outside and moist within. Includes sides!'
 );
+-- Additional recipes added by me - seed addit Josh
+INSERT INTO recipes (user_id, recipe, time, measurement_id, serves, description) VALUES (
+  1,
+  'Salty Baked Salmon',
+  20,
+  1,
+  4,
+  'Easy to make salmon with lots of flavour.'
+);
+INSERT INTO recipes (user_id, recipe, time, measurement_id, serves, description) VALUES (
+  1, 
+  'Oven Baked Chicken Breast',
+  25,
+  1,
+  4,
+  'Juicy oven baked chicken breast.'
+);
