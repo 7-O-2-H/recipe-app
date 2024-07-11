@@ -45,6 +45,7 @@ export default function EditForm(props) {
   });
   const [submitAdd, setSubmitAdd] = useState(false);
   const [editTags, setEditTags] = useState(false);
+  const [addIngredient, setAddIngredient] = useState(false);
 
   // use useEffect to update new step when dependencies change
   useEffect(() => {
@@ -64,6 +65,7 @@ export default function EditForm(props) {
   // add ingredient handler
   const handleAddIngredient = (event) => {
     event.preventDefault();
+    setAddIngredient(prev => !prev);
     return;
   };
 
@@ -232,14 +234,20 @@ export default function EditForm(props) {
         </div>
       )}
       {/* Ingredients */}
-      <div className="edit-section">
+      {addIngredient ? (
         <div>
-          <h4 id="edit-category">INGREDIENTS</h4>
-          <p>Click ingredient to edit</p>
+          <button className="edit-button" onClick={handleAddIngredient}>CANCEL</button>
         </div>
-        <div className="edit-content">{ingredientArray}</div>
-        <button className="edit-button" onClick={handleAddIngredient}>ADD INGREDIENT</button>
-      </div>
+      ) : (
+        <div className="edit-section">
+          <div>
+            <h4 id="edit-category">INGREDIENTS</h4>
+            <p>Click ingredient to edit</p>
+          </div>
+          <div className="edit-content">{ingredientArray}</div>
+          <button className="edit-button" onClick={handleAddIngredient}>ADD INGREDIENT</button>
+        </div>
+      )}
       {/* Steps */}
       {!editSteps ? (
         <div className="edit-section">
