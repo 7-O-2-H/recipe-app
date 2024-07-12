@@ -51,16 +51,23 @@ export default function Converter() {
     fetchData();    
   }, [router.isReady, router.query]);
 
+  // handlers
   const handleServingChange = (event) => {
     const newServing = parseInt(event.target.value);
     setSelectedServing(newServing);
     setServingRatio(newServing / parseInt(parsedRecipe.serves));
   };
 
+  // set serving ooptions for drop down
   const servingOptions = Array.from({ length: 20 }, (_, i) => i + 1);
 
+  // loading state
   if (!parsedRecipe || !parsedIngredients) {
     return <div>Loading...</div>;
+  };
+
+  const returnToRecipePage = (event) => {
+    router.push(`/recipes/${parsedRecipe.id}`)
   };
 
   return (
@@ -81,6 +88,10 @@ export default function Converter() {
       <Spacer />
         <div className='conversion-chart' >
           <ConverterChart ingredients={parsedIngredients} serves={parsedRecipe.serves} selectedServing={selectedServing}/>
+        </div>
+      <Spacer />
+        <div>
+        < button onClick={returnToRecipePage}>BACK TO RECIPE</button>
         </div>
     </div>
   );
