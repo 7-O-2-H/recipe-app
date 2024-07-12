@@ -38,7 +38,6 @@ export default function FullRecipe (props) {
   const converterProps = { 
     recipe: JSON.stringify(recipe),
     ingredients: JSON.stringify(ingredients),
-    steps: JSON.stringify(steps)
   };
 
   // loading state
@@ -87,7 +86,6 @@ export default function FullRecipe (props) {
   };
 
   const handleConverter = () => {
-    console.log(converterProps);
     router.push({
       pathname: '/converter', 
       query: converterProps

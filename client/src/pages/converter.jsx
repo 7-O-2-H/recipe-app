@@ -1,17 +1,22 @@
 // imports
+// styles
 import '../styles/styles.css';
-import { useState } from 'react';
+// react
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+// hooks 
+import { useRecipeWithRefresh } from '../hooks/useRecipe';
+// components
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
 import ConverterChart from '../components/converterChart/ConverterChart';
-import { useRouter } from 'next/router';
 
 export default function Converter() {
 
   const router = useRouter();
 
-  const { recipe, ingredients, steps } = router.query;
+  const { recipe, ingredients } = router.query;
   const parsedRecipe = JSON.parse(recipe);
   const parsedIngredients = JSON.parse(ingredients);
 

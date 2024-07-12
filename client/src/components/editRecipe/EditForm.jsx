@@ -163,7 +163,6 @@ export default function EditForm(props) {
     const converterProps = { 
       recipe: JSON.stringify(currentRecipe),
       ingredients: JSON.stringify(currentIngredients),
-      steps: JSON.stringify(currentSteps)
     };
 
     router.push({
