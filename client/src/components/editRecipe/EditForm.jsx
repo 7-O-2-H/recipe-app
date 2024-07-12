@@ -153,6 +153,11 @@ export default function EditForm(props) {
     setInstructionContainer(e.target.value);
   };
 
+  // navigation handlers
+  const returnToRecipePage = (event) => {
+    router.push(`/recipes/${currentRecipe.id}`);
+  };
+
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
 
@@ -332,7 +337,7 @@ export default function EditForm(props) {
         )}   
       </div>
       <div>
-        <p>Return</p>
+        <button onClick={returnToRecipePage}>BACK TO RECIPE</button>
       </div>
     </div>
   )
