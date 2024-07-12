@@ -352,6 +352,8 @@ export default function EditForm(props) {
       </div>
       <div>
         <button onClick={returnToRecipePage}>BACK TO RECIPE</button>
+        <button onClick={goToConverter}>CHANGE SERVING SIZE</button>
+        <button className="edit-button">DELETE RECIPE</button> 
       </div>
     </div>
   )
