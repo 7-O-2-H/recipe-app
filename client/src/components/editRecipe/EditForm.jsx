@@ -17,6 +17,7 @@ import AddIngredient from "./AddIngredient";
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
 import { addStep } from "../../helpers/stepsHelpers";
+import { deleteRecipe } from "../../helpers/recipeHelpers";
 
 export default function EditForm(props) {
 
@@ -169,6 +170,16 @@ export default function EditForm(props) {
       pathname: '/converter', 
       query: converterProps
     });
+  };
+
+  const handleDeleteRecipe = () => {
+    // if (!authorizedUser) {
+    //   console.log('You are not authorized to delete this recipe');
+    //   return;
+    // }
+    deleteRecipe(currentRecipe.id);
+    router.push('/myRecipes');
+    return;
   };
 
   // format ingredients array
@@ -352,7 +363,7 @@ export default function EditForm(props) {
       <div>
         <button onClick={returnToRecipePage}>BACK TO RECIPE</button>
         <button onClick={goToConverter}>CHANGE SERVING SIZE</button>
-        <button className="edit-button">DELETE RECIPE</button> 
+        <button onClick={handleDeleteRecipe}>DELETE RECIPE</button> 
       </div>
     </div>
   )
