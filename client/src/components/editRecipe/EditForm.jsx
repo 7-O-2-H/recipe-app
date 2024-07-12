@@ -331,6 +331,9 @@ export default function EditForm(props) {
           <button className="edit-button" onClick={handleEditTags}>EDIT TAGS</button>
         )}   
       </div>
+      <div>
+        <p>Return</p>
+      </div>
     </div>
   )
 };
