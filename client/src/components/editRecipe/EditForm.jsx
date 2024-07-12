@@ -18,6 +18,7 @@ import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
 import { addStep } from "../../helpers/stepsHelpers";
 import { deleteRecipe } from "../../helpers/recipeHelpers";
+import useUserAuthorization from "../../hooks/useUserAuthorization";
 
 export default function EditForm(props) {
 
@@ -25,11 +26,21 @@ export default function EditForm(props) {
 
   const { currentRecipe, currentIngredients, currentSteps, currentTags, triggerRefresh } = props;
 
+  const submitterId = currentRecipe.user_id;
+  const authorizedUser = useUserAuthorization(submitterId);
+
+  if (!authorizedUser) {
+    return (
+      <div>You're not authorized to edit this recipe</div>
+    )
+  };
+
   if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
       <div>Loading...</div>
     );
   };
+
     
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
