@@ -87,6 +87,7 @@ export default function FullRecipe (props) {
   };
 
   const handleConverter = () => {
+    console.log(converterProps);
     router.push({
       pathname: '/converter', 
       query: converterProps

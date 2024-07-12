@@ -158,6 +158,20 @@ export default function EditForm(props) {
     router.push(`/recipes/${currentRecipe.id}`);
   };
 
+  const goToConverter = (event) => {
+
+    const converterProps = { 
+      recipe: JSON.stringify(currentRecipe),
+      ingredients: JSON.stringify(currentIngredients),
+      steps: JSON.stringify(currentSteps)
+    };
+
+    router.push({
+      pathname: '/converter', 
+      query: converterProps
+    });
+  };
+
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
 
