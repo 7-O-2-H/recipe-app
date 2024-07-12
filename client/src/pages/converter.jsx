@@ -4,8 +4,6 @@ import '../styles/styles.css';
 // react
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-// hooks 
-import { useRecipeWithRefresh } from '../hooks/useRecipe';
 // components
 import NavBar from '../components/NavBar';
 import Header from '../components/Header';
@@ -16,12 +14,42 @@ export default function Converter() {
 
   const router = useRouter();
 
-  const { recipe, ingredients } = router.query;
-  const parsedRecipe = JSON.parse(recipe);
-  const parsedIngredients = JSON.parse(ingredients);
-
-  const [selectedServing, setSelectedServing] = useState(parseInt(parsedRecipe.serves));
+  const [parsedRecipe, setParsedRecipe] = useState(null);
+  const [parsedIngredients, setParsedIngredients] = useState(null);
+  const [selectedServing, setSelectedServing] = useState(1);
   const [servingRatio, setServingRatio] = useState(1);
+
+  useEffect(() => {
+    const fetchData = () => {
+      try {
+        // Ensure router is ready and query parameters are available
+        if (router.isReady) {
+          const { recipe, ingredients } = router.query;
+
+          if (recipe && ingredients) {
+            // Parse JSON data with error handling
+            const recipeData = JSON.parse(recipe);
+            const ingredientsData = JSON.parse(ingredients);
+
+            // Update state with parsed data
+            setParsedRecipe(recipeData);
+            setParsedIngredients(ingredientsData);
+            setSelectedServing(parseInt(recipeData.serves) || 1);
+            setServingRatio(1);
+          } else {
+            // Redirect to homepage if data is missing
+            router.push('/');
+          }
+        }
+       } catch (error) {
+         console.error("Error parsing JSON or processing data: ", error);
+         // Redirect to homepage if parsing fails
+         router.push('/');
+       }
+    };
+
+    fetchData();    
+  }, [router.isReady, router.query]);
 
   const handleServingChange = (event) => {
     const newServing = parseInt(event.target.value);
@@ -30,6 +58,10 @@ export default function Converter() {
   };
 
   const servingOptions = Array.from({ length: 20 }, (_, i) => i + 1);
+
+  if (!parsedRecipe || !parsedIngredients) {
+    return <div>Loading...</div>;
+  };
 
   return (
     <div>
