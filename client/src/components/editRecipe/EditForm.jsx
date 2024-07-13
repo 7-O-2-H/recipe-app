@@ -191,12 +191,12 @@ export default function EditForm(props) {
     setShowDeleteConfirmation(prev => !prev);
   };
 
-  const handleDeleteRecipe = () => {
+  const handleDeleteRecipe = (id) => {
     // if (!authorizedUser) {
     //   console.log('You are not authorized to delete this recipe');
     //   return;
     // }
-    deleteRecipe(currentRecipe.id);
+    deleteRecipe(id);
     router.push('/myRecipes');
     return;
   };
@@ -388,7 +388,7 @@ export default function EditForm(props) {
         <div>
           <DeleteConfirmation
             deleteRecipe={deleteRecipe}
-            recipe={currentRecipe.recipe}
+            recipe={currentRecipe}
             cancel={showPopup}
             />
         </div>
