@@ -1,12 +1,14 @@
 export default function DeleteConfirmation(props) {
 
-  const { deleteRecipe } = props;
-  
+  const { deleteRecipe, recipe, cancel } = props;
+
+
+
   return (
     <div>
-      <p>Are you sure you want to delete this recipe ()?</p>
+      <p>Are you sure you want to delete this recipe ({recipe})?</p>
       <div>
-        <button>NO</button>
+        <button onClick={cancel}>NO</button>
         <button>YES</button>
       </div>
     </div>

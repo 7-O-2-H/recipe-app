@@ -52,7 +52,7 @@ export default function EditForm(props) {
   const [submitAdd, setSubmitAdd] = useState(false);
   const [editTags, setEditTags] = useState(false);
   const [addIngredient, setAddIngredient] = useState(false);
-  const [showDeletConfirmation, setShowDeletConfirmation] = useState(false);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   // const submitterId = currentRecipe.user_id;
   // const authorizedUser = useUserAuthorization(submitterId);
@@ -188,8 +188,8 @@ export default function EditForm(props) {
 
   const showPopup = (event) => {
     event.preventDefault();
-    setShowDeletConfirmation(true);
-  }
+    setShowDeleteConfirmation(prev => !prev);
+  };
 
   const handleDeleteRecipe = () => {
     // if (!authorizedUser) {
@@ -384,11 +384,12 @@ export default function EditForm(props) {
         <button onClick={goToConverter}>CHANGE SERVING SIZE</button>
         <button onClick={showPopup}>DELETE RECIPE</button> 
       </div>
-      {showDeletConfirmation &&
+      {showDeleteConfirmation &&
         <div>
           <DeleteConfirmation
             deleteRecipe={deleteRecipe}
-            recipe={currentRecipe}
+            recipe={currentRecipe.recipe}
+            cancel={showPopup}
             />
         </div>
       }
