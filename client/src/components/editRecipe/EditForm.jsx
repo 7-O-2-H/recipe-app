@@ -19,6 +19,7 @@ import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
 import { addStep } from "../../helpers/stepsHelpers";
 import { deleteRecipe } from "../../helpers/recipeHelpers";
+//hooks
 import useUserAuthorization from "../../hooks/useUserAuthorization";
 
 export default function EditForm(props) {
@@ -27,21 +28,12 @@ export default function EditForm(props) {
 
   const { currentRecipe, currentIngredients, currentSteps, currentTags, triggerRefresh } = props;
 
-  const submitterId = currentRecipe.user_id;
-  const authorizedUser = useUserAuthorization(submitterId);
-
-  if (!authorizedUser) {
-    return (
-      <div>You're not authorized to edit this recipe</div>
-    )
-  };
-
+  
   if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
       <div>Loading...</div>
     );
   };
-
     
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
@@ -60,7 +52,16 @@ export default function EditForm(props) {
   const [submitAdd, setSubmitAdd] = useState(false);
   const [editTags, setEditTags] = useState(false);
   const [addIngredient, setAddIngredient] = useState(false);
-  // const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const [showDeletConfirmation, setShowDeletConfirmation] = useState(false);
+
+  // const submitterId = currentRecipe.user_id;
+  // const authorizedUser = useUserAuthorization(submitterId);
+
+  // if (!authorizedUser) {
+  //   return (
+  //     <div>You're not authorized to edit this recipe</div>
+  //   )
+  // };
 
   // use useEffect to update new step when dependencies change
   useEffect(() => {
@@ -185,21 +186,20 @@ export default function EditForm(props) {
     });
   };
 
-  const handleDeleteRecipe = () => {
-    if (!authorizedUser) {
-      console.log('You are not authorized to delete this recipe');
-      return;
-    };
+  const showPopup = (event) => {
+    event.preventDefault();
+    setShowDeletConfirmation(true);
+  }
 
+  const handleDeleteRecipe = () => {
+    // if (!authorizedUser) {
+    //   console.log('You are not authorized to delete this recipe');
+    //   return;
+    // }
     deleteRecipe(currentRecipe.id);
     router.push('/myRecipes');
     return;
   };
-
-  const showPopup = (event) => {
-    event.preventDefault();
-    setShowDeleteConfirmation(true);
-  }
 
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
@@ -384,11 +384,14 @@ export default function EditForm(props) {
         <button onClick={goToConverter}>CHANGE SERVING SIZE</button>
         <button onClick={showPopup}>DELETE RECIPE</button> 
       </div>
-      {/* {showDeleteConfirmation &&
-        <DeleteConfirmation
-          deleteRecipe={deleteRecipe}
-        />
-      } */}
+      {showDeletConfirmation &&
+        <div>
+          <DeleteConfirmation
+            deleteRecipe={deleteRecipe}
+            recipe={currentRecipe}
+            />
+        </div>
+      }
     </div>
   )
 };
