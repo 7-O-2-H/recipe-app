@@ -196,6 +196,11 @@ export default function EditForm(props) {
     return;
   };
 
+  const showPopup = (event) => {
+    event.preventDefault();
+    setShowDeleteConfirmation(true);
+  }
+
   // format ingredients array
   const ingredientsArray = formatIngredientsData(currentIngredients);
 
@@ -377,7 +382,7 @@ export default function EditForm(props) {
       <div>
         <button onClick={returnToRecipePage}>BACK TO RECIPE</button>
         <button onClick={goToConverter}>CHANGE SERVING SIZE</button>
-        <button onClick={setShowDeleteConfirmation(prev => !prev)}>DELETE RECIPE</button> 
+        <button onClick={showPopup}>DELETE RECIPE</button> 
       </div>
       {/* {showDeleteConfirmation &&
         <DeleteConfirmation
