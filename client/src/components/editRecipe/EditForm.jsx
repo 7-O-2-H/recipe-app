@@ -13,6 +13,7 @@ import EditSteps from "./EditSteps";
 import TagButton from "../addRecipe/TagButton";
 import EditTags from "./EditTags";
 import AddIngredient from "./AddIngredient";
+import DeleteConfirmation from "./DeleteConfirmation";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
@@ -59,6 +60,7 @@ export default function EditForm(props) {
   const [submitAdd, setSubmitAdd] = useState(false);
   const [editTags, setEditTags] = useState(false);
   const [addIngredient, setAddIngredient] = useState(false);
+  // const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   // use useEffect to update new step when dependencies change
   useEffect(() => {
@@ -187,7 +189,8 @@ export default function EditForm(props) {
     if (!authorizedUser) {
       console.log('You are not authorized to delete this recipe');
       return;
-    }
+    };
+
     deleteRecipe(currentRecipe.id);
     router.push('/myRecipes');
     return;
@@ -374,8 +377,13 @@ export default function EditForm(props) {
       <div>
         <button onClick={returnToRecipePage}>BACK TO RECIPE</button>
         <button onClick={goToConverter}>CHANGE SERVING SIZE</button>
-        <button onClick={handleDeleteRecipe}>DELETE RECIPE</button> 
+        <button onClick={setShowDeleteConfirmation(prev => !prev)}>DELETE RECIPE</button> 
       </div>
+      {/* {showDeleteConfirmation &&
+        <DeleteConfirmation
+          deleteRecipe={deleteRecipe}
+        />
+      } */}
     </div>
   )
 };
