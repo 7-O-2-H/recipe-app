@@ -198,10 +198,10 @@ export default function EditForm(props) {
   };
 
   const handleDeleteRecipe = (id) => {
-    // if (!authorizedUser) {
-    //   console.log('You are not authorized to delete this recipe');
-    //   return;
-    // }
+    if (!authorizedUser) {
+      toast.error('You are not authorized to delete this recipe');
+      return;
+    }
     deleteRecipe(id);
     router.push('/myRecipes');
     return;
