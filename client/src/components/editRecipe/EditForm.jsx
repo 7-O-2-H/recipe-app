@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // components
 import EditableIngredient from "./EditableIngredient";
-import Steps from "../Steps";
+import EditableStep from "./EditableStep";
 import EditRecipeDetails from "./EditRecipeDetails";
 import EditSteps from "./EditSteps";
 import TagButton from "../addRecipe/TagButton";
@@ -64,17 +64,17 @@ export default function EditForm(props) {
     );
   };
 
-  if (authorizedUser === null) {
-    return (
-      <div>Loading...</div>
-    )
-  };
+  // if (authorizedUser === null) {
+  //   return (
+  //     <div>Loading...</div>
+  //   )
+  // };
 
-  if (!authorizedUser) {
-    return (
-      <div>You're not authorized to edit this recipe</div>
-    )
-  };
+  // if (!authorizedUser) {
+  //   return (
+  //     <div>You're not authorized to edit this recipe</div>
+  //   )
+  // };
 
   // handlers
   const handleEditRecipe = (event) => {
@@ -218,8 +218,9 @@ export default function EditForm(props) {
     />
   ));
 
+  console.log(currentSteps);
   const stepsArray = currentSteps.map((step, index) => (
-    <Steps
+    <EditableStep
       key={index + 1}
       step_number={step.step_number}
       step_name={step.step_name}
@@ -310,7 +311,15 @@ export default function EditForm(props) {
         </div>
       )}
       {/* Steps */}
-      {!editSteps ? (
+        <div className="edit-section">
+            <div>
+              <h4 id="edit-category">STEPS</h4>
+              <p>Click step to edit</p>
+            </div>
+            <div className="edit-content">{stepsArray}</div>
+            <button className="edit-button" onClick={handleAddStep}>ADD STEP</button>
+          </div>
+      {/* {!editSteps ? (
         <div className="edit-section">
           <h4 id="edit-category">STEPS</h4>
           <div className="edit-content">{stepsArray}</div>
@@ -357,7 +366,7 @@ export default function EditForm(props) {
             <button type="submit" onClick={handleAddStepToggle}>+</button>
           }
         </div>
-      )}
+      )} */}
       {/* Tags */}
         <div className="edit-section">
         <h4 id="edit-category">TAGS</h4>
