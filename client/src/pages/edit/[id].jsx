@@ -6,7 +6,7 @@ import NavBar from "../../components/NavBar";
 import Header from '../../components/Header';
 import Spacer from '../../components/Spacer';
 import { useRecipeWithRefresh } from '../../hooks/useRecipe';
-// import { useAppDataWithRefresh } from '../../hooks/useAppData';
+import useUserAuthorization from '../../hooks/useUserAuthorization';
 import EditForm from '../../components/editRecipe/EditForm';
 
 export default function Edit( { params } ) {
@@ -36,12 +36,16 @@ export default function Edit( { params } ) {
     console.log('Triggering refresh. State: ', refreshData);
   };
   
+  const submitterId = currentRecipe?.user_id;
+  const authorizedUser = useUserAuthorization(submitterId);
+
+  console.log(authorizedUser);
+
   // If recipe is not set, invoke loading state
   if (!currentRecipe || !currentIngredients || !currentSteps || !currentTags) {
     return <div>Loading...</div>;
   };
   
-  // call useAppData with refresh to get updated recipe
   // Render the recipe details
   return (
     <div>
@@ -55,6 +59,7 @@ export default function Edit( { params } ) {
         currentSteps={currentSteps}
         currentTags={currentTags}
         triggerRefresh={triggerRefresh}
+        authorizedUser={authorizedUser}
       />
     </div>
   );

@@ -19,21 +19,12 @@ import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { editExistingSteps } from "../../helpers/stepsHelpers";
 import { addStep } from "../../helpers/stepsHelpers";
 import { deleteRecipe } from "../../helpers/recipeHelpers";
-//hooks
-import useUserAuthorization from "../../hooks/useUserAuthorization";
 
 export default function EditForm(props) {
 
   const router = useRouter();
 
-  const { currentRecipe, currentIngredients, currentSteps, currentTags, triggerRefresh } = props;
-
-  
-  if (!currentRecipe || !currentIngredients || !currentSteps) {
-    return (
-      <div>Loading...</div>
-    );
-  };
+  const { currentRecipe, currentIngredients, currentSteps, currentTags, triggerRefresh, authorizedUser } = props;
     
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
@@ -54,8 +45,24 @@ export default function EditForm(props) {
   const [addIngredient, setAddIngredient] = useState(false);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
-  const submitterId = currentRecipe.user_id;
-  const authorizedUser = useUserAuthorization(submitterId);
+  // const submitterId = currentRecipe.user_id;
+  // const authorizedUser = useUserAuthorization(submitterId);
+
+  // use useEffect to update new step when dependencies change
+  useEffect(() => {
+    setNewStep({
+      ...newStep,
+      step_number: stepNumber,
+      step_name: stepName,
+      instruction: instructionContainer
+    })
+  }, [stepNumber, stepName, instructionContainer]);
+  
+  if (!currentRecipe || !currentIngredients || !currentSteps) {
+    return (
+      <div>Loading...</div>
+    );
+  };
 
   if (authorizedUser === null) {
     return (
@@ -68,16 +75,6 @@ export default function EditForm(props) {
       <div>You're not authorized to edit this recipe</div>
     )
   };
-
-  // use useEffect to update new step when dependencies change
-  useEffect(() => {
-    setNewStep({
-      ...newStep,
-      step_number: stepNumber,
-      step_name: stepName,
-      instruction: instructionContainer
-    })
-  }, [stepNumber, stepName, instructionContainer]);
 
   // handlers
   const handleEditRecipe = (event) => {
