@@ -8,6 +8,8 @@ export default function EditableStep(props) {
 
   const { id, step_number, step_name, instruction } = props;
 
+  console.log(id);
+  
   // states
   const [editable, setEditable] = useState(false);
 
@@ -25,6 +27,7 @@ export default function EditableStep(props) {
         <div>
           <EditStep
             handleCancel={editStep}
+            id={id}
             step_number={step_number}
             step_name={step_name}
             instruction={instruction}
