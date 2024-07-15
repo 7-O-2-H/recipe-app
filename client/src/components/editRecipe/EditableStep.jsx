@@ -1,6 +1,8 @@
 // imports
 // react
 import { useState, useEffect } from "react";
+//components
+import EditStep from "./EditStep";
 
 export default function EditableStep(props) {
 
@@ -13,14 +15,21 @@ export default function EditableStep(props) {
   // handle edit condition
   const editStep = (e) => {
     e.preventDefault();
-    setEditable(true);
+    setEditable(prev => !prev);
   };
 
   //template
   return (
     <div className="steps-container">
       {editable ? (
-        <div>editable</div>
+        <div>
+          <EditStep
+            handleCancel={editStep}
+            step_number={step_number}
+            step_name={step_name}
+            instruction={instruction}
+          />
+        </div>
       ) : (
         <div className="step" onClick={editStep}>
           <h3>
