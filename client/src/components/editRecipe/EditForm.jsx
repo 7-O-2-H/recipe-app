@@ -57,6 +57,12 @@ export default function EditForm(props) {
   const submitterId = currentRecipe.user_id;
   const authorizedUser = useUserAuthorization(submitterId);
 
+  if (authorizedUser === null) {
+    return (
+      <div>Loading...</div>
+    )
+  };
+
   // use useEffect to update new step when dependencies change
   useEffect(() => {
     setNewStep({
