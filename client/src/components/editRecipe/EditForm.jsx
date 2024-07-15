@@ -63,6 +63,12 @@ export default function EditForm(props) {
     )
   };
 
+  if (!authorizedUser) {
+    return (
+      <div>You're not authorized to edit this recipe</div>
+    )
+  };
+
   // use useEffect to update new step when dependencies change
   useEffect(() => {
     setNewStep({
