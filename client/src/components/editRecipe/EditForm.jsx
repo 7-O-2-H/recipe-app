@@ -53,17 +53,9 @@ export default function EditForm(props) {
   const [editTags, setEditTags] = useState(false);
   const [addIngredient, setAddIngredient] = useState(false);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
-  const [authorizedUser, setAuthorizedUser] = useState(null);
 
   const submitterId = currentRecipe.user_id;
-
-  useEffect(() => {
-    const checkAuthorization = () => {
-      const isAuthorized = useUserAuthorization(submitterId);
-      setAuthorizedUser(isAuthorized);
-    };
-    checkAuthorization();
-  }, [submitterId]);
+  const authorizedUser = useUserAuthorization(submitterId);
 
   // use useEffect to update new step when dependencies change
   useEffect(() => {

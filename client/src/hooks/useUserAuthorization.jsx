@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { userAuthorization } from '../helpers/tokenVerification';
 
 const useUserAuthorization = (submitterId) => {
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -13,7 +13,10 @@ const useUserAuthorization = (submitterId) => {
         })
         .catch(error => {
           console.error('Error authorizing user:', error);
+          setIsAuthorized(false);
         });
+    } else {
+      setIsAuthorized(false);
     }
   }, [submitterId]);
 
@@ -21,4 +24,3 @@ const useUserAuthorization = (submitterId) => {
 };
 
 export default useUserAuthorization;
-
