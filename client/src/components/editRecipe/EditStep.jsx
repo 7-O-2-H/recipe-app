@@ -1,7 +1,9 @@
 // imports
 //react
 import { useState, useEffect } from "react";
+// helpers
 import { deleteStepById } from "../../helpers/stepsHelpers";
+import { editExistingSteps } from "../../helpers/stepsHelpers";
 
 export default function EditStep (props) {
   
@@ -42,11 +44,21 @@ export default function EditStep (props) {
     setInstructionContainer(e.target.value);
   };
 
-  // submit edit
-  const handleSubmitChanges = (e) => {
-    e.preventDefault();
-    console.log(updatedStep);
-  }
+  // edit step
+  const handleEditStep = async (event) => {
+    event.preventDefault();
+
+    // add edited step to array
+    const stepsArray = [];
+    stepsArray.push(updatedStep);
+
+    await editExistingSteps(stepsArray);
+
+    refresh();
+
+    handleCancel(event);
+
+  };
 
   // delete step
   const handleDeleteStep = async (event) => {
@@ -88,7 +100,7 @@ export default function EditStep (props) {
         />
         <button type="submit" onClick={handleCancel}>CANCEL</button>
         <button type="submit" onClick={handleDeleteStep}>DELETE STEP</button>
-        <button type="submit" onClick={handleSubmitChanges}>SUBMIT EDIT</button>
+        <button type="submit" onClick={handleEditStep}>SUBMIT EDIT</button>
       </form>
     </div>
    )
