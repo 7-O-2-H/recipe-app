@@ -6,7 +6,7 @@ import { deleteStepById } from "../../helpers/stepsHelpers";
 export default function EditStep (props) {
   
   // retreive props
-  const { handleCancel, id, step_number, step_name, instruction } = props;
+  const { handleCancel, id, step_number, step_name, instruction, refresh } = props;
   
   // states
   const [stepNumber, setStepNumber] = useState(step_number);
@@ -50,7 +50,10 @@ export default function EditStep (props) {
 
   // delete step
   const handleDeleteStep = async (event) => {
+    event.preventDefault();
     await deleteStepById(id);
+    refresh();
+    handleCancel(event);
   };
 
   return (

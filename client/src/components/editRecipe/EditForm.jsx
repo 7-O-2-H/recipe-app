@@ -225,6 +225,7 @@ export default function EditForm(props) {
       step_number={step.step_number}
       step_name={step.step_name}
       instruction={step.instruction}
+      refresh={triggerRefresh}
     />  
   ));
 
