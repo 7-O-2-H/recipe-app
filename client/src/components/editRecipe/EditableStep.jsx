@@ -1,14 +1,17 @@
 // imports
 // react
 import { useState, useEffect } from "react";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //components
 import EditStep from "./EditStep";
+// helpers
+import { deleteStepById } from "../../helpers/stepsHelpers";
 
 export default function EditableStep(props) {
 
   const { id, step_number, step_name, instruction } = props;
-
-  console.log(id);
   
   // states
   const [editable, setEditable] = useState(false);
