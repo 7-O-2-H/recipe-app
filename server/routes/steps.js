@@ -30,7 +30,6 @@ router.post('/edit', (req, res) => {
   const stepsArray = req.body.updatedSteps;
 
   for (const step of stepsArray) {
-    // console.log(step);
     editStep(step)
     .then((data) => {
       console.log(data);

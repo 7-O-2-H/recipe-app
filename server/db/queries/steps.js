@@ -27,8 +27,6 @@ const deleteStep = (id) => {
 
 const editStep = (stepData) => {
 
-  console.log(stepData, stepData.instruction);
-
   const values = [stepData.step_id, stepData.step_number, stepData.step_name, stepData.instruction];
 
   return db.query(`
