@@ -21,14 +21,6 @@ export async function deleteStepById(id) {
     console.log("axios error: ", error);
     throw error;
   }
-  // return axios.post(`http://localhost:8080/steps/delete`, {id}) 
-  //   .then((data) => {
-  //     return data;
-  //   })
-  //   .catch((error) => {
-  //     console.log("axios error: ", error);
-  //     return data;
-  //   });
 };
 
 export async function editExistingStep(updatedStep) {
