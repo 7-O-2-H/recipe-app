@@ -126,18 +126,6 @@ export default function EditForm(props) {
     triggerRefresh();
   };
 
-  // on change handlers
-  const handleStepNumberChange = (e) => {
-    setStepNumber(parseInt(e.target.value));
-  };
-
-  const handleStepNameChange = (e) => {
-    setStepName(e.target.value);
-  };
-  const handleInstructionChange = (e) => {
-    setInstructionContainer(e.target.value);
-  };
-
   // navigation handlers
   const returnToRecipePage = (event) => {
     router.push(`/recipes/${currentRecipe.id}`);
