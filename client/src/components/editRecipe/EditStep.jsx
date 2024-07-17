@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 // helpers
 import { deleteStepById } from "../../helpers/stepsHelpers";
-import { editExistingSteps } from "../../helpers/stepsHelpers";
+import { editExistingStep } from "../../helpers/stepsHelpers";
 
 export default function EditStep (props) {
   
@@ -48,11 +48,7 @@ export default function EditStep (props) {
   const handleEditStep = async (event) => {
     event.preventDefault();
 
-    // add edited step to array
-    const stepsArray = [];
-    stepsArray.push(updatedStep);
-
-    await editExistingSteps(stepsArray);
+    await editExistingStep(updatedStep);
 
     refresh();
 

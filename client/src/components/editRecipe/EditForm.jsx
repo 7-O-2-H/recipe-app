@@ -16,7 +16,7 @@ import AddIngredient from "./AddIngredient";
 import DeleteConfirmation from "./DeleteConfirmation";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
-import { editExistingSteps } from "../../helpers/stepsHelpers";
+// import { editExistingSteps } from "../../helpers/stepsHelpers";
 import { addStep } from "../../helpers/stepsHelpers";
 import { deleteRecipe } from "../../helpers/recipeHelpers";
 
@@ -97,38 +97,38 @@ export default function EditForm(props) {
     setUpdatedSteps(prevUpdatedSteps => [...prevUpdatedSteps, updatedStep]);
   };
 
-  const handleUpdateSteps = (event) => {
+  // const handleUpdateSteps = (event) => {
 
 
-    // function omit earlier edits based on repeat steps id
-    const trimArrayByStepId = (array) => {
+  //   // function omit earlier edits based on repeat steps id
+  //   const trimArrayByStepId = (array) => {
         
-      // use reduce to omit earlier edits and return object
-      const uniqueSteps = array.reduce((accumulated, current) => {
-        accumulated[current.step_id] = current;
-        return accumulated;
-      }, {});
+  //     // use reduce to omit earlier edits and return object
+  //     const uniqueSteps = array.reduce((accumulated, current) => {
+  //       accumulated[current.step_id] = current;
+  //       return accumulated;
+  //     }, {});
         
-      // convert obj to array and return it
-      return Object.values(uniqueSteps);
+  //     // convert obj to array and return it
+  //     return Object.values(uniqueSteps);
         
-    };
+  //   };
       
-    // call trim function to only use latest edits
-    const trimmedSteps = trimArrayByStepId(updatedSteps);
+  //   // call trim function to only use latest edits
+  //   const trimmedSteps = trimArrayByStepId(updatedSteps);
       
-    editExistingSteps(trimmedSteps);
+  //   editExistingSteps(trimmedSteps);
 
-    if (submitAdd) {
-      addStep(newStep);
-    };
+  //   if (submitAdd) {
+  //     addStep(newStep);
+  //   };
     
-    setEditSteps(prevState => !prevState);
+  //   setEditSteps(prevState => !prevState);
 
 
-    triggerRefresh();
+  //   triggerRefresh();
     
-  };
+  // };
 
   const handleAddStepToggle = (event) => {
     setShowAddStep(prevState => !prevState);

@@ -27,14 +27,12 @@ router.post('/delete', (req, res) => {
 router.post('/edit', (req, res) => {
 
   // req updated steps from body
-  const stepsArray = req.body.updatedSteps;
+  const updatedStepData = req.body.updatedStep;
 
-  for (const step of stepsArray) {
-    editStep(step)
+    editStep(updatedStepData)
     .then((data) => {
-      console.log(data);
+      res.json(data);
     });
-  };
 
 });
 
