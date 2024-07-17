@@ -280,52 +280,15 @@ export default function EditForm(props) {
       )}
       {/* Steps */}
         <div className="edit-section">
-            <div>
-              <h4 id="edit-category">STEPS</h4>
-              <p>Click step to edit</p>
-            </div>
-            <div className="edit-content">{stepsArray}</div>
-            <button className="edit-button" onClick={handleAddStep}>ADD STEP</button>
+          <div>
+            <h4 id="edit-category">STEPS</h4>
+            <p>Click step to edit</p>
           </div>
-      {/* {!editSteps ? (
-        <div className="edit-section">
-          <h4 id="edit-category">STEPS</h4>
           <div className="edit-content">{stepsArray}</div>
-          <button className="edit-button" onClick={handleEditSteps}>EDIT STEPS</button>
+          <button className="edit-button" onClick={handleAddStepToggle}>ADD STEP</button>
         </div>
-      ) : (
-        <div>
-          {editStepsArray}
-          {showAddStep && 
-          <form className="edit-steps-form" >
-            <input
-              label="Step Number"
-              id="stepNumber"
-              type="number"
-              className="input-field"
-              placeholder="Step Number"
-              value={stepsArray.length + 1}
-              onChange={handleStepNumberChange}
-            />
-            <input
-              label="Step Name"
-              id="stepName"
-              type="text"
-              className="input-field"
-              placeholder="Step Name"
-              value={stepName}
-              onChange={handleStepNameChange}
-            />
-            <input
-              label="Instruction"
-              id="instruction"
-              type="text"
-              className="input-field"
-              placeholder="Instruction"
-              value={instructionContainer}
-              onChange={handleInstructionChange}
-            />
-            <button type="submit" onClick={handleAddStepToggle}>CANCEL ADD STEP</button>
+      {/* {!editSteps ? (
+        
             <button type="submit" onClick={handleAddStep}>ADD STEP</button>
           </form>
           }
