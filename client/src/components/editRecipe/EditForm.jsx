@@ -97,39 +97,6 @@ export default function EditForm(props) {
     setUpdatedSteps(prevUpdatedSteps => [...prevUpdatedSteps, updatedStep]);
   };
 
-  // const handleUpdateSteps = (event) => {
-
-
-  //   // function omit earlier edits based on repeat steps id
-  //   const trimArrayByStepId = (array) => {
-        
-  //     // use reduce to omit earlier edits and return object
-  //     const uniqueSteps = array.reduce((accumulated, current) => {
-  //       accumulated[current.step_id] = current;
-  //       return accumulated;
-  //     }, {});
-        
-  //     // convert obj to array and return it
-  //     return Object.values(uniqueSteps);
-        
-  //   };
-      
-  //   // call trim function to only use latest edits
-  //   const trimmedSteps = trimArrayByStepId(updatedSteps);
-      
-  //   editExistingSteps(trimmedSteps);
-
-  //   if (submitAdd) {
-  //     addStep(newStep);
-  //   };
-    
-  //   setEditSteps(prevState => !prevState);
-
-
-  //   triggerRefresh();
-    
-  // };
-
   const handleAddStepToggle = (event) => {
     setShowAddStep(prevState => !prevState);
   };
