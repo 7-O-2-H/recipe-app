@@ -22,7 +22,8 @@ export default function EditableStep(props) {
     e.preventDefault();
 
     if (!authorizedUser) {
-      
+      toast.error('You\'re not authorized to edit this recipe.');
+      return;
     };
 
     setEditable(prev => !prev);
