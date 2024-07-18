@@ -70,6 +70,10 @@ export default function EditForm(props) {
   };
 
   const handleAddStepToggle = (event) => {
+    if (!authorizedUser) {
+      toast.error('You\'re not authorized to add steps to this recipe');
+      return;
+    }
     setShowAddStep(prevState => !prevState);
   };
 
