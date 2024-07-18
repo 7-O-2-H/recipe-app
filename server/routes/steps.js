@@ -50,9 +50,17 @@ router.post('/swap', async (req, res) => {
   
   console.log(stepOne, stepTwo);
 
+  const stepsToSwap = [stepOne, stepTwo];
 
+  try {
+    await Promise.all(stepsToSwap.map(async (step) => {
+      await editStep(step);
+    }))
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ error: "internal" });
+  };
 
-  return;
 });
 
 module.exports = router; 
