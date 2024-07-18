@@ -15,8 +15,8 @@ export default function AddStep (props) {
   const [stepName, setStepName] = useState('');
   const [stepObject, setStepObject] = useState({
     recipe_id: recipeId,
-    step_name: '',
     step_number: 1,
+    step_name: '',
     instruction: ''
   });
 
@@ -24,21 +24,20 @@ export default function AddStep (props) {
   useEffect(() => {
     setStepObject({
       ...stepObject,
-      instruction: instructionContainer,
+      step_number: stepNumber,
       step_name: stepName,
-      step_number: stepNumber
+      instruction: instructionContainer
     })
-  }, [instructionContainer]);
+  }, [stepName, instructionContainer]);
   
   // handlers
   // handle instruction input
-  const handleInstructionInput = (e) => {
-    const inputInstruction = e.target.value;
-    setInstructionContainer(inputInstruction);
-    setStepObject({
-      ...stepObject, 
-      instruction: instructionContainer
-    });
+  const handleStepNameChange = (e) => {
+    setStepName(e.target.value);
+  };
+
+  const handleInstructionChange = (e) => {
+    setInstructionContainer(e.target.value);
   };
 
   // handle step submission
@@ -114,55 +113,37 @@ export default function AddStep (props) {
   return (
     <div>
       <ToastContainer />
-      {instructionsArray && instructionsArray[0] && (
-          <h2>Submitted Steps:</h2>
-      )}
-      {instructionsArray && instructionsArray[0] && (
-        <p>
-          {instructionsArray.map((step, index) => (
-            <li key={index}>
-              {step.step_name}: {step.instruction}
-            </li>
-          ))}
-        </p>
-      )}        
-      {instructionType === 'step' ? (
-        <h3>
-          {stepName}:
-        </h3>
-      ) : (
-        <h3>
-          Prep:
-        </h3>
-      )}
-      <form className="steps-form" >
-        <input
-          id="instruction"
-          type="text"
-          className="input-field"
-          placeholder="instruction"
-          value={instructionContainer}
-          onChange={handleInstructionInput}
-          />
-        {instructionType === 'prep' ? (
-          <div>
-            <button type="submit" className="submit-btn" onClick={handleAddStep}>
-              ADD PREP
-            </button>
-            <button type="submit" onClick={handleSkipPrep}>
-              SKIP PREP
-            </button>
-          </div>
-        ) : (
-          <button type="submit" className="submit-btn" onClick={handleAddStep}>
-            ADD STEP
-          </button>
-        )}
-        <button type="submit" className="submit-btn" onClick={handleSubmit}>
-          SUBMIT RECIPE
-        </button>
-        <button onClick={handleCancel}>CANCEL</button>
-      </form>
+      <form className="edit-steps-form" >
+            <input
+              label="Step Number"
+              id="stepNumber"
+              type="number"
+              className="input-field"
+              placeholder="Step Number"
+              value={stepsArray.length + 1}
+              onChange={handleStepNumberChange}
+            />
+            <input
+              label="Step Name"
+              id="stepName"
+              type="text"
+              className="input-field"
+              placeholder="Step Name"
+              value={stepName}
+              onChange={handleStepNameChange}
+            />
+            <input
+              label="Instruction"
+              id="instruction"
+              type="text"
+              className="input-field"
+              placeholder="Instruction"
+              value={instructionContainer}
+              onChange={handleInstructionChange}
+            />
+            <button type="submit" onClick={handleAddStepToggle}>CANCEL ADD STEP</button>
+            <button type="submit" onClick={handleAddStep}>ADD STEP</button>
+          </form>
     </div>
   )
 };
