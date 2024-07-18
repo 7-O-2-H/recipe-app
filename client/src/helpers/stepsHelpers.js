@@ -34,3 +34,22 @@ export async function editExistingStep(updatedStep) {
     throw err;
   }
 };
+
+export function stepCalculator(steps) {
+
+  // get step number 
+  const newStepNumber = steps.length + 1;
+
+  // extract last step step name from array
+  const lastStep = steps[steps.length - 1].step_name;
+
+  // reduce lastStep int from name and add 1 for next step
+  const nextStep = parseInt(lastStep.split(" ").pop()) + 1;
+
+  // convert back to title string
+  const nextStepString = `Step ${nextStep}`;
+
+  console.log(newStepNumber, nextStepString);
+  return [newStepNumber, nextStepString];
+
+};

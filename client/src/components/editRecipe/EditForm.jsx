@@ -17,7 +17,7 @@ import DeleteConfirmation from "./DeleteConfirmation";
 import AddStep from "./AddStep";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
-// import { editExistingSteps } from "../../helpers/stepsHelpers";
+import { stepCalculator } from "../../helpers/stepsHelpers";
 import { addStep } from "../../helpers/stepsHelpers";
 import { deleteRecipe } from "../../helpers/recipeHelpers";
 
@@ -215,10 +215,12 @@ export default function EditForm(props) {
     />  
   ));
 
-  const lastStep = currentSteps[currentSteps.length - 1].step_name;
-  const nextStep = parseInt(lastStep.split(" ").pop()) + 1;
-  const nextStepString = `Step ${nextStep}`;
-  const newStepNumber = currentSteps.length;
+  // const lastStep = currentSteps[currentSteps.length - 1].step_name;
+  // const nextStep = parseInt(lastStep.split(" ").pop()) + 1;
+  // const nextStepString = `Step ${nextStep}`;
+  // const newStepNumber = currentSteps.length;
+
+  const addStepInfo = stepCalculator(currentSteps);
 
   // template
   return (
@@ -287,8 +289,8 @@ export default function EditForm(props) {
             <AddStep
               recipeId={currentRecipe.id}
               onCancel={handleAddStepToggle}
-              stepNumber={newStepNumber + 1}
-              nextStep={nextStepString}
+              stepNumber={addStepInfo[0]}
+              nextStep={addStepInfo[1]}
             />
           </div>
         )}
