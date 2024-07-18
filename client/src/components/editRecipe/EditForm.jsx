@@ -215,11 +215,7 @@ export default function EditForm(props) {
     />  
   ));
 
-  // const lastStep = currentSteps[currentSteps.length - 1].step_name;
-  // const nextStep = parseInt(lastStep.split(" ").pop()) + 1;
-  // const nextStepString = `Step ${nextStep}`;
-  // const newStepNumber = currentSteps.length;
-
+  // use helper to get default info for step to be added
   const addStepInfo = stepCalculator(currentSteps);
 
   // template
@@ -291,6 +287,7 @@ export default function EditForm(props) {
               onCancel={handleAddStepToggle}
               stepNumber={addStepInfo[0]}
               nextStep={addStepInfo[1]}
+              refresh={triggerRefresh}
             />
           </div>
         )}

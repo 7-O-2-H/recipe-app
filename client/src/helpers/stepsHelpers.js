@@ -49,7 +49,6 @@ export function stepCalculator(steps) {
   // convert back to title string
   const nextStepString = `Step ${nextStep}`;
 
-  console.log(newStepNumber, nextStepString);
   return [newStepNumber, nextStepString];
 
 };

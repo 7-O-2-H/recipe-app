@@ -8,21 +8,21 @@ import { addStep } from "../../helpers/stepsHelpers";
 
 export default function AddStep (props) {
 
-  const { recipeId, onCancel, stepNumber, nextStep } = props;
+  const { recipeId, onCancel, stepNumber, nextStep, refresh } = props;
   
   const [instructionContainer, setInstructionContainer] = useState('');
   const [stepName, setStepName] = useState(nextStep);
-  const [stepObject, setStepObject] = useState({
+  const [newStep, setNewStep] = useState({
     recipe_id: recipeId,
     step_number: stepNumber,
     step_name: stepName,
     instruction: ''
   });
 
-  // update stepObject with useEffect
+  // update newStep with useEffect
   useEffect(() => {
-    setStepObject({
-      ...stepObject,
+    setNewStep({
+      ...newStep,
       step_number: stepNumber,
       step_name: stepName,
       instruction: instructionContainer
@@ -43,7 +43,18 @@ export default function AddStep (props) {
   const handleAddStep = (e) => {
     e.preventDefault();
 
-    console.log(stepObject);
+    // confirm all information has been added and return toast error without submission if empty data
+    if (!newStep.recipe_id || !newStep.step_number || !newStep.step_name || !newStep.instruction) {
+
+      toast.error("You must enter all information for your new step.");
+      return;
+
+    };
+    
+    addStep(newStep);
+    refresh();
+    onCancel();
+
   };
 
   // handle cancel, delete recipe data
