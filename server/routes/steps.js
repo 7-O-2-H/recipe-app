@@ -50,9 +50,17 @@ router.post('/swap', async (req, res) => {
   // update step data with opposite instruction
   stepOne.instruction = stepOneInstruction;
   stepTwo.instruction = stepTwoInstruction;
+
+  // add recipeId to stepOne
+  stepOne.recipe_id = stepTwo.recipe_id;
+
+  // format step two to have step_id
+  stepTwo.step_id = stepTwo.id;
   
   // create array to hold updated steps
   const stepsToSwap = [stepOne, stepTwo];
+
+  console.log("one: ", stepOne);
 
   try {
     await Promise.all(stepsToSwap.map(async (step) => {

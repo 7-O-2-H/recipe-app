@@ -29,6 +29,8 @@ const editStep = (stepData) => {
 
   const values = [stepData.step_id, stepData.step_number, stepData.step_name, stepData.instruction];
 
+  console.log(stepData);
+  
   return db.query(`
     UPDATE steps
     SET step_number = $2,
@@ -45,5 +47,6 @@ const editStep = (stepData) => {
     return error.message;
     });
 };
+
 
 module.exports = { addStep, deleteStep, editStep };

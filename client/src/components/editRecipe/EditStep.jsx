@@ -55,6 +55,7 @@ export default function EditStep (props) {
       toast.error("You cannot move this step up.");
       return;
     };
+
     swapSteps(updatedStep, precedingStep);
 
   };
