@@ -39,17 +39,19 @@ router.post('/edit', (req, res) => {
 // swap
 router.post('/swap', async (req, res) => {
 
+  // retreive steps from body
   const stepOne = req.body.step1;
   const stepTwo = req.body.step2;
 
+  // create construction containers to hold instruction values
   const stepOneInstruction = stepTwo.instruction;
   const stepTwoInstruction = stepOne.instruction;
 
+  // update step data with opposite instruction
   stepOne.instruction = stepOneInstruction;
   stepTwo.instruction = stepTwoInstruction;
   
-  console.log(stepOne, stepTwo);
-
+  // create array to hold updated steps
   const stepsToSwap = [stepOne, stepTwo];
 
   try {
