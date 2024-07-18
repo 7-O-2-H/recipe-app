@@ -57,6 +57,8 @@ export default function EditStep (props) {
     };
 
     swapSteps(updatedStep, precedingStep);
+    refresh();
+    handleCancel(event);
 
   };
 
