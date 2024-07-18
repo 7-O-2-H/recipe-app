@@ -43,13 +43,10 @@ router.post('/swap', async (req, res) => {
   const stepOne = req.body.step1;
   const stepTwo = req.body.step2;
 
-  // create construction containers to hold instruction values
-  const stepOneInstruction = stepTwo.instruction;
-  const stepTwoInstruction = stepOne.instruction;
-
-  // update step data with opposite instruction
-  stepOne.instruction = stepOneInstruction;
-  stepTwo.instruction = stepTwoInstruction;
+  // swap instruction values
+  const tempInstructionHolder = stepTwo.instruction;
+  stepTwo.instruction = stepOne.instruction;
+  stepOne.instruction = tempInstructionHolder;
 
   // add recipeId to stepOne
   stepOne.recipe_id = stepTwo.recipe_id;
