@@ -36,4 +36,14 @@ router.post('/edit', (req, res) => {
 
 });
 
+// swap
+router.post('/swap', async (req, res) => {
+
+  const step1 = req.body.step1;
+  const step2 = req.body.step2;
+  console.log(step1, step2);
+
+  return;
+});
+
 module.exports = router; 
