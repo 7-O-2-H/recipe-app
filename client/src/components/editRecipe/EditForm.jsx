@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import EditableIngredient from "./EditableIngredient";
 import EditableStep from "./EditableStep";
 import EditRecipeDetails from "./EditRecipeDetails";
-import EditSteps from "./EditSteps";
 import TagButton from "../addRecipe/TagButton";
 import EditTags from "./EditTags";
 import AddIngredient from "./AddIngredient";
@@ -18,7 +17,6 @@ import AddStep from "./AddStep";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 import { stepCalculator } from "../../helpers/stepsHelpers";
-import { addStep } from "../../helpers/stepsHelpers";
 import { deleteRecipe } from "../../helpers/recipeHelpers";
 
 export default function EditForm(props) {
@@ -29,19 +27,7 @@ export default function EditForm(props) {
     
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
-  const [editSteps, setEditSteps] = useState(false);
-  const [updatedSteps, setUpdatedSteps] = useState([]);
   const [showAddStep, setShowAddStep] = useState(false);
-  const [stepNumber, setStepNumber] = useState(null);
-  const [stepName, setStepName] = useState('');
-  const [instructionContainer, setInstructionContainer] = useState('');
-  const [newStep, setNewStep] = useState({
-    recipe_id: currentRecipe.id,
-    step_number: 0,
-    step_name: '',
-    instruction: ''
-  });
-  const [submitAdd, setSubmitAdd] = useState(false);
   const [editTags, setEditTags] = useState(false);
   const [addIngredient, setAddIngredient] = useState(false);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
