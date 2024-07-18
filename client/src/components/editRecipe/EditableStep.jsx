@@ -11,7 +11,7 @@ import { deleteStepById } from "../../helpers/stepsHelpers";
 
 export default function EditableStep(props) {
 
-  const { id, index, step_number, step_name, instruction, refresh, precedingStep, succeedingStep } = props;
+  const { id, index, step_number, step_name, instruction, refresh, precedingStep, succeedingStep, authorizedUser } = props;
   
   // states
   const [editable, setEditable] = useState(false);
@@ -20,12 +20,18 @@ export default function EditableStep(props) {
   // handle edit condition
   const editStep = (e) => {
     e.preventDefault();
+
+    if (!authorizedUser) {
+      
+    };
+
     setEditable(prev => !prev);
   };
 
   //template
   return (
     <div className="steps-container">
+      <ToastContainer />
       {editable ? (
         <div>
           <EditStep
