@@ -62,6 +62,18 @@ export default function EditStep (props) {
 
   };
 
+  const moveDown = (event) => {
+    event.preventDefault();
+    if (!succeedingStep) {
+      toast.error("You cannot move this step down.");
+      return;
+    };
+
+    swapSteps(updatedStep, succeedingStep);
+    refresh();
+    handleCancel(event);
+  };
+
   // edit step
   const handleEditStep = async (event) => {
     event.preventDefault();
@@ -116,9 +128,12 @@ export default function EditStep (props) {
         <button type="submit" onClick={handleCancel}>CANCEL</button>
         <button type="submit" onClick={handleDeleteStep}>DELETE STEP</button>
         <button type="submit" onClick={handleEditStep}>SUBMIT EDIT</button>
-        <div>
+        {precedingStep && (
           <button onClick={moveUp}>⬆️</button>
-        </div>
+        )}
+        {succeedingStep && (
+          <button onClick={moveDown}>⬇️</button>
+        )}
       </form>
     </div>
    )

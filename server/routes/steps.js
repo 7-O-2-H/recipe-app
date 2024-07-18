@@ -43,6 +43,7 @@ router.post('/swap', async (req, res) => {
   const stepOne = req.body.step1;
   const stepTwo = req.body.step2;
 
+  console.log("before update: ", stepOne, stepTwo);
   // swap instruction values
   const tempInstructionHolder = stepTwo.instruction;
   stepTwo.instruction = stepOne.instruction;
@@ -57,6 +58,7 @@ router.post('/swap', async (req, res) => {
   // create array to hold updated steps
   const stepsToSwap = [stepOne, stepTwo];
 
+  console.log("after update: ", stepsToSwap);
 
   try {
     await Promise.all(stepsToSwap.map(async (step) => {
