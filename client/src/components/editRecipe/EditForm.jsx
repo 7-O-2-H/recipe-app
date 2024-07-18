@@ -215,6 +215,9 @@ export default function EditForm(props) {
     />  
   ));
 
+  const lastStep = currentSteps[currentSteps.length - 1].step_name;
+  const nextStep = parseInt(lastStep.split(" ").pop()) + 1;
+  const nextStepString = `Step ${nextStep}`;
   const newStepNumber = currentSteps.length;
 
   // template
@@ -285,6 +288,7 @@ export default function EditForm(props) {
               recipeId={currentRecipe.id}
               onCancel={handleAddStepToggle}
               stepNumber={newStepNumber + 1}
+              nextStep={nextStepString}
             />
           </div>
         )}

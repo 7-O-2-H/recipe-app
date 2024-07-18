@@ -8,15 +8,14 @@ import { addStep } from "../../helpers/stepsHelpers";
 
 export default function AddStep (props) {
 
-  const { recipeId, onCancel, stepNumber } = props;
+  const { recipeId, onCancel, stepNumber, nextStep } = props;
   
-  console.log(stepNumber);
   const [instructionContainer, setInstructionContainer] = useState('');
-  const [stepName, setStepName] = useState('');
+  const [stepName, setStepName] = useState(nextStep);
   const [stepObject, setStepObject] = useState({
     recipe_id: recipeId,
     step_number: stepNumber,
-    step_name: '',
+    step_name: stepName,
     instruction: ''
   });
 
@@ -44,52 +43,7 @@ export default function AddStep (props) {
   const handleAddStep = (e) => {
     e.preventDefault();
 
-
-    if (!instructionContainer) {
-      toast.error("Please enter your instuctions to submit.");
-      return;
-    };
-
-    if (instructionType === 'prep') {
-      setStepObject({
-        ...stepObject,
-        // step_name: 'Prep',
-        step_number: stepNumber
-      });
-
-      setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
-      addStep(stepObject);
-
-      // change instruction type
-      setInstructionType('step');
-
-      // increment step number
-      setStepNumber(stepNumber => stepNumber + 1);
-      const formattedStep = `Step ${stepCounter}`;
-      setStepName(formattedStep);
-      setStepCounter(stepCounter => stepCounter + 1);
-
-    } else {
-
-      // format step name
-      const formattedStep = `Step ${stepCounter}`;
-      setStepName(formattedStep);
-
-      setStepObject({
-        ...stepObject,
-        step_name: formattedStep,
-        step_number: stepNumber
-      });
-
-      setInstructionsArray(prevInstructionsArray => [...prevInstructionsArray, stepObject]);
-      addStep(stepObject);
-
-      // increment step number and counter
-      setStepNumber(stepNumber => stepNumber + 1);
-      setStepCounter(stepCounter => stepCounter + 1);
-    };
-
-    setInstructionContainer('');
+    console.log(stepObject);
   };
 
   // handle cancel, delete recipe data
