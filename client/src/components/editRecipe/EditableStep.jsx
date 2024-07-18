@@ -11,7 +11,7 @@ import { deleteStepById } from "../../helpers/stepsHelpers";
 
 export default function EditableStep(props) {
 
-  const { id, step_number, step_name, instruction, refresh } = props;
+  const { id, index, step_number, step_name, instruction, refresh } = props;
   
   // states
   const [editable, setEditable] = useState(false);
@@ -30,6 +30,7 @@ export default function EditableStep(props) {
         <div>
           <EditStep
             handleCancel={editStep}
+            index={index}
             id={id}
             step_number={step_number}
             step_name={step_name}

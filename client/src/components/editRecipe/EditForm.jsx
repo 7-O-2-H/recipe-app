@@ -129,9 +129,10 @@ export default function EditForm(props) {
     />
   ));
 
-  const stepsArray = currentSteps.map((step) => (
+  const stepsArray = currentSteps.map((step, index) => (
     <EditableStep
       key={step.id}
+      index={index}
       id={step.id}
       step_number={step.step_number}
       step_name={step.step_name}

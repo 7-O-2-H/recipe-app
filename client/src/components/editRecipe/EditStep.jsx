@@ -8,7 +8,7 @@ import { editExistingStep } from "../../helpers/stepsHelpers";
 export default function EditStep (props) {
   
   // retreive props
-  const { handleCancel, id, step_number, step_name, instruction, refresh } = props;
+  const { handleCancel, index, id, step_number, step_name, instruction, refresh } = props;
   
   // states
   const [stepNumber, setStepNumber] = useState(step_number);
@@ -42,6 +42,12 @@ export default function EditStep (props) {
   
   const handleInstructionChange = (e) => {
     setInstructionContainer(e.target.value);
+  };
+
+  // move steps
+  const moveUp = (event) => {
+    event.preventDefault();
+    console.log(index);
   };
 
   // edit step
@@ -97,6 +103,9 @@ export default function EditStep (props) {
         <button type="submit" onClick={handleCancel}>CANCEL</button>
         <button type="submit" onClick={handleDeleteStep}>DELETE STEP</button>
         <button type="submit" onClick={handleEditStep}>SUBMIT EDIT</button>
+        <div>
+          <button onClick={moveUp}>⬆️</button>
+        </div>
       </form>
     </div>
    )
