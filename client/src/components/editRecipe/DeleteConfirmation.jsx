@@ -9,7 +9,7 @@ export default function DeleteConfirmation(props) {
       <p>Are you sure you want to delete this recipe ({recipe.recipe})?</p>
       <div>
         <button onClick={cancel}>NO</button>
-        <button >YES</button>
+        <button onClick={deleteRecipe}>YES</button>
       </div>
     </div>
   )

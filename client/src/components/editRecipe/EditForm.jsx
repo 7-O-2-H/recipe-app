@@ -31,9 +31,6 @@ export default function EditForm(props) {
   const [editTags, setEditTags] = useState(false);
   const [addIngredient, setAddIngredient] = useState(false);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
-
-  // const submitterId = currentRecipe.user_id;
-  // const authorizedUser = useUserAuthorization(submitterId);
   
   if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
@@ -41,17 +38,17 @@ export default function EditForm(props) {
     );
   };
 
-  // if (authorizedUser === null) {
-  //   return (
-  //     <div>Loading...</div>
-  //   )
-  // };
+  if (authorizedUser === null) {
+    return (
+      <div>Loading...</div>
+    )
+  };
 
-  // if (!authorizedUser) {
-  //   return (
-  //     <div>You're not authorized to edit this recipe</div>
-  //   )
-  // };
+  if (!authorizedUser) {
+    return (
+      <div>You're not authorized to edit this recipe</div>
+    )
+  };
 
   // handlers
   const handleEditRecipe = (event) => {
@@ -102,12 +99,12 @@ export default function EditForm(props) {
     setShowDeleteConfirmation(prev => !prev);
   };
 
-  const handleDeleteRecipe = (id) => {
+  const handleDeleteRecipe = (event) => {
     if (!authorizedUser) {
       toast.error('You are not authorized to delete this recipe');
       return;
     }
-    deleteRecipe(id);
+    deleteRecipe(currentRecipe.id);
     router.push('/myRecipes');
     return;
   };
@@ -251,7 +248,7 @@ export default function EditForm(props) {
       <div>
         <button onClick={returnToRecipePage}>BACK TO RECIPE</button>
         <button onClick={goToConverter}>CHANGE SERVING SIZE</button>
-        <button onClick={showPopup}>DELETE RECIPE</button> 
+        <button onClick={handleDeleteRecipe}>DELETE RECIPE</button> 
       </div>
       {showDeleteConfirmation &&
         <div>

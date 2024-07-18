@@ -39,8 +39,6 @@ export default function Edit( { params } ) {
   const submitterId = currentRecipe?.user_id;
   const authorizedUser = useUserAuthorization(submitterId);
 
-  console.log(authorizedUser);
-
   // If recipe is not set, invoke loading state
   if (!currentRecipe || !currentIngredients || !currentSteps || !currentTags) {
     return <div>Loading...</div>;
