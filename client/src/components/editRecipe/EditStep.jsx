@@ -8,7 +8,7 @@ import { editExistingStep } from "../../helpers/stepsHelpers";
 export default function EditStep (props) {
   
   // retreive props
-  const { handleCancel, index, id, step_number, step_name, instruction, refresh } = props;
+  const { handleCancel, index, id, step_number, step_name, instruction, refresh, succeedingStep, precedingStep } = props;
   
   // states
   const [stepNumber, setStepNumber] = useState(step_number);
@@ -47,7 +47,7 @@ export default function EditStep (props) {
   // move steps
   const moveUp = (event) => {
     event.preventDefault();
-    console.log(index);
+    console.log(index, precedingStep, succeedingStep);
   };
 
   // edit step

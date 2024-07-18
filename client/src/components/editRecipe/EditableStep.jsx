@@ -11,7 +11,7 @@ import { deleteStepById } from "../../helpers/stepsHelpers";
 
 export default function EditableStep(props) {
 
-  const { id, index, step_number, step_name, instruction, refresh } = props;
+  const { id, index, step_number, step_name, instruction, refresh, precedingStep, succeedingStep } = props;
   
   // states
   const [editable, setEditable] = useState(false);
@@ -36,6 +36,8 @@ export default function EditableStep(props) {
             step_name={step_name}
             instruction={instruction}
             refresh={refresh}
+            succeedingStep={succeedingStep}
+            precedingStep={precedingStep}
           />
         </div>
       ) : (

@@ -138,6 +138,8 @@ export default function EditForm(props) {
       step_name={step.step_name}
       instruction={step.instruction}
       refresh={triggerRefresh}
+      precedingStep={index > 0 ? currentSteps[index - 1] : null}
+      succeedingStep={index < currentSteps.length - 1 ? currentSteps[index + 1] : null}
     />  
   ));
 
