@@ -1,9 +1,13 @@
 // imports
 //react
 import { useState, useEffect } from "react";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // helpers
 import { deleteStepById } from "../../helpers/stepsHelpers";
 import { editExistingStep } from "../../helpers/stepsHelpers";
+import { swapSteps } from "../../helpers/stepsHelpers";
 
 export default function EditStep (props) {
   
@@ -47,7 +51,12 @@ export default function EditStep (props) {
   // move steps
   const moveUp = (event) => {
     event.preventDefault();
-    console.log(index, precedingStep, succeedingStep);
+    if (!precedingStep) {
+      toast.error("You cannot move this step up.");
+      return;
+    };
+    swapSteps(updatedStep, precedingStep);
+
   };
 
   // edit step
@@ -72,6 +81,7 @@ export default function EditStep (props) {
 
   return (
     <div className="steps-container">
+      <ToastContainer />
       <form className="edit-steps-form" >
         {/* <input
           label="Step Number"

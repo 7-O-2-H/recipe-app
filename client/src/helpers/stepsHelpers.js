@@ -35,6 +35,18 @@ export async function editExistingStep(updatedStep) {
   }
 };
 
+// move steps
+export async function swapSteps(step1, step2) {
+
+  try {
+    const res = await axios.post(`http://localhost:8080/steps/swap`, {step1, step2});
+    return res.status;
+  } catch (error) {
+    console.error("axios error: ", error);
+    throw error;
+  }
+};
+
 export function stepCalculator(steps) {
 
   // get step number 
