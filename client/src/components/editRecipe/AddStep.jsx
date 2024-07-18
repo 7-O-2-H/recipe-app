@@ -40,7 +40,7 @@ export default function AddStep (props) {
   };
 
   // handle step submission
-  const handleAddStep = (e) => {
+  const handleAddStep = async (e) => {
     e.preventDefault();
 
     // confirm all information has been added and return toast error without submission if empty data
@@ -51,17 +51,10 @@ export default function AddStep (props) {
 
     };
     
-    addStep(newStep);
+    await addStep(newStep);
     refresh();
     onCancel();
 
-  };
-
-  // handle cancel, delete recipe data
-  const handleCancel = (event) => {
-    event.preventDefault();
-    onCancel();
-    return;
   };
 
   return (
@@ -86,8 +79,8 @@ export default function AddStep (props) {
           value={instructionContainer}
           onChange={handleInstructionChange}
         />
-        <button type="submit" onClick={onCancel}>CANCEL</button>
         <button type="submit" onClick={handleAddStep}>ADD STEP</button>
+        <button type="submit" onClick={onCancel}>CANCEL</button>
       </form>
     </div>
   )
