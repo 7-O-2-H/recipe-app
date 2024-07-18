@@ -6,7 +6,7 @@ import { useAppDataWithRefresh } from "../../hooks/useAppData";
 import EditIngredient from "./EditIngredient";
 import { useEditData } from "../../hooks/useEditData";
 
-export default function EditableIngredient({ recipeId, index, ingredient, ingredientArray, refresh }) {
+export default function EditableIngredient({ recipeId, index, ingredient, ingredientArray, refresh, authorizedUser }) {
   
   // parse JSON ingredients and extract data for current ingredient
   const parsedIngredientArray = JSON.parse(ingredientArray)
@@ -83,6 +83,7 @@ export default function EditableIngredient({ recipeId, index, ingredient, ingred
             initialMeasurement={initialMeasurement}
             recipeId={recipeId}
             refresh={refresh}
+            authorizedUser={authorizedUser}
           />
         </div>
       )}

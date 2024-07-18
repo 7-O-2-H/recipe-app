@@ -15,7 +15,7 @@ import { editIngredient } from "../../helpers/ingredientsHelpers";
 export default function EditIngredient (props) {
 
   // retrieve prop functions
-  const { handleCancel, recipeIngredientId, currentIngredient, currentQuantity, initialMeasurement, recipeId, refresh } = props;
+  const { handleCancel, recipeIngredientId, currentIngredient, currentQuantity, initialMeasurement, recipeId, refresh, authorizedUser } = props;
     
   // initialize states
   const [ingredient, setIngredient] = useState(currentIngredient);
@@ -94,6 +94,11 @@ export default function EditIngredient (props) {
 
   const handleUpdateIngredient = async (event) => {
     event.preventDefault();
+
+    if (!authorizedUser) {
+      toast.error("You're not authorized to edit this recipe");
+      return;
+    };
 
     // variable to ensure all variables are defined before enabling  submission
     let canSubmit = true;

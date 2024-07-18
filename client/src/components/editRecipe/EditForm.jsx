@@ -58,6 +58,11 @@ export default function EditForm(props) {
   // add ingredient handler
   const handleAddIngredient = (event) => {
     event.preventDefault();
+    if (!authorizedUser) {
+      toast.error("You're not authorized to edit this recipe");
+      return;
+    };
+
     setAddIngredient(prev => !prev);
     return;
   };
@@ -120,6 +125,7 @@ export default function EditForm(props) {
       ingredient={JSON.stringify(ingredient)}
       ingredientArray={JSON.stringify(currentIngredients)}
       refresh={triggerRefresh}
+      authorizedUser={authorizedUser}
     />
   ));
 
