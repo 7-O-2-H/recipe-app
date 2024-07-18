@@ -14,6 +14,7 @@ import TagButton from "../addRecipe/TagButton";
 import EditTags from "./EditTags";
 import AddIngredient from "./AddIngredient";
 import DeleteConfirmation from "./DeleteConfirmation";
+import AddStep from "./AddStep";
 // helpers
 import { formatIngredientsData } from "../../helpers/conversionHelpers";
 // import { editExistingSteps } from "../../helpers/stepsHelpers";
@@ -278,6 +279,10 @@ export default function EditForm(props) {
         {showAddStep && (
           <div>
             <h4>Add Step</h4>
+            <AddStep
+              recipeId={currentRecipe.id}
+              onCancel={handleAddStepToggle}
+            />
           </div>
         )}
       {/* {!editSteps ? (

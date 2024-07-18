@@ -121,7 +121,7 @@ export default function AddStep (props) {
           value={instructionContainer}
           onChange={handleInstructionChange}
         />
-        <button type="submit" onClick={handleAddStepToggle}>CANCEL ADD STEP</button>
+        <button type="submit" onClick={onCancel}>CANCEL</button>
         <button type="submit" onClick={handleAddStep}>ADD STEP</button>
       </form>
     </div>
