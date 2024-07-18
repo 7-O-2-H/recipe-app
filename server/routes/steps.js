@@ -60,7 +60,6 @@ router.post('/swap', async (req, res) => {
   // create array to hold updated steps
   const stepsToSwap = [stepOne, stepTwo];
 
-  console.log("one: ", stepOne);
 
   try {
     await Promise.all(stepsToSwap.map(async (step) => {
