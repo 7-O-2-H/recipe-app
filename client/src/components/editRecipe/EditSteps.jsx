@@ -51,6 +51,7 @@ export default function EditSteps(props) {
     // const newStepNumber = e.target.value;
     setStepName(e.target.value);
   };
+  
   const handleInstructionChange = (e) => {
     // const newStepNumber = e.target.value;
     setInstructionContainer(e.target.value);

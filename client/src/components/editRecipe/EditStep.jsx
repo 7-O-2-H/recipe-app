@@ -67,7 +67,7 @@ export default function EditStep (props) {
   return (
     <div className="steps-container">
       <form className="edit-steps-form" >
-        <input
+        {/* <input
           label="Step Number"
           id="stepNumber"
           type="number"
@@ -75,7 +75,7 @@ export default function EditStep (props) {
           placeholder="Step Number"
           value={stepNumber}
           onChange={handleStepNumberChange}
-        />
+        /> */}
         <input
           label="Step Name"
           id="stepName"
