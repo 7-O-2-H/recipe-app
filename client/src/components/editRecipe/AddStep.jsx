@@ -8,14 +8,14 @@ import { addStep } from "../../helpers/stepsHelpers";
 
 export default function AddStep (props) {
 
-  const { recipeId, onCancel } = props;
+  const { recipeId, onCancel, stepNumber } = props;
   
-  const [stepNumber, setStepNumber] = useState(1);
+  console.log(stepNumber);
   const [instructionContainer, setInstructionContainer] = useState('');
   const [stepName, setStepName] = useState('');
   const [stepObject, setStepObject] = useState({
     recipe_id: recipeId,
-    step_number: 1,
+    step_number: stepNumber,
     step_name: '',
     instruction: ''
   });

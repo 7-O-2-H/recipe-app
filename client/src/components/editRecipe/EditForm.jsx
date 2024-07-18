@@ -215,6 +215,8 @@ export default function EditForm(props) {
     />  
   ));
 
+  const newStepNumber = currentSteps.length;
+
   // template
   return (
     <div className="edit-form">
@@ -282,22 +284,12 @@ export default function EditForm(props) {
             <AddStep
               recipeId={currentRecipe.id}
               onCancel={handleAddStepToggle}
+              stepNumber={newStepNumber + 1}
             />
           </div>
         )}
-      {/* {!editSteps ? (
-        
-            <button type="submit" onClick={handleAddStep}>ADD STEP</button>
-          </form>
-          }
-          <button type="submit" onClick={handleUpdateSteps}>EDIT STEPS</button>
-          {!showAddStep &&
-            <button type="submit" onClick={handleAddStepToggle}>+</button>
-          }
-        </div>
-      )} */}
       {/* Tags */}
-        <div className="edit-section">
+      <div className="edit-section">
         <h4 id="edit-category">TAGS</h4>
         {editTags ? (
           <div>
