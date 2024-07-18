@@ -48,16 +48,6 @@ export default function EditForm(props) {
 
   // const submitterId = currentRecipe.user_id;
   // const authorizedUser = useUserAuthorization(submitterId);
-
-  // use useEffect to update new step when dependencies change
-  useEffect(() => {
-    setNewStep({
-      ...newStep,
-      step_number: stepNumber,
-      step_name: stepName,
-      instruction: instructionContainer
-    })
-  }, [stepNumber, stepName, instructionContainer]);
   
   if (!currentRecipe || !currentIngredients || !currentSteps) {
     return (
@@ -89,32 +79,8 @@ export default function EditForm(props) {
     return;
   };
 
-  // steps handlers
-  const handleEditSteps = (event) => {
-    setEditSteps(prevState => !prevState);
-  };
-
-  const handleUpdateStepsArray = (updatedStep) => {
-    setUpdatedSteps(prevUpdatedSteps => [...prevUpdatedSteps, updatedStep]);
-  };
-
   const handleAddStepToggle = (event) => {
     setShowAddStep(prevState => !prevState);
-  };
-
-  const handleAddStep = (event) => {
-    event.preventDefault();
-    if (!newStep.recipe_id || !newStep.step_number || !newStep.step_name || !newStep.instruction) {
-
-      toast.error("You must enter all information for your new step.");
-      return;
-
-    } else {
-      
-      setSubmitAdd(true);
-
-    };
-
   };
 
   // tags handlers 
@@ -195,25 +161,6 @@ export default function EditForm(props) {
       />
     )
   });
-
-
-  // useEffect to change value of steoNumber to default next step
-  useEffect(() => {
-    if (stepsArray && stepsArray.length > 0) {
-      setStepNumber(stepsArray.length);
-    };
-  }, [stepsArray]);
-
-  const editStepsArray = currentSteps.map((step, index) => (
-    <EditSteps
-      key={index + 1}
-      step_id= {step.id}
-      step_number={index + 1}
-      step_name={step.step_name}
-      instruction={step.instruction}
-      updateStepsArray={handleUpdateStepsArray}
-    />  
-  ));
 
   // use helper to get default info for step to be added
   const addStepInfo = stepCalculator(currentSteps);
