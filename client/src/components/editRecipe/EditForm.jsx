@@ -25,6 +25,8 @@ export default function EditForm(props) {
 
   const { currentRecipe, currentIngredients, currentSteps, currentTags, triggerRefresh, authorizedUser } = props;
     
+  console.log(currentSteps);
+  
   // set states
   const [editRecipe, setEditRecipe] = useState(false);
   const [showAddStep, setShowAddStep] = useState(false);

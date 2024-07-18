@@ -50,7 +50,7 @@ export async function swapSteps(step1, step2) {
 export function stepCalculator(steps) {
 
   // get step number 
-  const newStepNumber = steps.length + 1;
+  const newStepNumber = steps[steps.length - 1].step_number + 1;
 
   // extract last step step name from array
   const lastStep = steps[steps.length - 1].step_name;
