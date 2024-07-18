@@ -42,7 +42,6 @@ export default function AddStep (props) {
   const handleAddStep = async (e) => {
     e.preventDefault();
 
-    // console.log(newStep);
     // confirm all information has been added and return toast error without submission if empty data
     if (!newStep.recipe_id || !newStep.step_number || !newStep.step_name || !newStep.instruction) {
 
