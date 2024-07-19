@@ -5,3 +5,8 @@
   margin: 0 10%;
   font-family: 'Great Vibes', cursive;
 }
+
+#search-tools {
+  display: flex;
+  flex-direction: row;
+}

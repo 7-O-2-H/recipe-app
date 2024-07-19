@@ -22,7 +22,7 @@ export default function BrowseOptions() {
   return (
     <div className="browse-options">
       {!visible && <button onClick={toggleVisibility}> SORT BY</button>}
-      {visible && <div> 
+      {visible && <div id="search-tools"> 
         <IngredientsList />
         <TagsList />
         <TimesList />
