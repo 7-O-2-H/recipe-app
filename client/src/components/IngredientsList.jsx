@@ -28,8 +28,7 @@ export default function IngredientsList() {
 
   return (
     <div>
-      <IngredientsDropdown ingredients={allIngredients} selectedOption={selectedOption} onSelect={handleSelect} />
-      <button onClick={handleClear}>CLEAR</button>
+      <IngredientsDropdown ingredients={allIngredients} selectedOption={selectedOption} onSelect={handleSelect} clear={handleClear} />
     </div>
   );
 }

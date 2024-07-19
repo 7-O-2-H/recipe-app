@@ -6,7 +6,22 @@
   font-family: 'Great Vibes', cursive;
 }
 
+.search-tools-button {
+  border-radius: 20px;
+  border-color: black;
+  padding: 0 0 1em 0;
+  background-color: #ADD7F6;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  width: 100px;
+  font-size:large;
+  height: 1em;
+}
+
 #search-tools {
   display: flex;
   flex-direction: row;
 }
+

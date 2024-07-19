@@ -1,4 +1,4 @@
-export default function IngredientsDropdown({ ingredients, selectedOption, onSelect }) {
+export default function IngredientsDropdown({ ingredients, selectedOption, onSelect, clear }) {
   
   // template
   return (
@@ -11,6 +11,7 @@ export default function IngredientsDropdown({ ingredients, selectedOption, onSel
           </option>
         ))}
       </select>   
+      <button onClick={clear} className="search-tools-button" >CLEAR</button>
     </div>
   );
 }
