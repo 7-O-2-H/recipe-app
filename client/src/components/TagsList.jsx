@@ -26,8 +26,7 @@ export default function TagsList() {
 
   return (
     <div>
-      <TagsDropdown tags={allTags} selectOption={selectedOption} onSelect={handleSelect} />
-      <button onClick={handleClear}>CLEAR</button>
+      <TagsDropdown tags={allTags} selectOption={selectedOption} onSelect={handleSelect} clear={handleClear} />
     </div>
   );
 }
