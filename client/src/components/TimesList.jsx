@@ -29,8 +29,7 @@ export default function TimesList() {
 
   return (
     <div>
-      <TimesDropdown times={timeOptions} selectOption={selectedOption} onSelect={handleSelect} />
-      <button onClick={handleClear}>CLEAR</button>
+      <TimesDropdown times={timeOptions} selectOption={selectedOption} onSelect={handleSelect} clear={handleClear} />
     </div>
   );
 }

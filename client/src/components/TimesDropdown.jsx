@@ -1,4 +1,4 @@
-export default function TagsDropdown({ times, selectedOption, onSelect }) {
+export default function TagsDropdown({ times, selectedOption, onSelect, clear }) {
 
   // template
   return (
@@ -11,6 +11,7 @@ export default function TagsDropdown({ times, selectedOption, onSelect }) {
           </option>
         ))}
       </select>   
+      <button onClick={clear} className="search-tools-button">CLEAR</button>
     </div>
   );
 }
