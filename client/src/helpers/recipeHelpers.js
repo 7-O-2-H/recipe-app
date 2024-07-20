@@ -112,3 +112,16 @@ export function getRecipesBySortingData(sortingData) {
   });
 };
 
+//search
+export async function search(query) {
+
+  try {
+    const res = await axios.post('http://localhost:8080/recipes/search', {query});
+    console.log('Res status: ', res.status);
+    return res.data;
+  } catch (e) {
+    console.error("axiois error: ", e);
+    throw e;
+  }
+};
+

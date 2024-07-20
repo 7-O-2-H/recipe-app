@@ -9,8 +9,9 @@ export function useSortingData() {
 
   if (query) {
     console.log('search');
+    search(query);
   };
-  
+
   //set default readable states for ingredient, tag and time
   const [sortingData, setSortingData] = useState({
     ingredient: '',
