@@ -116,7 +116,7 @@ export function getRecipesBySortingData(sortingData) {
 export async function search(query) {
 
   try {
-    const res = await axios.get('http://localhost:8080/recipes/search', {query});
+    const res = await axios.get(`http://localhost:8080/recipes/search/${query}`, {query});
     console.log('Res status: ', res.status);
     return res.data;
   } catch (e) {
