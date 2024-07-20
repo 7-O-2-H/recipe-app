@@ -7,11 +7,11 @@
 }
 
 .search-tools-button {
-  border-radius: 20px;
+  border-radius: 8px;
   border-color: black;
   padding: 0 0 1em 0;
   background-color: #ADD7F6;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
   margin-top: 0em;
   margin-bottom: 0em;
@@ -20,8 +20,19 @@
   height: 1em;
 }
 
-#search-tools {
+#filter-tools {
   display: flex;
   flex-direction: row;
 }
 
+#search-tools {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center !important;
+}
