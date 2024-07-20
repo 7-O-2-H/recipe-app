@@ -1,13 +1,19 @@
 // imoprts
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
-function Search({ onSearch }) {
+function Search() {
+
+  const router = useRouter();
+
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
     // Perform search action here
     // You can send the query to your backend server or search locally
-    onSearch(query);
+    localStorage.setItem('query', query);
+    router.push('/browse');
+    // onSearch(query);
   };
 
   return (

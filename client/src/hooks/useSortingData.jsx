@@ -5,6 +5,12 @@ import { getRecipesBySortingData } from '../helpers/recipeHelpers';
 
 export function useSortingData() {
 
+  const query = localStorage.getItem('query');
+
+  if (query) {
+    console.log('search');
+  };
+  
   //set default readable states for ingredient, tag and time
   const [sortingData, setSortingData] = useState({
     ingredient: '',
