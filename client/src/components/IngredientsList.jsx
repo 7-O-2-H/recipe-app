@@ -20,7 +20,6 @@ export default function IngredientsList() {
   };
 
   const handleSelect = (selectedOption) => {
-    // console.log('Selected Option:', selectedOption);
     localStorage.setItem('ingredient', selectedOption);
     router.push('/browse');
 
