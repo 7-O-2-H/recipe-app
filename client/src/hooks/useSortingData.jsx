@@ -1,16 +1,10 @@
 // imports
 import { useEffect, useState } from 'react';
 import { getRecipesBySortingData } from '../helpers/recipeHelpers';
+import { search } from '../helpers/recipeHelpers';
 
 
 export function useSortingData() {
-
-  const query = localStorage.getItem('query');
-
-  if (query) {
-    console.log('search');
-    search(query);
-  };
 
   //set default readable states for ingredient, tag and time
   const [sortingData, setSortingData] = useState({
@@ -18,6 +12,7 @@ export function useSortingData() {
     tag: '',
     maxTime: 0
   });
+  const [query, setQuery] = useState('');
 
   const [allRecipes, setAllRecipes] = useState([]);
   
@@ -28,18 +23,30 @@ export function useSortingData() {
       const ingredient = localStorage.getItem('ingredient') || '';
       const tag = localStorage.getItem('tag') || '';
       const maxTime = localStorage.getItem('maxTime') || 0;
+      const queryHolder = localStorage.getItem('query')
       
       setSortingData({
         ingredient: ingredient,
         tag: tag,
         maxTime: maxTime
       });
+
+      setQuery(queryHolder)
+
+      console.log(query);
       
-    }, [localStorage.getItem('ingredient'), localStorage.getItem('tag'), localStorage.getItem('maxTime')  ]);
+    }, [localStorage.getItem('ingredient'), localStorage.getItem('tag'), localStorage.getItem('maxTime'), localStorage.getItem('query')]);
     
   }
+
+
   // calls sorting data for recipes based on selected criteria
   useEffect(() => {
+
+    if (query) {
+      console.log(query);
+      search(query);
+    };
 
       getRecipesBySortingData(sortingData)
       .then((data) => {

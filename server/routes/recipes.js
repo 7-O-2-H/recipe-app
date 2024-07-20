@@ -75,7 +75,14 @@ router.post('/delete', (req, res) => {
     .catch(err => {
       res.status(500).json({err: "failed to delete recipe"})
     });
-});
+  });
+
+  // search
+  router.get('/search/:query', (req, res) => {
+    const query = req.params.query;
+    console.log(query);
+    return query;
+  });
 
 // ingredients by recipe
 router.get('/:id/ingredients', (req, res) => {
