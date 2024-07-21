@@ -5,8 +5,6 @@ import TagsDropdown from "../components/TagsDropdown";
 
 export default function TagsList({ handleSelectTag }) {
 
-  const router = useRouter();
-
   // selected option state dec
   const [selectedOption, setSelectedOption] = useState('');
 
