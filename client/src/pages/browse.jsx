@@ -11,18 +11,19 @@ import Spacer from '../components/Spacer';
 import RecipeList from "../components/RecipeList";
 import BrowseOptions from "../components/BrowseOptions";
 
-const router = useRouter();
-
-const [ingredient, setIngredient] = useState('');
-
-// handlers to be used to set filter data, update state vars and refresh rec list
-const handleSelectIngredient = (selectedOption) => {
-
-  setIngredient(selectedOption);
-  router.push('/browse');
-};
-
 export default function Browse() {
+  
+  const router = useRouter();
+  
+  const [ingredient, setIngredient] = useState('');
+  
+  // handlers to be used to set filter data, update state vars and refresh rec list
+  const handleSelectIngredient = (selectedOption) => {
+  
+    setIngredient(selectedOption);
+    console.log(ingredient);
+    router.push('/browse');
+  };
 
   // template
   return (
@@ -32,7 +33,7 @@ export default function Browse() {
       <Header title="Recipes" />
       <Spacer />
       <BrowseOptions
-        handleSelect={handleSelectIngredient}   
+        handleSelectIngredient={handleSelectIngredient}   
       />
       <div className="browse-body" >
         <RecipeList

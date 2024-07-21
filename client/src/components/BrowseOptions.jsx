@@ -1,17 +1,17 @@
 // imports
+// styles
+import "../styles/BrowseOptions.css"
+// react
+import { useState } from "react";
 // components
 import TagsList from "./TagsList";
 import IngredientsList from "./IngredientsList";
 import TimesList from "./TimesList";
 import Search from "./Search";
 
-// styles
-import "../styles/BrowseOptions.css"
+export default function BrowseOptions(props) {
 
-// hooks
-import { useState } from "react";
-
-export default function BrowseOptions() {
+  const { handleSelectIngredient } = props;
 
   // toggle vis of borwse optioins
   const [visible, setVisible] = useState(false);
@@ -27,7 +27,7 @@ export default function BrowseOptions() {
           <Search />
         </div>
         <div id="filter-tools">
-          <IngredientsList />
+          <IngredientsList handleSelectIngredient={handleSelectIngredient}/>
           <TagsList />
           <TimesList />
         </div>
