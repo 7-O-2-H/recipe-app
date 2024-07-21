@@ -13,12 +13,17 @@ import BrowseOptions from "../components/BrowseOptions";
 export default function Browse() {
     
   const [ingredient, setIngredient] = useState('');
+  const [tag, setTag] = useState('');
   
   // handlers to be used to set filter data, update state vars and refresh rec list
-  const handleSelectIngredient = (selectedOption) => {
-  
+  const handleSelectIngredient = (selectedOption) => {  
     setIngredient(selectedOption);
   };
+
+  const handleSelectTag = (selectedOption) => {
+    setTag(selectedOption);
+  };
+  
 
   // template
   return (
@@ -28,7 +33,8 @@ export default function Browse() {
       <Header title="Recipes" />
       <Spacer />
       <BrowseOptions
-        handleSelectIngredient={handleSelectIngredient}   
+        handleSelectIngredient={handleSelectIngredient}
+        handleSelectTag={handleSelectTag}
       />
       <div className="browse-body" >
         <RecipeList
