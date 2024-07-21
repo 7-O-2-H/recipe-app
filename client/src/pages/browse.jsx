@@ -14,6 +14,7 @@ export default function Browse() {
     
   const [ingredient, setIngredient] = useState('');
   const [tag, setTag] = useState('');
+  const []
   
   // handlers to be used to set filter data, update state vars and refresh rec list
   const handleSelectIngredient = (selectedOption) => {  
@@ -22,7 +23,6 @@ export default function Browse() {
 
   const handleSelectTag = (selectedOption) => {
     setTag(selectedOption);
-    console.log('updating tag');
   };
   
 
