@@ -1,6 +1,9 @@
 // imports
+//styles
 import "../styles/browse.css";
+// react
 import { useState } from "react";
+// components
 import NavBar from "../components/NavBar";
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
@@ -8,6 +11,19 @@ import RecipeList from "../components/RecipeList";
 import BrowseOptions from "../components/BrowseOptions";
 
 export default function Browse() {
+    
+  const [ingredient, setIngredient] = useState('');
+  const [tag, setTag] = useState('');
+  
+  // handlers to be used to set filter data, update state vars and refresh rec list
+  const handleSelectIngredient = (selectedOption) => {  
+    setIngredient(selectedOption);
+  };
+
+  const handleSelectTag = (selectedOption) => {
+    setTag(selectedOption);
+  };
+  
 
   // template
   return (
@@ -16,9 +32,15 @@ export default function Browse() {
       <Spacer />
       <Header title="Recipes" />
       <Spacer />
-      <BrowseOptions />
+      <BrowseOptions
+        handleSelectIngredient={handleSelectIngredient}
+        handleSelectTag={handleSelectTag}
+      />
       <div className="browse-body" >
-        <RecipeList />
+        <RecipeList
+          ingredient={ingredient}
+          tag={tag}
+        />
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
-export default function TagsDropdown({ tags, selectedOption, onSelect, clear }) {
-  
+export default function TagsDropdown({ tags, selectedOption, onSelect, clear }) {  
 
   // template
   return (

@@ -4,7 +4,7 @@ import { useAppData } from "../hooks/useAppData";
 import IngredientsDropdown from "../components/IngredientsDropdown";
 import { useRouter } from "next/router";
 
-export default function IngredientsList() {
+export default function IngredientsList({ handleSelectIngredient }) {
 
   const router = useRouter();
 
@@ -15,19 +15,27 @@ export default function IngredientsList() {
   const { allIngredients } = useAppData();
 
   const handleClear = () => {
-    localStorage.setItem('ingredient', '');
-    router.push('/browse');
+    setSelectedOption('');
+    handleSelectIngredient('');
   };
 
-  const handleSelect = (selectedOption) => {
-    localStorage.setItem('ingredient', selectedOption);
-    router.push('/browse');
+  // const handleSelect = (selectedOption) => {
+  //   localStorage.setItem('ingredient', selectedOption);
+  //   router.push('/browse');
 
-  };
+  // };
 
   return (
     <div>
-      <IngredientsDropdown ingredients={allIngredients} selectedOption={selectedOption} onSelect={handleSelect} clear={handleClear} />
+      <IngredientsDropdown 
+        ingredients={allIngredients}
+        selectedOption={selectedOption}
+        onSelect={(value) => {
+          setSelectedOption(value);
+          handleSelectIngredient(value);
+        }} 
+        clear={handleClear}
+      />
     </div>
   );
 }
