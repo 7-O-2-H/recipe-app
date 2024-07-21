@@ -21,8 +21,6 @@ export default function Browse() {
   const handleSelectIngredient = (selectedOption) => {
   
     setIngredient(selectedOption);
-    console.log(ingredient);
-    router.push('/browse');
   };
 
   // template
