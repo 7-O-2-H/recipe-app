@@ -22,6 +22,7 @@ export default function Browse() {
 
   const handleSelectTag = (selectedOption) => {
     setTag(selectedOption);
+    console.log('updating tag');
   };
   
 
@@ -39,6 +40,7 @@ export default function Browse() {
       <div className="browse-body" >
         <RecipeList
           ingredient={ingredient}
+          tag={tag}
         />
       </div>
     </div>

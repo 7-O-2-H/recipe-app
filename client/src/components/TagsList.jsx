@@ -20,7 +20,7 @@ export default function TagsList({ handleSelectTag }) {
     <div>
       <TagsDropdown
         tags={allTags}
-        selectOption={selectedOption}
+        selectedOption={selectedOption}
         onSelect={(value) => {
           setSelectedOption(value);
           handleSelectTag(value);
