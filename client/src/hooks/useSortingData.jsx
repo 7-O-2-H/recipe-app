@@ -48,13 +48,29 @@ export function useSortingData(selectedIngredient, selectedTag, selectedTime) {
 
     console.log(sortingData);
 
-      getRecipesBySortingData(sortingData)
-      .then((data) => {
-        console.log("triggering get recs");
+    const fetchRecipes = async () => {
+      try {
+        console.log("Triggering getRecipesBySortingData with:", sortingData);
+        const data = await getRecipesBySortingData(sortingData);
+        console.log("Data received:", data);
         setAllRecipes(data['data']);
-      });
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+
+    fetchRecipes();
+      // getRecipesBySortingData(sortingData)
+      // .then((data) => {
+      //   console.log("triggering get recs");
+      //   setAllRecipes(data['data']);
+      // })
+      // .catch((error) => {
+      //   console.error("error fetching rec");
+    
+      // });
         
-  }, [sortingData]);
+  }, [sortingData, query]);
 
   return { allRecipes }
 

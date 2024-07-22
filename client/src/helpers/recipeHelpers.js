@@ -96,20 +96,19 @@ export function getStepsByRecipeId(id) {
   });
 };
 
-export function getRecipesBySortingData(sortingData) {
-  return axios.get(`http://localhost:8080/recipes/sorting`, {
-    params: {
-      ingredient: sortingData.ingredient,
-      tag: sortingData.tag,
-      maxTime: sortingData.maxTime
-    }
-  })
-  .then((data) => {
+export async function getRecipesBySortingData(sortingData) {
+
+  try {
+    const data = await axios.get(`http://localhost:8080/recipes/sorting`, {
+      params: {
+        ingredient: sortingData.ingredient,
+        tag: sortingData.tag,
+        maxTime: sortingData.maxTime
+      }});
     return data;
-  })
-  .catch((e) => {
-    console.log("axios error: ", e);
-  });
+  } catch (error) {
+    console.log("axios error: ", error);
+  }
 };
 
 //search
