@@ -19,12 +19,6 @@ export default function IngredientsList({ handleSelectIngredient }) {
     handleSelectIngredient('');
   };
 
-  // const handleSelect = (selectedOption) => {
-  //   localStorage.setItem('ingredient', selectedOption);
-  //   router.push('/browse');
-
-  // };
-
   return (
     <div>
       <IngredientsDropdown 
