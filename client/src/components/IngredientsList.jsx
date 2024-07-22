@@ -2,10 +2,9 @@
 import { useState } from "react";
 import { useAppData } from "../hooks/useAppData";
 import IngredientsDropdown from "../components/IngredientsDropdown";
-import { useRouter } from "next/router";
 
 export default function IngredientsList({ handleSelectIngredient }) {
-  
+
   // selected option state dec
   const [selectedOption, setSelectedOption] = useState('');
 
@@ -16,6 +15,7 @@ export default function IngredientsList({ handleSelectIngredient }) {
     setSelectedOption('');
     handleSelectIngredient('');
   };
+
 
   return (
     <div>

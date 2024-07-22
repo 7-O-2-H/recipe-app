@@ -1,4 +1,4 @@
- // imports
+// imports
 import { useState } from "react";
 import TimesDropdown from "../components/TimesDropdown";
 
@@ -20,16 +20,17 @@ export default function TimesList({ handleSelectTime }) {
     handleSelectTime('');
   };
 
+
   return (
     <div>
       <TimesDropdown
-        times={timeOptions}
-        selectOption={selectedOption} 
+        times={timeOptions} 
+        selectedOption={selectedOption}
         onSelect={(value) => {
           setSelectedOption(value);
           handleSelectTime(value);
-        }}
-        clear={handleClear} 
+        }} 
+        clear={handleClear}
       />
     </div>
   );
