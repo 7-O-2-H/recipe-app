@@ -4,8 +4,9 @@ import { getRecipesBySortingData } from '../helpers/recipeHelpers';
 import { search } from '../helpers/recipeHelpers';
 
 
-export function useSortingData(selectedIngredient, selectedTag) {
+export function useSortingData(selectedIngredient, selectedTag, selectedTime) {
 
+  console.log("time in hook: ", selectedTime);
   //set default readable states for ingredient, tag and time
   const [sortingData, setSortingData] = useState({
     ingredient: '',
@@ -22,7 +23,7 @@ export function useSortingData(selectedIngredient, selectedTag) {
 
       const ingredient = selectedIngredient || '';
       const tag = selectedTag || '';
-      const maxTime = localStorage.getItem('maxTime') || 0;
+      const maxTime = selectedTime || 0;
       const queryHolder = localStorage.getItem('query')
       
       setSortingData({
@@ -35,7 +36,7 @@ export function useSortingData(selectedIngredient, selectedTag) {
 
       console.log(query);
       
-    }, [selectedIngredient, selectedTag, localStorage.getItem('maxTime'), localStorage.getItem('query')]);
+    }, [selectedIngredient, selectedTag, selectedTime, localStorage.getItem('query')]);
     
   }
 

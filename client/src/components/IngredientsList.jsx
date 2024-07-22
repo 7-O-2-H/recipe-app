@@ -5,9 +5,7 @@ import IngredientsDropdown from "../components/IngredientsDropdown";
 import { useRouter } from "next/router";
 
 export default function IngredientsList({ handleSelectIngredient }) {
-
-  const router = useRouter();
-
+  
   // selected option state dec
   const [selectedOption, setSelectedOption] = useState('');
 
