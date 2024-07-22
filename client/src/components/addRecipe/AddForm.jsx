@@ -1,7 +1,5 @@
 // imports
 import "../../styles/FullRecipe.css"
-import Ingredients from "../Ingredients";
-import Spacer from '../Spacer';
 import RecipeForm from './RecipeForm';
 import IngredientsForm from './IngredientsForm';
 
