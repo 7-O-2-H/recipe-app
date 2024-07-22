@@ -13,7 +13,7 @@ export default function TagsList({ handleSelectTag }) {
   
   const handleClear = () => {
     setSelectedOption;('');
-    handleSelectTag('')
+    handleSelectTag('');
   };
 
 
