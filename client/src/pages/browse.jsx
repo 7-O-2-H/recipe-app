@@ -14,6 +14,7 @@ export default function Browse() {
     
   const [ingredient, setIngredient] = useState('');
   const [tag, setTag] = useState('');
+  const [time, setTime] = useState('');
   
   // handlers to be used to set filter data, update state vars and refresh rec list
   const handleSelectIngredient = (selectedOption) => {  
@@ -22,6 +23,10 @@ export default function Browse() {
 
   const handleSelectTag = (selectedOption) => {
     setTag(selectedOption);
+  };
+
+  const handleSelectTime = (selectedOption) => {
+    setTime(selectedOption);
   };
   
 
@@ -35,11 +40,13 @@ export default function Browse() {
       <BrowseOptions
         handleSelectIngredient={handleSelectIngredient}
         handleSelectTag={handleSelectTag}
+        handleSelectTime={handleSelectTime}
       />
       <div className="browse-body" >
         <RecipeList
           ingredient={ingredient}
           tag={tag}
+          time={time}
         />
       </div>
     </div>
