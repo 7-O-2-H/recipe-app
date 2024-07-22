@@ -1,10 +1,9 @@
  // imports
 import { useState } from "react";
 import TimesDropdown from "../components/TimesDropdown";
-import { useRouter } from "next/router";
-export default function TimesList() {
 
-  const router = useRouter({ handleSelectTime });
+export default function TimesList({ handleSelectTime }) {
+
   // selected option state dec
   const [selectedOption, setSelectedOption] = useState('');
 

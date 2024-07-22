@@ -27,9 +27,9 @@ export default function BrowseOptions(props) {
           <Search />
         </div>
         <div id="filter-tools">
-          <IngredientsList handleSelectIngredient={handleSelectIngredient}/>
-          <TagsList handleSelectTag={handleSelectTag}/>
-          <TimesList handleSelectTime/>
+          <IngredientsList handleSelectIngredient={handleSelectIngredient} />
+          <TagsList handleSelectTag={handleSelectTag} />
+          <TimesList handleSelectTime={handleSelectTime} />
         </div>
       </div>}
     </div>

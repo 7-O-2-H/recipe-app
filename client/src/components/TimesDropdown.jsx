@@ -14,4 +14,4 @@ export default function TagsDropdown({ times, selectedOption, onSelect, clear })
       <button onClick={clear} className="search-tools-button">CLEAR</button>
     </div>
   );
-}
+};
