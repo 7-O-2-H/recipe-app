@@ -11,7 +11,7 @@ import Search from "./Search";
 
 export default function BrowseOptions(props) {
 
-  const { handleSelectIngredient, handleSelectTag } = props;
+  const { handleSelectIngredient, handleSelectTag, handleSelectTime } = props;
 
   // toggle vis of borwse optioins
   const [visible, setVisible] = useState(false);
@@ -29,7 +29,7 @@ export default function BrowseOptions(props) {
         <div id="filter-tools">
           <IngredientsList handleSelectIngredient={handleSelectIngredient}/>
           <TagsList handleSelectTag={handleSelectTag}/>
-          <TimesList />
+          <TimesList handleSelectTime/>
         </div>
       </div>}
     </div>
