@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 // sorting
 router.get('/sorting', (req, res) => {
   const { ingredient, tag, maxTime } = req.query;
+  console.log(ingredient, tag, maxTime);
 
   // backend check for valid values
   const ingredientParam = ingredient ? ingredient : "";
@@ -80,7 +81,6 @@ router.post('/delete', (req, res) => {
   // search
   router.get('/search/:query', (req, res) => {
     const query = req.params.query;
-    console.log(query);
     return query;
   });
 
