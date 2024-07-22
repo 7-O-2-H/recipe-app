@@ -6,7 +6,6 @@ import { search } from '../helpers/recipeHelpers';
 
 export function useSortingData(selectedIngredient, selectedTag, selectedTime) {
 
-  console.log("time in hook: ", selectedTime);
   //set default readable states for ingredient, tag and time
   const [sortingData, setSortingData] = useState({
     ingredient: '',
@@ -33,10 +32,8 @@ export function useSortingData(selectedIngredient, selectedTag, selectedTime) {
       });
 
       setQuery(queryHolder)
-
-      console.log(query);
       
-    }, [selectedIngredient, selectedTag, selectedTime, localStorage.getItem('query')]);
+    }, [selectedIngredient, selectedTag, selectedTime]);
     
   }
 
@@ -49,8 +46,11 @@ export function useSortingData(selectedIngredient, selectedTag, selectedTime) {
       search(query);
     };
 
+    console.log(sortingData);
+
       getRecipesBySortingData(sortingData)
       .then((data) => {
+        console.log("triggering get recs");
         setAllRecipes(data['data']);
       });
         

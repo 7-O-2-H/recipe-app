@@ -8,9 +8,9 @@ import RecipeListItem from "./RecipeListItem";
 
 export default function RecipeList(props) {
 
-  const { ingredient, tag } = props;
+  const { ingredient, tag, time } = props;
   
-  const { allRecipes } = useSortingData(ingredient, tag);
+  const { allRecipes } = useSortingData(ingredient, tag, time);
 
   
 

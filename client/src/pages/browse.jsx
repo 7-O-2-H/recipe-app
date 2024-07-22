@@ -26,7 +26,6 @@ export default function Browse() {
   };
 
   const handleSelectTime = (selectedOption) => {
-    console.log("Updating time: ", selectedOption);
     setTime(selectedOption);
   };
   
