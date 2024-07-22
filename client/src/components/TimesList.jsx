@@ -1,10 +1,10 @@
-// imports
+ // imports
 import { useState } from "react";
 import TimesDropdown from "../components/TimesDropdown";
 import { useRouter } from "next/router";
 export default function TimesList() {
 
-  const router = useRouter();
+  const router = useRouter({ handleSelectTime });
   // selected option state dec
   const [selectedOption, setSelectedOption] = useState('');
 
@@ -17,19 +17,21 @@ export default function TimesList() {
   ];
 
   const handleClear = () => {
-    localStorage.setItem('maxTime', 0);
     setSelectedOption('');
-    router.push('/browse');
-  };
-
-  const handleSelect = (selectedOption) => {
-    localStorage.setItem('maxTime', selectedOption);
-    router.push('/browse');
+    handleSelectTime('');
   };
 
   return (
     <div>
-      <TimesDropdown times={timeOptions} selectOption={selectedOption} onSelect={handleSelect} clear={handleClear} />
+      <TimesDropdown
+        times={timeOptions}
+        selectOption={selectedOption} 
+        onSelect={(value) => {
+          setSelectedOption(value);
+          handleSelectTime(value);
+        }}
+        clear={handleClear} 
+      />
     </div>
   );
-}
+};
