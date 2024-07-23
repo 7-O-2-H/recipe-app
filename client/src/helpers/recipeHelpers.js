@@ -99,6 +99,7 @@ export function getStepsByRecipeId(id) {
 export async function getRecipesBySortingData(sortingData) {
 
   try {
+    console.log('triggering helper');
     const data = await axios.get(`http://localhost:8080/recipes/sorting`, {
       params: {
         ingredient: sortingData.ingredient,

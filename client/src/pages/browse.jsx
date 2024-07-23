@@ -14,7 +14,8 @@ export default function Browse() {
     
   const [ingredient, setIngredient] = useState('');
   const [tag, setTag] = useState('');
-  const [time, setTime] = useState('');
+  const [time, setTime] = useState(0);
+  const [query, setQuery] = useState('');
   
   // handlers to be used to set filter data, update state vars and refresh rec list
   const handleSelectIngredient = (selectedOption) => {  
@@ -28,7 +29,11 @@ export default function Browse() {
   const handleSelectTime = (selectedOption) => {
     setTime(selectedOption);
   };
-  
+
+  const handleSearch = () => {
+    setQuery()
+    
+  };
 
   // template
   return (
