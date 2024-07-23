@@ -10,10 +10,10 @@ export default function Search({ handleSearch }) {
       <input
         type="text"
         value={searchQuery}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="SEARCH"
       />
-      <button onClick={handleSearch} className='search-tools-button'>SEARCH</button>
+      <button onClick={() => handleSearch(searchQuery)} className='search-tools-button'>SEARCH</button>
     </div>
   );
 };
