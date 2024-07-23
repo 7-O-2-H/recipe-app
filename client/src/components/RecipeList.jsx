@@ -1,8 +1,5 @@
 // imports
-import useAppData from "../hooks/useAppData";
 import { useSortingData } from "../hooks/useSortingData";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 
