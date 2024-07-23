@@ -30,9 +30,8 @@ export default function Browse() {
     setTime(selectedOption);
   };
 
-  const handleSearch = () => {
-    setQuery();
-    
+  const handleSearch = (searchQuery) => {
+    setQuery(searchQuery);
   };
 
   // template
