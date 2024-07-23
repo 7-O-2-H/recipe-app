@@ -4,47 +4,40 @@ import { getRecipesBySortingData } from '../helpers/recipeHelpers';
 import { search } from '../helpers/recipeHelpers';
 
 
-export function useSortingData(selectedIngredient, selectedTag, selectedTime) {
+export function useSortingData(selectedIngredient, selectedTag, selectedTime, query) {
 
   //set default readable states for ingredient, tag and time
   const [sortingData, setSortingData] = useState({
     ingredient: '',
     tag: '',
-    maxTime: 0
+    maxTime: 0,
+    searchQuery: ''
   });
-  const [query, setQuery] = useState('');
-
+  
   const [allRecipes, setAllRecipes] = useState([]);
   
   // useEffect activates on change of sorting data and keeps data readable by query in case of null values
-  if (typeof window!== 'undefined') {
   useEffect(() => {
 
-      const ingredient = selectedIngredient || '';
-      const tag = selectedTag || '';
-      const maxTime = selectedTime || 0;
-      const queryHolder = localStorage.getItem('query')
-      
-      setSortingData({
-        ingredient: ingredient,
-        tag: tag,
-        maxTime: maxTime
-      });
-
-      setQuery(queryHolder)
-      
-    }, [selectedIngredient, selectedTag, selectedTime]);
+    const ingredient = selectedIngredient || '';
+    const tag = selectedTag || '';
+    const maxTime = selectedTime || 0;
+    const searchQuery = query || '';
     
-  }
+    setSortingData({
+      ingredient: ingredient,
+      tag: tag,
+      maxTime: maxTime,
+      searchQuery: searchQuery
+    });
+    
+  }, [selectedIngredient, selectedTag, selectedTime, query]);
+    
+  
 
 
   // calls sorting data for recipes based on selected criteria
   useEffect(() => {
-
-    if (query) {
-      console.log(query);
-      search(query);
-    };
 
     console.log(sortingData);
 
