@@ -31,7 +31,7 @@ export default function Browse() {
   };
 
   const handleSearch = () => {
-    setQuery()
+    setQuery();
     
   };
 
@@ -46,12 +46,14 @@ export default function Browse() {
         handleSelectIngredient={handleSelectIngredient}
         handleSelectTag={handleSelectTag}
         handleSelectTime={handleSelectTime}
+        handleSearch={handleSearch}
       />
       <div className="browse-body" >
         <RecipeList
           ingredient={ingredient}
           tag={tag}
           time={time}
+          query={query}
         />
       </div>
     </div>
