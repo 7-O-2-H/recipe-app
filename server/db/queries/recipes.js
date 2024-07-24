@@ -116,9 +116,9 @@ const getStepsByRecipeId = (id) => {
 };
 
 // sorting
-const getRecipesBySortingData = (ingredient, tag, maxTime) => {
+const getRecipesBySortingData = (ingredient, tag, maxTime, searchQuery) => {
 
-  const values = [ingredient, tag, maxTime];
+  const values = [ingredient, tag, maxTime, `%${searchQuery}%`];
 
   return db.query
   (`SELECT DISTINCT
@@ -147,8 +147,10 @@ const getRecipesBySortingData = (ingredient, tag, maxTime) => {
   WHERE 
     ($1 = '' OR ingredients.ingredient = $1)
     AND ($2 = '' OR tags.tag = $2 OR tags.tag IS NULL)
-    AND (recipes.time < $3 OR $3 = 0);
-  `, values)
+    AND (recipes.time < $3 OR $3 = 0)
+    AND (($4 = '%%') OR (recipes.recipe ILIKE $4 OR recipes.description ILIKE $4));
+  `, values
+  )
   .then((result) => {
     return result.rows;
   })
