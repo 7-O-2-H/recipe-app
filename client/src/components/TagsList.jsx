@@ -12,7 +12,7 @@ export default function TagsList({ handleSelectTag }) {
   const { allTags } = useAppData();
   
   const handleClear = () => {
-    setSelectedOption;('');
+    setSelectedOption('');
     handleSelectTag('');
   };
 

@@ -1,5 +1,7 @@
 export default function TagsDropdown({ tags, selectedOption, onSelect, clear }) {  
 
+  console.log(selectedOption);
+  
   // template
   return (
     <div className="tags-dropdown">
