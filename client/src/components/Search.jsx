@@ -5,6 +5,11 @@ export default function Search({ handleSearch }) {
 
   const [searchQuery, setSearchQuery] = useState('');
 
+  const handleClear = () => {
+    setSearchQuery('');
+    handleSearch('');
+  };
+
   return (
     <div>
       <input
@@ -14,6 +19,7 @@ export default function Search({ handleSearch }) {
         placeholder="SEARCH"
       />
       <button onClick={() => handleSearch(searchQuery)} className='search-tools-button'>SEARCH</button>
+      <button onClick={handleClear} className='search-tools-button'>CLEAR</button>
     </div>
   );
 };
