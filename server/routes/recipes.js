@@ -11,15 +11,16 @@ router.get('/', (req, res) => {
 
 // sorting
 router.get('/sorting', (req, res) => {
-  const { ingredient, tag, maxTime } = req.query;
-  console.log(ingredient, tag, maxTime);
+  const { ingredient, tag, maxTime, searchQuery } = req.query;
+  console.log(ingredient, tag, maxTime, searchQuery);
 
   // backend check for valid values
   const ingredientParam = ingredient ? ingredient : "";
   const tagParam = tag ? tag : "";
   const maxTimeParam = maxTime ? parseInt(maxTime) : 0;
+  const queryParam = searchQuery ? searchQuery : "";
 
-  getRecipesBySortingData(ingredientParam , tagParam, maxTimeParam)
+  getRecipesBySortingData(ingredientParam , tagParam, maxTimeParam, queryParam)
   .then(data => {
     res.json(data);
   })
