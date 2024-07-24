@@ -9,8 +9,6 @@ export default function RecipeList(props) {
   
   const { allRecipes } = useSortingData(ingredient, tag, time, query);
 
-  
-
   const recipesArray = allRecipes.map(recipe => (  
       <RecipeListItem
         key={recipe.id}

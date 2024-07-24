@@ -104,7 +104,8 @@ export async function getRecipesBySortingData(sortingData) {
       params: {
         ingredient: sortingData.ingredient,
         tag: sortingData.tag,
-        maxTime: sortingData.maxTime
+        maxTime: sortingData.maxTime,
+        searchQuery: sortingData.searchQuery
       }});
     return data;
   } catch (error) {
