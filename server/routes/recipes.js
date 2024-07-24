@@ -79,12 +79,6 @@ router.post('/delete', (req, res) => {
     });
   });
 
-  // search
-  router.get('/search/:query', (req, res) => {
-    const query = req.params.query;
-    return query;
-  });
-
 // ingredients by recipe
 router.get('/:id/ingredients', (req, res) => {
   const id = req.params.id;
