@@ -121,6 +121,7 @@ export default function FullRecipe (props) {
 
   return (
     <div>
+      <h1>{recipe.recipe}</h1>
       <h2 className="recipe-description">
         {recipe.description}
       </h2>

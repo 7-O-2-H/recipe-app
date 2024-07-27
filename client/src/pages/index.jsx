@@ -6,6 +6,7 @@ import Spacer from '../components/Spacer';
 import FullRecipe from '../components/FullRecipe';
 import { useAppData } from '../hooks/useAppData';
 import { useRecipe } from '../hooks/useRecipe';
+import RecipeListItem from '../components/RecipeListItem';
 
 export default function Home() {
 
@@ -33,12 +34,16 @@ export default function Home() {
     <Spacer />
     <Header title="Add to Taste" />
     <Spacer />
-    <FullRecipe 
-      recipe={currentRecipe} 
-      ingredients={currentIngredients}
-      steps={currentSteps} 
-      tags={currentTags}
-    />
+    <RecipeListItem
+      key={randomRecipe.id}
+      id={randomRecipe.id}
+      submitted={randomRecipe.user_name}
+      name={randomRecipe.recipe}
+      time={randomRecipe.time}
+      unit={randomRecipe.measurement}
+      servingSize={randomRecipe.serves}
+      description={randomRecipe.description}
+    />  
    </div>
   );
 }

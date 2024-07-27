@@ -1,4 +1,4 @@
-/* article,
+article,
 aside,
 details,
 figcaption,
@@ -10,7 +10,7 @@ menu,
 nav,
 section {
   display: block;
-} */
+}
 
 * {
   margin: 0;
@@ -19,11 +19,11 @@ section {
 }
 
 :root {
-  background-color: #FAFAFA;
+  background-color: #EBF8DD;
   height: auto;  
-  /* border-color: #2E6171;
+  border-color: #2E6171;
   border-style: solid;
-  border-width: 6px; */
+  border-width: 6px;
   display: flex;
   flex-direction: column;
 }
@@ -32,7 +32,7 @@ section {
   display: flex;
   flex-direction: column;
   height: 60px;
-  /* background-color: #AFF9C9; */
+  background-color: #AFF9C9;
   justify-content: center;
   position: relative;
 }
