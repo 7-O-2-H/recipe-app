@@ -16,23 +16,39 @@ export default function RecipeListItem(props) {
   
   // template
   return (
-      <Link className="recipe-list-item"  href={`/recipes/${recipeId}`}>
-        <div className="name-description" >
-          <div className="recipe-name" >
-            <div className="name">{name}</div> 
-          <div className="description" >
+      <Link className="recipe-list-item"  href={`/recipes/${recipeId}`}>   
+        <div className="recipe-name" >
+          <div className="name">{name}</div> 
+        </div>
+        <div className="description-details" >
+          <p className="description" >
             {description}
-          </div>
-        </div>
-        </div>
-        <div className="details" >
-          <div className="time" >
-            <h3>Time: {time} {unit}</h3>
-          </div>
-            Serves: {servingSize}
-            <div>
-              Submitted By: {submitted}
+          </p>
+          <div className="details" >
+            <div className="icons" >
+              <p>
+                ⏲️ 
+              </p>
+              <p>
+                🍽️
+              </p>
+              <p>
+                🧑‍🍳
+              </p>
             </div>
+            <div>
+              <div className="time" >
+                {time} {unit} 
+              </div>
+              <p>
+
+                {servingSize} 
+              </p>
+              <div>
+                {submitted}
+              </div>
+            </div>
+          </div>
         </div>
       </Link>
   );
