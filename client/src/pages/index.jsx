@@ -9,6 +9,7 @@ import { useAppData, useAppDataWithRefresh } from '../hooks/useAppData';
 import { useRecipe } from '../hooks/useRecipe';
 import RecipeListItem from '../components/RecipeListItem';
 import { useState } from 'react';
+import BurgerMenu from '../components/BurgerMenu';
 
 export default function Home() {
 
@@ -39,6 +40,7 @@ export default function Home() {
   return (
    <div>
     <NavBar />
+    <BurgerMenu />
     <Spacer />
     <Header title="Add to Taste" />
     <Spacer />

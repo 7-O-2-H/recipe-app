@@ -1,7 +1,7 @@
 // Imports
 import "../styles/Spacer.css";
 
-export default function NavBar() {
+export default function Spacer() {
   
   // Template
   return (

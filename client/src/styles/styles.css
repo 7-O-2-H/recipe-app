@@ -16,6 +16,7 @@ section {
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+  font-weight: 300;
 }
 
 :root {
@@ -43,6 +44,11 @@ section {
   /* background-color: #AFF9C9; */
   justify-content: center;
   position: relative;
+  font-family: 'Monserrat Alternates', sans-serif;
+  color: #2E6171;
+
+  /* font-weight: 200; */
+
 }
 
 /* h1 {
