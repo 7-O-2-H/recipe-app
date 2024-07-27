@@ -50,6 +50,7 @@ INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 1, 5, 4);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 38, 5, 4);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 4, 2, 8);
+INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (2, 37, 2, 16);
 -- Baked chicken thighs
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (5, 39, 8, 16);
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measurement_id) VALUES (5, 27, 1, 3);
