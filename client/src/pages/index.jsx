@@ -40,13 +40,13 @@ export default function Home() {
   return (
    <div>
     <NavBar />
-    <BurgerMenu />
+    {/* <BurgerMenu /> */}
     <Spacer />
     <Header title="Add to Taste" />
     <Spacer />
     <div className='home-div'>
 
-    <RecipeListItem
+    {/* <RecipeListItem
         key={randomRecipe.id}
         id={randomRecipe.id}
         submitted={randomRecipe.user_name}
@@ -56,11 +56,16 @@ export default function Home() {
         servingSize={randomRecipe.serves}
         description={randomRecipe.description}
         />
-      <Spacer />
+      <Spacer /> */}
         
+      <FullRecipe
+        recipe={currentRecipe} 
+        ingredients={currentIngredients}
+        steps={currentSteps} 
+        tags={currentTags}
+        />
         <button onClick={newRecipe}>Try Something New</button>
         </div>
-    
    </div>
   );
 }

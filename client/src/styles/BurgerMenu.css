@@ -28,7 +28,7 @@
 
 .hamburger-button {
   position: absolute;
-  top: 20px;
+  top: 28px;
   left: 20px;
   z-index: 1000;
   cursor: pointer;
@@ -52,6 +52,7 @@
   text-decoration: none;
   font-family: 'Monserrat Alternates', sans-serif;
   font-weight: 100;
+  color: #2E6171;
 }
 
 li {
