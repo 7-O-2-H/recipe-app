@@ -7,9 +7,9 @@ h1 {
   font-weight: bold;
 }
 
-.header {
+.mobile-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 260px;
   background-color: #AFF9C9;
   justify-content: center;

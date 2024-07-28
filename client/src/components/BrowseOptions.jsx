@@ -8,6 +8,7 @@ import TagsList from "./TagsList";
 import IngredientsList from "./IngredientsList";
 import TimesList from "./TimesList";
 import Search from "./Search";
+import Spacer from "./Spacer";
 
 export default function BrowseOptions(props) {
 
@@ -21,7 +22,12 @@ export default function BrowseOptions(props) {
 
   return (
     <div className="browse-options">
-      {!visible && <button onClick={toggleVisibility}> FILTER</button>}
+      {!visible && 
+      <div>
+        <button onClick={toggleVisibility}> FILTER</button>
+        <Spacer />
+      </div>  
+      }
       {visible && <div id="search-tools"> 
         <div id="search-bar">
           <Search handleSearch={handleSearch}/>

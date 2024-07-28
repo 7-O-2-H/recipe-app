@@ -2,6 +2,7 @@
 import { useSortingData } from "../hooks/useSortingData";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
+import Spacer from "./Spacer";
 
 export default function RecipeList(props) {
 
@@ -25,6 +26,7 @@ export default function RecipeList(props) {
   // template
   return (
     <div className="recipe-list">
+      <Spacer />
       {recipesArray}
     </div>
   );

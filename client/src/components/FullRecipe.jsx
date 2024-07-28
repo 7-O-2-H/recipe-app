@@ -121,7 +121,8 @@ export default function FullRecipe (props) {
 
   return (
     <div>
-      <h1>{recipe.recipe}</h1>
+      {/* <Spacer /> */}
+      <h1 className="recipe-name">{recipe.recipe}</h1>
       <Spacer />
       <h2 className="recipe-description">
         {recipe.description}
