@@ -59,10 +59,10 @@ export default function BurgerMenu() {
         <div style={{ opacity: menuOpen ? '0' : '1' }}></div>
         <div style={{ transform: menuOpen ? 'rotate(45deg) translate(-5px, -6px)' : 'none' }}></div>
       </div>
-      {loginStatus && (
+      {/* {loginStatus && (
         <h3 className='user-name'>{userName}</h3>
 
-      )}
+      )} */}
       {menuOpen && (
         <div>
 

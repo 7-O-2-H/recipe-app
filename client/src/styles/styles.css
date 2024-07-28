@@ -35,7 +35,7 @@ section {
   align-items: center;
   /* background-color: #AFF9C9; */
   justify-content: center;
-  padding: 8% 8%;
+  padding: 60px 8%;
   color: #2E6171;
   font-family: 'Monserrat Alternates', sans-serif;
 }
@@ -74,6 +74,6 @@ section {
   }
 }
 
-.main {
-  /* padding-top: 20px; */
-}
+/* .main {
+  padding-top: 20px;
+} */

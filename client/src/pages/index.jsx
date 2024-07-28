@@ -41,7 +41,7 @@ export default function Home() {
    <div>
     <NavBar />
     {/* <BurgerMenu /> */}
-    <Spacer />
+    {/* <Spacer /> */}
     <Header title="Add to Taste" />
     <Spacer />
     <div className='home-div'>
