@@ -68,52 +68,42 @@ export default function BurgerMenu() {
 
         {!loginStatus ? (
           <div className='hamburger-menu'>
-
+          <Spacer />
             <ul className="menu-items">
-              <Spacer />
               <li>
                 <Link href="/" className="menu-item" onClick={toggleMenu}>HOME</Link>
               </li>
-              <Spacer />
               <li>
                 <Link href="/browse" className="menu-item" onClick={toggleMenu}>RECIPES</Link>
               </li>
-              <Spacer />
               <li>
                 <Link href="/about" className="menu-item" onClick={toggleMenu}>ABOUT</Link>
               </li>
-              <Spacer />
               <li>
                 <Link href="/login" className="menu-item" onClick={toggleMenu}>LOGIN</Link>
               </li>
-              <Spacer />
         
             </ul>
           </div>
         ) : (
           <div className='hamburger-menu'>
             <ul className="menu-items">
-              <Spacer />
+            <Spacer />
               <li>
                 <Link href="/" className="menu-item" onClick={toggleMenu}>GAMBLE GRUB</Link>
               </li>
-              <Spacer />
               <li>
                 <Link href="/browse" className="menu-item" onClick={toggleMenu}>BROWSE</Link>
               </li>
-              <Spacer />
               <li>
                 <Link href="/favourites" className="menu-item" onClick={toggleMenu}>FAVOURITES</Link>
               </li>
-              <Spacer />
               <li>
                 <Link href="/myRecipes" className="menu-item" onClick={toggleMenu}>MY RECIPES</Link>
               </li>
-              <Spacer />
               <li>
                 <Link href="/" className="menu-item" onClick={handleLogout}>LOGOUT</Link>
               </li>
-              <Spacer />
         
             </ul>
           </div>

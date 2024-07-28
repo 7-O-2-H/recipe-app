@@ -24,7 +24,6 @@ export default function Header(props) {
         <h3></h3>
       )}
       </div>
-      {/* <Spacer /> */}
     </div>
   );
 }

@@ -1,4 +1,6 @@
 .recipe-name {
   display: flex;
   justify-content: center;
+  text-align: center;
+
 }
