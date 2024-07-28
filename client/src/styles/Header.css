@@ -11,8 +11,8 @@
   /* margin-bottom: 12px; */
   height: 64px;
   border-bottom: solid;
-  border-width: 1px;
-  border-color: #E3F2FD;
+  border-width: 4px;
+  border-color: #2E6171;
 }
 
 .mobile-header-items {
@@ -26,5 +26,4 @@
   margin-bottom: 10px;
   font-family: 'Monserrat Alternates', sans-serif;
   color: #2E6171;
-
 }
