@@ -1,4 +1,4 @@
-/* article,
+article,
 aside,
 details,
 figcaption,
@@ -10,48 +10,31 @@ menu,
 nav,
 section {
   display: block;
-} */
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
-  font-weight: 300;
 }
 
 :root {
-  background-color: #FAFAFA;
+  background-color: #EBF8DD;
   height: auto;  
-  /* border-color: #2E6171;
+  border-color: #2E6171;
   border-style: solid;
-  border-width: 6px; */
+  border-width: 6px;
   display: flex;
   flex-direction: column;
-}
-
-.home-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* background-color: #AFF9C9; */
-  justify-content: center;
-  padding: 2% 8%;
-  color: #2E6171;
-  font-family: 'Monserrat Alternates', sans-serif;
 }
 
 .header {
   display: flex;
   flex-direction: column;
   height: 60px;
-  /* background-color: #AFF9C9; */
+  background-color: #AFF9C9;
   justify-content: center;
   position: relative;
-  font-family: 'Monserrat Alternates', sans-serif;
-  color: #2E6171;
-
-  /* font-weight: 200; */
-
 }
 
 /* h1 {

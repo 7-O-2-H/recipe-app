@@ -1,0 +1,11 @@
+.recipe-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+#empty-message {
+  align-self: center;
+  padding: 1em 0;
+}

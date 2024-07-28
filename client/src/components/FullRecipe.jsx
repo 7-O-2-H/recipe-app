@@ -121,6 +121,8 @@ export default function FullRecipe (props) {
 
   return (
     <div>
+      <h1>{recipe.recipe}</h1>
+      <Spacer />
       <h2 className="recipe-description">
         {recipe.description}
       </h2>
@@ -134,11 +136,13 @@ export default function FullRecipe (props) {
       <div className="recipe-ingredients" >
         <div className="ingredients" >
           <h2>Ingredients</h2>
+          <Spacer />
             <div className="ingredient-container" >{ingredientArray}</div>
         </div>
         <div className="break"></div>
         <div className="instructions">
           <h2>Instructions</h2>
+          <Spacer />
           <div className="step-container">{stepsArray}</div>
         </div>
       </div>

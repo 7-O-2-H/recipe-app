@@ -1,17 +1,4 @@
-h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 90px;
-  font-family: 'Great Vibes';
-  font-weight: bold;
-}
-
 .header {
   display: flex;
-  flex-direction: column;
-  height: 260px;
-  background-color: #AFF9C9;
-  justify-content: center;
-  position: relative;
+  align-items: center;
 }
