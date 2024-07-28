@@ -1,0 +1,21 @@
+.recipe-list {
+  margin-top: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
+  font-family: 'Monserrat Alternates', sans-serif;
+  color: #2E6171;
+  text-decoration: none;
+}
+
+.name, .description-details {
+
+  color: #2E6171;
+  text-decoration: none;
+}
+  
+#empty-message {
+  align-self: center;
+  padding: 1em 0;
+}
