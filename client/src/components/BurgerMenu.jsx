@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLoggedInStatus } from '../hooks/useLoggedInStatus';
 import Spacer from './Spacer';
@@ -7,15 +7,38 @@ import "../styles/BurgerMenu.css";
 export default function BurgerMenu() {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
+  // const [userName, setUserName] = useState('');
 
   // use hook to establish logged in status
   let { loggedIn, userName } = useLoggedInStatus();
 
-  console.log(loggedIn)
-  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  // useEffect(() => {
+  //   setLoginStatus(loggedIn);
+  // }, [loggedIn, menuOpen]);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const loggedInStatus = JSON.parse(localStorage.getItem('loggedIn'));
+      const storedUserName = localStorage.getItem('userName');
+      setLoginStatus(loggedInStatus);
+      // setUserName(storedUserName);
+      userName = storedUserName;
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    // Initial check
+    handleStorageChange();
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [menuOpen, loggedIn]);
 
   //handle logout button click
   const handleLogout = () => {
@@ -27,6 +50,8 @@ export default function BurgerMenu() {
     router.push('/login');
   };
 
+  console.log(loggedIn, userName);
+
   return (
     <div className='burger'>
       <div className="hamburger-button" onClick={toggleMenu}>
@@ -34,14 +59,14 @@ export default function BurgerMenu() {
         <div style={{ opacity: menuOpen ? '0' : '1' }}></div>
         <div style={{ transform: menuOpen ? 'rotate(45deg) translate(-5px, -6px)' : 'none' }}></div>
       </div>
-      {loggedIn && (
+      {loginStatus && (
         <h3 className='user-name'>{userName}</h3>
 
       )}
       {menuOpen && (
         <div>
 
-        {!loggedIn ? (
+        {!loginStatus ? (
           <div className='hamburger-menu'>
 
             <ul className="menu-items">

@@ -15,7 +15,7 @@
   width: 36%;
   height: 100vh;
   border: solid;
-  border-color: #2E6171;
+  border-color: #E3F2FD;
   background-color: #FAFAFA;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
@@ -27,8 +27,8 @@
 }
 
 .hamburger-button {
-  position: absolute;
-  top: 28px;
+  position: fixed;
+  top: 12px;
   left: 20px;
   z-index: 1000;
   cursor: pointer;
@@ -37,7 +37,7 @@
 .hamburger-button div {
   width: 30px;
   height: 4px;
-  background-color: #333;
+  background-color: #2E6171;
   margin: 6px 0;
   transition: 0.4s;
 }
@@ -59,7 +59,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* margin: .5em; */
+  margin: .5em;
 }
 
 .user-name {
@@ -67,8 +67,8 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1em;
-  height: 54px;
+  padding-top: 18px;
   top: 0%;
-  right: 0;
+  right: 20px;
+  z-index: 1000;
 }

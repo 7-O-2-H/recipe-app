@@ -1,4 +1,5 @@
 import "../styles/Header.css";
+import Spacer from "./Spacer";
 
 export default function Header(props) {
   
@@ -8,6 +9,7 @@ export default function Header(props) {
   return (
     <div className="header">
       <h1>{title}</h1>
+      <Spacer />
     </div>
   );
 }
