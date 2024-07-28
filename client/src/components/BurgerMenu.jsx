@@ -10,6 +10,8 @@ export default function BurgerMenu() {
 
   // use hook to establish logged in status
   let { loggedIn, userName } = useLoggedInStatus();
+
+  console.log(loggedIn)
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
