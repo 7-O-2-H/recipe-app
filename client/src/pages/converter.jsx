@@ -72,28 +72,33 @@ export default function Converter() {
   };
 
   return (
-    <div className='converter-body'>
+    <div>
       <NavBar />
       {/* <Spacer /> */}
-      <Header title="Convert Serving Size" />
-      {/* <Spacer /> */}
-        <h2 className='default-serving'>{parsedRecipe.recipe}</h2>
+      <Header title="Add to Taste" />
+      <div className='converter-body'>
+        <h2 className='page-name'>Recipe Converter</h2>
+        <div className='title-underline'>
+          <Spacer />
+        </div>
+        <h3 className='converter-recipe-name'>{parsedRecipe.recipe}</h3>
         <div className='vary-serving'>
-          <h2>Serves:</h2>
+          <h4>Serving:&nbsp;</h4>
           <select className="serving-dropdown" value={selectedServing} onChange={handleServingChange}>
           {servingOptions.map(option => (
             <option key={option} value={option}>{option}</option>
           ))}
           </select>
         </div>
-      <Spacer />
+        <Spacer />
         <div className='conversion-chart' >
           <ConverterChart ingredients={parsedIngredients} serves={parsedRecipe.serves} selectedServing={selectedServing}/>
         </div>
       <Spacer />
-        <div>
-          < button onClick={returnToRecipePage}>BACK TO RECIPE</button>
+        <div className='converter-option'>
+          <button className="back-to-recipe" onClick={returnToRecipePage}>BACK TO RECIPE</button>
         </div>
+      </div>
     </div>
   );
 };

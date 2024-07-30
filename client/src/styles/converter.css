@@ -1,3 +1,45 @@
 .converter-body {
-  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 70px 5px 0px 5px;
+  font-family: "Montserrat Alternate", sans-serif;
+}
+
+.page-name {
+  padding: 1em;
+  /* font-family: "Montserrat Alternate", sans-serif; */
+  /* text-align: center; */
+}
+
+.converter-recipe-name {
+  padding: 1em;
+  font-family: "Montserrat Alternate", sans-serif;
+}
+
+.title-underline {
+  /* padding: 0px 5%; */
+  width: 80%;
+}
+
+.vary-serving {
+  display: flex;
+  flex-direction: row;
+}
+
+.converter-option {
+  padding: 4%;
+}
+.back-to-recipe {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  border-radius: 10px;
+  border-color: #2E6171;
+  background-color: #E3F2FD;
+  max-width: 80px;
+  text-wrap: wrap;
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
