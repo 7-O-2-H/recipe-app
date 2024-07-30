@@ -25,16 +25,24 @@
   font-size: smaller;
 }
 
-/* .recipe-options {
-  display: flex;
-  justify-content: space-between;
-} */
+.recipe-options {
+  /* display: flex; */
+  
+}
 
 .option-buttons {
+  padding: 5%;
   display: flex;
   justify-content: space-around;
 }
 
 .options-button {
   font-size: 10px;
+  /* height: 40px; */
+  border-radius: 10px;
+  border-color: 2E6171;
+  background-color: #E3F2FD;
+  max-width: 80px;
+  text-wrap: wrap;
+  padding: 1em;
 }
