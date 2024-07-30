@@ -24,8 +24,8 @@ export default function BrowseOptions(props) {
     <div className="browse-options">
       {!visible && 
       <div>
-        <button onClick={toggleVisibility}> FILTER</button>
         <Spacer />
+        <button onClick={toggleVisibility}> FILTER</button>
       </div>  
       }
       {visible && <div id="search-tools"> 

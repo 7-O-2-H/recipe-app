@@ -26,11 +26,6 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* .recipe-options {
-  display: flex;
-  
-} */
-
 .option-buttons {
   padding: 5%;
   display: flex;
@@ -46,6 +41,6 @@
   background-color: #E3F2FD;
   max-width: 80px;
   text-wrap: wrap;
-  padding: 1em;
+  padding: 1em .5em;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }

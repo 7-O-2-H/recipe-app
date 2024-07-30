@@ -36,10 +36,11 @@ export default function Browse() {
 
   // template
   return (
-    <div>
+    <div className="browse-page">
       <NavBar />
-      <Spacer />
-      <Header title="Recipes" />
+      {/* <Spacer /> */}
+      <Header title="Add to Taste" />
+      <h2 className="browse-title">RECIPES</h2>
       <Spacer />
       <BrowseOptions
         handleSelectIngredient={handleSelectIngredient}

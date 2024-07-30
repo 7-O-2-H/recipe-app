@@ -37,8 +37,23 @@
   justify-content: center !important;
 } */
 
+.browse-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 60px;
+  font-family: "Montserrat Alternate", sans-serif;
+  color: #2E6171;
+}
+
+.browse-title {
+  padding-top: 1em;
+  padding-bottom: .5em;
+  text-align: center;
+}
+
 .browse-options {
-  margin-top: 6%;
+  padding-top: 4%;
   display: flex;
   justify-content: center;
 }
