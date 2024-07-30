@@ -4,6 +4,6 @@ export default function Tags(props) {
 
   // template
   return (
-    <div>{tag}</div>
+    <div className="tag">{tag}</div>
   )
 };

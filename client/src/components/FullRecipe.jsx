@@ -142,19 +142,20 @@ export default function FullRecipe (props) {
         </div>
         <div className="break"></div>
         <div className="instructions">
+          <Spacer />
           <h2>Instructions</h2>
           <Spacer />
           <div className="step-container">{stepsArray}</div>
         </div>
       </div>
-      {tagsArray.length > 0 &&
       <Spacer />
-      }
       {tagsArray.length > 0 &&
+      // <Spacer />
       <div className="tags-container"> 
         <div className="tag-title">
           Tags
         </div>
+        <Spacer />
         <div className="tags">
           {tagsArray}
         </div>
@@ -180,7 +181,7 @@ export default function FullRecipe (props) {
           ) : (
             <>
               <Spacer />
-              <div className="favourites-option">
+              <div className="recipe-options">
                 <button onClick={handleUnfavourite}>UNFAVOURITE</button>
                 {/* <button> SHARE RECIPE</button> */}
                 <button onClick={handleConverter}>CHANGE SERVING SIZE</button>
@@ -197,8 +198,8 @@ export default function FullRecipe (props) {
       ) : (
         <>
           <Spacer />
-          <div className="favourites-option">
-            <button> SHARE RECIPE</button> 
+          <div className="recipe-options">
+            {/* <button> SHARE RECIPE</button>  */}
             <button onClick={handleConverter}>CHANGE SERVING SIZE</button>
           </div>
         </>

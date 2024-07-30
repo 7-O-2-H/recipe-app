@@ -2,5 +2,26 @@
   display: flex;
   justify-content: center;
   text-align: center;
+}
 
+.tags-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1em;
+  /* height: 40px; */
+}
+
+.tag {
+  border: solid;
+  border-color: #2E6171;
+  padding: .4em .6em;
+  background-color: #AFF9C9;
+  border-radius: 15px;
+  font-size: smaller;
 }
