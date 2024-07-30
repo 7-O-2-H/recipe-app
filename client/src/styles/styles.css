@@ -73,6 +73,20 @@ section {
   }
 }
 
+.random-button {
+  margin: 2%;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  border-radius: 25px;
+  border-color: #2E6171;
+  background-color: #E3F2FD;
+  max-width: 120px;
+  text-wrap: wrap;
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
 /* .main {
   padding-top: 20px;
 } */

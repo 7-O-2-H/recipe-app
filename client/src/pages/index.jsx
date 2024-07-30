@@ -64,7 +64,8 @@ export default function Home() {
         steps={currentSteps} 
         tags={currentTags}
         />
-        <button onClick={newRecipe}>Try Something New</button>
+        <Spacer />
+        <button className="random-button" onClick={newRecipe}>RANDOM RECIPE</button>
         </div>
    </div>
   );
