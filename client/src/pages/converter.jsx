@@ -1,5 +1,6 @@
 // imports
 // styles
+import '../styles/converter.css';
 import '../styles/styles.css';
 // react
 import { useState, useEffect } from 'react';
@@ -71,11 +72,11 @@ export default function Converter() {
   };
 
   return (
-    <div>
+    <div className='converter-body'>
       <NavBar />
-      <Spacer />
+      {/* <Spacer /> */}
       <Header title="Convert Serving Size" />
-      <Spacer />
+      {/* <Spacer /> */}
         <h2 className='default-serving'>{parsedRecipe.recipe}</h2>
         <div className='vary-serving'>
           <h2>Serves:</h2>
