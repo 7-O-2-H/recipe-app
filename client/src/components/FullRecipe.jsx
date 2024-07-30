@@ -19,7 +19,8 @@ import Steps from "./Steps";
 import Spacer from "./Spacer";
 import Tag from "./Tag"
 // styles
-import "../styles/FullRecipe.css"
+import "../styles/FullRecipe.css";
+import "../styles/styles.css";
 
 export default function FullRecipe (props) {
 
@@ -121,6 +122,7 @@ export default function FullRecipe (props) {
 
   return (
     <div>
+    {/* <div className="home-div"> */}
       {/* <Spacer /> */}
       <h1 className="recipe-name">{recipe.recipe}</h1>
       <Spacer />

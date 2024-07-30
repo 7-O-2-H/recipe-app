@@ -27,14 +27,16 @@ export default function Recipe( {id} ) {
     <div>
       <NavBar />
       <Spacer />
-      <Header title={currentRecipe.recipe} />
+      <Header title="Add to Taste" />
       <Spacer />
-      <FullRecipe 
-        recipe={currentRecipe} 
-        ingredients={currentIngredients}
-        steps={currentSteps}
-        tags={currentTags}
-      />
+      <div className='home-div'>
+        <FullRecipe 
+          recipe={currentRecipe} 
+          ingredients={currentIngredients}
+          steps={currentSteps}
+          tags={currentTags}
+        />
+      </div>
     </div>
   );
 };
