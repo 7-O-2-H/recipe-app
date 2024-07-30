@@ -68,7 +68,6 @@ export default function BurgerMenu() {
 
         {!loginStatus ? (
           <div className='hamburger-menu'>
-          <Spacer />
             <ul className="menu-items">
               <li>
                 <Link href="/" className="menu-item" onClick={toggleMenu}>HOME</Link>
@@ -88,7 +87,6 @@ export default function BurgerMenu() {
         ) : (
           <div className='hamburger-menu'>
             <ul className="menu-items">
-            <Spacer />
               <li>
                 <Link href="/" className="menu-item" onClick={toggleMenu}>GAMBLE GRUB</Link>
               </li>

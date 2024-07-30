@@ -22,7 +22,7 @@ const app = express();
 app.use(morgan(ENVIRONMENT));
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: ['http://localhost:3000', '192.168.40.2:3000']
 }));
 
 app.use('/recipes', recipeRoutes);
@@ -38,4 +38,4 @@ app.use('/steps', stepsRoutes);
 //   res.json({greetings: 'hello'});
 // })
 
-app.listen(PORT, () => console.log(`server listening on port: ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`server listening on port: ${PORT}`));
