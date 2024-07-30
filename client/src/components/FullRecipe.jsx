@@ -153,7 +153,9 @@ export default function FullRecipe (props) {
       // <Spacer />
       <div className="tags-container"> 
         <div className="tag-title">
-          Tags
+          <h2>
+            Tags
+          </h2>
         </div>
         <Spacer />
         <div className="tags">
@@ -166,31 +168,43 @@ export default function FullRecipe (props) {
           {!favouriteStatus ? (
             <>
               <Spacer />
-              <div className="favourites-option">
-                <button className="favourites-button" onClick={handleFavourite}>FAVOURITE</button>
-                {/* <button>SHARE RECIPE</button> */}
-                <button onClick={handleConverter}>CHANGE SERVING SIZE</button>
-                {authorizedUser ? (
-                  <>
-                    <button onClick={handleDelete}>DELETE RECIPE</button>
-                    <button onClick={handleEdit}>EDIT RECIPE</button>
-                  </>
-                ) : null}
+              <div className="recipe-options">
+                <h3>
+                  Options
+                </h3>
+                <Spacer />
+                <div className="option-buttons">
+                  <button className="options-button" onClick={handleFavourite}>FAVOURITE</button>
+                  {/* <button>SHARE RECIPE</button> */}
+                  <button className="options-button" onClick={handleConverter}>CHANGE SERVING SIZE</button>
+                  {authorizedUser ? (
+                    <>
+                      <button className="options-button" onClick={handleDelete}>DELETE RECIPE</button>
+                      <button className="options-button" onClick={handleEdit}>EDIT RECIPE</button>
+                    </>
+                  ) : null}
+                </div>
               </div>
             </>
           ) : (
             <>
               <Spacer />
               <div className="recipe-options">
-                <button onClick={handleUnfavourite}>UNFAVOURITE</button>
-                {/* <button> SHARE RECIPE</button> */}
-                <button onClick={handleConverter}>CHANGE SERVING SIZE</button>
-                {authorizedUser ? (
-                  <>
-                    <button onClick={handleEdit}>EDIT RECIPE</button>
-                    <button onClick={handleDelete}> DELETE RECIPE</button>
-                  </>
-                ) : null}
+                <h3>
+                  Options
+                </h3>
+                <Spacer />
+                <div className="option-buttons">
+                  <button className="options-button" onClick={handleUnfavourite}>UNFAVOURITE</button>
+                  {/* <button> SHARE RECIPE</button> */}
+                  <button className="options-button" onClick={handleConverter}>CHANGE SERVING SIZE</button>
+                  {authorizedUser ? (
+                    <>
+                      <button className="options-button" onClick={handleEdit}>EDIT RECIPE</button>
+                      <button className="options-button" onClick={handleDelete}> DELETE RECIPE</button>
+                    </>
+                  ) : null}
+                </div>
               </div>
             </>
           )}
@@ -199,8 +213,14 @@ export default function FullRecipe (props) {
         <>
           <Spacer />
           <div className="recipe-options">
-            {/* <button> SHARE RECIPE</button>  */}
-            <button onClick={handleConverter}>CHANGE SERVING SIZE</button>
+            <h3>
+              Options
+            </h3>
+            <Spacer />
+            <div className="option-buttons">
+              {/* <button> SHARE RECIPE</button>  */}
+              <button className="options-button" onClick={handleConverter}>CHANGE SERVING SIZE</button>
+            </div>
           </div>
         </>
       )}
