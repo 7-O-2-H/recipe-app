@@ -9,10 +9,11 @@ export default function About() {
 
   // template
   return (
-    <div>
+    <div className="about-page">
       <NavBar />
-      <Spacer />
-      <Header title="About" />
+      {/* <Spacer /> */}
+      <Header title="Add to Taste" />
+      <h2 className="about-title">ABOUT</h2>
       <Spacer />
       <div className="about-text">
       This application was built for a few different  reasons. First and foremost, I needed to create something to showcase my web development abilities while at the same time, I wanted to make something that I would actually use. I'm pretty green in terms of cooking as hobby and I was sick of trying to parse my father's recipes from bulleted notes messily arranged in excel spreadsheets - they're shockingly disordered for someone generally so organized. 
