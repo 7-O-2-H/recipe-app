@@ -1,5 +1,5 @@
 // imports
-import "../styles/browse.css";
+import "../styles/MyRecipes.css";
 import NavBar from "../components/NavBar";
 import Header from '../components/Header';
 import Spacer from '../components/Spacer';
@@ -10,12 +10,13 @@ export default function MyRecipes() {
 
   // template
   return (
-    <div>
+    <div className="my-recipes-page">
       <NavBar />
+      {/* <Spacer /> */}
+      <Header title="Add to Taste" />
+      <h2 className="my-recipes-title">MY RECIPES</h2>
       <Spacer />
-      <Header title="My Recipes" />
-      <Spacer />
-      <div className="browse-body" >
+      <div className="my-recipes-body" >
         <MyRecipeList />
       </div>
     </div>

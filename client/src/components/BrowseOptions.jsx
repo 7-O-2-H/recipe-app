@@ -24,7 +24,7 @@ export default function BrowseOptions(props) {
     <div className="browse-options">
       {!visible && 
       <div>
-        <Spacer />
+        {/* <Spacer /> */}
         <button onClick={toggleVisibility}> FILTER RESULTS</button>
       </div>  
       }

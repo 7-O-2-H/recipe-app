@@ -27,6 +27,7 @@
 .vary-serving {
   display: flex;
   flex-direction: row;
+  padding-bottom: 16px;
 }
 
 .converter-option {

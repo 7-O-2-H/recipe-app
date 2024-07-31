@@ -88,7 +88,7 @@ export default function BurgerMenu() {
           <div className='hamburger-menu'>
             <ul className="menu-items">
               <li>
-                <Link href="/" className="menu-item" onClick={toggleMenu}>GAMBLE GRUB</Link>
+                <Link href="/" className="menu-item" onClick={toggleMenu}>RANDOM RECIPE</Link>
               </li>
               <li>
                 <Link href="/browse" className="menu-item" onClick={toggleMenu}>BROWSE</Link>

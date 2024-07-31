@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import "../styles/RecipeList.css"
 import RecipeListItem from "./RecipeListItem";
 import BrowseOptions from "./BrowseOptions";
+import Spacer from "./Spacer";
 
 export default function MyRecipeList() {
 
@@ -56,13 +57,15 @@ export default function MyRecipeList() {
 
   // template
   return (
-    <div className="recipe-list">
+    <div>
       <div>
         <BrowseOptions />
       </div>
-      <div>
+      <div className="recipe-list">
+        <Spacer />
       {recipesArray}
       </div>
+      <Spacer />
       <div>
         <button className="add-button" onClick={handleAddButton}>ADD RECIPE</button>
       </div>
