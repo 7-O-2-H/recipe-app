@@ -185,7 +185,7 @@ export default function Login() {
               Register
             </button>
           </form>
-          <p onClick={handleLoginPage}>Already have an account?</p>
+          <p className="register-link" onClick={handleLoginPage}>Already have an account?</p>
         </div>
       )}
     </div>
