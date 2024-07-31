@@ -143,7 +143,7 @@ export default function Login() {
               Login
             </button>
           </form>
-          <p onClick={handleLoginPage}>Create a new account?</p>
+          <p className="register-link" onClick={handleLoginPage}>Create a new account?</p>
         </div>
       ) : (
         <div className="login">
