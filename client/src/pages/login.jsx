@@ -181,7 +181,7 @@ export default function Login() {
               value={reEnterPassword}
               onChange={(event) => setReEnterPassword(event.target.value)}
             />
-            <button type="submit" className="submit-register">
+            <button type="submit" className="submit-btn">
               Register
             </button>
           </form>
