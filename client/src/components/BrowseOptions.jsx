@@ -25,7 +25,7 @@ export default function BrowseOptions(props) {
       {!visible && 
       <div>
         <Spacer />
-        <button onClick={toggleVisibility}> FILTER</button>
+        <button onClick={toggleVisibility}> FILTER RESULTS</button>
       </div>  
       }
       {visible && <div id="search-tools"> 
@@ -37,6 +37,7 @@ export default function BrowseOptions(props) {
           <TagsList handleSelectTag={handleSelectTag} />
           <TimesList handleSelectTime={handleSelectTime} />
         </div>
+        <button onClick={toggleVisibility}>CLOSE FILTER OPTIONS</button>
       </div>}
     </div>
   );

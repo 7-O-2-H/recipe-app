@@ -26,7 +26,7 @@ export default function Recipe( {id} ) {
   return (
     <div>
       <NavBar />
-      <Spacer />
+      {/* <Spacer /> */}
       <Header title="Add to Taste" />
       <Spacer />
       <div className='home-div'>
