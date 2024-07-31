@@ -23,13 +23,17 @@
     max-width: 400px;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc; 
+    border: 1px solid #2E6171; 
     border-radius: 5px;
+    /* color: #2E6171; */
   }
 
   .login-form > .submit-btn {
     margin-top: 10px;
     padding: 10px;
+    border-radius: 5px;
+    border-color: #2E6171;
+    color: #2E6171;
   }
 
   .register-link {

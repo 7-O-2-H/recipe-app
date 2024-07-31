@@ -140,7 +140,7 @@ export default function Login() {
               onChange={(event) => setPassword(event.target.value)}
             />
             <button type="submit" className="submit-btn">
-              Login
+              LOGIN
             </button>
           </form>
           <p className="register-link" onClick={handleLoginPage}>Create a new account?</p>
