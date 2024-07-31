@@ -2,6 +2,7 @@
 #search-tools {
   display: flex;
   flex-direction: column;
+  padding: 5%;
 }
 
 #search-bar {
