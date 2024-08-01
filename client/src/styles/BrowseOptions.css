@@ -63,12 +63,12 @@
   width: 100%;
 }
 
-#filter-tools select {
+/* #filter-tools select {
   flex: 1;
   padding: 8px;
   font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
+} */
 
 /* mobile ends here */

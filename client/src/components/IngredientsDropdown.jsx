@@ -2,7 +2,7 @@ export default function IngredientsDropdown({ ingredients, selectedOption, onSel
   
   // template
   return (
-    <div >
+    <div className="search-and-btn" >
       <select className="browse-drop" onChange={(e) => onSelect(e.target.value)} value={selectedOption}>
         <option value="">INGREDIENTS</option>
         {ingredients.map((ingredient) => (
