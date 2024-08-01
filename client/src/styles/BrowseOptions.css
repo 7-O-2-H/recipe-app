@@ -27,6 +27,8 @@
   border: 1px solid #ccc;
   border-radius: 4px 0 0 4px;
   width: 80%;
+  font-family: "Montserrat Alternate", sans-serif;
+  /* color: #2E6171; */
 }
 
 .search-and-btn {
@@ -40,6 +42,8 @@
   border: 1px solid #ccc;
   border-left: none;
   cursor: pointer;
+  font-family: "Montserrat Alternate", sans-serif;
+  /* color: #2E6171; */
 }
 
 .search-tools-button {
@@ -65,12 +69,14 @@
   width: 100%;
 }
 
-/* #filter-tools select {
-  flex: 1;
-  padding: 8px;
-  font-size: 1em;
-  border: 1px solid #ccc;
+.filter-button {
+  font-size: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+  padding: 14px 0;
   border-radius: 4px;
-} */
-
+  font-family: "Montserrat Alternate", sans-serif;
+  background-color: #2E6171;
+  color: #FAFAFA;
+}
 /* mobile ends here */
