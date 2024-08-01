@@ -29,7 +29,7 @@
   width: 80%;
 }
 
-#search-and-btn {
+.search-and-btn {
   width: 100%;
   display: flex;
 }
@@ -53,7 +53,9 @@
 }
 
 #filter-tools {
-  margin-top: 20px;
+  margin-top: 16px;
+  margin-bottom: 40px;
+  width: 100%;
 }
 
 #filter-tools > div {

@@ -11,7 +11,7 @@ export default function Search({ handleSearch }) {
   };
 
   return (
-    <div id="search-and-btn">
+    <div className="search-and-btn">
       <input
         type="text"
         value={searchQuery}
