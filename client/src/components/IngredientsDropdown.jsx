@@ -2,8 +2,8 @@ export default function IngredientsDropdown({ ingredients, selectedOption, onSel
   
   // template
   return (
-    <div className="ingredients-dropdown">
-      <select onChange={(e) => onSelect(e.target.value)} value={selectedOption}>
+    <div >
+      <select className="browse-drop" onChange={(e) => onSelect(e.target.value)} value={selectedOption}>
         <option value="">INGREDIENTS</option>
         {ingredients.map((ingredient) => (
           <option key={ingredient.id} value={ingredient.ingredient}>
