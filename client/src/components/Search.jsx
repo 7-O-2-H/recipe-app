@@ -18,8 +18,11 @@ export default function Search({ handleSearch }) {
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="SEARCH"
       />
-      <button onClick={() => handleSearch(searchQuery)} className='search-tools-button'>SEARCH</button>
-      {/* <button onClick={handleClear} className='search-tools-button'>CLEAR</button> */}
+      {searchQuery ? (
+        <button onClick={handleClear} className='search-tools-button'>CLEAR</button>
+      ): (
+        <button onClick={() => handleSearch(searchQuery)} className='search-tools-button'>SEARCH</button>
+      )}
     </div>
   );
 };
