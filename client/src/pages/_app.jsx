@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }) {
       {/* <Spacer className="bar-line"/> */}
       <Head>
         <title>Add to Taste</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <div className="main">
         <Component {...pageProps} />
