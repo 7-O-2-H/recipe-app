@@ -11,7 +11,7 @@ export default function Search({ handleSearch }) {
   };
 
   return (
-    <div>
+    <div id="search-and-btn">
       <input
         type="text"
         value={searchQuery}
@@ -19,7 +19,7 @@ export default function Search({ handleSearch }) {
         placeholder="SEARCH"
       />
       <button onClick={() => handleSearch(searchQuery)} className='search-tools-button'>SEARCH</button>
-      <button onClick={handleClear} className='search-tools-button'>CLEAR</button>
+      {/* <button onClick={handleClear} className='search-tools-button'>CLEAR</button> */}
     </div>
   );
 };

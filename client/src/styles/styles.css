@@ -17,6 +17,7 @@ section {
   padding: 0;
   box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
   font-weight: 300;
+  overflow: hidden;
 }
 
 :root {

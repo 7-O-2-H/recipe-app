@@ -32,6 +32,7 @@ export default function BrowseOptions(props) {
         <div id="search-bar">
           <Search handleSearch={handleSearch}/>
         </div>
+        <Spacer />
         <div id="filter-tools">
           <IngredientsList handleSelectIngredient={handleSelectIngredient} />
           <TagsList handleSelectTag={handleSelectTag} />
