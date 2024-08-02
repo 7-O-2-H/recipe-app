@@ -18,6 +18,7 @@ import TagsPrompt from '../components/addRecipe/TagsPrompt';
 import TagsForm from '../components/addRecipe/TagsForm';
 // styles
 import '../styles/styles.css';
+import '../styles/addRecipe.css';
 
 export default function AddRecipe() {
   
@@ -111,22 +112,24 @@ export default function AddRecipe() {
 
   // template
   return (
-   <div>
+   <div className='add-form'>
     <NavBar />
+    {/* <Spacer /> */}
+    <Header title="Add to Taste" />
+    <h2 className="browse-title">ADD RECIPE</h2>
     <Spacer />
-    <Header title="Add Recipe" />
-    <Spacer />
-    <div>
+    <div >
       {recipe && (
         <div>
           <p>Recipe: {recipe}</p>
         </div>
       )}
     </div>
-    <div>
+    <div className='form-section'>
       {currentStep === 1 && (
-        <div>
-          <h3>Recipe Details</h3>
+        <div id="details-form">
+          <h3 className='form-title'>Recipe Details</h3>
+          <Spacer />
           <RecipeForm 
             onNextStep={handleNextStep}
             onCancel={handleCancel}

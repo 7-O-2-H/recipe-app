@@ -1,0 +1,39 @@
+.add-form {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat Alternate", sans-serif;
+  color: #2E6171;
+}
+
+.browse-title {
+  padding-top: 1em;
+  padding-bottom: .3em;
+  text-align: center;
+}
+
+.form-section {
+  width: 100%;
+  padding-top: 10px;
+}
+
+#details-form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 100%;
+}
+
+.form-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
