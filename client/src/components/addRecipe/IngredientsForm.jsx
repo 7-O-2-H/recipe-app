@@ -207,7 +207,7 @@ export default function IngredientsForm (props) {
   return (
     <div>
       <ToastContainer />
-      <form className="ingredient-form" >
+      <form className="recipe-form" >
         {quantityFormat === 'decimal' ? (
           <div>
             <input

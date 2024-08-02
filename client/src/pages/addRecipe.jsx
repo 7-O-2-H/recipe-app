@@ -118,10 +118,12 @@ export default function AddRecipe() {
     <Header title="Add to Taste" />
     <h2 className="browse-title">ADD RECIPE</h2>
     <Spacer />
-    <div >
+    <div className='form-section'>
       {recipe && (
         <div>
-          <p>Recipe: {recipe}</p>
+          <h3 className='form-title'>Recipe: {recipe}</h3>
+          <Spacer />
+          {/* <p>Recipe: {recipe}</p> */}
         </div>
       )}
     </div>
@@ -166,7 +168,8 @@ export default function AddRecipe() {
       </div>
       {currentStep === 2 && (
         <div>
-          <h3>Ingredients</h3>
+          <h3 className='form-title'>Ingredients</h3>
+          <Spacer />
           <IngredientsForm 
             onNextStep={handleNextStep}
             onPreviousStep={handlePreviousStep}  
