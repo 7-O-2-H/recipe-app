@@ -80,22 +80,25 @@ export default function RecipeForm (props) {
           value={recipe}
           onChange={(event) => setRecipe(event.target.value)}
         />
+        <div className="side-by">
+
         <input
           id="time"
           type="number"
           className="input-field"
-          placeholder="time to cook in minutes"
+          placeholder="time (min)"
           value={time || ''}
           onChange={(event) => setTime(event.target.value)}
-        />
+          />
         <input
           id="serves"
           type="number"
           className="input-field"
-          placeholder="how many servings is this dish"
+          placeholder="# of servings"
           value={serves || ''}
           onChange={(event) => setServes(event.target.value)}
-        />
+          />
+          </div>
         <input
           id="description"
           type="text"
@@ -104,7 +107,7 @@ export default function RecipeForm (props) {
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="add-rec-btn">
           ADD RECIPE DETAILS
         </button>
       </form>

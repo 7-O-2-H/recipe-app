@@ -207,6 +207,7 @@ export default function AddRecipe() {
         </div>
       )}
     </div>
+    <Spacer />
    </div>
   );
 }
