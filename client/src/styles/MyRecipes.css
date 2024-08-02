@@ -26,3 +26,23 @@
   font-family: "Montserrat Alternate", sans-serif;
   color: #2E6171;
 }
+
+.add-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-button {
+  margin: 1em;
+  font-size: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+  padding: 14px 0;
+  border-radius: 4px;
+  font-family: "Montserrat Alternate", sans-serif;
+  background-color: #2E6171;
+  color: #FAFAFA;
+  min-width: 200px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}

@@ -66,7 +66,7 @@ export default function MyRecipeList() {
       {recipesArray}
       </div>
       <Spacer />
-      <div>
+      <div className="add-section">
         <button className="add-button" onClick={handleAddButton}>ADD RECIPE</button>
       </div>
     </div>
