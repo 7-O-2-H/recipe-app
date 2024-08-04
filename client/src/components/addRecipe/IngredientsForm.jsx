@@ -234,10 +234,7 @@ export default function IngredientsForm (props) {
             max="100"
           />
             <QuantityDropdown onSelect={handleQuantitySelect} selectedOption={selectedOption} />
-            <button onClick={updateQuantityFormat}>USE DECIMALS</button>
-          </div>
-        )}
-        <select
+            <select
           id="measurement"
           value={measurement}
           onChange={(event) => setMeasurement(event.target.value)}
@@ -249,6 +246,17 @@ export default function IngredientsForm (props) {
             </option>
           ))}
         </select>
+        <ul>
+          {suggestions.map(ingredient => (
+            <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
+              {ingredient.ingredient}
+            </li>
+          ))}
+        </ul>
+            <button onClick={updateQuantityFormat}>USE DECIMALS</button>
+          </div>
+        )}
+
         <input
           id="ingredient"
           type="text"
@@ -257,13 +265,6 @@ export default function IngredientsForm (props) {
           value={ingredientsQuery}
           onChange={handleInputChange}
         />
-        <ul>
-          {suggestions.map(ingredient => (
-            <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
-              {ingredient.ingredient}
-            </li>
-          ))}
-        </ul>
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           ADD INGREDIENT
         </button>
