@@ -224,21 +224,24 @@ export default function IngredientsForm (props) {
         ) : (
           <div>
             <input
-            id="quantity"
-            type="number"
-            className="input-field"
-            placeholder="quantity"
-            value={quantityWholeNumber !== undefined ? quantityWholeNumber.toString() : ''}
-            onChange={(event) => setQuantityWholeNumber(parseInt(event.target.value))}
-            min="0"
-            max="100"
-          />
+              id="quantity"
+              type="number"
+              className="input-field"
+              placeholder="quantity"
+              value={quantityWholeNumber !== undefined ? quantityWholeNumber.toString() : ''}
+              onChange={(event) => setQuantityWholeNumber(parseInt(event.target.value))}
+              min="0"
+              max="100"
+            />
             <QuantityDropdown onSelect={handleQuantitySelect} selectedOption={selectedOption} />
+            <button onClick={updateQuantityFormat}>USE DECIMALS</button>
+          </div>
+        )}
             <select
-          id="measurement"
-          value={measurement}
-          onChange={(event) => setMeasurement(event.target.value)}
-          >
+              id="measurement"
+              value={measurement}
+              onChange={(event) => setMeasurement(event.target.value)}
+            >
           <option value="">Select Measurement</option>
             {sortedMeasurements.map((measurement) => (
               <option key={measurement.id} value={measurement.id}>
@@ -246,17 +249,6 @@ export default function IngredientsForm (props) {
             </option>
           ))}
         </select>
-        <ul>
-          {suggestions.map(ingredient => (
-            <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
-              {ingredient.ingredient}
-            </li>
-          ))}
-        </ul>
-            <button onClick={updateQuantityFormat}>USE DECIMALS</button>
-          </div>
-        )}
-
         <input
           id="ingredient"
           type="text"
@@ -265,6 +257,14 @@ export default function IngredientsForm (props) {
           value={ingredientsQuery}
           onChange={handleInputChange}
         />
+        <ul>
+          {suggestions.map(ingredient => (
+            <li key={ingredient.id} onClick={() => handleIngredientSuggestion(ingredient.id)}>
+              {ingredient.ingredient}
+            </li>
+          ))}
+        </ul>
+
         <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
           ADD INGREDIENT
         </button>
