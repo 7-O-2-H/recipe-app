@@ -209,7 +209,7 @@ export default function IngredientsForm (props) {
       <ToastContainer />
       <form className="recipe-form" >
         {quantityFormat === 'decimal' ? (
-          <div>
+          <div className="quantity-input">
             <input
               id="quantity"
               type="number"
@@ -223,18 +223,21 @@ export default function IngredientsForm (props) {
           </div>
         ) : (
           <div>
-            <input
-              id="quantity"
-              type="number"
-              className="input-field"
-              placeholder="quantity"
-              value={quantityWholeNumber !== undefined ? quantityWholeNumber.toString() : ''}
-              onChange={(event) => setQuantityWholeNumber(parseInt(event.target.value))}
-              min="0"
-              max="100"
-            />
-            <QuantityDropdown onSelect={handleQuantitySelect} selectedOption={selectedOption} />
-            <button onClick={updateQuantityFormat}>USE DECIMALS</button>
+
+            <div className="quantity-input">
+              <input
+                id="quantity"
+                type="number"
+                className="input-field"
+                placeholder="quantity"
+                value={quantityWholeNumber !== undefined ? quantityWholeNumber.toString() : ''}
+                onChange={(event) => setQuantityWholeNumber(parseInt(event.target.value))}
+                min="0"
+                max="100"
+                />
+              <QuantityDropdown onSelect={handleQuantitySelect} selectedOption={selectedOption} />
+              <button onClick={updateQuantityFormat}>USE DECIMALS</button>
+            </div>
           </div>
         )}
             <select
