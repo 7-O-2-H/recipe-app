@@ -219,6 +219,18 @@ export default function IngredientsForm (props) {
               onChange={(event) => setQuantity(event.target.value)}
               min="0"
             />
+            <select
+              id="measurement"
+              value={measurement}
+              onChange={(event) => setMeasurement(event.target.value)}
+            >
+          <option value="">Measurement</option>
+            {sortedMeasurements.map((measurement) => (
+              <option key={measurement.id} value={measurement.id}>
+                {measurement.measurement}
+            </option>
+          ))}
+        </select>
             <button onClick={updateQuantityFormat}>USE FRACTIONS</button>
           </div>
         ) : (
@@ -245,7 +257,7 @@ export default function IngredientsForm (props) {
               value={measurement}
               onChange={(event) => setMeasurement(event.target.value)}
             >
-          <option value="">Select Measurement</option>
+          <option value="">Measurement</option>
             {sortedMeasurements.map((measurement) => (
               <option key={measurement.id} value={measurement.id}>
                 {measurement.measurement}
