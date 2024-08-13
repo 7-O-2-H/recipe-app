@@ -209,28 +209,31 @@ export default function IngredientsForm (props) {
       <ToastContainer />
       <form className="recipe-form" >
         {quantityFormat === 'decimal' ? (
-          <div className="quantity-input">
-            <input
-              id="quantity"
-              type="number"
-              className="input-field"
-              placeholder="quantity"
-              value={quantity || ''}
-              onChange={(event) => setQuantity(event.target.value)}
-              min="0"
-            />
-            <select
-              id="measurement"
-              value={measurement}
-              onChange={(event) => setMeasurement(event.target.value)}
-            >
-          <option value="">Measurement</option>
-            {sortedMeasurements.map((measurement) => (
-              <option key={measurement.id} value={measurement.id}>
-                {measurement.measurement}
-            </option>
-          ))}
-        </select>
+          <div>
+
+            <div className="quantity-input">
+              <input
+                id="quantity"
+                type="number"
+                className="input-field"
+                placeholder="quantity"
+                value={quantity || ''}
+                onChange={(event) => setQuantity(event.target.value)}
+                min="0"
+                />
+              <select
+                id="measurement"
+                value={measurement}
+                onChange={(event) => setMeasurement(event.target.value)}
+              >
+                <option value="">Measurement</option>
+                  {sortedMeasurements.map((measurement) => (
+                    <option key={measurement.id} value={measurement.id}>
+                      {measurement.measurement}
+                  </option>
+                ))}
+              </select>
+          </div>
             <button onClick={updateQuantityFormat}>USE FRACTIONS</button>
           </div>
         ) : (
@@ -252,7 +255,7 @@ export default function IngredientsForm (props) {
             </div>
           </div>
         )}
-            <select
+            {/* <select
               id="measurement"
               value={measurement}
               onChange={(event) => setMeasurement(event.target.value)}
@@ -263,7 +266,7 @@ export default function IngredientsForm (props) {
                 {measurement.measurement}
             </option>
           ))}
-        </select>
+        </select> */}
         <input
           id="ingredient"
           type="text"
