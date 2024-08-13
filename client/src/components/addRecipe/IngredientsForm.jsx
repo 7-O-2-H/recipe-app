@@ -209,9 +209,9 @@ export default function IngredientsForm (props) {
       <ToastContainer />
       <form className="recipe-form" >
         {quantityFormat === 'decimal' ? (
-          <div>
-
+          <div id="decimal-input">
             <div className="quantity-input">
+
               <input
                 id="quantity"
                 type="number"
@@ -226,7 +226,7 @@ export default function IngredientsForm (props) {
                 value={measurement}
                 onChange={(event) => setMeasurement(event.target.value)}
               >
-                <option value="">Measurement</option>
+                <option value="">measurement</option>
                   {sortedMeasurements.map((measurement) => (
                     <option key={measurement.id} value={measurement.id}>
                       {measurement.measurement}

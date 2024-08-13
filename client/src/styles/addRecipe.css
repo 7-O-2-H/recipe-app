@@ -85,4 +85,13 @@
   flex-direction: column;
 }
 
+#measurement {
+  padding: 1em;
+  margin: 10px;
+  font-size: small;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  color: #2E6171 !important;
+}
+
 /* mobile */
