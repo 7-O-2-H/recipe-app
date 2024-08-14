@@ -49,6 +49,7 @@ export default function QuantityDropdown({ onSelect, selectedOption }) {
       <select 
         onChange={(e) => onSelect(parseFloat(e.target.value))}
         value={selectedOption !== undefined ? selectedOption.toString() : ''}
+        id="quantity-select"
       >
         {quantities.map((quantity) => (
           <option key={quantity.id} value={quantity.value === 0 ? 0 : quantity.value || ''}>
