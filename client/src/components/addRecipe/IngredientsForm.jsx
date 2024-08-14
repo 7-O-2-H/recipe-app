@@ -237,22 +237,34 @@ export default function IngredientsForm (props) {
             <button onClick={updateQuantityFormat}>USE FRACTIONS</button>
           </div>
         ) : (
-          <div>
+          <div id="whole-input">
 
             <div className="quantity-input">
               <input
                 id="quantity"
                 type="number"
                 className="input-field"
-                placeholder="quantity"
+                placeholder="whole number"
                 value={quantityWholeNumber !== undefined ? quantityWholeNumber.toString() : ''}
                 onChange={(event) => setQuantityWholeNumber(parseInt(event.target.value))}
                 min="0"
                 max="100"
-                />
+              />
+              <select
+                id="measurement"
+                value={measurement}
+                onChange={(event) => setMeasurement(event.target.value)}
+              >
+                <option value="">measurement</option>
+                  {sortedMeasurements.map((measurement) => (
+                    <option key={measurement.id} value={measurement.id}>
+                      {measurement.measurement}
+                  </option>
+                ))}
+              </select>
               <QuantityDropdown onSelect={handleQuantitySelect} selectedOption={selectedOption} />
-              <button onClick={updateQuantityFormat}>USE DECIMALS</button>
             </div>
+              <button onClick={updateQuantityFormat}>USE DECIMALS</button>
           </div>
         )}
             {/* <select
