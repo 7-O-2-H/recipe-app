@@ -115,13 +115,13 @@ export default function AddRecipe() {
    <div className='add-form'>
     <NavBar />
     {/* <Spacer /> */}
-    <Header title="Add to Taste" />
-    <h2 className="browse-title">ADD RECIPE</h2>
-    <Spacer />
+    <Header title="Add Recipe" />
+    {/* <h2 className="browse-title">ADD RECIPE</h2>
+    <Spacer /> */}
     <div className='form-section'>
       {recipe && (
         <div>
-          <h3 className='form-title'>Recipe: {recipe}</h3>
+          <h2 className='browse-title'>Recipe: {recipe}</h2>
           <Spacer />
           {/* <p>Recipe: {recipe}</p> */}
         </div>
