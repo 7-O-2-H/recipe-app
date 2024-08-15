@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useAppDataWithRefresh } from "../../hooks/useAppData";
 //component
 import QuantityDropdown from "./QuantityDropdown";
+import Spacer from "../Spacer";
 
 export default function IngredientsForm (props) {
 
@@ -271,14 +272,14 @@ export default function IngredientsForm (props) {
               id="measurement"
               value={measurement}
               onChange={(event) => setMeasurement(event.target.value)}
-            >
-          <option value="">Measurement</option>
-            {sortedMeasurements.map((measurement) => (
-              <option key={measurement.id} value={measurement.id}>
+              >
+              <option value="">Measurement</option>
+              {sortedMeasurements.map((measurement) => (
+                <option key={measurement.id} value={measurement.id}>
                 {measurement.measurement}
-            </option>
-          ))}
-        </select> */}
+                </option>
+                ))}
+                </select> */}
         <input
           id="ingredient"
           type="text"
@@ -294,12 +295,14 @@ export default function IngredientsForm (props) {
             </li>
           ))}
         </ul>
-
-        <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
-          ADD INGREDIENT
-        </button>
-        <button onClick={handleNext}>GO TO STEPS</button>
-        <button onClick={handleCancel}>CANCEL</button>
+        {/* <Spacer /> */}
+        <div className="add-ingredient-btns">
+          <button type="submit" className="submit-btn" onClick={handleAddIngredient}>
+            ADD INGREDIENT
+          </button>
+          <button onClick={handleNext}>GO TO STEPS</button>
+          <button onClick={handleCancel}>CANCEL</button>
+        </div>
       </form>
     </div>
   );

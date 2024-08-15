@@ -110,4 +110,14 @@
   width: 90%;
 }
 
+.add-ingredient-btns {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
+}
+
+.add-ingredient-btns > button {
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
 /* mobile */
