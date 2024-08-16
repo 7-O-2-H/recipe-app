@@ -139,9 +139,9 @@ export default function AddRecipe() {
         </div>
       )}
       <div>
-        {ingredientsData && ingredientsData[0] && (
+        {/* {ingredientsData && ingredientsData[0] && ( */}
           <h2>Ingredients:</h2>
-        )}
+        {/* )} */}
         <p>
           {ingredientsData && ingredientsData[0] && (
             ingredientsData.map((ingredientString, index) => (
@@ -168,7 +168,7 @@ export default function AddRecipe() {
       </div>
       {currentStep === 2 && (
         <div>
-          <h3 className='form-title'>Ingredients</h3>
+          {/* <h3 className='form-title'>Ingredients</h3> */}
           <Spacer />
           <IngredientsForm 
             onNextStep={handleNextStep}

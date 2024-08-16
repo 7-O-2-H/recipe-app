@@ -13,7 +13,7 @@ export default function EditForm() {
         <RecipeForm />
       </div>
       <div className="edit-section">
-        <h4 id="edit-category">INGREDIENTS</h4>
+        <h4 id="edit-category">ADD INGREDIENTS</h4>
         <IngredientsForm />
       </div>
       <div className="edit-section">
