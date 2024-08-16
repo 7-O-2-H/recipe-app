@@ -140,7 +140,7 @@ export default function AddRecipe() {
       )}
       <div id="ingredient-data">
         {/* {ingredientsData && ingredientsData[0] && ( */}
-          <h2>Ingredients:</h2>
+          <h2 id="add-ing-title">Ingredients:</h2>
         {/* )} */}
         <p>
           {ingredientsData && ingredientsData[0] && (
