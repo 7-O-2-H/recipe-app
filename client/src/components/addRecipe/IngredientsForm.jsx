@@ -207,6 +207,7 @@ export default function IngredientsForm (props) {
   // console.log(ingredientsData, ingredientsArray);
   return (
     <div>
+      <h5 className="form-subtitle"> Add Ingredient</h5>
       <ToastContainer />
       <form className="recipe-form" >
         {quantityFormat === 'decimal' ? (

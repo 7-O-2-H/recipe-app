@@ -138,20 +138,20 @@ export default function AddRecipe() {
             />
         </div>
       )}
-      <div id="ingredient-data">
-        {/* {ingredientsData && ingredientsData[0] && ( */}
+      {ingredientsData && ingredientsData[0] && (
+        <div id="ingredient-data">
           <h2 id="add-ing-title">Ingredients:</h2>
-        {/* )} */}
-        <p>
-          {ingredientsData && ingredientsData[0] && (
-            ingredientsData.map((ingredientString, index) => (
-              <li key={index}>
-                {index + 1}. {ingredientString} 
-              </li>
-            ))
-          )}
-        </p>
-      </div>
+          <p>
+            {ingredientsData && ingredientsData[0] && (
+              ingredientsData.map((ingredientString, index) => (
+                <li key={index}>
+                  {index + 1}. {ingredientString} 
+                </li>
+              ))
+            )}
+          </p>
+        </div>
+      )}
       <div>
         {stepData && stepData[0] && (
           <h2>Steps:</h2>

@@ -32,6 +32,11 @@
   padding-bottom: 14px;
 }
 
+.form-subtitle {
+  padding-left: 10%;
+  padding-top: 5%;
+}
+
 .recipe-form {
   display: flex;
   flex-direction: column;
