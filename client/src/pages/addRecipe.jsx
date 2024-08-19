@@ -183,7 +183,7 @@ export default function AddRecipe() {
       )}
       {currentStep === 3 && (
         <div>
-          <h3>Steps</h3>
+          {/* <h3>Steps</h3> */}
           <StepsForm 
             recipeId={recipeId}
             onCancel={handleCancel}

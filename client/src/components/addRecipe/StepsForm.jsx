@@ -130,7 +130,8 @@ export default function StepsForm (props) {
   };
 
   return (
-    <div>
+    <div className="recipe-form">
+      <h5 className="form-subtitle"> Add Instructions</h5>
       <ToastContainer />
       {instructionsArray && instructionsArray[0] && (
           <h2>Submitted Steps:</h2>

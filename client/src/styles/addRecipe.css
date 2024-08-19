@@ -132,4 +132,8 @@
 #ingredient-data {
   padding: 0 1em 1em;
 }
+
+#instruction {
+  width: 94%;
+}
 /* mobile */
