@@ -122,7 +122,7 @@ export default function AddRecipe() {
       {recipe && (
         <div>
           <h2 className='add-title'>{recipe}</h2>
-          <Spacer />
+          {/* <Spacer /> */}
           {/* <p>Recipe: {recipe}</p> */}
         </div>
       )}
