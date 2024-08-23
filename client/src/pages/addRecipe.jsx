@@ -121,7 +121,7 @@ export default function AddRecipe() {
     <div className='form-section'>
       {recipe && (
         <div>
-          <h2 className='browse-title'>Recipe: {recipe}</h2>
+          <h2 className='add-title'>{recipe}</h2>
           <Spacer />
           {/* <p>Recipe: {recipe}</p> */}
         </div>
