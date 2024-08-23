@@ -122,7 +122,7 @@ export default function AddRecipe() {
       {recipe && (
         <div>
           <h2 className='add-title'>{recipe}</h2>
-          {/* <Spacer /> */}
+          <Spacer />
           {/* <p>Recipe: {recipe}</p> */}
         </div>
       )}
@@ -140,7 +140,7 @@ export default function AddRecipe() {
       )}
       {ingredientsData && ingredientsData[0] && (
         <div id="ingredient-data">
-          <h2 id="add-ing-title">Ingredients:</h2>
+          <h4 id="add-ing-title">Ingredients:</h4>
           <p>
             {ingredientsData && ingredientsData[0] && (
               ingredientsData.map((ingredientString, index) => (
@@ -152,6 +152,7 @@ export default function AddRecipe() {
           </p>
         </div>
       )}
+      <Spacer />
       <div>
         {stepData && stepData[0] && (
           <h2>Steps:</h2>
