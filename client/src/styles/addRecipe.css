@@ -136,4 +136,9 @@
 #instruction {
   width: 94%;
 }
+
+.steps-form-btns {
+  display: flex;
+  flex-direction: column;
+}
 /* mobile */

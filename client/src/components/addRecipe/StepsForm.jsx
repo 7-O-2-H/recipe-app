@@ -162,7 +162,9 @@ export default function StepsForm (props) {
           placeholder="instruction"
           value={instructionContainer}
           onChange={handleInstructionInput}
-          />
+        />
+        <div className="steps-form-btns">
+
         {instructionType === 'prep' ? (
           <div>
             <button type="submit" className="submit-btn" onClick={handleAddStep}>
@@ -181,6 +183,7 @@ export default function StepsForm (props) {
           SUBMIT RECIPE
         </button>
         <button onClick={handleCancel}>CANCEL</button>
+      </div>
       </form>
     </div>
   )
